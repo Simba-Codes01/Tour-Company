@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_tour_itinerary" model="ir.actions.report">
+        <field name="name">Tour Itinerary</field>
+        <field name="model">tour.package</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">tour_travel_kenya.report_tour_itinerary_document</field>
+        <field name="report_file">tour_travel_kenya.report_tour_itinerary_document</field>
+        <field name="print_report_name">'Itinerary - %s' % object.name</field>
+        <field name="binding_model_id" ref="model_tour_package"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

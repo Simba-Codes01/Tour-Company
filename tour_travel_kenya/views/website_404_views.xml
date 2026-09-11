@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="kt_404_page" inherit_id="http_routing.404" name="Naeku 404 Page">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="kt_page">
+                <t t-out="0"/>
+                <div class="container text-center" style="padding: 5rem 0;">
+                    <div style="font-size: 4rem; line-height: 1;">🦁</div>
+                    <h1 class="kt_section_title mt-3" style="display: inline-block;">Looks Like You've Wandered Off the Trail</h1>
+                    <p class="text-muted mx-auto" style="max-width: 480px;">
+                        The page you're looking for isn't here - maybe it moved, or the link had a typo.
+                        <b>Don't panic.</b> If you think it's our mistake, let us know via
+                        <a href="/contactus">Contact Us</a>.
+                    </p>
+                    <div class="mt-4">
+                        <a href="/" class="btn btn-kt-primary me-2">Home</a>
+                        <a href="/tours" class="btn btn-outline-secondary me-2">Browse Tours</a>
+                        <a href="/destinations" class="btn btn-outline-secondary">Destinations</a>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

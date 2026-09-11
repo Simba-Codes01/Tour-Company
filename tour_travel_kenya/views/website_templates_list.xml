@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="tours_index" name="Tour Packages">
+        <t t-call="website.layout">
+            <t t-set="head">
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+                <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+                <meta name="description" content="Browse Kenya safari packages, beach getaways and treks - book tours across Amboseli, Masai Mara, Lake Nakuru and more directly with Naeku Tours &amp; Safaris."/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content="Kenya Tour Packages - Safaris, Beach Getaways &amp; Treks"/>
+                <meta property="og:description" content="Browse Kenya safari packages, beach getaways and treks - book tours across Amboseli, Masai Mara, Lake Nakuru and more directly with Naeku Tours &amp; Safaris."/>
+                <meta property="og:url" t-att-content="request.website.get_base_url() + '/tours'"/>
+            </t>
+            <div id="wrap" class="kt_page">
+                <section class="kt_hero kt_hero_tall">
+                    <div class="kt_hero_parallax_bg" data-kt-parallax="0.3"/>
+                    <div class="container text-center">
+                        <h1 class="kt_hero_title">Discover Kenya, One Safari at a Time</h1>
+                        <p class="kt_hero_subtitle mx-auto">
+                            Hand-picked safaris, beach escapes and treks across Kenya - booked directly,
+                            no middleman markups.
+                        </p>
+                        <div class="kt_stats justify-content-center">
+                            <div>
+                                <span class="kt_stat_value" t-att-data-kt-countup="total_packages" t-out="total_packages"/>
+                                <span class="kt_stat_label">Tour Packages</span>
+                            </div>
+                            <div>
+                                <span class="kt_stat_value" t-att-data-kt-countup="total_reviews" t-out="total_reviews"/>
+                                <span class="kt_stat_label">Traveler Reviews</span>
+                            </div>
+                            <div t-if="lowest_price_display">
+                                <span class="kt_stat_value" t-att-data-kt-countup="lowest_price"
+                                      t-att-data-kt-countup-prefix="'from %s' % price_prefix" t-att-data-kt-countup-suffix="price_suffix">from <t t-out="lowest_price_display"/></span>
+                                <span class="kt_stat_label">Per Person</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="container">
+                    <div class="kt_search_card">
+                        <form method="get" action="/tours" class="row g-3 align-items-end">
+                            <div class="col-md-5">
+                                <label for="kt_search_input">What are you looking for?</label>
+                                <input id="kt_search_input" type="text" name="search" class="form-control form-control-lg"
+                                       placeholder="e.g. Masai Mara, beach, trekking..." t-att-value="search"/>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="kt_category_select">Category</label>
+                                <select id="kt_category_select" name="category" class="form-select form-select-lg">
+                                    <option value="">All Categories</option>
+                                    <t t-foreach="categories" t-as="category">
+                                        <option t-att-value="category.id" t-att-selected="current_category == category.id">
+                                            <t t-out="category.name"/>
+                                        </option>
+                                    </t>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="submit" class="btn btn-kt-primary btn-lg w-100">
+                                    <i class="fa fa-search me-1"/> Show Tours
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="container mt-5 mb-5">
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <a href="/tours" t-attf-class="kt_category_pill #{not current_category and 'active' or ''}">All Packages</a>
+                        <t t-foreach="categories" t-as="category">
+                            <a t-attf-href="/tours?category=#{category.id}"
+                               t-attf-class="kt_category_pill #{current_category == category.id and 'active' or ''}">
+                                <t t-out="category.name"/>
+                            </a>
+                        </t>
+                    </div>
+
+                    <div t-if="not packages" class="alert alert-info">No tour packages found - try a different search.</div>
+
+                    <div class="row g-4">
+                        <t t-foreach="packages" t-as="package">
+                            <div class="col-md-6 col-xl-4 kt_reveal" t-attf-style="transition-delay: #{(package_index % 6) * 0.08}s">
+                                <a t-att-href="package.website_url" class="kt_package_card">
+                                    <div class="kt_card_img_wrap">
+                                        <img t-if="package.image_1920" t-attf-src="/web/image/tour.package/#{package.id}/image_1920"
+                                             class="kt_card_img" alt="Package cover"/>
+                                        <button type="button" t-attf-class="kt_wishlist_btn kt_wishlist_btn_card #{package.id in wishlisted_ids and 'kt_wishlist_active' or ''}"
+                                                t-att-data-package-id="package.id" aria-label="Save this tour" title="Save this tour">
+                                            <i class="fa fa-heart"/>
+                                        </button>
+                                    </div>
+                                    <div class="kt_card_body">
+                                        <span class="kt_card_tag"><t t-out="package.category_id.name"/></span>
+                                        <div class="kt_card_title"><t t-out="package.name"/></div>
+                                        <div class="kt_card_destination">
+                                            <i class="fa fa-map-marker"/> <t t-out="package.destination"/>
+                                            &#183; <t t-out="package.duration_days"/> day(s)
+                                        </div>
+                                        <div class="kt_card_rating">
+                                            <t t-if="package.rating_count">
+                                                <t t-foreach="range(5)" t-as="i">
+                                                    <i t-attf-class="fa fa-star #{'' if i &lt; round(package.rating_avg) else 'text-muted opacity-25'}"/>
+                                                </t>
+                                                <span class="kt_review_count"><t t-out="'%.1f' % package.rating_avg"/> (<t t-out="package.rating_count"/>)</span>
+                                            </t>
+                                            <t t-else="">
+                                                <span class="kt_review_count">No reviews yet</span>
+                                            </t>
+                                        </div>
+                                        <div class="kt_card_footer">
+                                            <div>
+                                                <div class="kt_card_price_label">From</div>
+                                                <div class="kt_card_price" t-out="package.get_lowest_price_display()"/>
+                                            </div>
+                                            <span class="kt_category_pill">View Details</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="mt-4" t-if="pager">
+                        <t t-call="website.pager"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="tour_destinations" name="Kenya Destinations">
+        <t t-call="website.layout">
+            <t t-set="head">
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+                <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+                <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                <meta name="description" content="Explore Kenya's top safari destinations on an interactive map - Masai Mara, Amboseli, Lake Nakuru and more, each with tour packages you can book directly."/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content="Kenya Destinations - Where Our Safaris Go"/>
+                <meta property="og:description" content="Explore Kenya's top safari destinations on an interactive map - Masai Mara, Amboseli, Lake Nakuru and more, each with tour packages you can book directly."/>
+                <meta property="og:url" t-att-content="request.website.get_base_url() + '/destinations'"/>
+            </t>
+            <div id="wrap" class="kt_page">
+                <div class="container mt-5 mb-5">
+                    <h1 class="kt_section_title">Kenya Destinations</h1>
+                    <p class="kt_hero_subtitle text-muted" style="max-width: 720px;">
+                        Every destination we run tours to, pinned on the map - click a marker or a card to see
+                        the packages available there.
+                    </p>
+
+                    <div class="kt_wildlife_banner mb-4 kt_reveal">
+                        <div class="kt_wildlife_item"><span class="kt_wildlife_emoji">🐘</span><span>Elephant</span></div>
+                        <div class="kt_wildlife_item"><span class="kt_wildlife_emoji">🦁</span><span>Lion</span></div>
+                        <div class="kt_wildlife_item"><span class="kt_wildlife_emoji">🦒</span><span>Giraffe</span></div>
+                        <div class="kt_wildlife_item"><span class="kt_wildlife_emoji">🦏</span><span>Rhino</span></div>
+                        <div class="kt_wildlife_item"><span class="kt_wildlife_emoji">🦓</span><span>Zebra</span></div>
+                        <div class="kt_wildlife_item"><span class="kt_wildlife_emoji">🦩</span><span>Flamingo</span></div>
+                        <div class="kt_wildlife_item"><span class="kt_wildlife_emoji">🐆</span><span>Leopard</span></div>
+                        <div class="kt_wildlife_item"><span class="kt_wildlife_emoji">🐊</span><span>Crocodile</span></div>
+                    </div>
+
+                    <div class="mt-5 mb-5 kt_reveal">
+                        <h3 class="kt_section_title">Maasai Village Visits</h3>
+                        <p class="text-muted" style="max-width: 720px;">
+                            Many of our safaris include a stop at a Maasai village (manyatta), where a local family
+                            welcomes you in to see traditional homes, beadwork and the adumu jumping dance up close.
+                            More photos from these visits are on the way.
+                        </p>
+                        <!-- Placeholder gallery - swap each remaining .kt_gallery_placeholder_tile below for an
+                             <img t-attf-src="/tour_travel_kenya/static/src/img/maasai/photo-N.jpg"/> once more
+                             real photos are available, keeping the same col classes for the grid. -->
+                        <div class="row g-2">
+                            <div class="col-6 col-md-4">
+                                <img src="/tour_travel_kenya/static/src/img/maasai/adumu-jumping-dance.jpg"
+                                     class="kt_gallery_placeholder_tile kt_gallery_photo_tile"
+                                     alt="Maasai warriors performing the adumu jumping dance"/>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <img src="/tour_travel_kenya/static/src/img/maasai/adumu-warriors-group.jpg"
+                                     class="kt_gallery_placeholder_tile kt_gallery_photo_tile"
+                                     alt="Group of Samburu warriors in traditional beaded dress"/>
+                            </div>
+                            <div class="col-6 col-md-4">
+                                <img src="/tour_travel_kenya/static/src/img/maasai/village-cattle-gathering.jpg"
+                                     class="kt_gallery_placeholder_tile kt_gallery_photo_tile"
+                                     alt="Village gathering with cattle at dusk"/>
+                            </div>
+                            <t t-foreach="range(3)" t-as="tile">
+                                <div class="col-6 col-md-4">
+                                    <div class="kt_gallery_placeholder_tile">
+                                        <i class="fa fa-camera"/>
+                                        <span>Photo coming soon</span>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+
+                    <div id="kt_destinations_map" class="kt_map_container mb-5 kt_reveal" t-att-data-points="map_points_json"/>
+                    <script>
+                        <![CDATA[
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var mapEl = document.getElementById('kt_destinations_map');
+                            if (!mapEl) { return; }
+                            var points = JSON.parse(mapEl.dataset.points || '[]');
+                            if (!points.length) { return; }
+                            var map = L.map('kt_destinations_map').setView([points[0].lat, points[0].lng], 6);
+                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                attribution: '&copy; OpenStreetMap contributors',
+                                maxZoom: 18
+                            }).addTo(map);
+                            var bounds = [];
+                            points.forEach(function (p) {
+                                var marker = L.marker([p.lat, p.lng]).addTo(map);
+                                var links = (p.packages || []).map(function (pkg) {
+                                    return '<div><a href="' + pkg.url + '">' + pkg.name + '</a></div>';
+                                }).join('');
+                                marker.bindPopup('<strong>' + p.name + '</strong>' + links);
+                                bounds.push([p.lat, p.lng]);
+                            });
+                            if (bounds.length > 1) { map.fitBounds(bounds, {padding: [40, 40]}); }
+                        });
+                        ]]>
+                    </script>
+
+                    <div class="row g-4">
+                        <t t-foreach="packages" t-as="package">
+                            <div class="col-md-6 kt_reveal" t-attf-style="transition-delay: #{(package_index % 6) * 0.08}s">
+                                <div class="kt_package_card" style="cursor: default;">
+                                    <div class="kt_card_body">
+                                        <span class="kt_card_tag"><i class="fa fa-map-marker"/> <t t-out="package.destination"/></span>
+                                        <div class="kt_card_title"><t t-out="package.name"/></div>
+                                        <div t-field="package.destination_summary"/>
+                                        <a t-att-href="package.website_url" class="kt_category_pill">
+                                            View Packages Here
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tour_package_date_list" model="ir.ui.view">
+        <field name="name">tour.package.date.list</field>
+        <field name="model">tour.package.date</field>
+        <field name="arch" type="xml">
+            <list string="Departure Dates" editable="bottom">
+                <field name="package_id" column_invisible="context.get('default_package_id')"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="seats_max"/>
+                <field name="seats_reserved" column_invisible="context.get('default_package_id')"/>
+                <field name="seats_available"/>
+                <field name="is_sold_out" widget="boolean_toggle"/>
+                <field name="state" widget="badge" decoration-success="state == 'open'"
+                       decoration-muted="state in ('closed', 'done')"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tour_package_date_form" model="ir.ui.view">
+        <field name="name">tour.package.date.form</field>
+        <field name="model">tour.package.date</field>
+        <field name="arch" type="xml">
+            <form string="Departure Date">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(action_tour_booking)d" type="action" class="oe_stat_button" icon="fa-users"
+                                context="{'default_package_date_id': id}">
+                            <field name="booking_ids" widget="statinfo" string="Bookings"/>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="package_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end" readonly="1"/>
+                        <field name="state"/>
+                        <field name="seats_max"/>
+                        <field name="seats_reserved" readonly="1"/>
+                        <field name="seats_used" readonly="1"/>
+                        <field name="seats_available" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tour_package_date" model="ir.actions.act_window">
+        <field name="name">Departure Dates</field>
+        <field name="res_model">tour.package.date</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

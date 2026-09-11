@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="footer_kenya_content" inherit_id="website.footer_custom" name="Naeku Footer Content">
+        <xpath expr="//div[@id='footer']//div[hasclass('col-lg-2')]//li[a[text()='Legal']]" position="replace">
+            <li><a href="/cancellation-policy">Cancellation Policy</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+        </xpath>
+        <xpath expr="//div[@id='footer']//div[hasclass('col-lg-2')]//li[a[@href='/contactus']]" position="before">
+            <li><a href="/faq">Travel Info &amp; FAQs</a></li>
+        </xpath>
+        <xpath expr="//div[@id='footer']//div[hasclass('col-lg-5')]/p" position="replace">
+            <p>
+                Naeku Tours &amp; Safaris is a Nairobi-based safari operator built around one idea:
+                showing you Kenya the way we would want to see it ourselves. Every itinerary on this
+                site is planned and run in-house, from Masai Mara game drives to Diani Beach getaways,
+                so you book directly with the people running your trip - no third-party markups, no
+                call centre.
+                <br/><br/>
+                Whether it is your first safari or your fifth, our team handles the logistics, the
+                parks and the drivers, so you can focus on the wildlife. Awaken to the wild.
+            </p>
+        </xpath>
+        <xpath expr="//div[@id='footer']//div[hasclass('s_social_media')]" position="replace">
+            <div class="s_social_media text-start o_not_editable" data-snippet="s_social_media" data-name="Social Media" contenteditable="false">
+                <h5 class="s_social_media_title d-none" contenteditable="true">Follow us</h5>
+                <a href="/website/social/facebook" class="s_social_media_facebook" target="_blank" aria-label="Facebook">
+                    <i class="fa fa-facebook rounded-circle shadow-sm o_editable_media"/>
+                </a>
+                <a href="/website/social/instagram" class="s_social_media_instagram" target="_blank" aria-label="Instagram">
+                    <i class="fa fa-instagram rounded-circle shadow-sm o_editable_media"/>
+                </a>
+                <a href="/website/social/twitter" class="s_social_media_twitter" target="_blank" aria-label="X">
+                    <i class="fa fa-twitter rounded-circle shadow-sm o_editable_media"/>
+                </a>
+            </div>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="email_template_booking_confirmation" model="mail.template">
+            <field name="name">Tour Booking: Confirmation</field>
+            <field name="model_id" ref="tour_travel_kenya.model_tour_booking"/>
+            <field name="subject">Your booking request for {{ object.package_id.name }} - {{ object.company_id.name }}</field>
+            <field name="email_from">{{ (object.company_id.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="description">Sent to the customer as soon as they submit a tour booking inquiry from the website.</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+<div style="margin: 0px; padding: 0px; font-family: Arial, sans-serif;">
+    <p style="font-size: 14px;">
+        Hi <t t-out="object.name_attendee or 'there'"/>,
+        <br/><br/>
+        Thank you for your interest in <strong t-out="object.package_id.name"/>! We've received your
+        booking inquiry and one of our safari experts will be in touch shortly with a detailed quote
+        and to confirm availability.
+    </p>
+    <table style="width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0;">
+        <tr>
+            <td style="padding: 4px 0; color: #666;">Requested Arrival</td>
+            <td style="padding: 4px 0; font-weight: bold;" t-out="format_date(object.package_date_id.date_start or object.arrival_date)"/>
+        </tr>
+        <tr>
+            <td style="padding: 4px 0; color: #666;">Accommodation Option</td>
+            <td style="padding: 4px 0; font-weight: bold;" t-out="object.pricing_id.name"/>
+        </tr>
+        <tr>
+            <td style="padding: 4px 0; color: #666;">Travelers</td>
+            <td style="padding: 4px 0; font-weight: bold;">
+                <t t-out="object.adults_count"/> adult(s)<t t-if="object.children_count">, <t t-out="object.children_count"/> child(ren)</t>
+            </td>
+        </tr>
+    </table>
+    <p style="font-size: 13px;">
+        You can follow the status of this booking anytime from your
+        <a t-att-href="object.get_portal_url()">customer portal</a>.
+    </p>
+    <p style="font-size: 13px; color: #666;">
+        <t t-out="object.company_id.name"/><br/>
+        <t t-if="object.company_id.phone" t-out="object.company_id.phone"/>
+    </p>
+</div>
+            </field>
+        </record>
+    </data>
+</odoo>

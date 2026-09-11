@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="tour_package_detail" name="Tour Package">
+        <t t-call="website.layout">
+            <t t-set="head">
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
+                <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+                <t t-if="package.waypoint_ids">
+                    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+                    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                </t>
+                <meta property="og:type" content="product"/>
+                <meta property="og:title" t-att-content="package.name"/>
+                <meta property="og:description" t-att-content="'%s - %s day(s) tour with Naeku Tours &amp; Safaris' % (package.destination or '', package.duration_days)"/>
+                <meta t-if="og_image_url" property="og:image" t-att-content="og_image_url"/>
+                <meta property="og:url" t-att-content="canonical_url"/>
+                <meta name="twitter:card" content="summary_large_image"/>
+                <script type="application/ld+json" t-out="structured_data_json"></script>
+            </t>
+            <div id="wrap" class="kt_page">
+                <div class="container mt-4 mb-5">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/tours">Tour Packages</a></li>
+                            <li class="breadcrumb-item active"><t t-out="package.name"/></li>
+                        </ol>
+                    </nav>
+                    <div class="row">
+                        <div class="col-lg-10 offset-lg-1">
+                            <img t-if="package.image_1920" t-attf-src="/web/image/tour.package/#{package.id}/image_1920"
+                                 class="kt_detail_hero mb-4" alt="Package cover"/>
+                            <span class="kt_card_tag"><t t-out="package.category_id.name"/></span>
+                            <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+                                <h1 class="mb-0"><t t-out="package.name"/></h1>
+                                <div class="d-flex align-items-center gap-2">
+                                    <button type="button" t-attf-class="kt_wishlist_btn #{is_wishlisted and 'kt_wishlist_active' or ''}"
+                                            t-att-data-package-id="package.id" t-att-aria-pressed="'true' if is_wishlisted else 'false'"
+                                            aria-label="Save this tour" title="Save this tour">
+                                        <i class="fa fa-heart"/>
+                                    </button>
+                                    <div class="kt_share_buttons">
+                                        <a t-attf-href="https://www.facebook.com/sharer/sharer.php?u=#{canonical_url}"
+                                           target="_blank" rel="noopener" aria-label="Share on Facebook" title="Share on Facebook">
+                                            <i class="fa fa-facebook"/>
+                                        </a>
+                                        <a t-attf-href="https://twitter.com/intent/tweet?url=#{canonical_url}&amp;text=#{package.name}"
+                                           target="_blank" rel="noopener" aria-label="Share on X" title="Share on X">
+                                            <i class="fa fa-twitter"/>
+                                        </a>
+                                        <a t-attf-href="https://wa.me/?text=#{package.name} - #{canonical_url}"
+                                           target="_blank" rel="noopener" aria-label="Share on WhatsApp" title="Share on WhatsApp">
+                                            <i class="fa fa-whatsapp"/>
+                                        </a>
+                                        <a t-attf-href="mailto:?subject=#{package.name}&amp;body=#{canonical_url}"
+                                           aria-label="Share by email" title="Share by email">
+                                            <i class="fa fa-envelope-o"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kt_meta_strip">
+                                <span><i class="fa fa-map-marker"/> <t t-out="package.destination"/></span>
+                                <span><i class="fa fa-clock-o"/> <t t-out="package.duration_days"/> day(s)</span>
+                                <span><i class="fa fa-bolt"/> <t t-out="dict(package._fields['difficulty_level'].selection).get(package.difficulty_level)"/></span>
+                                <span t-if="package.rating_count">
+                                    <i class="fa fa-star kt_card_rating"/> <t t-out="'%.1f' % package.rating_avg"/> (<t t-out="package.rating_count"/> reviews)
+                                </span>
+                            </div>
+                            <div t-field="package.description"/>
+
+                            <div t-if="package.itinerary" class="kt_reveal">
+                                <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-4">
+                                    <h3 class="kt_section_title mb-0">Itinerary</h3>
+                                    <a t-attf-href="/tours/#{slug(package)}/itinerary.pdf"
+                                       target="_blank" class="btn btn-outline-secondary btn-sm">
+                                        <i class="fa fa-file-pdf-o me-1"/> Download Itinerary (PDF)
+                                    </a>
+                                </div>
+                                <div t-field="package.itinerary"/>
+
+                                <h4 class="mt-4">Best Time to Visit</h4>
+                                <p t-if="package.best_season" t-out="package.best_season"/>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="kt_season_card kt_season_high">
+                                            <h5><i class="fa fa-sun-o"/> High Season - Jun-Oct &amp; Jan-Feb</h5>
+                                            <p class="mb-0">
+                                                Dry weather makes for the clearest game viewing, with animals
+                                                gathering at rivers and waterholes. Masai Mara river crossings peak
+                                                July-October. Expect busier parks and the highest rates of the year.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="kt_season_card kt_season_low">
+                                            <h5><i class="fa fa-cloud"/> Low Season - Mar-May &amp; Nov</h5>
+                                            <p class="mb-0">
+                                                The "green season" brings lush scenery, dramatic skies and newborn
+                                                wildlife, with far fewer visitors and the lowest accommodation
+                                                rates. Expect afternoon showers, muddier roads and a handful of
+                                                camps closed for maintenance.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div t-if="package.destination_summary" class="kt_reveal">
+                                <h3 class="kt_section_title mt-4">What to Expect</h3>
+                                <div t-field="package.destination_summary"/>
+                            </div>
+
+                            <div t-if="package.waypoint_ids" class="kt_reveal">
+                                <h3 class="kt_section_title mt-4">Route Map</h3>
+                                <div t-attf-id="kt_route_map_#{package.id}" class="kt_map_container mb-2"
+                                     t-att-data-points="route_points_json"/>
+                                <p class="text-muted small">Approximate route followed during this safari.</p>
+                                <script>
+                                    <![CDATA[
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                                        document.querySelectorAll('.kt_map_container[data-points]').forEach(function (mapEl) {
+                                            if (mapEl.dataset.leafletInit) { return; }
+                                            var points = JSON.parse(mapEl.dataset.points || '[]');
+                                            if (!points.length) { return; }
+                                            mapEl.dataset.leafletInit = '1';
+                                            var map = L.map(mapEl.id).setView([points[0].lat, points[0].lng], 6);
+                                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                                attribution: '&copy; OpenStreetMap contributors',
+                                                maxZoom: 18
+                                            }).addTo(map);
+                                            var latlngs = [];
+                                            points.forEach(function (p, index) {
+                                                var marker = L.marker([p.lat, p.lng]).addTo(map);
+                                                marker.bindPopup('<strong>' + (index + 1) + '. ' + p.name + '</strong>');
+                                                latlngs.push([p.lat, p.lng]);
+                                            });
+                                            var route = L.polyline(latlngs, {color: '#C1440E', weight: 3, dashArray: '6 8'}).addTo(map);
+                                            map.fitBounds(latlngs, {padding: [40, 40]});
+
+                                            // Draw the route in as the map scrolls into view, rather than
+                                            // showing it fully drawn immediately - purely cosmetic, so any
+                                            // failure to get the path element (e.g. a future Leaflet change)
+                                            // just leaves the line fully visible with no animation.
+                                            if (reduceMotion || !('IntersectionObserver' in window)) { return; }
+                                            var path = route.getElement && route.getElement();
+                                            if (!path || typeof path.getTotalLength !== 'function') { return; }
+                                            var length = path.getTotalLength();
+                                            path.style.strokeDasharray = length;
+                                            path.style.strokeDashoffset = length;
+                                            var observer = new IntersectionObserver(function (entries) {
+                                                if (!entries[0].isIntersecting) { return; }
+                                                observer.disconnect();
+                                                path.getBoundingClientRect(); // force reflow before transitioning
+                                                path.style.transition = 'stroke-dashoffset 1.6s ease';
+                                                path.style.strokeDashoffset = '0';
+                                            }, {threshold: 0.3});
+                                            observer.observe(mapEl);
+                                        });
+                                    });
+                                    ]]>
+                                </script>
+                            </div>
+
+                            <div t-if="package.month_rate_ids" class="kt_reveal">
+                                <h3 class="kt_section_title mt-4">Rates</h3>
+                                <div class="row g-2">
+                                    <t t-foreach="package.month_rate_ids" t-as="rate">
+                                        <div class="col-4 col-md-2">
+                                            <div t-attf-class="kt_rate_tile kt_rate_#{rate.season}">
+                                                <div class="kt_rate_month"><t t-out="rate.month_short"/></div>
+                                                <div class="kt_rate_price" t-out="package._format_price(rate.price)"/>
+                                                <div class="kt_rate_season"><t t-out="dict(rate._fields['season'].selection).get(rate.season)"/></div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </div>
+                                <ul class="text-muted small mt-3">
+                                    <li>Rates quoted are per person sharing.</li>
+                                    <li>Single supplements may apply.</li>
+                                    <li>Please treat all pricing as a guide only.</li>
+                                    <li>Request a quote or speak to one of our safari experts for the best, most current rates available.</li>
+                                    <li>All rates are subject to availability and may change without notice.</li>
+                                </ul>
+                            </div>
+
+                            <div class="row mt-4 kt_reveal">
+                                <div class="col-md-6" t-if="package.included_services">
+                                    <h4 class="kt_badge_included"><i class="fa fa-check-circle"/> What's Included</h4>
+                                    <div t-field="package.included_services"/>
+                                </div>
+                                <div class="col-md-6" t-if="package.excluded_services">
+                                    <h4 class="kt_badge_excluded"><i class="fa fa-times-circle"/> What's Excluded</h4>
+                                    <div t-field="package.excluded_services"/>
+                                </div>
+                            </div>
+
+                            <div t-if="package.tour_package_image_ids" class="mt-4 kt_reveal"
+                                 t-att-data-kt-gallery="json.dumps(['/web/image/tour.package.image/%s/image_1920' % img.id for img in package.tour_package_image_ids])">
+                                <h3 class="kt_section_title">Gallery</h3>
+                                <div class="row g-2">
+                                    <t t-foreach="package.tour_package_image_ids" t-as="image">
+                                        <div class="col-4 col-md-3">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#kt_gallery_modal"
+                                               t-att-data-kt-gallery-index="image_index">
+                                                <img t-attf-src="/web/image/tour.package.image/#{image.id}/image_1920" class="img-fluid rounded" alt="Gallery photo"/>
+                                            </a>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="kt_gallery_modal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content bg-transparent border-0">
+                                        <button type="button" class="btn-close btn-close-white ms-auto me-2 mt-2" data-bs-dismiss="modal" aria-label="Close"/>
+                                        <div class="d-flex align-items-center">
+                                            <button type="button" id="kt_gallery_prev" class="btn btn-light rounded-circle me-2" aria-label="Previous photo">
+                                                <i class="fa fa-chevron-left"/>
+                                            </button>
+                                            <img id="kt_gallery_modal_img" src="" class="img-fluid rounded mx-auto" style="max-height: 75vh;" alt="Gallery photo"/>
+                                            <button type="button" id="kt_gallery_next" class="btn btn-light rounded-circle ms-2" aria-label="Next photo">
+                                                <i class="fa fa-chevron-right"/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="kt_booking_card" class="kt_booking_card p-4 mt-5">
+                                <h4 class="mb-3">Book this tour</h4>
+                                <div t-if="booking_error" class="alert alert-danger" t-out="booking_error"/>
+                                <div class="kt_booking_price mb-3">
+                                    From <t t-out="package.get_lowest_price_display()"/> <small class="text-muted fw-normal">/ person</small>
+                                </div>
+
+                                <div t-if="upcoming_dates" class="kt_departures mb-3">
+                                    <div class="kt_departures_label">Upcoming Departures</div>
+                                    <t t-foreach="upcoming_dates" t-as="pdate">
+                                        <div class="kt_departure_row">
+                                            <span t-field="pdate.date_start"/>
+                                            <span t-if="pdate.is_sold_out" class="badge text-bg-secondary">Sold Out</span>
+                                            <span t-elif="pdate.seats_limited and 0 &lt; pdate.seats_available &lt;= 5" class="badge kt_badge_urgent">
+                                                Only <t t-out="pdate.seats_available"/> seat(s) left
+                                            </span>
+                                            <span t-elif="pdate.seats_limited and pdate.seats_available" class="badge text-bg-success">
+                                                <t t-out="pdate.seats_available"/> seats available
+                                            </span>
+                                        </div>
+                                    </t>
+                                </div>
+
+                                <div class="kt_trust_badges mb-3">
+                                    <span><i class="fa fa-lock"/> Secure Booking</span>
+                                    <span><i class="fa fa-handshake-o"/> Book Direct - No Middleman</span>
+                                    <span t-if="package.rating_count"><i class="fa fa-check-circle"/> <t t-out="package.rating_count"/> Verified Reviews</span>
+                                </div>
+
+                                <form method="post" t-attf-action="/tours/#{slug(package)}/book">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="row g-3 mb-2">
+                                        <div class="col-md-6">
+                                            <label class="form-label">First Name <span class="text-danger">*</span></label>
+                                            <input type="text" name="first_name" class="form-control" required="required"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Last Name <span class="text-danger">*</span></label>
+                                            <input type="text" name="last_name" class="form-control" required="required"/>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3 mb-2">
+                                        <div class="col-md-6">
+                                            <label class="form-label">Email <span class="text-danger">*</span></label>
+                                            <input type="email" name="email" class="form-control" required="required"/>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label">Tel <span class="text-danger">*</span></label>
+                                            <input type="tel" name="phone" class="form-control" required="required"/>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-6 col-md-3">
+                                            <label class="form-label">Arrival Date <span class="text-danger">*</span></label>
+                                            <input type="date" name="arrival_date" class="form-control" required="required"/>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <label class="form-label">No. Adults <span class="text-danger">*</span></label>
+                                            <select name="adults_count" class="form-select">
+                                                <t t-foreach="range(1, 13)" t-as="n">
+                                                    <option t-att-value="n" t-att-selected="n == 2"><t t-out="n"/></option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <label class="form-label">No. Children</label>
+                                            <select name="children_count" class="form-select">
+                                                <t t-foreach="range(0, 9)" t-as="n">
+                                                    <option t-att-value="n"><t t-out="n"/></option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                        <div class="col-4 col-md-3">
+                                            <label class="form-label">No. Rooms <span class="text-danger">*</span></label>
+                                            <select name="rooms_count" class="form-select">
+                                                <t t-foreach="range(1, 7)" t-as="n">
+                                                    <option t-att-value="n"><t t-out="n"/></option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3" t-if="pricings">
+                                        <label class="form-label d-block">Accommodation Option</label>
+                                        <t t-foreach="pricings" t-as="pricing">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="pricing_id"
+                                                       t-att-id="'kt_pricing_%s' % pricing.id" t-att-value="pricing.id"
+                                                       t-att-checked="pricing_index == 0" required="required"/>
+                                                <label class="form-check-label" t-att-for="'kt_pricing_%s' % pricing.id">
+                                                    <t t-out="pricing.name"/>
+                                                </label>
+                                            </div>
+                                        </t>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Additional Notes / Message</label>
+                                        <textarea name="special_requests" class="form-control" rows="3"/>
+                                    </div>
+                                    <button type="submit" class="btn btn-kt-primary btn-lg">Book Now</button>
+                                </form>
+                            </div>
+
+                            <div class="mt-5 kt_reveal">
+                                <h3 class="kt_section_title">Traveler Reviews</h3>
+
+                                <div class="kt_reviews_summary">
+                                    <div class="kt_reviews_score">
+                                        <span class="kt_reviews_score_value"><t t-out="'%.1f' % package.rating_avg"/></span>
+                                        <span class="kt_reviews_score_max">/5</span>
+                                    </div>
+                                    <div class="kt_reviews_score_meta">
+                                        <div class="kt_card_rating">
+                                            <t t-foreach="range(5)" t-as="i">
+                                                <i t-attf-class="fa fa-star kt_star_pop #{'' if i &lt; round(package.rating_avg) else 'text-muted opacity-25'}"
+                                                   t-attf-style="transition-delay: #{i * 0.08}s"/>
+                                            </t>
+                                        </div>
+                                        <span class="text-muted small">
+                                            <t t-if="package.rating_count"><t t-out="package.rating_count"/> review(s)</t>
+                                            <t t-else="">No reviews yet</t>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div t-if="not reviews" class="kt_review_empty">
+                                    <i class="fa fa-comment-o"/>
+                                    <p class="mb-0">No reviews yet - be the first to book and share your experience.</p>
+                                </div>
+
+                                <div t-else="" class="kt_review_grid">
+                                    <div t-foreach="reviews" t-as="review" class="kt_review_card">
+                                        <div class="kt_review_head">
+                                            <span class="kt_review_avatar">
+                                                <t t-out="(review.partner_id.name or 'V')[0].upper()"/>
+                                            </span>
+                                            <div>
+                                                <div class="kt_review_name" t-out="review.partner_id.name or 'Verified Traveler'"/>
+                                                <span class="kt_review_date" t-field="review.create_date" t-options='{"widget": "date"}'/>
+                                            </div>
+                                        </div>
+                                        <div class="kt_card_rating mb-2">
+                                            <t t-foreach="range(5)" t-as="i">
+                                                <i t-attf-class="fa fa-star kt_star_pop #{'' if i &lt; review.rating else 'text-muted opacity-25'}"
+                                                   t-attf-style="transition-delay: #{i * 0.08}s"/>
+                                            </t>
+                                        </div>
+                                        <p class="kt_review_feedback mb-0" t-out="review.feedback or ''"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div t-if="related_packages" class="mt-5 kt_reveal">
+                                <h3 class="kt_section_title">You Might Also Like</h3>
+                                <div class="row g-4">
+                                    <t t-foreach="related_packages" t-as="related">
+                                        <div class="col-md-6 col-xl-4">
+                                            <a t-att-href="related.website_url" class="kt_package_card">
+                                                <img t-if="related.image_1920" t-attf-src="/web/image/tour.package/#{related.id}/image_1920"
+                                                     class="kt_card_img" alt="Package cover"/>
+                                                <div class="kt_card_body">
+                                                    <span class="kt_card_tag"><t t-out="related.category_id.name"/></span>
+                                                    <div class="kt_card_title"><t t-out="related.name"/></div>
+                                                    <div class="kt_card_destination">
+                                                        <i class="fa fa-map-marker"/> <t t-out="related.destination"/>
+                                                        &#183; <t t-out="related.duration_days"/> day(s)
+                                                    </div>
+                                                    <div class="kt_card_footer">
+                                                        <div>
+                                                            <div class="kt_card_price_label">From</div>
+                                                            <div class="kt_card_price" t-out="related.get_lowest_price_display()"/>
+                                                        </div>
+                                                        <span class="kt_category_pill">View Details</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="kt_sticky_booking_bar">
+                    <div>
+                        <div class="kt_sticky_booking_label">From</div>
+                        <div class="kt_sticky_booking_price" t-out="package.get_lowest_price_display()"/>
+                    </div>
+                    <button type="button" class="btn btn-kt-primary" data-kt-scroll-to-booking="1">Book Now</button>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="tour_booking_complete" name="Inquiry Received">
+        <t t-call="website.layout">
+            <div id="wrap" class="kt_page">
+                <div class="container mt-5 mb-5 text-center">
+                    <i class="fa fa-check-circle" style="font-size: 4rem; color: var(--kt-green);"/>
+                    <h1 class="mt-3">Thank You for Your Inquiry!</h1>
+                    <p class="lead">
+                        We've received your booking request for <t t-out="package.name"/>. One of our safari
+                        experts will be in touch shortly with a detailed quote and to confirm availability.
+                    </p>
+                    <a href="/tours" class="btn btn-kt-primary mt-3">Browse More Tours</a>
+                    <a href="/my/bookings" class="btn btn-outline-secondary mt-3 ms-2">View My Bookings</a>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

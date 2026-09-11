@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_tour_root" name="Naeku" sequence="75"/>
+
+    <menuitem id="menu_tour_package" name="Packages" parent="menu_tour_root" action="action_tour_package" sequence="10"/>
+    <menuitem id="menu_tour_booking" name="Bookings" parent="menu_tour_root" action="action_tour_booking" sequence="20"/>
+
+    <menuitem id="menu_tour_configuration" name="Configuration" parent="menu_tour_root" sequence="90"
+              groups="tour_travel_kenya.group_tour_manager"/>
+    <menuitem id="menu_tour_package_category" name="Categories" parent="menu_tour_configuration"
+              action="action_tour_package_category" sequence="10"/>
+    <menuitem id="menu_tour_package_tag" name="Tags" parent="menu_tour_configuration"
+              action="action_tour_package_tag" sequence="20"/>
+    <menuitem id="menu_tour_package_date" name="Departure Dates" parent="menu_tour_configuration"
+              action="action_tour_package_date" sequence="30"/>
+</odoo>

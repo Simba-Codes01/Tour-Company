@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tour_package_form" model="ir.ui.view">
+        <field name="name">tour.package.form</field>
+        <field name="model">tour.package</field>
+        <field name="arch" type="xml">
+            <form string="Tour Package">
+                <header>
+                    <field name="website_published" widget="website_redirect_button"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_departure_dates" type="object" class="oe_stat_button" icon="fa-calendar">
+                            <field name="date_ids" widget="statinfo" string="Departures"/>
+                        </button>
+                        <button name="action_view_bookings" type="object" class="oe_stat_button" icon="fa-users">
+                            <field name="booking_count" widget="statinfo" string="Bookings"/>
+                        </button>
+                    </div>
+                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1><field name="name" placeholder="e.g. Masai Mara 3-Day Safari"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="category_id" options="{'no_create': True}"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="destination"/>
+                            <field name="country_id"/>
+                            <label for="latitude" string="Map Coordinates"/>
+                            <div class="o_row">
+                                <field name="latitude" placeholder="Latitude" class="oe_inline"/>
+                                <field name="longitude" placeholder="Longitude" class="oe_inline"/>
+                            </div>
+                            <field name="duration_days"/>
+                            <field name="difficulty_level"/>
+                            <field name="best_season"/>
+                        </group>
+                        <group>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <label for="seats_limited" string="Limit Travelers"/>
+                            <div>
+                                <field name="seats_limited"/>
+                                <span invisible="not seats_limited">
+                                    to <field name="seats_max" class="oe_inline o_input_9ch"/> travelers per departure
+                                </span>
+                            </div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Teaser" name="description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Itinerary" name="itinerary">
+                            <field name="itinerary"/>
+                        </page>
+                        <page string="Destination Overview" name="destination_overview">
+                            <field name="destination_summary"/>
+                        </page>
+                        <page string="Route Map" name="route" invisible="duration_days &lt;= 1">
+                            <p class="text-muted">
+                                For a multi-stop package, list the ordered waypoints below to show a route
+                                map with a connecting line on the public package page. Leave empty for a
+                                single-destination package.
+                            </p>
+                            <field name="waypoint_ids" context="{'default_package_id': id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="name" placeholder="e.g. Day 1: Nairobi"/>
+                                    <field name="latitude"/>
+                                    <field name="longitude"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Included / Excluded" name="services">
+                            <group>
+                                <group string="Included">
+                                    <field name="included_services" nolabel="1"/>
+                                </group>
+                                <group string="Excluded">
+                                    <field name="excluded_services" nolabel="1"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Pricing Tiers" name="pricing">
+                            <field name="pricing_ids" context="{'default_package_id': id}"/>
+                        </page>
+                        <page string="Seasonal Rates" name="seasonal_rates">
+                            <p class="text-muted">
+                                Indicative per-person-sharing rate by month, shown as a reference table
+                                on the public page. This is separate from the pricing tiers actually
+                                charged when a customer books above.
+                            </p>
+                            <field name="month_rate_ids" context="{'default_package_id': id}">
+                                <list editable="bottom">
+                                    <field name="month"/>
+                                    <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                    <field name="season"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Departure Dates" name="dates">
+                            <field name="date_ids" context="{'default_package_id': id}"/>
+                        </page>
+                        <page string="Photo Gallery" name="gallery">
+                            <field name="tour_package_image_ids" context="{'default_package_id': id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="image_1920" widget="image" options="{'size': [60, 60]}"/>
+                                    <field name="name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tour_package_list" model="ir.ui.view">
+        <field name="name">tour.package.list</field>
+        <field name="model">tour.package</field>
+        <field name="arch" type="xml">
+            <list string="Tour Packages" sample="1">
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="destination"/>
+                <field name="duration_days"/>
+                <field name="booking_count"/>
+                <field name="website_published" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tour_package_kanban" model="ir.ui.view">
+        <field name="name">tour.package.kanban</field>
+        <field name="model">tour.package</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <templates>
+                    <t t-name="card">
+                        <div class="o_kanban_image">
+                            <field name="image_1920" widget="image" options="{'img_class': 'object-fit-cover'}" alt="Package"/>
+                        </div>
+                        <div class="oe_kanban_details">
+                            <strong><field name="name"/></strong>
+                            <div><field name="destination"/></div>
+                            <div><field name="category_id"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_tour_package_search" model="ir.ui.view">
+        <field name="name">tour.package.search</field>
+        <field name="model">tour.package</field>
+        <field name="arch" type="xml">
+            <search string="Tour Packages">
+                <field name="name"/>
+                <field name="category_id"/>
+                <field name="destination"/>
+                <filter name="published" string="Published" domain="[('website_published', '=', True)]"/>
+                <filter name="unpublished" string="Unpublished" domain="[('website_published', '=', False)]"/>
+                <group>
+                    <filter name="group_category" string="Category" context="{'group_by': 'category_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_tour_package" model="ir.actions.act_window">
+        <field name="name">Packages</field>
+        <field name="res_model">tour.package</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+</odoo>

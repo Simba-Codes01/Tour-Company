@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_home_tour" name="Bookings" customize_show="True" inherit_id="portal.portal_my_home" priority="50">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Tour Bookings</t>
+                <t t-set="url" t-value="'/my/bookings'"/>
+                <t t-set="text">Follow your Kenya tour bookings</t>
+                <t t-set="placeholder_count" t-value="'booking_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Saved Tours</t>
+                <t t-set="url" t-value="'/my/wishlist'"/>
+                <t t-set="text">Tour packages you've saved for later</t>
+                <t t-set="placeholder_count" t-value="'wishlist_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_my_wishlist" name="My Saved Tours">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Saved Tours</t>
+            </t>
+            <div t-if="not packages" class="alert alert-warning" role="alert">
+                You haven't saved any tours yet. Browse our <a href="/tours">tour packages</a> and tap the
+                heart icon to save one for later.
+            </div>
+            <div t-else="" class="row g-4">
+                <t t-foreach="packages" t-as="package">
+                    <div class="col-md-6 col-xl-4">
+                        <a t-att-href="package.website_url" class="kt_package_card">
+                            <img t-if="package.image_1920" t-attf-src="/web/image/tour.package/#{package.id}/image_1920"
+                                 class="kt_card_img" alt="Package cover"/>
+                            <div class="kt_card_body">
+                                <span class="kt_card_tag"><t t-out="package.category_id.name"/></span>
+                                <div class="kt_card_title"><t t-out="package.name"/></div>
+                                <div class="kt_card_destination">
+                                    <i class="fa fa-map-marker"/> <t t-out="package.destination"/>
+                                    &#183; <t t-out="package.duration_days"/> day(s)
+                                </div>
+                                <div class="kt_card_footer">
+                                    <div>
+                                        <div class="kt_card_price_label">From</div>
+                                        <div class="kt_card_price" t-out="package.get_lowest_price_display()"/>
+                                    </div>
+                                    <span class="kt_category_pill">View Details</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="portal_my_bookings" name="My Bookings">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Bookings</t>
+            </t>
+            <div t-if="not bookings" class="alert alert-warning" role="alert">
+                You don't have any tour bookings yet.
+            </div>
+            <t t-if="bookings" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Package</th>
+                        <th>Departure Date</th>
+                        <th class="text-end">Travelers</th>
+                        <th class="text-end">Status</th>
+                    </tr>
+                </thead>
+                <t t-foreach="bookings" t-as="booking">
+                    <tr>
+                        <td><a t-att-href="booking.get_portal_url()"><t t-out="booking.package_id.name"/></a></td>
+                        <td><t t-out="booking.arrival_date or booking.package_date_id.date_start"/></td>
+                        <td class="text-end"><t t-out="booking.traveler_count"/></td>
+                        <td class="text-end"><span class="badge text-bg-secondary"><t t-out="booking.state"/></span></td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_booking_page" name="Booking">
+        <t t-call="portal.portal_layout">
+            <div class="container mt-3 mb-5">
+                <h2><t t-out="booking.package_id.name"/></h2>
+                <p class="text-muted">Booking #<t t-out="booking.id"/></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-borderless">
+                            <tr><td>Requested Arrival</td><td><t t-out="booking.arrival_date or booking.package_date_id.date_start"/></td></tr>
+                            <tr><td>Accommodation Tier</td><td><t t-out="booking.pricing_id.name"/></td></tr>
+                            <tr><td>Adults</td><td><t t-out="booking.adults_count"/></td></tr>
+                            <tr><td>Children</td><td><t t-out="booking.children_count"/></td></tr>
+                            <tr><td>Rooms</td><td><t t-out="booking.rooms_count"/></td></tr>
+                            <tr><td>Status</td><td><span class="badge text-bg-secondary"><t t-out="booking.state"/></span></td></tr>
+                            <tr t-if="booking.sale_order_id">
+                                <td>Payment</td>
+                                <td>
+                                    <span class="badge text-bg-secondary"><t t-out="booking.sale_status"/></span>
+                                    <a t-if="booking.sale_status == 'to_pay'" t-att-href="booking.sale_order_id.get_portal_url()" class="btn btn-sm btn-primary ms-2">Pay Now</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6" t-if="booking.state == 'done'">
+                        <h5>Leave a Review</h5>
+                        <div id="tour_booking_rating" t-att-data-booking-id="booking.id" t-att-data-access-token="booking.access_token">
+                            <div class="mb-2">
+                                <t t-foreach="[1, 2, 3, 4, 5]" t-as="star">
+                                    <i class="fa fa-star tour_rating_star" t-att-data-value="star" style="cursor:pointer;font-size:1.5rem;color:#ccc;"/>
+                                </t>
+                            </div>
+                            <textarea class="form-control mb-2" id="tour_rating_feedback" placeholder="Tell us about your experience..."/>
+                            <button type="button" class="btn btn-primary" id="tour_rating_submit">Submit Review</button>
+                        </div>
+                        <script>
+                            <![CDATA[
+                            (function () {
+                                var container = document.getElementById('tour_booking_rating');
+                                if (!container) { return; }
+                                var selected = 0;
+                                var stars = container.querySelectorAll('.tour_rating_star');
+                                stars.forEach(function (star) {
+                                    star.addEventListener('click', function () {
+                                        selected = parseInt(star.getAttribute('data-value'), 10);
+                                        stars.forEach(function (s) {
+                                            s.style.color = parseInt(s.getAttribute('data-value'), 10) <= selected ? '#f5a623' : '#ccc';
+                                        });
+                                    });
+                                });
+                                document.getElementById('tour_rating_submit').addEventListener('click', function () {
+                                    if (!selected) { alert('Please select a star rating.'); return; }
+                                    var bookingId = container.getAttribute('data-booking-id');
+                                    var accessToken = container.getAttribute('data-access-token');
+                                    fetch('/my/bookings/' + bookingId + '/rate', {
+                                        method: 'POST',
+                                        headers: {'Content-Type': 'application/json'},
+                                        body: JSON.stringify({
+                                            jsonrpc: '2.0', method: 'call',
+                                            params: {
+                                                booking_id: parseInt(bookingId, 10),
+                                                access_token: accessToken || null,
+                                                rating_value: selected,
+                                                feedback: document.getElementById('tour_rating_feedback').value,
+                                            },
+                                        }),
+                                    }).then(function (r) { return r.json(); }).then(function (data) {
+                                        if (data.result && data.result.error) {
+                                            alert(data.result.error);
+                                        } else {
+                                            alert('Thank you for your review!');
+                                        }
+                                    });
+                                });
+                            })();
+                            ]]>
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

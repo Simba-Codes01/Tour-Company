@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tour_category_safari" model="tour.package.category">
+        <field name="name">Wildlife Safaris</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- 7-Day / 6-Night Kenya Safari: Nairobi - Amboseli - Lake Nakuru - Masai Mara -->
+    <record id="tour_package_7day_safari" model="tour.package">
+        <field name="name">7-Day Kenya Safari: Amboseli, Lake Nakuru &amp; Masai Mara</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Amboseli, Lake Nakuru &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">7</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October for the Great Migration; dry seasons (Jun-Oct, Jan-Feb) for the clearest game viewing and balloon flights</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">10</field>
+        <field name="description"><![CDATA[<p>A complete 7-day, 6-night Kenya safari linking four of the country's signature destinations - Nairobi, Amboseli, Lake Nakuru and the Masai Mara - with a sunrise hot air balloon safari and a Maasai village visit built in.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi:</strong> Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel. Overnight on a bed and breakfast basis.</p>
+<p><strong>Day 2 - Amboseli:</strong> Morning drive to Amboseli National Park, arriving in time for an afternoon game drive with Mount Kilimanjaro as a backdrop. Overnight on a full-board basis (lunch, dinner and breakfast).</p>
+<p><strong>Day 3 - Amboseli:</strong> A full day of game drives across Amboseli's plains and swamps, tracking its famous elephant herds. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Lake Nakuru:</strong> Drive north through the Great Rift Valley to Lake Nakuru National Park, with a game drive on arrival around the rhino sanctuary and lake shore. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Lake Nakuru to Masai Mara:</strong> Morning game drive at Lake Nakuru, then continue west to the Masai Mara, arriving in the late afternoon for an evening game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 6 - Masai Mara:</strong> Optional pre-dawn hot air balloon safari over the Mara plains followed by a bush breakfast, then an afternoon visit to a local Maasai manyatta (village) to learn about Maasai culture and traditions. Overnight on a full-board basis.</p>
+<p><strong>Day 7 - Departure:</strong> Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your transfer to JKIA for departure.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park entry fees for Amboseli, Lake Nakuru and Masai Mara</li><li>6 nights' accommodation as per itinerary (bed &amp; breakfast Day 1, full board Days 2-7)</li><li>Lunch at the Carnivore Restaurant, Nairobi, on Day 7</li><li>Maasai manyatta visit</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Hot air balloon safari (paid locally - a memorable optional add-on, roughly USD 450-550 per person)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>This safari links four of Kenya's most rewarding wildlife destinations, each with its own character:</p>
+<p><strong>Nairobi</strong> is your gateway to Kenya - a modern capital where a single day of arrival or departure formalities can also include a meal at the Carnivore Restaurant, a Nairobi institution, before or after your safari.</p>
+<p><strong>Amboseli National Park</strong> is famous above all for its elephants - large, habituated herds that are among the easiest in Africa to observe up close - set against the backdrop of Mount Kilimanjaro on clear mornings, plus swamps that draw hippo, buffalo and abundant birdlife.</p>
+<p><strong>Lake Nakuru National Park</strong> is a compact, fenced sanctuary built around its alkaline lake. Expect a strong chance of seeing both black and white rhino, along with leopard, buffalo and, in good years, dense flocks of flamingos along the shoreline.</p>
+<p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River. A sunrise hot air balloon safari here offers a rare bird's-eye view of the plains, and a visit to a Maasai manyatta is a chance to see the traditions of the community that shares this land with its wildlife.</p>
+]]></field>
+    </record>
+    <record id="tour_product_7day_safari_standard" model="product.product">
+        <field name="name">7-Day Kenya Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">2250.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_7day_safari_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_7day_safari_standard"/>
+    </record>
+    <record id="tour_product_7day_safari_midrange" model="product.product">
+        <field name="name">7-Day Kenya Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">2600.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_7day_safari_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_7day_safari_midrange"/>
+    </record>
+    <record id="tour_product_7day_safari_luxury" model="product.product">
+        <field name="name">7-Day Kenya Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">2950.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_7day_safari_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_7day_safari_luxury"/>
+    </record>
+    <record id="tour_date_7day_safari_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=4)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_7day_safari_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=10)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_7day_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (arrival)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_7day_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 2-3: Amboseli National Park</field>
+        <field name="latitude">-2.6527</field>
+        <field name="longitude">37.2606</field>
+    </record>
+    <record id="tour_waypoint_7day_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 4: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3667</field>
+        <field name="longitude">36.0833</field>
+    </record>
+    <record id="tour_waypoint_7day_4" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">40</field>
+        <field name="name">Day 5-6: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+    <record id="tour_waypoint_7day_5" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">50</field>
+        <field name="name">Day 7: Nairobi (departure)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+
+    <!-- Seasonal rates for the 7-Day Kenya Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_7day_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">1</field>
+        <field name="price">2430.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_7day_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">2</field>
+        <field name="price">2430.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_7day_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">3</field>
+        <field name="price">2430.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_7day_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">4</field>
+        <field name="price">2215.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_7day_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">5</field>
+        <field name="price">2215.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_7day_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">6</field>
+        <field name="price">2430.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_7day_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">7</field>
+        <field name="price">2950.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_7day_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">8</field>
+        <field name="price">2950.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_7day_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">9</field>
+        <field name="price">2950.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_7day_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">10</field>
+        <field name="price">2430.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_7day_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">11</field>
+        <field name="price">2430.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_7day_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="month">12</field>
+        <field name="price">2950.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 5-Day / 4-Night Kenya Safari: Nairobi - Lake Nakuru - Masai Mara -->
+    <record id="tour_package_5day_safari" model="tour.package">
+        <field name="name">5-Day Kenya Safari: Lake Nakuru &amp; Masai Mara</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Lake Nakuru &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">5</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October for the Great Migration; dry seasons (Jun-Oct, Jan-Feb) for the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="description"><![CDATA[<p>A shorter 5-day, 4-night circuit for travelers with less time to spare - the rhino sanctuary and flamingos of Lake Nakuru, followed by two full days chasing the Big Five across the Masai Mara.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi:</strong> Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel. Overnight on a bed and breakfast basis.</p>
+<p><strong>Day 2 - Lake Nakuru:</strong> After breakfast in Nairobi, depart for Lake Nakuru National Park, with a game drive on arrival around the rhino sanctuary and lake shore. Overnight on a full-board basis (lunch, dinner and breakfast).</p>
+<p><strong>Day 3 - Masai Mara:</strong> Morning drive to the Masai Mara, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Masai Mara:</strong> A full day of game drives across the Masai Mara's plains, with the best chance of the trip for lion, cheetah and, in season, the Great Migration. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Departure:</strong> Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your transfer to JKIA for departure.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park entry fees for Lake Nakuru and Masai Mara</li><li>4 nights' accommodation as per itinerary (bed &amp; breakfast Day 1, full board Days 2-5)</li><li>Lunch at the Carnivore Restaurant, Nairobi, on Day 5</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>This shorter safari still covers two of Kenya's most rewarding destinations, plus the capital that links them:</p>
+<p><strong>Nairobi</strong> is your arrival and departure point - a modern capital city where you can also enjoy a meal at the Carnivore Restaurant, a Nairobi institution known for its variety of grilled meats, on your way to the airport.</p>
+<p><strong>Lake Nakuru National Park</strong> is a compact, fenced sanctuary built around its alkaline lake in the Great Rift Valley. Expect a strong chance of seeing both black and white rhino, along with leopard, buffalo and, in good years, dense flocks of flamingos along the shoreline.</p>
+<p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing.</p>
+]]></field>
+    </record>
+    <record id="tour_product_5day_safari_standard" model="product.product">
+        <field name="name">5-Day Kenya Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">1450.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_5day_safari_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_5day_safari_standard"/>
+    </record>
+    <record id="tour_product_5day_safari_midrange" model="product.product">
+        <field name="name">5-Day Kenya Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">1750.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_5day_safari_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_5day_safari_midrange"/>
+    </record>
+    <record id="tour_product_5day_safari_luxury" model="product.product">
+        <field name="name">5-Day Kenya Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">2050.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_5day_safari_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_5day_safari_luxury"/>
+    </record>
+    <record id="tour_date_5day_safari_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=3)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_5day_safari_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=9)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_5day_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (arrival)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_5day_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 2: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3667</field>
+        <field name="longitude">36.0833</field>
+    </record>
+    <record id="tour_waypoint_5day_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 3-4: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+    <record id="tour_waypoint_5day_4" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">40</field>
+        <field name="name">Day 5: Nairobi (departure)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+
+    <!-- Seasonal rates for the 5-Day Kenya Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_5day_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">1</field>
+        <field name="price">1565.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">2</field>
+        <field name="price">1565.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">3</field>
+        <field name="price">1565.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">4</field>
+        <field name="price">1425.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_5day_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">5</field>
+        <field name="price">1425.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_5day_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">6</field>
+        <field name="price">1565.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">7</field>
+        <field name="price">1900.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_5day_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">8</field>
+        <field name="price">1900.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_5day_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">9</field>
+        <field name="price">1900.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_5day_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">10</field>
+        <field name="price">1565.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">11</field>
+        <field name="price">1565.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="month">12</field>
+        <field name="price">1900.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 6-Day / 5-Night Kenya Safari: Nairobi - Aberdare - Lake Nakuru - Masai Mara -->
+    <record id="tour_package_6day_safari" model="tour.package">
+        <field name="name">6-Day Kenya Safari: Aberdare, Lake Nakuru &amp; Masai Mara</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Aberdare, Lake Nakuru &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">6</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October for the Great Migration; dry seasons (Jun-Oct, Jan-Feb) for the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="description"><![CDATA[<p>A 6-day, 5-night circuit that adds the forested highlands of Aberdare National Park to the classic Lake Nakuru and Masai Mara route - night-time waterhole game viewing, a rhino sanctuary, and two full days chasing the Big Five on the Mara plains.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi:</strong> Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel. Overnight on a bed and breakfast basis.</p>
+<p><strong>Day 2 - Aberdare National Park:</strong> After breakfast, drive north through rolling farmland and coffee plantations to Aberdare National Park. Check in to a forest lodge built around a floodlit waterhole, where elephant, buffalo, bushbuck and, if you're fortunate, the rare bongo antelope come to drink after dark. Overnight on a full-board basis (lunch, dinner and breakfast). A warm jacket is recommended for the cool highland evenings.</p>
+<p><strong>Day 3 - Lake Nakuru:</strong> Drive south through the Great Rift Valley, with views of Mount Longonot and Lake Naivasha en route, to Lake Nakuru National Park. Afternoon game drive around the lake shore for its rhino sanctuary and, in good years, dense flocks of flamingos. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Masai Mara:</strong> Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Masai Mara:</strong> A full day of game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional Maasai manyatta visit or sunrise hot air balloon safari can be arranged locally. Overnight on a full-board basis.</p>
+<p><strong>Day 6 - Departure:</strong> Final morning game drive, then depart the Masai Mara for Nairobi and your transfer to JKIA for departure.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park entry fees for Aberdare, Lake Nakuru and Masai Mara</li><li>5 nights' accommodation as per itinerary (bed &amp; breakfast Day 1, full board Days 2-6)</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Hot air balloon safari and Maasai manyatta visit (optional, paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>This circuit adds Kenya's central highlands to the classic Rift Valley and Mara route:</p>
+<p><strong>Nairobi</strong> is your arrival and departure point, and the usual base for onward transfers to the parks that follow.</p>
+<p><strong>Aberdare National Park</strong> is a forested mountain range in Kenya's central highlands, known for its unique tree-lodge style of game viewing - guests watch a floodlit waterhole through the night from the comfort of the lodge, with visits from elephant, rhino, buffalo and, occasionally, the elusive bongo antelope. It's a cooler, greener contrast to the open plains that follow.</p>
+<p><strong>Lake Nakuru National Park</strong> is a compact, fenced sanctuary built around its alkaline lake in the Great Rift Valley. Expect a strong chance of seeing both black and white rhino, along with leopard, buffalo and, in good years, dense flocks of flamingos along the shoreline.</p>
+<p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing. A visit to a local Maasai village or a sunrise balloon safari over the plains are popular optional additions here.</p>
+]]></field>
+    </record>
+    <record id="tour_product_6day_safari_standard" model="product.product">
+        <field name="name">6-Day Kenya Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">1850.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_6day_safari_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_6day_safari_standard"/>
+    </record>
+    <record id="tour_product_6day_safari_midrange" model="product.product">
+        <field name="name">6-Day Kenya Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">2200.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_6day_safari_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_6day_safari_midrange"/>
+    </record>
+    <record id="tour_product_6day_safari_luxury" model="product.product">
+        <field name="name">6-Day Kenya Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">2550.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_6day_safari_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_6day_safari_luxury"/>
+    </record>
+    <record id="tour_date_6day_safari_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=5)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_6day_safari_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=11)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_6day_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (arrival)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_6day_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 2: Aberdare National Park</field>
+        <field name="latitude">-0.4167</field>
+        <field name="longitude">36.75</field>
+    </record>
+    <record id="tour_waypoint_6day_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 3: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3667</field>
+        <field name="longitude">36.0833</field>
+    </record>
+    <record id="tour_waypoint_6day_4" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">40</field>
+        <field name="name">Day 4-5: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+    <record id="tour_waypoint_6day_5" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">50</field>
+        <field name="name">Day 6: Nairobi (departure)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+
+    <!-- Seasonal rates for the 6-Day Kenya Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_6day_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">1</field>
+        <field name="price">2000.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_6day_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">2</field>
+        <field name="price">2000.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_6day_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">3</field>
+        <field name="price">2000.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_6day_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">4</field>
+        <field name="price">1820.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_6day_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">5</field>
+        <field name="price">1820.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_6day_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">6</field>
+        <field name="price">2000.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_6day_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">7</field>
+        <field name="price">2425.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_6day_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">8</field>
+        <field name="price">2425.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_6day_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">9</field>
+        <field name="price">2425.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_6day_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">10</field>
+        <field name="price">2000.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_6day_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">11</field>
+        <field name="price">2000.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_6day_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="month">12</field>
+        <field name="price">2425.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 8-Day / 7-Night Kenya Safari: Nairobi - Samburu - Mount Kenya - Lake Nakuru - Masai Mara -->
+    <record id="tour_package_8day_safari" model="tour.package">
+        <field name="name">8-Day Kenya Safari: Samburu, Mount Kenya, Lake Nakuru &amp; Masai Mara</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Samburu, Mount Kenya, Lake Nakuru &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">8</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October for the Great Migration; dry seasons (Jun-Oct, Jan-Feb) for the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="description"><![CDATA[<p>Our most complete circuit at 8 days and 7 nights - the arid north of Samburu, the forested slopes of Mount Kenya, the rhino sanctuary of Lake Nakuru, and two full days on the plains of the Masai Mara.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi:</strong> Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel. The rest of the day is at leisure.</p>
+<p><strong>Day 2 - Samburu:</strong> After breakfast, drive north via Nanyuki to the Samburu National Reserve, a rugged, semi-arid landscape along the Ewaso Nyiro River. Arrive in time for lunch, then head out on an afternoon game drive. Overnight on a full-board basis (lunch, dinner and breakfast).</p>
+<p><strong>Day 3 - Samburu:</strong> A full day of morning and afternoon game drives across Samburu and neighboring Buffalo Springs, home to species found nowhere else in Kenya's southern parks - Grevy's zebra, reticulated giraffe, gerenuk and Beisa oryx among them. An optional visit to a local Samburu village can be arranged. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Mount Kenya:</strong> Drive to the forested slopes of Mount Kenya National Park, arriving at a lodge built around its own floodlit waterhole with mountain views. Overnight on a full-board basis. A warm jacket is recommended for the cool highland evenings.</p>
+<p><strong>Day 5 - Lake Nakuru:</strong> Drive to Lake Nakuru National Park, with a stop at Thompson's Falls along the way. Afternoon game drive around the lake shore for its rhino sanctuary and, in good years, dense flocks of flamingos. Overnight on a full-board basis.</p>
+<p><strong>Day 6 - Masai Mara:</strong> Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 7 - Masai Mara:</strong> A full day of game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional Maasai manyatta visit or sunrise hot air balloon safari can be arranged locally. Overnight on a full-board basis.</p>
+<p><strong>Day 8 - Departure:</strong> Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your transfer to JKIA for departure.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park entry fees for Samburu, Mount Kenya, Lake Nakuru and Masai Mara</li><li>7 nights' accommodation as per itinerary (bed &amp; breakfast Day 1, full board Days 2-8)</li><li>Lunch at the Carnivore Restaurant, Nairobi, on Day 8</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Hot air balloon safari and village visits (optional, paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>Our longest circuit covers five distinct regions of Kenya:</p>
+<p><strong>Nairobi</strong> is your arrival and departure point, and the usual base for onward transfers to the parks that follow.</p>
+<p><strong>Samburu National Reserve</strong> lies in Kenya's arid north along the Ewaso Nyiro River, whose doum-palm-lined banks draw large herds of elephant even in the dry season. It's the best place in the country to find the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, gerenuk, Beisa oryx and the Somali ostrich - alongside a rich birdlife and a Samburu culture with deep ties to the Maasai.</p>
+<p><strong>Mount Kenya National Park</strong>, a UNESCO World Heritage Site, offers a cooler, forested contrast - guests can watch elephant, buffalo and forest antelope visit a floodlit waterhole after dark, with views up to the glacier-carved peaks of Africa's second-highest mountain.</p>
+<p><strong>Lake Nakuru National Park</strong> is a compact, fenced sanctuary built around its alkaline lake in the Great Rift Valley. Expect a strong chance of seeing both black and white rhino, along with leopard, buffalo and, in good years, dense flocks of flamingos along the shoreline.</p>
+<p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing. A visit to a local Maasai village or a sunrise balloon safari over the plains are popular optional additions here.</p>
+]]></field>
+    </record>
+    <record id="tour_product_8day_safari_standard" model="product.product">
+        <field name="name">8-Day Kenya Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">2450.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_8day_safari_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_8day_safari_standard"/>
+    </record>
+    <record id="tour_product_8day_safari_midrange" model="product.product">
+        <field name="name">8-Day Kenya Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">2850.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_8day_safari_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_8day_safari_midrange"/>
+    </record>
+    <record id="tour_product_8day_safari_luxury" model="product.product">
+        <field name="name">8-Day Kenya Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">3300.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_8day_safari_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_8day_safari_luxury"/>
+    </record>
+    <record id="tour_date_8day_safari_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=6)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_8day_safari_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=13)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_8day_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (arrival)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_8day_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 2-3: Samburu National Reserve</field>
+        <field name="latitude">-0.5974</field>
+        <field name="longitude">37.5326</field>
+    </record>
+    <record id="tour_waypoint_8day_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 4: Mount Kenya National Park</field>
+        <field name="latitude">-0.1521</field>
+        <field name="longitude">37.3084</field>
+    </record>
+    <record id="tour_waypoint_8day_4" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">40</field>
+        <field name="name">Day 5: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3667</field>
+        <field name="longitude">36.0833</field>
+    </record>
+    <record id="tour_waypoint_8day_5" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">50</field>
+        <field name="name">Day 6-7: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+    <record id="tour_waypoint_8day_6" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">60</field>
+        <field name="name">Day 8: Nairobi (departure)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+
+    <!-- Seasonal rates for the 8-Day Kenya Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_8day_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">1</field>
+        <field name="price">2650.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_8day_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">2</field>
+        <field name="price">2650.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_8day_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">3</field>
+        <field name="price">2650.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_8day_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">4</field>
+        <field name="price">2410.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_8day_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">5</field>
+        <field name="price">2410.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_8day_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">6</field>
+        <field name="price">2650.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_8day_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">7</field>
+        <field name="price">3210.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_8day_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">8</field>
+        <field name="price">3210.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_8day_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">9</field>
+        <field name="price">3210.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_8day_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">10</field>
+        <field name="price">2650.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_8day_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">11</field>
+        <field name="price">2650.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_8day_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="month">12</field>
+        <field name="price">3210.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 9-Day / 8-Night Kenya Safari: Nairobi - Aberdare - Samburu - Ol Pejeta - Lake Nakuru - Masai Mara -->
+    <record id="tour_package_9day_safari" model="tour.package">
+        <field name="name">9-Day Kenya Safari: Aberdare, Samburu, Ol Pejeta, Lake Nakuru &amp; Masai Mara</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Aberdare, Samburu, Ol Pejeta, Lake Nakuru &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">9</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October for the Great Migration; dry seasons (Jun-Oct, Jan-Feb) for the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="description"><![CDATA[<p>Our most comprehensive circuit at 9 days and 8 nights, linking five distinct regions - the forested waterholes of Aberdare, the arid beauty of Samburu, the rhino conservancy of Ol Pejeta, the flamingo-lined shores of Lake Nakuru, and two full days on the plains of the Masai Mara.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi:</strong> Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel for an overnight stay.</p>
+<p><strong>Day 2 - Aberdare National Park:</strong> After breakfast, drive north through rolling farmland and coffee plantations to Aberdare National Park, stopping for lunch en route. In the afternoon, transfer to a forest lodge built around its own floodlit waterhole and salt lick, where elephant, rhino, buffalo, bushbuck and, if you're fortunate, the rare bongo antelope come to drink after dark. Overnight on a full-board basis (lunch, dinner and breakfast). A warm jacket is recommended for the cool highland evenings.</p>
+<p><strong>Day 3 - Samburu:</strong> Drive north via Nanyuki to the Samburu National Reserve, a rugged, semi-arid landscape along the Ewaso Nyiro River. Arrive in time for lunch, then head out on an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Samburu:</strong> A full day of game drives across Samburu, home to species found nowhere else in Kenya's southern parks - Grevy's zebra, reticulated giraffe, gerenuk and Beisa oryx among them. An optional visit to a local Samburu village can be arranged. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Ol Pejeta Conservancy:</strong> Drive south on a scenic route towards Mount Kenya to Ol Pejeta Conservancy, arriving in time for lunch. This private, non-profit conservancy is one of East Africa's leading black rhino sanctuaries and also shelters a sanctuary for rescued chimpanzees. Afternoon game drive across its plains, home to the Big Five alongside its rhino population. Overnight on a full-board basis.</p>
+<p><strong>Day 6 - Lake Nakuru:</strong> Drive to Lake Nakuru National Park, arriving for a late lunch. Afternoon game drive around the lake shore for its rhino sanctuary and, in good years, dense flocks of flamingos. Overnight on a full-board basis.</p>
+<p><strong>Day 7 - Masai Mara:</strong> Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 8 - Masai Mara:</strong> A full day of game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional Maasai manyatta visit or sunrise hot air balloon safari can be arranged locally. Overnight on a full-board basis.</p>
+<p><strong>Day 9 - Departure:</strong> After breakfast, check out and drive back to Nairobi for your transfer to JKIA and onward flight.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park and conservancy entry fees for Aberdare, Samburu, Ol Pejeta, Lake Nakuru and Masai Mara</li><li>8 nights' accommodation as per itinerary (full board throughout, except bed &amp; breakfast on arrival night)</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Hot air balloon safari and village visits (optional, paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>Our longest circuit links six distinct areas of Kenya:</p>
+<p><strong>Nairobi</strong> is your arrival and departure point, and the usual base for onward transfers to the parks that follow.</p>
+<p><strong>Aberdare National Park</strong> is a forested mountain range in Kenya's central highlands, known for its unique tree-lodge style of game viewing after dark at a floodlit waterhole - elephant, rhino, buffalo and, occasionally, the elusive bongo antelope all pass through.</p>
+<p><strong>Samburu National Reserve</strong> lies in Kenya's arid north along the Ewaso Nyiro River. It's the best place in the country to find the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, gerenuk, Beisa oryx and the Somali ostrich - alongside a Samburu culture with deep ties to the Maasai.</p>
+<p><strong>Ol Pejeta Conservancy</strong>, near the base of Mount Kenya, is a private, non-profit wildlife conservancy and one of Africa's most important black rhino sanctuaries. It also hosts a sanctuary for chimpanzees rescued from elsewhere in Africa, alongside healthy populations of lion, elephant and the rest of the Big Five.</p>
+<p><strong>Lake Nakuru National Park</strong> is a compact, fenced sanctuary built around its alkaline lake in the Great Rift Valley, known for its rhino sanctuary and, in good years, dense flocks of flamingos along the shoreline.</p>
+<p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing. A visit to a local Maasai village or a sunrise balloon safari over the plains are popular optional additions here.</p>
+]]></field>
+    </record>
+    <record id="tour_product_9day_safari_standard" model="product.product">
+        <field name="name">9-Day Kenya Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">2850.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_9day_safari_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_9day_safari_standard"/>
+    </record>
+    <record id="tour_product_9day_safari_midrange" model="product.product">
+        <field name="name">9-Day Kenya Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">3300.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_9day_safari_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_9day_safari_midrange"/>
+    </record>
+    <record id="tour_product_9day_safari_luxury" model="product.product">
+        <field name="name">9-Day Kenya Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">3800.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_9day_safari_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_9day_safari_luxury"/>
+    </record>
+    <record id="tour_date_9day_safari_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=7)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_9day_safari_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=14)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_9day_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (arrival)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_9day_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 2: Aberdare National Park</field>
+        <field name="latitude">-0.4167</field>
+        <field name="longitude">36.75</field>
+    </record>
+    <record id="tour_waypoint_9day_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 3-4: Samburu National Reserve</field>
+        <field name="latitude">-0.5974</field>
+        <field name="longitude">37.5326</field>
+    </record>
+    <record id="tour_waypoint_9day_4" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">40</field>
+        <field name="name">Day 5: Ol Pejeta Conservancy</field>
+        <field name="latitude">0.0167</field>
+        <field name="longitude">36.9333</field>
+    </record>
+    <record id="tour_waypoint_9day_5" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">50</field>
+        <field name="name">Day 6: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3667</field>
+        <field name="longitude">36.0833</field>
+    </record>
+    <record id="tour_waypoint_9day_6" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">60</field>
+        <field name="name">Day 7-8: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+    <record id="tour_waypoint_9day_7" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">70</field>
+        <field name="name">Day 9: Nairobi (departure)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+
+    <!-- Seasonal rates for the 9-Day Kenya Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_9day_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">1</field>
+        <field name="price">3080.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_9day_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">2</field>
+        <field name="price">3080.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_9day_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">3</field>
+        <field name="price">3080.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_9day_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">4</field>
+        <field name="price">2805.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_9day_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">5</field>
+        <field name="price">2805.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_9day_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">6</field>
+        <field name="price">3080.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_9day_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">7</field>
+        <field name="price">3735.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_9day_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">8</field>
+        <field name="price">3735.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_9day_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">9</field>
+        <field name="price">3735.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_9day_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">10</field>
+        <field name="price">3080.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_9day_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">11</field>
+        <field name="price">3080.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_9day_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="month">12</field>
+        <field name="price">3735.0</field>
+        <field name="season">peak</field>
+    </record>
+</odoo>

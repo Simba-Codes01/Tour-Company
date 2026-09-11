@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_tour_itinerary_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="package">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1><t t-out="package.name"/></h1>
+                        <img t-if="package.image_1920" t-attf-src="/web/image/tour.package/#{package.id}/image_1920"
+                             style="max-width: 100%; max-height: 280px; object-fit: cover; margin-bottom: 16px;"/>
+                        <table class="table table-sm">
+                            <tr><td>Destination</td><td t-out="package.destination"/></tr>
+                            <tr><td>Duration</td><td><t t-out="package.duration_days"/> day(s)</td></tr>
+                            <tr>
+                                <td>Difficulty</td>
+                                <td t-out="dict(package._fields['difficulty_level'].selection).get(package.difficulty_level)"/>
+                            </tr>
+                        </table>
+
+                        <t t-if="package.itinerary">
+                            <h3>Itinerary</h3>
+                            <div t-field="package.itinerary"/>
+                        </t>
+
+                        <div class="row mt-3">
+                            <div class="col-6" t-if="package.included_services">
+                                <h4>What's Included</h4>
+                                <div t-field="package.included_services"/>
+                            </div>
+                            <div class="col-6" t-if="package.excluded_services">
+                                <h4>What's Excluded</h4>
+                                <div t-field="package.excluded_services"/>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,1201 @@
+// Naeku Tours & Safaris - frontend design system
+// Warm safari palette: terracotta / savanna green / cream, inspired by
+// classic safari-marketplace sites (hero search, rating-driven cards).
+
+:root {
+    --kt-terracotta: #C1440E;
+    --kt-terracotta-dark: #9A3609;
+    --kt-green: #2F4F3E;
+    --kt-green-dark: #22392E;
+    --kt-cream: #FBF4E9;
+    --kt-cream-dark: #F1E4D0;
+    --kt-brown-text: #3A2A1E;
+    --kt-gold: #D9A441;
+
+    // Semantic tokens - every .kt_* rule below reads colors through these,
+    // never the raw palette above, so a single attribute swap (data-kt-theme)
+    // re-themes the whole site without touching component rules.
+    --kt-bg: var(--kt-cream);
+    --kt-surface: #fff;
+    --kt-surface-alt: var(--kt-cream-dark);
+    --kt-text: var(--kt-brown-text);
+    --kt-text-muted: #8a7a6a;
+    --kt-heading: var(--kt-green-dark);
+    --kt-border: var(--kt-cream-dark);
+    --kt-shadow-rgb: 58, 42, 30;
+    --kt-star-color: #FFC107;
+}
+
+:root[data-kt-theme="dark"] {
+    --kt-bg: #1B1E18;
+    --kt-surface: #242820;
+    --kt-surface-alt: #2E3327;
+    --kt-text: #EDE6DA;
+    --kt-text-muted: #B7AE9E;
+    --kt-heading: #F1E4D0;
+    --kt-border: #3A4034;
+    --kt-shadow-rgb: 0, 0, 0;
+}
+
+// ---- Dark / light mode toggle button ----
+.kt_theme_toggle {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 1040;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid var(--kt-border);
+    background: var(--kt-surface);
+    color: var(--kt-heading);
+    box-shadow: 0 6px 18px rgba(var(--kt-shadow-rgb), 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--kt-terracotta);
+        outline-offset: 2px;
+    }
+
+    .kt_theme_icon_light {
+        display: none;
+    }
+
+    @media (max-width: 575.98px) {
+        width: 2.6rem;
+        height: 2.6rem;
+        right: 1rem;
+        bottom: 1rem;
+        font-size: 1rem;
+    }
+}
+
+:root[data-kt-theme="dark"] .kt_theme_toggle {
+    .kt_theme_icon_dark {
+        display: none;
+    }
+
+    .kt_theme_icon_light {
+        display: block;
+    }
+}
+
+.kt_page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--kt-text);
+    background-color: var(--kt-bg);
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    h1, h2, h3, h4, .kt_display {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 600;
+        color: var(--kt-heading);
+    }
+}
+
+// The header/nav sits outside .kt_page (a sibling of #wrap), so it needs its
+// own theme-aware background rather than inheriting from .kt_page. It's
+// sticky rather than static so it stays reachable while scrolling a long
+// itinerary, and picks up a shadow + shrinks slightly once scrolled (see
+// initHeaderScroll in kt_scroll_effects.js, which toggles .kt_header_scrolled).
+header:has(.kt_nav_left) {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background-color: var(--kt-surface);
+    transition: background-color 0.2s ease, box-shadow 0.3s ease;
+
+    &.kt_header_scrolled {
+        box-shadow: 0 4px 20px rgba(var(--kt-shadow-rgb), 0.12);
+
+        .kt_nav_left {
+            padding-top: 0.4rem;
+            padding-bottom: 0.4rem;
+        }
+
+        .kt_nav_brand_logo {
+            height: 56px;
+            width: 56px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: background-color 0.2s ease;
+    }
+}
+
+:root[data-kt-theme="dark"] #footer {
+    background-color: var(--kt-bg);
+    color: var(--kt-text-muted);
+
+    h5 {
+        color: var(--kt-heading);
+    }
+
+    a {
+        color: var(--kt-text-muted);
+
+        &:hover {
+            color: var(--kt-heading);
+        }
+    }
+}
+
+// ---- Left-logo header (see website_header_views.xml) ----
+.kt_nav_left {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    transition: padding 0.3s ease;
+
+    .kt_nav_brand {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+
+        .kt_nav_brand_logo {
+            height: 84px;
+            width: 84px;
+            // The source crop is a near-square photo of the badge with a
+            // sliver of paper texture in the corners - clipping it to a
+            // circle removes that background entirely and reads as a clean
+            // medallion instead of a product photo.
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 6px 16px rgba(var(--kt-shadow-rgb), 0.3), 0 0 0 3px var(--kt-surface);
+            transition: height 0.3s ease, width 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        &:hover .kt_nav_brand_logo {
+            transform: scale(1.08) rotate(-3deg);
+            box-shadow: 0 10px 24px rgba(var(--kt-shadow-rgb), 0.4), 0 0 0 3px var(--kt-surface);
+        }
+    }
+
+    // Center-out underline sweep for the split menu links, plus a subtle
+    // upward nudge so hovering feels responsive rather than purely color-based.
+    .top_menu .nav-link {
+        position: relative;
+        color: var(--kt-text);
+        transition: color 0.15s ease, transform 0.15s ease;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            bottom: 0.1rem;
+            height: 2px;
+            background: var(--kt-terracotta);
+            transition: left 0.25s ease, right 0.25s ease;
+        }
+
+        &:hover {
+            color: var(--kt-terracotta-dark);
+            transform: translateY(-1px);
+        }
+
+        &:hover::after, &.active::after {
+            left: 0;
+            right: 0;
+        }
+
+        &.active {
+            color: var(--kt-terracotta-dark);
+            font-weight: 600;
+        }
+    }
+
+    // Recolor the default "Contact Us" call-to-action to match the brand
+    // palette, and add a diagonal shine sweep across it on hover.
+    .btn_cta {
+        position: relative;
+        overflow: hidden;
+        background-color: var(--kt-terracotta);
+        border-color: var(--kt-terracotta);
+        transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.5s ease;
+        }
+
+        &:hover, &:focus {
+            background-color: var(--kt-terracotta-dark);
+            border-color: var(--kt-terracotta-dark);
+            transform: translateY(-1px);
+        }
+
+        &:hover::before {
+            left: 125%;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .top_menu .nav-link, .btn_cta {
+            transition: color 0.15s ease;
+        }
+
+        .kt_nav_brand:hover .kt_nav_brand_logo,
+        .top_menu .nav-link:hover,
+        .btn_cta:hover {
+            transform: none;
+        }
+
+        .btn_cta::before {
+            display: none;
+        }
+    }
+}
+
+// ---- Mobile off-canvas menu - light cosmetic theming to match the desktop
+// header redesign above, without touching Odoo's default mobile nav markup ----
+.o_navbar_mobile {
+    .offcanvas-body {
+        background-color: var(--kt-surface);
+    }
+
+    .nav-link {
+        color: var(--kt-text);
+
+        &:hover, &.active {
+            color: var(--kt-terracotta-dark);
+        }
+    }
+}
+
+// ---- Hero + search ----
+.kt_hero {
+    background-color: var(--kt-green-dark);
+    color: #fff;
+    padding: 4.5rem 0 6rem;
+    position: relative;
+
+    h1 {
+        color: #fff;
+        font-size: 2.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .kt_hero_subtitle {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.15rem;
+        max-width: 640px;
+    }
+
+    .kt_stats {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: 2rem;
+
+        .kt_stat_value {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--kt-gold);
+            display: block;
+        }
+
+        .kt_stat_label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.75);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+    }
+}
+
+// Taller, centered hero variant for the landing page - big bold headline,
+// generous vertical breathing room, floating search bar dips into the
+// section below (see .kt_search_card's negative margin).
+.kt_hero_tall {
+    min-height: 74vh;
+    display: flex;
+    align-items: center;
+    padding: 3rem 0 7rem;
+    position: relative;
+    overflow: hidden;
+
+    // The background lives on this absolutely-positioned inner layer, not on
+    // .kt_hero_tall itself, so JS can translate it independently of the
+    // content for a parallax effect (see kt_scroll_effects.js). It's sized
+    // 15% larger than its container on every edge so the translate never
+    // reveals a gap.
+    .kt_hero_parallax_bg {
+        position: absolute;
+        inset: -15% 0;
+        background-image:
+            linear-gradient(180deg, rgba(20, 24, 18, 0.6) 0%, rgba(20, 24, 18, 0.5) 50%, rgba(20, 24, 18, 0.7) 100%),
+            url('/tour_travel_kenya/static/src/img/hero_safari_jeep.jpg?v=2');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        will-change: transform;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .kt_hero_title {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        margin-bottom: 1rem;
+    }
+
+    .kt_hero_subtitle {
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (max-width: 767.98px) {
+        min-height: 60vh;
+
+        .kt_hero_title {
+            font-size: 2.25rem;
+        }
+    }
+}
+
+.kt_search_card {
+    background: var(--kt-surface);
+    border-radius: 999px;
+    box-shadow: 0 16px 36px rgba(34, 57, 46, 0.16);
+    padding: 0.6rem;
+    margin-top: -3.25rem;
+    position: relative;
+    z-index: 2;
+    transition: background-color 0.2s ease;
+
+    label {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--kt-text-muted);
+        font-weight: 600;
+        margin-bottom: 0.15rem;
+        padding-left: 1rem;
+    }
+
+    .form-select, .form-control {
+        border: none;
+        border-radius: 999px;
+        background-color: transparent;
+        color: var(--kt-text);
+
+        &:focus {
+            box-shadow: none;
+            background-color: var(--kt-bg);
+        }
+    }
+
+    .btn-kt-primary {
+        background-color: var(--kt-terracotta);
+        border-color: var(--kt-terracotta);
+        border-radius: 999px;
+        color: #fff;
+        font-weight: 600;
+        padding: 0.65rem 1.75rem;
+        transition: background-color 0.15s ease, border-color 0.15s ease;
+
+        &:hover, &:focus {
+            background-color: var(--kt-terracotta-dark);
+            border-color: var(--kt-terracotta-dark);
+            color: #fff;
+        }
+    }
+}
+
+// ---- Category pills ----
+.kt_category_pill {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--kt-border);
+    color: var(--kt-text);
+    background: var(--kt-surface);
+    transition: all 0.15s ease;
+
+    &:hover {
+        border-color: var(--kt-terracotta);
+        color: var(--kt-terracotta-dark);
+    }
+
+    &.active {
+        background: var(--kt-terracotta);
+        border-color: var(--kt-terracotta);
+        color: #fff;
+    }
+}
+
+// ---- Package cards ----
+.kt_package_card {
+    background: var(--kt-surface);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(var(--kt-shadow-rgb), 0.07);
+    transition: box-shadow 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+    will-change: transform;
+
+    &:hover {
+        box-shadow: 0 14px 30px rgba(var(--kt-shadow-rgb), 0.18);
+        color: inherit;
+        transform: translateY(-6px) scale(1.015);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: box-shadow 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+            transform: none;
+        }
+    }
+
+    .kt_card_img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        background-color: var(--kt-surface-alt);
+        transition: transform 0.35s ease;
+    }
+
+    &:hover .kt_card_img {
+        transform: scale(1.08);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .kt_card_img {
+            transition: none;
+        }
+
+        &:hover .kt_card_img {
+            transform: none;
+        }
+    }
+
+    .kt_card_body {
+        padding: 1.1rem 1.25rem 1.35rem;
+    }
+
+    .kt_card_tag {
+        display: inline-block;
+        background: var(--kt-surface-alt);
+        color: var(--kt-heading);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        padding: 0.2rem 0.55rem;
+        border-radius: 0.35rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .kt_card_title {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--kt-heading);
+        margin-bottom: 0.15rem;
+    }
+
+    .kt_card_destination {
+        color: var(--kt-text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .kt_card_footer {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-top: 0.85rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--kt-border);
+    }
+
+    .kt_card_price {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--kt-terracotta);
+    }
+
+    .kt_card_price_label {
+        font-size: 0.72rem;
+        color: var(--kt-text-muted);
+        text-transform: uppercase;
+    }
+}
+
+// ---- Detail page ----
+.kt_detail_hero {
+    height: 420px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0.85rem;
+}
+
+.kt_meta_strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: var(--kt-text-muted);
+    font-size: 0.95rem;
+    margin: 0.75rem 0 1.5rem;
+
+    span i {
+        color: var(--kt-terracotta);
+        margin-right: 0.35rem;
+    }
+}
+
+.kt_booking_card {
+    background: var(--kt-surface);
+    border-radius: 0.85rem;
+    box-shadow: 0 10px 28px rgba(var(--kt-shadow-rgb), 0.1);
+    transition: background-color 0.2s ease;
+
+    .kt_booking_price {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--kt-terracotta);
+    }
+}
+
+.kt_map_container {
+    height: 480px;
+    width: 100%;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(var(--kt-shadow-rgb), 0.08);
+    z-index: 1;
+}
+
+.kt_wildlife_banner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, var(--kt-green-dark) 0%, var(--kt-green) 100%);
+    border-radius: 0.85rem;
+    padding: 1.25rem 1rem;
+
+    .kt_wildlife_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        min-width: 4.5rem;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+
+        // Each icon pops in with a slight overshoot once the banner's own
+        // .kt_reveal (see kt_scroll_effects.js) marks it visible - staggered
+        // per item below rather than all appearing in lockstep.
+        opacity: 0;
+        transform: scale(0.5) translateY(10px);
+        transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    &.kt_reveal_visible .kt_wildlife_item {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+
+        @for $i from 1 through 8 {
+            &:nth-child(#{$i}) {
+                transition-delay: #{($i - 1) * 0.06}s;
+            }
+        }
+    }
+
+    .kt_wildlife_emoji {
+        font-size: 2.1rem;
+        line-height: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kt_wildlife_item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+.kt_rate_tile {
+    border-radius: 0.6rem;
+    padding: 0.85rem 0.75rem;
+    text-align: left;
+
+    .kt_rate_month {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        opacity: 0.8;
+    }
+
+    .kt_rate_price {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-top: 0.15rem;
+    }
+
+    .kt_rate_season {
+        font-size: 0.68rem;
+        margin-top: 0.3rem;
+        opacity: 0.75;
+    }
+
+    &.kt_rate_low {
+        background: var(--kt-surface-alt);
+        color: var(--kt-text);
+    }
+
+    &.kt_rate_mid {
+        background: rgba(47, 79, 62, 0.14);
+        color: var(--kt-heading);
+    }
+
+    &.kt_rate_peak {
+        background: var(--kt-green-dark);
+        color: #fff;
+
+        .kt_rate_price {
+            color: var(--kt-gold);
+        }
+    }
+}
+
+.kt_section_title {
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 3rem;
+        height: 3px;
+        background: var(--kt-terracotta);
+        border-radius: 2px;
+    }
+}
+
+.kt_badge_included {
+    color: var(--kt-heading);
+}
+.kt_badge_excluded {
+    color: #a33;
+}
+
+// ---- Star ratings (package cards, reviews summary, review cards) ----
+.kt_card_rating {
+    color: var(--kt-star-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    .fa-star {
+        color: var(--kt-star-color);
+    }
+
+    .kt_review_count {
+        color: var(--kt-text-muted);
+        font-weight: 400;
+    }
+}
+
+// ---- Traveler reviews ----
+.kt_reviews_summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    background: var(--kt-surface);
+    border: 1px solid var(--kt-border);
+    border-radius: 0.75rem;
+    padding: 1.1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.kt_reviews_score {
+    font-family: 'Fraunces', Georgia, serif;
+    line-height: 1;
+    flex-shrink: 0;
+
+    .kt_reviews_score_value {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--kt-heading);
+    }
+
+    .kt_reviews_score_max {
+        font-size: 1.1rem;
+        color: var(--kt-text-muted);
+    }
+}
+
+.kt_reviews_score_meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.kt_review_empty {
+    text-align: center;
+    color: var(--kt-text-muted);
+    background: var(--kt-surface);
+    border: 1px dashed var(--kt-border);
+    border-radius: 0.75rem;
+    padding: 2.5rem 1.5rem;
+
+    .fa-comment-o {
+        font-size: 1.75rem;
+        display: block;
+        margin-bottom: 0.5rem;
+        opacity: 0.6;
+    }
+}
+
+// Auto-fill lets cards reflow from a single column on narrow screens up to
+// as many as fit at >=260px each on wide ones, with no explicit breakpoints.
+.kt_review_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.kt_review_card {
+    background: var(--kt-surface);
+    border: 1px solid var(--kt-border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.18s ease;
+
+    &:hover {
+        box-shadow: 0 8px 20px rgba(var(--kt-shadow-rgb), 0.1);
+    }
+}
+
+.kt_review_head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.kt_review_avatar {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--kt-terracotta);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+}
+
+.kt_review_name {
+    font-weight: 600;
+    color: var(--kt-heading);
+    line-height: 1.2;
+}
+
+.kt_review_date {
+    font-size: 0.75rem;
+    color: var(--kt-text-muted);
+}
+
+.kt_review_feedback {
+    color: var(--kt-text);
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 575.98px) {
+    .kt_reviews_summary {
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .kt_reviews_score .kt_reviews_score_value {
+        font-size: 2rem;
+    }
+}
+
+// ---- Wishlist heart button ----
+.kt_wishlist_btn {
+    border: 1px solid var(--kt-border);
+    background: var(--kt-surface);
+    color: var(--kt-text-muted);
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+
+    &:hover {
+        color: var(--kt-terracotta);
+        border-color: var(--kt-terracotta);
+    }
+
+    &.kt_wishlist_active {
+        color: var(--kt-terracotta);
+        border-color: var(--kt-terracotta);
+    }
+
+    &:active {
+        transform: scale(0.92);
+    }
+}
+
+.kt_card_img_wrap {
+    position: relative;
+
+    .kt_wishlist_btn_card {
+        position: absolute;
+        top: 0.6rem;
+        right: 0.6rem;
+        box-shadow: 0 2px 8px rgba(var(--kt-shadow-rgb), 0.25);
+    }
+}
+
+// ---- Social share buttons ----
+.kt_share_buttons {
+    display: flex;
+    gap: 0.4rem;
+
+    a {
+        border: 1px solid var(--kt-border);
+        background: var(--kt-surface);
+        color: var(--kt-text-muted);
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.15s ease, border-color 0.15s ease;
+
+        &:hover {
+            color: var(--kt-terracotta);
+            border-color: var(--kt-terracotta);
+        }
+    }
+}
+
+// ---- Upcoming departures / seat availability ----
+.kt_departures {
+    border-top: 1px solid var(--kt-border);
+    border-bottom: 1px solid var(--kt-border);
+    padding: 0.75rem 0;
+}
+
+.kt_departures_label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--kt-text-muted);
+    margin-bottom: 0.4rem;
+}
+
+.kt_departure_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    padding: 0.25rem 0;
+}
+
+.kt_badge_urgent {
+    background-color: var(--kt-terracotta);
+    color: #fff;
+}
+
+// ---- Trust badges ----
+.kt_trust_badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    font-size: 0.8rem;
+    color: var(--kt-text-muted);
+
+    i {
+        color: var(--kt-green);
+        margin-right: 0.3rem;
+    }
+}
+
+// ---- Scroll reveal (fade + slide up as sections enter the viewport) ----
+.kt_reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+
+    &.kt_reveal_visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kt_reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+// ---- Best Time to Visit: high / low season cards ----
+.kt_season_card {
+    border-radius: 0.6rem;
+    padding: 1rem 1.1rem;
+    height: 100%;
+
+    h5 {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 600;
+        color: var(--kt-heading);
+        margin-bottom: 0.5rem;
+
+        i {
+            margin-right: 0.35rem;
+        }
+    }
+
+    p {
+        color: var(--kt-text-muted);
+        font-size: 0.9rem;
+    }
+
+    &.kt_season_high {
+        background: rgba(217, 164, 65, 0.14);
+
+        i {
+            color: var(--kt-gold);
+        }
+    }
+
+    &.kt_season_low {
+        background: rgba(47, 79, 62, 0.1);
+
+        i {
+            color: var(--kt-green);
+        }
+    }
+}
+
+// ---- Gallery placeholder tiles (sections awaiting real photos) ----
+.kt_gallery_placeholder_tile {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: var(--kt-surface-alt);
+    border: 1px dashed var(--kt-border);
+    border-radius: 0.6rem;
+    color: var(--kt-text-muted);
+    font-size: 0.8rem;
+
+    .fa-camera {
+        font-size: 1.5rem;
+        opacity: 0.6;
+    }
+}
+
+// A real photo dropped into the same grid as the placeholder tiles above -
+// keeps the shared aspect-ratio/border-radius but swaps the dashed
+// empty-state styling for an actual cover-fit image.
+.kt_gallery_photo_tile {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: scale(1.03);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+
+        &:hover {
+            transform: none;
+        }
+    }
+}
+
+// ---- Floating WhatsApp button (mirrors .kt_theme_toggle, opposite corner) ----
+.kt_whatsapp_button {
+    position: fixed;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 1040;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(var(--kt-shadow-rgb), 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+
+    &:hover {
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    // A couple of expanding rings, once, shortly after the page loads - just
+    // enough to draw a first-time visitor's eye without looping forever.
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 2px solid #25D366;
+        opacity: 0;
+        pointer-events: none;
+        animation: kt-whatsapp-pulse 1.8s ease-out 1s 2;
+    }
+
+    @media (max-width: 575.98px) {
+        width: 2.8rem;
+        height: 2.8rem;
+        left: 1rem;
+        bottom: 1rem;
+        font-size: 1.35rem;
+    }
+}
+
+@keyframes kt-whatsapp-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kt_whatsapp_button::after {
+        animation: none;
+    }
+}
+
+// ---- Sticky mobile booking bar (see #kt_booking_card / kt_scroll_effects.js) ----
+.kt_sticky_booking_bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1035;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--kt-surface);
+    box-shadow: 0 -6px 20px rgba(var(--kt-shadow-rgb), 0.15);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+
+    &.kt_sticky_visible {
+        transform: translateY(0);
+    }
+
+    .kt_sticky_booking_label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--kt-text-muted);
+    }
+
+    .kt_sticky_booking_price {
+        font-family: 'Fraunces', Georgia, serif;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--kt-terracotta);
+    }
+
+    @media (min-width: 992px) {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kt_sticky_booking_bar {
+        transition: none;
+    }
+}
+
+// ---- Star rating pop-in (Traveler Reviews section) ----
+.kt_star_pop {
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0.4);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.kt_reveal_visible .kt_star_pop {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kt_star_pop {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}

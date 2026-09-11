@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cancellation_policy_page" name="Cancellation &amp; Refund Policy">
+        <t t-call="website.layout">
+            <div id="wrap" class="kt_page">
+                <div class="container mt-4 mb-5">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/tours">Tour Packages</a></li>
+                                    <li class="breadcrumb-item active">Cancellation &amp; Refund Policy</li>
+                                </ol>
+                            </nav>
+                            <h1 class="kt_section_title">Cancellation &amp; Refund Policy</h1>
+                            <p class="text-muted">
+                                This policy explains what happens to your payment if a booked tour is cancelled,
+                                postponed or changed, either by you or by us.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">Deposit &amp; Balance</h3>
+                            <p>
+                                A deposit is required to confirm a booking, with the remaining balance due before
+                                the departure date shown at checkout. Deposits secure park permits, accommodation
+                                and vehicle bookings on your behalf and are non-refundable except where noted below.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">Cancellations by You</h3>
+                            <p>Refunds for cancellations made by the lead traveler are calculated from the total tour cost, based on how far in advance we receive written notice of cancellation:</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Notice Before Departure</th>
+                                            <th>Refund</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>60 days or more</td><td>Full refund, minus the deposit</td></tr>
+                                        <tr><td>30 - 59 days</td><td>50% of the total tour cost</td></tr>
+                                        <tr><td>15 - 29 days</td><td>25% of the total tour cost</td></tr>
+                                        <tr><td>Less than 15 days, or no-show</td><td>No refund</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-muted small">
+                                Flights, visas, travel insurance and other third-party costs booked on your behalf
+                                are subject to that provider's own cancellation terms and are not covered by this
+                                table.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">Date Changes</h3>
+                            <p>
+                                We'll always try to move your booking to a new departure date at no extra cost if
+                                you ask more than 30 days before departure and space is available. Requests inside
+                                30 days are treated as a cancellation under the table above and a new booking.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">Cancellations or Changes by Us</h3>
+                            <p>
+                                If we cancel a departure - for example due to insufficient numbers, park closures,
+                                extreme weather or events beyond our control - you'll be offered a full refund or
+                                the option to transfer your payment to another available date at no extra charge.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">How to Cancel</h3>
+                            <p>
+                                Contact us in writing, quoting your booking reference, using the details on our
+                                <a href="/contactus">Contact Us</a> page. Refunds are processed to the original
+                                payment method within 14 business days of confirmation.
+                            </p>
+
+                            <p class="text-muted small mt-4">
+                                This is a general policy; specific terms for a booking are confirmed at the time of
+                                payment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="privacy_policy_page" name="Privacy Policy">
+        <t t-call="website.layout">
+            <div id="wrap" class="kt_page">
+                <div class="container mt-4 mb-5">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/tours">Tour Packages</a></li>
+                                    <li class="breadcrumb-item active">Privacy Policy</li>
+                                </ol>
+                            </nav>
+                            <h1 class="kt_section_title">Privacy Policy</h1>
+                            <p class="text-muted">
+                                This explains what personal information we collect when you browse this site or
+                                book a tour, why we collect it, and the choices you have.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">What We Collect</h3>
+                            <p>When you make a booking inquiry, create a portal account, or contact us, we collect:</p>
+                            <ul>
+                                <li>Your name, email address and phone number.</li>
+                                <li>Booking details: chosen package, dates, number of travelers, and any special
+                                    requests you tell us.</li>
+                                <li>Payment details, handled directly by our payment provider - we do not store
+                                    your card or mobile money credentials ourselves.</li>
+                            </ul>
+
+                            <h3 class="kt_section_title mt-4">Why We Collect It</h3>
+                            <p>We use this information to:</p>
+                            <ul>
+                                <li>Confirm and manage your booking, and communicate with you about it.</li>
+                                <li>Arrange accommodation, park permits and transport with our local partners.</li>
+                                <li>Send booking confirmations and, if you opt in, occasional updates about our tours.</li>
+                                <li>Meet our own legal and accounting obligations.</li>
+                            </ul>
+
+                            <h3 class="kt_section_title mt-4">Who We Share It With</h3>
+                            <p>
+                                We don't sell your information. We share only what's needed to run your trip - for
+                                example your name and travel dates with the lodges, parks and drivers involved in
+                                your itinerary - and with our payment provider to process payment. Some of these
+                                partners may be located outside Kenya.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">How Long We Keep It</h3>
+                            <p>
+                                We keep booking records for as long as needed to handle your trip, resolve any
+                                dispute, and meet our accounting and tax obligations, after which it's deleted or
+                                anonymized.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">Your Rights</h3>
+                            <p>
+                                Under Kenya's Data Protection Act, 2019, you can ask us to show you the personal
+                                data we hold about you, correct it, or delete it where we're not required to keep
+                                it for legal reasons. To do so, contact us via our
+                                <a href="/contactus">Contact Us</a> page.
+                            </p>
+
+                            <h3 class="kt_section_title mt-4">Cookies</h3>
+                            <p>
+                                Like most websites, we use cookies for things like keeping you logged in to your
+                                portal account and remembering your light/dark theme preference. You can control
+                                cookies through your browser settings.
+                            </p>
+
+                            <p class="text-muted small mt-4">
+                                This is a general policy; if you have questions about your data, reach us via
+                                <a href="/contactus">Contact Us</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

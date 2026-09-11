@@ -1,0 +1,20 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Odoo
+*.pyc
+.Python
+odoo.conf
+*.log
+filestore/
+sessions/
+
+# OS/editor
+.DS_Store
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tour_booking_list" model="ir.ui.view">
+        <field name="name">tour.booking.list</field>
+        <field name="model">tour.booking</field>
+        <field name="arch" type="xml">
+            <list string="Bookings" default_order="create_date desc" sample="1">
+                <field name="create_date" optional="show" string="Booking Date"/>
+                <field name="name_attendee" string="Lead Traveler"/>
+                <field name="partner_id" optional="show"/>
+                <field name="package_id" column_invisible="context.get('default_package_id')"/>
+                <field name="arrival_date"/>
+                <field name="pricing_id"/>
+                <field name="adults_count" optional="show"/>
+                <field name="children_count" optional="show"/>
+                <field name="rooms_count" optional="hide"/>
+                <field name="traveler_count" optional="hide"/>
+                <field name="sale_status" widget="badge"
+                       decoration-success="sale_status == 'sold'"
+                       decoration-warning="sale_status == 'to_pay'"/>
+                <field name="state" widget="badge"
+                       decoration-info="state in ('draft', 'open')"
+                       decoration-success="state == 'done'"
+                       decoration-muted="state == 'cancel'"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tour_booking_kanban" model="ir.ui.view">
+        <field name="name">tour.booking.kanban</field>
+        <field name="model">tour.booking</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" class="o_kanban_small_column" sample="1">
+                <field name="state"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <field name="package_id" class="fw-bold"/>
+                            <field name="sale_status" widget="badge"
+                                   decoration-success="sale_status == 'sold'"
+                                   decoration-warning="sale_status == 'to_pay'"/>
+                        </div>
+                        <field name="name_attendee"/>
+                        <div class="text-muted small">
+                            <field name="arrival_date"/>
+                            <field t-if="record.package_date_id.raw_value" name="package_date_id"/>
+                        </div>
+                        <div class="text-muted small">
+                            <field name="traveler_count"/> traveler(s) &#183; <field name="create_date"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_tour_booking_form" model="ir.ui.view">
+        <field name="name">tour.booking.form</field>
+        <field name="model">tour.booking</field>
+        <field name="arch" type="xml">
+            <form string="Booking">
+                <field name="active" invisible="1"/>
+                <header>
+                    <button name="action_confirm" string="Confirm" type="object" class="oe_highlight"
+                            invisible="not active or state != 'draft'"/>
+                    <button name="action_done" string="Mark Completed" type="object" class="oe_highlight"
+                            invisible="not active or state != 'open'"/>
+                    <button name="action_cancel" string="Cancel" type="object"
+                            invisible="not active or state in ('cancel', 'done')"/>
+                    <button name="action_draft" string="Reset to Draft" type="object"
+                            invisible="not active or state != 'cancel'"/>
+                    <field name="state" nolabel="1" widget="statusbar" statusbar_visible="draft,open,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_sale_order" type="object" class="oe_stat_button" icon="fa-usd"
+                                invisible="not sale_order_id">
+                            <field name="sale_status" widget="statinfo" string="Order"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group string="Traveler">
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="partner_id"/>
+                        </group>
+                        <group string="Trip Details">
+                            <field name="package_id" options="{'no_create': True}"/>
+                            <field name="arrival_date"/>
+                            <field name="adults_count"/>
+                            <field name="children_count"/>
+                            <field name="rooms_count"/>
+                            <field name="pricing_id" domain="[('package_id', '=', package_id)]" options="{'no_create': True}"/>
+                            <field name="package_date_id" domain="[('package_id', '=', package_id)]" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <group string="Additional Notes / Message">
+                        <field name="special_requests" nolabel="1"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tour_booking_search" model="ir.ui.view">
+        <field name="name">tour.booking.search</field>
+        <field name="model">tour.booking</field>
+        <field name="arch" type="xml">
+            <search string="Bookings">
+                <field name="name_attendee" string="Traveler"/>
+                <field name="partner_id"/>
+                <field name="package_id"/>
+                <filter name="draft" string="Unconfirmed" domain="[('state', '=', 'draft')]"/>
+                <filter name="open" string="Confirmed" domain="[('state', '=', 'open')]"/>
+                <filter name="done" string="Completed" domain="[('state', '=', 'done')]"/>
+                <filter name="cancel" string="Cancelled" domain="[('state', '=', 'cancel')]"/>
+                <group>
+                    <filter name="group_package" string="Package" context="{'group_by': 'package_id'}"/>
+                    <filter name="group_date" string="Departure Date" context="{'group_by': 'package_date_id'}"/>
+                    <filter name="group_state" string="Status" context="{'group_by': 'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_tour_booking" model="ir.actions.act_window">
+        <field name="name">Bookings</field>
+        <field name="res_model">tour.booking</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_open': 1}</field>
+    </record>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payment_provider_form" model="ir.ui.view">
+        <field name="name">M-Pesa Provider Form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <group name="provider_credentials" position="inside">
+                <group name="mpesa_credentials" invisible="code != 'mpesa'">
+                    <field name="mpesa_environment"/>
+                    <field name="mpesa_shortcode"/>
+                    <field name="mpesa_passkey" password="True"/>
+                    <field name="mpesa_consumer_key" password="True"/>
+                    <field name="mpesa_consumer_secret" password="True"/>
+                    <field name="mpesa_callback_base_url" placeholder="e.g. https://your-tunnel.ngrok.io"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

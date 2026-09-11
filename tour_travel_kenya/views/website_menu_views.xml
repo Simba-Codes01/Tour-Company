@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="menu_website_tours" model="website.menu">
+            <field name="name">Tours</field>
+            <field name="url">/tours</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">40</field>
+        </record>
+        <record id="menu_website_destinations" model="website.menu">
+            <field name="name">Destinations</field>
+            <field name="url">/destinations</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">45</field>
+        </record>
+    </data>
+</odoo>

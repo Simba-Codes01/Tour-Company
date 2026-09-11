@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="faq_page" name="Travel Info &amp; FAQs">
+        <t t-call="website.layout">
+            <t t-set="head">
+                <meta name="description" content="Everything you need to know before your Kenya safari - visa requirements, vaccinations, what to pack, money and tipping, and when to go."/>
+            </t>
+            <div id="wrap" class="kt_page">
+                <div class="container mt-4 mb-5">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="/tours">Tour Packages</a></li>
+                                    <li class="breadcrumb-item active">Travel Info &amp; FAQs</li>
+                                </ol>
+                            </nav>
+                            <h1 class="kt_section_title">Travel Info &amp; FAQs</h1>
+                            <p class="text-muted">
+                                Practical answers to the questions we hear most before a Kenya safari. For rates and
+                                dates for a specific trip, see that tour's own page - for the best months to travel,
+                                see <a href="/tours">high vs low season</a> on any tour page.
+                            </p>
+
+                            <div class="accordion mt-4" id="kt_faq_accordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#kt_faq_visa">
+                                            Do I need a visa for Kenya?
+                                        </button>
+                                    </h2>
+                                    <div id="kt_faq_visa" class="accordion-collapse collapse show" data-bs-parent="#kt_faq_accordion">
+                                        <div class="accordion-body">
+                                            Most visitors need an Electronic Travel Authorization (ETA) to enter
+                                            Kenya, applied for online before you travel. Requirements and fees vary
+                                            by nationality and do change, so always check the official
+                                            <a href="https://www.etakenya.go.ke" target="_blank" rel="noopener">Kenya ETA portal</a>
+                                            directly rather than relying on general advice - including ours. Apply
+                                            at least a few days before departure.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_faq_health">
+                                            What vaccinations or health precautions do I need?
+                                        </button>
+                                    </h2>
+                                    <div id="kt_faq_health" class="accordion-collapse collapse" data-bs-parent="#kt_faq_accordion">
+                                        <div class="accordion-body">
+                                            A Yellow Fever vaccination certificate is required if you're arriving
+                                            from (or have transited through) a country with risk of yellow fever
+                                            transmission. Malaria risk exists in most safari areas, so talk to a
+                                            travel health clinic about antimalarial medication well before you
+                                            travel. Routine vaccines (MMR, tetanus, etc.) should be up to date, and
+                                            we'd recommend travel insurance that covers medical evacuation.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_faq_pack">
+                                            What should I pack for a safari?
+                                        </button>
+                                    </h2>
+                                    <div id="kt_faq_pack" class="accordion-collapse collapse" data-bs-parent="#kt_faq_accordion">
+                                        <div class="accordion-body">
+                                            Neutral-colored, lightweight clothing (khaki, olive, brown - avoid
+                                            bright white and dark blue/black, which attract insects); a warm layer
+                                            for chilly early-morning game drives; a hat and high-SPF sunscreen;
+                                            binoculars; a basic first-aid kit with any personal medication; and a
+                                            universal or UK-style (Type G) power adapter. Soft-sided luggage packs
+                                            better into safari vehicles and light aircraft than hard suitcases.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_faq_money">
+                                            What currency should I bring, and is tipping expected?
+                                        </button>
+                                    </h2>
+                                    <div id="kt_faq_money" class="accordion-collapse collapse" data-bs-parent="#kt_faq_accordion">
+                                        <div class="accordion-body">
+                                            Kenya's currency is the Kenyan Shilling (KES). US dollars are widely
+                                            accepted at hotels and lodges for larger payments (bring newer, unmarked
+                                            notes), while M-Pesa mobile money is the everyday standard for small
+                                            local purchases. Tipping guides, drivers and camp staff is customary and
+                                            appreciated, though never obligatory - your guide can advise on typical
+                                            amounts for your trip.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_faq_connectivity">
+                                            Will I have phone signal and Wi-Fi on safari?
+                                        </button>
+                                    </h2>
+                                    <div id="kt_faq_connectivity" class="accordion-collapse collapse" data-bs-parent="#kt_faq_accordion">
+                                        <div class="accordion-body">
+                                            Mobile coverage is generally good in and around Kenya's major parks and
+                                            towns, and most lodges and camps offer Wi-Fi in common areas. Coverage
+                                            thins out at more remote camps and while out on game drives, so treat a
+                                            few offline hours each day as part of the experience.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_faq_when">
+                                            When is the best time to go?
+                                        </button>
+                                    </h2>
+                                    <div id="kt_faq_when" class="accordion-collapse collapse" data-bs-parent="#kt_faq_accordion">
+                                        <div class="accordion-body">
+                                            The dry season (June-October and January-February) gives the clearest
+                                            game viewing, with the Masai Mara river crossings peaking July-October -
+                                            but it's also the busiest and most expensive time to travel. The
+                                            "green season" (March-May and November) brings lush scenery, newborn
+                                            wildlife, far fewer visitors and lower rates, at the cost of more rain.
+                                            Every tour page has a month-by-month rate table showing high vs low
+                                            season for that specific trip.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_faq_booking">
+                                            How does booking and payment work?
+                                        </button>
+                                    </h2>
+                                    <div id="kt_faq_booking" class="accordion-collapse collapse" data-bs-parent="#kt_faq_accordion">
+                                        <div class="accordion-body">
+                                            Submit a booking inquiry from any tour page and we'll follow up with a
+                                            confirmed quote and payment link - you can track its status anytime from
+                                            <a href="/my/bookings">your account</a>. See our
+                                            <a href="/cancellation-policy">Cancellation &amp; Refund Policy</a> for
+                                            what happens if plans change.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="text-muted small mt-4">
+                                Still have a question? Reach out via our <a href="/contactus">Contact Us</a> page.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

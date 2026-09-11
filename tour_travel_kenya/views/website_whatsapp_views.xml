@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Floating WhatsApp click-to-chat button, fixed on every page. The JS
+         (kt_whatsapp.js) fills in the wa.me link client-side from the
+         company phone and hides the button entirely if none is set. -->
+    <template id="kt_whatsapp_button" inherit_id="website.layout" name="Naeku WhatsApp Button" active="True">
+        <xpath expr="//div[@id='wrapwrap']" position="after">
+            <a id="kt_whatsapp_button" class="kt_whatsapp_button" target="_blank" rel="noopener"
+               t-att-data-phone="request.website.company_id.phone or ''"
+               aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp">
+                <i class="fa fa-whatsapp" aria-hidden="true"/>
+            </a>
+        </xpath>
+    </template>
+</odoo>
