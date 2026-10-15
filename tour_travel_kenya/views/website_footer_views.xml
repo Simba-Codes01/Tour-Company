@@ -9,7 +9,7 @@
             <li><a href="/faq">Travel Info &amp; FAQs</a></li>
         </xpath>
         <xpath expr="//div[@id='footer']//div[hasclass('col-lg-5')]/p" position="before">
-            <img t-attf-src="/web/image/res.company/#{website.company_id.id}/logo"
+            <img src="/tour_travel_kenya/static/src/img/seriani_logo_full.jpg"
                  alt="Seriani Tours &amp; Travel" class="kt_footer_brand_logo mb-3"/>
         </xpath>
         <xpath expr="//div[@id='footer']//div[hasclass('col-lg-5')]/p" position="replace">
