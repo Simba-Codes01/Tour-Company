@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Real homepage content for "/" - a hero carousel (locations + a few
+         packages), a company summary with quick stats, a featured-packages
+         teaser, a condensed trust-signal grid and a closing call to action.
+         website.homepage ships with an empty #wrap div by default; this
+         fills it in rather than relying on website.homepage_url to forward
+         "/" to /tours, so the root URL has its own distinct page. -->
+    <template id="kt_homepage_content" inherit_id="website.homepage" name="Seriani Homepage">
+        <xpath expr="//div[@id='wrap']" position="inside">
+            <t t-set="kt_home_featured_packages"
+               t-value="request.env['tour.package'].sudo().search([('website_published', '=', True), ('image_1920', '!=', False)], order='is_featured desc, id', limit=3)"/>
+            <t t-set="kt_home_total_packages"
+               t-value="request.env['tour.package'].sudo().search_count([('website_published', '=', True)])"/>
+            <t t-set="kt_home_total_reviews"
+               t-value="sum(request.env['tour.package'].sudo().search([('website_published', '=', True)]).mapped('rating_count'))"/>
+            <t t-set="kt_home_mara_3day"
+               t-value="request.env['tour.package'].sudo().search([('name', '=', '3-Day Masai Mara Safari')], limit=1)"/>
+
+            <div class="kt_page">
+                <!-- Hero carousel: locations + packages -->
+                <section class="kt_home_carousel">
+                    <div id="kt_home_hero_carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#kt_home_hero_carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"/>
+                            <button type="button" data-bs-target="#kt_home_hero_carousel" data-bs-slide-to="1" aria-label="Slide 2"/>
+                            <button type="button" data-bs-target="#kt_home_hero_carousel" data-bs-slide-to="2" aria-label="Slide 3"/>
+                            <button type="button" data-bs-target="#kt_home_hero_carousel" data-bs-slide-to="3" aria-label="Slide 4"/>
+                            <button type="button" data-bs-target="#kt_home_hero_carousel" data-bs-slide-to="4" aria-label="Slide 5"/>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="kt_home_slide">
+                                    <img src="/tour_travel_kenya/static/src/img/hero_safari_jeep.jpg" class="kt_home_slide_img" alt="Safari game drive in Kenya"/>
+                                    <div class="kt_home_slide_overlay"/>
+                                    <div class="container kt_home_slide_content">
+                                        <h1>Discover Kenya, One Safari at a Time</h1>
+                                        <p>Hand-picked safaris, beach escapes and treks across Kenya - booked directly, no middleman markups.</p>
+                                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                            <a href="/tours" class="btn_cta">Browse All Packages</a>
+                                            <a class="btn btn-outline-light kt_whatsapp_link" target="_blank" rel="noopener"
+                                               t-att-data-phone="request.website.company_id.phone or ''"
+                                               data-message="Hi! I'd like to know more about your Kenya safari packages.">
+                                                <i class="fa fa-whatsapp me-1"/> Chat on WhatsApp
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="kt_home_slide">
+                                    <img src="/tour_travel_kenya/static/src/img/hero_lion_safari.jpg" class="kt_home_slide_img" alt="Lion in the Masai Mara"/>
+                                    <div class="kt_home_slide_overlay"/>
+                                    <div class="container kt_home_slide_content">
+                                        <h1>Masai Mara: Home of the Big Cats</h1>
+                                        <p>Superb resident lion, leopard and cheetah year-round, and the wildebeest migration from roughly July to October.</p>
+                                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                            <a href="/tours" class="btn_cta">Explore Masai Mara Safaris</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="kt_home_slide">
+                                    <img src="/tour_travel_kenya/static/src/img/packages/tour_package_3day_masai_mara.jpg" class="kt_home_slide_img" alt="3-Day Masai Mara Safari"/>
+                                    <div class="kt_home_slide_overlay"/>
+                                    <div class="container kt_home_slide_content">
+                                        <h1>3-Day Masai Mara Safari</h1>
+                                        <p>A fast-paced long weekend escape built entirely around game drives in Kenya's flagship reserve.</p>
+                                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                            <a t-att-href="kt_home_mara_3day.website_url if kt_home_mara_3day else '/tours'" class="btn_cta">View This Safari</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="kt_home_slide">
+                                    <img src="/tour_travel_kenya/static/src/img/packages/tour_package_ultra_luxury_7day.jpg" class="kt_home_slide_img" alt="Ultra Luxury 7 Day Trip"/>
+                                    <div class="kt_home_slide_overlay"/>
+                                    <div class="container kt_home_slide_content">
+                                        <h1>Ultra Luxury 7-Day Trip</h1>
+                                        <p>Exclusive camps, private conservancies and bush flights between parks, for travelers who want the very best of Kenya.</p>
+                                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                            <a href="/tours" class="btn_cta">See Luxury Packages</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="kt_home_slide">
+                                    <img src="/tour_travel_kenya/static/src/img/packages/tour_package_7day_safari.jpg" class="kt_home_slide_img" alt="7-Day Kenya Safari"/>
+                                    <div class="kt_home_slide_overlay"/>
+                                    <div class="container kt_home_slide_content">
+                                        <h1>7-Day Kenya Safari</h1>
+                                        <p>Amboseli, Lake Nakuru and the Masai Mara in one trip - Kenya's classic parks, back to back.</p>
+                                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                            <a href="/tours" class="btn_cta">Plan a Multi-Park Trip</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#kt_home_hero_carousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"/>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#kt_home_hero_carousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"/>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Company summary -->
+                <section class="container mt-5 mb-5 kt_reveal">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-7">
+                            <h2 class="kt_why_us_heading">About Seriani Tours &amp; Travel</h2>
+                            <p class="kt_about_text">
+                                Seriani Tours &amp; Travel is a Nairobi-based safari operator built around one idea:
+                                showing you Kenya the way we would want to see it ourselves. Every itinerary on this
+                                site is planned and run in-house, from Masai Mara game drives to Diani Beach getaways,
+                                so you book directly with the people running your trip - no third-party markups, no
+                                call centre.
+                            </p>
+                            <p class="kt_about_text">
+                                Whether it is your first safari or your fifth, our team handles the logistics, the
+                                parks and the drivers, so you can focus on the wildlife. Explore. Discover. Experience.
+                            </p>
+                            <a href="/tours" class="btn_cta">View All Packages <i class="fa fa-arrow-right ms-1"/></a>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="kt_about_stats">
+                                <div>
+                                    <span class="kt_about_stat_value" t-att-data-kt-countup="kt_home_total_packages" t-out="kt_home_total_packages"/>
+                                    <span class="kt_about_stat_label">Tour Packages</span>
+                                </div>
+                                <div>
+                                    <span class="kt_about_stat_value" t-att-data-kt-countup="kt_home_total_reviews" t-out="kt_home_total_reviews"/>
+                                    <span class="kt_about_stat_label">Traveler Reviews</span>
+                                </div>
+                                <div>
+                                    <span class="kt_about_stat_value">1-12</span>
+                                    <span class="kt_about_stat_label">Group Size</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Featured packages -->
+                <section class="container mt-5 mb-5 kt_reveal" t-if="kt_home_featured_packages">
+                    <h2 class="kt_why_us_heading text-center">Popular right now</h2>
+                    <p class="kt_parks_subtitle text-center">A few favorites to get you started - browse the full list for beach, safari and family options.</p>
+                    <div class="row g-4">
+                        <t t-foreach="kt_home_featured_packages" t-as="package">
+                            <div class="col-md-6 col-xl-4">
+                                <t t-call="tour_travel_kenya.package_card_rich">
+                                    <t t-set="show_media" t-value="True"/>
+                                </t>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="text-center mt-4">
+                        <a href="/tours" class="btn_cta">View All Packages <i class="fa fa-arrow-right ms-1"/></a>
+                    </div>
+                </section>
+
+                <!-- Why choose us (condensed) -->
+                <section class="container mt-5 mb-5 kt_reveal">
+                    <h2 class="kt_why_us_heading text-center">Why travel with us</h2>
+                    <div class="kt_why_us_grid">
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-handshake-o"/></span>
+                            <h3 class="kt_why_us_title">Book direct with the operator</h3>
+                            <p class="kt_why_us_text">We design and run your safari ourselves - no middlemen marking up your trip.</p>
+                        </div>
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-users"/></span>
+                            <h3 class="kt_why_us_title">Private guide &amp; 4x4</h3>
+                            <p class="kt_why_us_text">Your own KPSGA-certified guide and pop-top Land Cruiser, every day, just for your group.</p>
+                        </div>
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-clock-o"/></span>
+                            <h3 class="kt_why_us_title">24/7 on-trip support</h3>
+                            <p class="kt_why_us_text">A real person on WhatsApp from your first transfer to your final sundowner.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Closing call to action -->
+                <section class="kt_home_final_cta kt_reveal">
+                    <div class="container text-center">
+                        <h2>Ready to start planning your Kenya safari?</h2>
+                        <p>Tell us your dates and group size - we'll build a custom quote, no obligation.</p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="/tours" class="btn_cta">Browse Packages</a>
+                            <a class="btn btn-outline-light kt_whatsapp_link" target="_blank" rel="noopener"
+                               t-att-data-phone="request.website.company_id.phone or ''"
+                               data-message="Hi! I'd like to know more about your Kenya safari packages.">
+                                <i class="fa fa-whatsapp me-1"/> Chat on WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>

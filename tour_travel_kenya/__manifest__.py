@@ -23,6 +23,7 @@ and let customers track bookings and leave reviews from the customer portal.
         'views/tour_package_date_views.xml',
         'views/tour_package_views.xml',
         'views/tour_menu_views.xml',
+        'views/website_homepage_views.xml',
         'views/website_templates_list.xml',
         'views/website_templates_page.xml',
         'views/website_menu_views.xml',
