@@ -2763,16 +2763,6 @@
         <field name="season">peak</field>
     </record>
 
-    <!-- ================= New categories: Beach Escapes, Trekking & Hiking ================= -->
-    <record id="tour_category_beach" model="tour.package.category">
-        <field name="name">Beach Escapes</field>
-        <field name="sequence">20</field>
-    </record>
-    <record id="tour_category_trekking" model="tour.package.category">
-        <field name="name">Trekking &amp; Hiking</field>
-        <field name="sequence">30</field>
-    </record>
-
     <!-- ================= 3. Tsavo East &amp; West Safari (4D/3N) ================= -->
     <record id="tour_package_tsavo" model="tour.package">
         <field name="name">Tsavo East &amp; West Safari</field>
