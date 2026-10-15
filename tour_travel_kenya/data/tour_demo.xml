@@ -7,6 +7,7 @@
 
     <!-- 7-Day / 6-Night Kenya Safari: Nairobi - Amboseli - Lake Nakuru - Masai Mara -->
     <record id="tour_package_7day_safari" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_7day_safari.jpg"/>
         <field name="name">7-Day Kenya Safari: Amboseli, Lake Nakuru &amp; Masai Mara</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Amboseli, Lake Nakuru &amp; Masai Mara, Kenya</field>
@@ -275,6 +276,7 @@
 
     <!-- 5-Day / 4-Night Kenya Safari: Nairobi - Lake Nakuru - Masai Mara -->
     <record id="tour_package_5day_safari" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_5day_safari.jpg"/>
         <field name="name">5-Day Kenya Safari: Lake Nakuru &amp; Masai Mara</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Lake Nakuru &amp; Masai Mara, Kenya</field>
@@ -509,6 +511,7 @@
 
     <!-- 6-Day / 5-Night Kenya Safari: Nairobi - Aberdare - Lake Nakuru - Masai Mara -->
     <record id="tour_package_6day_safari" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_6day_safari.jpg"/>
         <field name="name">6-Day Kenya Safari: Aberdare, Lake Nakuru &amp; Masai Mara</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Aberdare, Lake Nakuru &amp; Masai Mara, Kenya</field>
@@ -764,6 +767,7 @@
 
     <!-- 8-Day / 7-Night Kenya Safari: Nairobi - Samburu - Mount Kenya - Lake Nakuru - Masai Mara -->
     <record id="tour_package_8day_safari" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_8day_safari.jpg"/>
         <field name="name">8-Day Kenya Safari: Samburu, Mount Kenya, Lake Nakuru &amp; Masai Mara</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Samburu, Mount Kenya, Lake Nakuru &amp; Masai Mara, Kenya</field>
@@ -1053,6 +1057,7 @@
 
     <!-- 9-Day / 8-Night Kenya Safari: Nairobi - Aberdare - Samburu - Ol Pejeta - Lake Nakuru - Masai Mara -->
     <record id="tour_package_9day_safari" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_9day_safari.jpg"/>
         <field name="name">9-Day Kenya Safari: Aberdare, Samburu, Ol Pejeta, Lake Nakuru &amp; Masai Mara</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Aberdare, Samburu, Ol Pejeta, Lake Nakuru &amp; Masai Mara, Kenya</field>
@@ -1363,6 +1368,7 @@
 
     <!-- 5-Day / 4-Night Kenya Safari: Nairobi - Ol Pejeta - Samburu -->
     <record id="tour_package_5day_olpejeta_samburu" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_5day_olpejeta_samburu.jpg"/>
         <field name="name">5-Day Kenya Safari: Ol Pejeta &amp; Samburu</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Ol Pejeta &amp; Samburu, Kenya</field>
@@ -1598,6 +1604,7 @@
 
     <!-- 10-Day / 9-Night Kenya Safari: Nairobi - Amboseli - Ol Pejeta - Samburu - Lake Nakuru - Masai Mara -->
     <record id="tour_package_10day_safari" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_10day_safari.jpg"/>
         <field name="name">10-Day Kenya Safari: Amboseli, Ol Pejeta, Samburu, Lake Nakuru &amp; Masai Mara</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Amboseli, Ol Pejeta, Samburu, Lake Nakuru &amp; Masai Mara, Kenya</field>
@@ -1912,6 +1919,7 @@
 
     <!-- 7-Day / 6-Night Ultra Luxury Kenya Safari: Nairobi - Amboseli - Lake Naivasha - Lake Nakuru - Masai Mara -->
     <record id="tour_package_ultra_luxury_7day" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_ultra_luxury_7day.jpg"/>
         <field name="name">Ultra Luxury 7 Day Trip</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Amboseli, Lake Naivasha, Lake Nakuru &amp; Masai Mara, Kenya</field>
@@ -2172,6 +2180,7 @@
 
     <!-- 3-Day / 2-Night Kenya Safari: Nairobi - Amboseli -->
     <record id="tour_package_3day_amboseli" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_3day_amboseli.jpg"/>
         <field name="name">3-Day Amboseli Safari</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi &amp; Amboseli, Kenya</field>
@@ -2369,6 +2378,7 @@
 
     <!-- 3-Day / 2-Night Kenya Safari: Nairobi - Samburu (Reteti Elephant Sanctuary) -->
     <record id="tour_package_3day_samburu" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_3day_samburu.jpg"/>
         <field name="name">3-Day Samburu Safari</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi &amp; Samburu, Kenya</field>
@@ -2567,6 +2577,7 @@
 
     <!-- 3-Day / 2-Night Kenya Safari: Nairobi - Masai Mara -->
     <record id="tour_package_3day_masai_mara" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_3day_masai_mara.jpg"/>
         <field name="name">3-Day Masai Mara Safari</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi &amp; Masai Mara, Kenya</field>
