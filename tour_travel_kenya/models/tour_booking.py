@@ -34,11 +34,18 @@ class TourBooking(models.Model):
     phone = fields.Char(compute='_compute_phone', readonly=False, store=True)
     arrival_date = fields.Date(string='Arrival Date', tracking=True)
     adults_count = fields.Integer(string='No. of Adults', default=2, required=True)
-    children_count = fields.Integer(string='No. of Children', default=0, required=True)
+    children_count = fields.Integer(string='No. of Children', default=0, required=True, help="Ages 4-12.")
+    infants_count = fields.Integer(string='No. of Infants', default=0, required=True, help="Under 4 years.")
     rooms_count = fields.Integer(string='No. of Rooms', default=1, required=True)
     traveler_count = fields.Integer(
         string='Travelers', default=1, required=True,
         compute='_compute_traveler_count', readonly=False, store=True, precompute=True)
+    travel_party = fields.Selection([
+        ('couple', 'Couple'),
+        ('family', 'Family'),
+        ('friends', 'Friends'),
+        ('solo', 'Solo'),
+    ], string='Traveling As', help="Who the lead traveler is coming with, captured from the website inquiry form.")
     special_requests = fields.Text(string='Additional Notes / Message')
 
     active = fields.Boolean(default=True)

@@ -35,8 +35,13 @@
                             <field name="duration_days"/>
                             <field name="difficulty_level"/>
                             <field name="best_season"/>
+                            <field name="meal_plan" placeholder="e.g. Full Board"/>
+                            <field name="child_free_age"/>
+                            <field name="child_discount_age"/>
+                            <field name="adult_age"/>
                         </group>
                         <group>
+                            <field name="is_featured"/>
                             <field name="user_id" widget="many2one_avatar_user"/>
                             <field name="company_id" groups="base.group_multi_company"/>
                             <label for="seats_limited" string="Limit Travelers"/>
@@ -52,7 +57,65 @@
                         <page string="Teaser" name="description">
                             <field name="description"/>
                         </page>
-                        <page string="Itinerary" name="itinerary">
+                        <page string="Itinerary Days" name="itinerary_days">
+                            <p class="text-muted">
+                                Structured day-by-day itinerary shown as an icon accordion on the public
+                                page. When set, it takes priority over the plain-text Itinerary below.
+                            </p>
+                            <field name="itinerary_day_ids" context="{'default_package_id': id}">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="day_label" placeholder="e.g. Day 1"/>
+                                    <field name="icon"/>
+                                    <field name="title"/>
+                                    <field name="destination"/>
+                                    <field name="travel_mode"/>
+                                    <field name="accommodation"/>
+                                    <field name="meals"/>
+                                </list>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="day_label"/>
+                                            <field name="title"/>
+                                            <field name="icon"/>
+                                            <field name="destination"/>
+                                            <field name="travel_mode"/>
+                                            <field name="meals"/>
+                                        </group>
+                                        <group>
+                                            <field name="accommodation"/>
+                                            <field name="accommodation_rating"/>
+                                            <field name="accommodation_tagline" placeholder="e.g. Bush Camp - Best Value"/>
+                                        </group>
+                                    </group>
+                                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                                    <field name="wildlife" placeholder="e.g. African Elephant, Lion, Plains Zebra"/>
+                                    <field name="activities" placeholder="e.g. Game Drive, Sundowner, Bush Breakfast"/>
+                                    <field name="description"/>
+                                    <field name="note" placeholder="Optional callout, e.g. an alternative for guests who'd rather skip an activity"/>
+                                    <separator string="Accommodation Gallery"/>
+                                    <field name="accommodation_image_ids" context="{'default_day_id': id}">
+                                        <list editable="bottom">
+                                            <field name="sequence" widget="handle"/>
+                                            <field name="image_1920" widget="image" options="{'size': [60, 60]}"/>
+                                            <field name="name"/>
+                                        </list>
+                                    </field>
+                                    <separator string="Optional Extras"/>
+                                    <field name="extra_ids" context="{'default_day_id': id}">
+                                        <list editable="bottom">
+                                            <field name="sequence" widget="handle"/>
+                                            <field name="name" placeholder="e.g. Hot Air Balloon Safari"/>
+                                            <field name="price_adult" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                            <field name="price_child" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                            <field name="currency_id" column_invisible="True"/>
+                                        </list>
+                                    </field>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Itinerary (Legacy Text / PDF)" name="itinerary">
                             <field name="itinerary"/>
                         </page>
                         <page string="Destination Overview" name="destination_overview">
@@ -101,6 +164,31 @@
                                 </list>
                             </field>
                         </page>
+                        <page string="Seasonal Group Pricing" name="season_rates">
+                            <p class="text-muted">
+                                Per-person pricing by named travel season and group size (2-6 people
+                                sharing), shown as the "Choose your travel season" quote table on the
+                                public page. Groups of 7+ show a "Get Quote" button instead of a price.
+                            </p>
+                            <field name="season_rate_ids" context="{'default_package_id': id}">
+                                <list editable="bottom">
+                                    <field name="season_label"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="price_2pax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="price_3pax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="price_4pax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="price_5pax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="price_6pax" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <field name="price_2pax_child" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show"/>
+                                    <field name="price_3pax_child" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show"/>
+                                    <field name="price_4pax_child" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show"/>
+                                    <field name="price_5pax_child" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show"/>
+                                    <field name="price_6pax_child" widget="monetary" options="{'currency_field': 'currency_id'}" optional="show"/>
+                                    <field name="currency_id" column_invisible="True"/>
+                                </list>
+                            </field>
+                        </page>
                         <page string="Departure Dates" name="dates">
                             <field name="date_ids" context="{'default_package_id': id}"/>
                         </page>
@@ -130,6 +218,7 @@
                 <field name="destination"/>
                 <field name="duration_days"/>
                 <field name="booking_count"/>
+                <field name="is_featured" widget="boolean_toggle" optional="show"/>
                 <field name="website_published" widget="boolean_toggle"/>
             </list>
         </field>

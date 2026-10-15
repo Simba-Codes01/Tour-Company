@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Reusable rich package card: title, checkmarked highlights, a quick-facts meta row
+         and a price + WhatsApp + View Safari footer. Text-only by default; t-call with a
+         `package` value set, and additionally set `show_media` to True to also render a
+         photo area on top (a real cover image once one is set on the package, else the
+         site's standard "photo coming soon" placeholder - never borrowed imagery from
+         another section, e.g. the Maasai gallery or homepage hero). -->
+    <template id="package_card_rich" name="Package Card (Rich)">
+        <div t-attf-class="kt_rich_card #{'' if show_media else 'kt_rich_card_no_media'}">
+            <div t-if="show_media" class="kt_rich_card_media">
+                <img t-if="package.image_1920" t-attf-src="/web/image/tour.package/#{package.id}/image_1920" alt="Package cover"/>
+                <div t-else="" class="kt_gallery_placeholder_tile kt_rich_card_placeholder">
+                    <i class="fa fa-camera"/>
+                    <span>Photo coming soon</span>
+                </div>
+                <div class="kt_rich_card_days_badge">
+                    <span t-out="package.duration_days"/>
+                    <small>Days</small>
+                </div>
+            </div>
+            <div class="kt_rich_card_body">
+                <a t-att-href="package.website_url" class="kt_rich_card_title"><t t-out="package.name"/></a>
+                <ul t-if="package.tag_ids" class="kt_rich_card_highlights">
+                    <t t-foreach="package.tag_ids[:2]" t-as="tag">
+                        <li><i class="fa fa-check-circle"/> <t t-out="tag.name"/></li>
+                    </t>
+                </ul>
+                <div class="kt_rich_card_meta">
+                    <span><i class="fa fa-calendar"/> <t t-out="package.duration_days"/>D/<t t-out="package.duration_days - 1"/>N</span>
+                    <span><i class="fa fa-users"/> 1-<t t-out="package.seats_max"/></span>
+                    <span t-if="package.meal_plan"><i class="fa fa-cutlery"/> <t t-out="package.meal_plan"/></span>
+                </div>
+                <hr class="kt_rich_card_divider"/>
+                <div class="kt_rich_card_footer">
+                    <div>
+                        <div class="kt_rich_card_price_label">From</div>
+                        <div class="kt_rich_card_price">
+                            <t t-out="package.get_lowest_price_display()"/> <small>/person</small>
+                        </div>
+                    </div>
+                    <div class="kt_rich_card_actions">
+                        <a t-attf-class="kt_rich_whatsapp_btn kt_whatsapp_link"
+                           target="_blank" rel="noopener" onclick="event.stopPropagation();"
+                           t-att-data-phone="request.website.company_id.phone or ''"
+                           t-attf-data-message="Hi! I'd like to know more about the #{package.name}."
+                           aria-label="Message us on WhatsApp about this safari">
+                            <i class="fa fa-whatsapp"/>
+                        </a>
+                        <a t-att-href="package.website_url" class="kt_rich_view_btn">
+                            View Safari <i class="fa fa-arrow-right ms-1"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <template id="tours_index" name="Tour Packages">
         <t t-call="website.layout">
             <t t-set="head">
@@ -39,33 +95,6 @@
                     </div>
                 </section>
 
-                <div class="container">
-                    <div class="kt_search_card">
-                        <form method="get" action="/tours" class="row g-3 align-items-end">
-                            <div class="col-md-5">
-                                <label for="kt_search_input">What are you looking for?</label>
-                                <input id="kt_search_input" type="text" name="search" class="form-control form-control-lg"
-                                       placeholder="e.g. Masai Mara, beach, trekking..." t-att-value="search"/>
-                            </div>
-                            <div class="col-md-4">
-                                <label for="kt_category_select">Category</label>
-                                <select id="kt_category_select" name="category" class="form-select form-select-lg">
-                                    <option value="">All Categories</option>
-                                    <t t-foreach="categories" t-as="category">
-                                        <option t-att-value="category.id" t-att-selected="current_category == category.id">
-                                            <t t-out="category.name"/>
-                                        </option>
-                                    </t>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="submit" class="btn btn-kt-primary btn-lg w-100">
-                                    <i class="fa fa-search me-1"/> Show Tours
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
 
                 <div class="container mt-5 mb-5">
                     <div class="d-flex flex-wrap gap-2 mb-4">
@@ -83,47 +112,394 @@
                     <div class="row g-4">
                         <t t-foreach="packages" t-as="package">
                             <div class="col-md-6 col-xl-4 kt_reveal" t-attf-style="transition-delay: #{(package_index % 6) * 0.08}s">
-                                <a t-att-href="package.website_url" class="kt_package_card">
-                                    <div class="kt_card_img_wrap">
-                                        <img t-if="package.image_1920" t-attf-src="/web/image/tour.package/#{package.id}/image_1920"
-                                             class="kt_card_img" alt="Package cover"/>
-                                        <button type="button" t-attf-class="kt_wishlist_btn kt_wishlist_btn_card #{package.id in wishlisted_ids and 'kt_wishlist_active' or ''}"
-                                                t-att-data-package-id="package.id" aria-label="Save this tour" title="Save this tour">
-                                            <i class="fa fa-heart"/>
-                                        </button>
-                                    </div>
-                                    <div class="kt_card_body">
-                                        <span class="kt_card_tag"><t t-out="package.category_id.name"/></span>
-                                        <div class="kt_card_title"><t t-out="package.name"/></div>
-                                        <div class="kt_card_destination">
-                                            <i class="fa fa-map-marker"/> <t t-out="package.destination"/>
-                                            &#183; <t t-out="package.duration_days"/> day(s)
-                                        </div>
-                                        <div class="kt_card_rating">
-                                            <t t-if="package.rating_count">
-                                                <t t-foreach="range(5)" t-as="i">
-                                                    <i t-attf-class="fa fa-star #{'' if i &lt; round(package.rating_avg) else 'text-muted opacity-25'}"/>
-                                                </t>
-                                                <span class="kt_review_count"><t t-out="'%.1f' % package.rating_avg"/> (<t t-out="package.rating_count"/>)</span>
-                                            </t>
-                                            <t t-else="">
-                                                <span class="kt_review_count">No reviews yet</span>
-                                            </t>
-                                        </div>
-                                        <div class="kt_card_footer">
-                                            <div>
-                                                <div class="kt_card_price_label">From</div>
-                                                <div class="kt_card_price" t-out="package.get_lowest_price_display()"/>
-                                            </div>
-                                            <span class="kt_category_pill">View Details</span>
-                                        </div>
-                                    </div>
-                                </a>
+                                <t t-call="tour_travel_kenya.package_card_rich">
+                                    <t t-set="show_media" t-value="True"/>
+                                </t>
                             </div>
                         </t>
                     </div>
                     <div class="mt-4" t-if="pager">
                         <t t-call="website.pager"/>
+                    </div>
+                </div>
+
+                <div class="container mt-5 mb-5 kt_reveal">
+                    <h2 class="kt_why_us_heading text-center">Kenya's signature safari parks</h2>
+                    <p class="kt_parks_subtitle text-center">The parks we combine into your package - pick one to see what makes it special.</p>
+
+                    <div class="kt_parks_layout" id="kt_parks_selector">
+                        <div class="kt_parks_list">
+                            <button type="button" class="kt_parks_list_item active" data-park="mara">
+                                <span>
+                                    <span class="kt_parks_list_name">Masai Mara</span>
+                                    <span class="kt_parks_list_sub"><i class="fa fa-map-marker"/> Big cats &amp; migration</span>
+                                </span>
+                                <i class="fa fa-chevron-right"/>
+                            </button>
+                            <button type="button" class="kt_parks_list_item" data-park="amboseli">
+                                <span>
+                                    <span class="kt_parks_list_name">Amboseli</span>
+                                    <span class="kt_parks_list_sub"><i class="fa fa-map-marker"/> Elephants &amp; Kilimanjaro</span>
+                                </span>
+                                <i class="fa fa-chevron-down"/>
+                            </button>
+                            <button type="button" class="kt_parks_list_item" data-park="nakuru">
+                                <span>
+                                    <span class="kt_parks_list_name">Lake Nakuru</span>
+                                    <span class="kt_parks_list_sub"><i class="fa fa-map-marker"/> Rhino &amp; flamingos</span>
+                                </span>
+                                <i class="fa fa-chevron-down"/>
+                            </button>
+                            <button type="button" class="kt_parks_list_item" data-park="samburu">
+                                <span>
+                                    <span class="kt_parks_list_name">Samburu</span>
+                                    <span class="kt_parks_list_sub"><i class="fa fa-map-marker"/> The wild north</span>
+                                </span>
+                                <i class="fa fa-chevron-down"/>
+                            </button>
+                        </div>
+
+                        <div class="kt_parks_detail_wrap">
+                            <div class="kt_parks_detail" data-park-detail="mara">
+                                <div class="kt_parks_detail_header">
+                                    <h3>Masai Mara</h3>
+                                    <span class="kt_parks_tag">Big Cats &amp; Migration</span>
+                                </div>
+                                <p class="kt_parks_desc">Kenya's flagship reserve - superb resident lion, leopard and cheetah year-round, and the wildebeest migration from roughly July to October.</p>
+                                <div class="kt_parks_metrics">
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Big-cat sightings</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Migration (Jul-Oct)</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Ease of access</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Scenery</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                </div>
+                                <div class="kt_parks_highlights">
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Lion &amp; cheetah</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Great Migration</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Balloon safaris</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Conservancies</span>
+                                </div>
+                            </div>
+
+                            <div class="kt_parks_detail" data-park-detail="amboseli" hidden="hidden">
+                                <div class="kt_parks_detail_header">
+                                    <h3>Amboseli</h3>
+                                    <span class="kt_parks_tag">Elephants &amp; Kilimanjaro</span>
+                                </div>
+                                <p class="kt_parks_desc">Famous for big-tusked elephant herds set against Mount Kilimanjaro - one of Africa's most iconic photographic backdrops.</p>
+                                <div class="kt_parks_metrics">
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Elephant herds</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Photography</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Open-plain views</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Crowds (fewer better)</span><span>4/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 80%;"/></div>
+                                    </div>
+                                </div>
+                                <div class="kt_parks_highlights">
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Giant tuskers</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Kilimanjaro views</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Great for families</span>
+                                </div>
+                            </div>
+
+                            <div class="kt_parks_detail" data-park-detail="nakuru" hidden="hidden">
+                                <div class="kt_parks_detail_header">
+                                    <h3>Lake Nakuru</h3>
+                                    <span class="kt_parks_tag">Rhino &amp; Flamingos</span>
+                                </div>
+                                <p class="kt_parks_desc">A compact, wildlife-dense Rift Valley park - black and white rhino, tree-climbing lions and flamingo-fringed shores.</p>
+                                <div class="kt_parks_metrics">
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Rhino sightings</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Birdlife</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Short drives</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Scenery</span><span>4/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 80%;"/></div>
+                                    </div>
+                                </div>
+                                <div class="kt_parks_highlights">
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Rhino sanctuary</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Flamingos</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Leopards</span>
+                                </div>
+                            </div>
+
+                            <div class="kt_parks_detail" data-park-detail="samburu" hidden="hidden">
+                                <div class="kt_parks_detail_header">
+                                    <h3>Samburu</h3>
+                                    <span class="kt_parks_tag">The Wild North</span>
+                                </div>
+                                <p class="kt_parks_desc">Rugged, arid and uncrowded - home to the "Samburu Special Five" you won't see in the southern parks.</p>
+                                <div class="kt_parks_metrics">
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Unique species</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Wilderness feel</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Crowds (fewer better)</span><span>5/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 100%;"/></div>
+                                    </div>
+                                    <div class="kt_parks_metric">
+                                        <div class="kt_parks_metric_row"><span>Big cats</span><span>4/5</span></div>
+                                        <div class="kt_parks_metric_bar"><div class="kt_parks_metric_fill" style="width: 80%;"/></div>
+                                    </div>
+                                </div>
+                                <div class="kt_parks_highlights">
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Grevy's zebra</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Reticulated giraffe</span>
+                                    <span class="kt_parks_highlight_pill"><i class="fa fa-star"/> Gerenuk</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        <![CDATA[
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var selector = document.getElementById('kt_parks_selector');
+                            if (!selector) { return; }
+                            var buttons = selector.querySelectorAll('.kt_parks_list_item');
+                            var panels = selector.querySelectorAll('.kt_parks_detail');
+                            buttons.forEach(function (btn) {
+                                btn.addEventListener('click', function () {
+                                    var park = btn.dataset.park;
+                                    buttons.forEach(function (b) {
+                                        var active = b === btn;
+                                        b.classList.toggle('active', active);
+                                        b.querySelector('.fa-chevron-right, .fa-chevron-down').className =
+                                            'fa ' + (active ? 'fa-chevron-right' : 'fa-chevron-down');
+                                    });
+                                    panels.forEach(function (p) {
+                                        p.hidden = p.dataset.parkDetail !== park;
+                                    });
+                                });
+                            });
+                        });
+                        ]]>
+                    </script>
+                </div>
+
+                <div class="container mt-5 mb-5 kt_reveal">
+                    <div class="kt_season_header">
+                        <div class="kt_season_header_left">
+                            <span class="kt_season_header_icon"><i class="fa fa-calendar"/></span>
+                            <h2 class="kt_why_us_heading mb-0">Best Time to Go on Safari</h2>
+                        </div>
+                        <span class="kt_season_open_badge"><i class="fa fa-check-circle"/> Open All Year Round</span>
+                    </div>
+                    <p class="kt_parks_subtitle" style="max-width: 60rem;">
+                        As a Kenya-based operator, Naeku Tours &amp; Safaris runs trips every month of the year -
+                        there's no bad time to visit, only different seasons. Kenya's parks deliver Big Five game
+                        drives year-round, with the Great Migration crossing the Masai Mara from around July to
+                        October. Tap any month below to see what's happening.
+                    </p>
+
+                    <div class="kt_season_cards mb-4">
+                        <div class="kt_season_card_v2 kt_season_peak">
+                            <div><span class="kt_season_dot"/><span class="kt_season_range">JUN - OCT</span></div>
+                            <h4>Dry / Peak Season</h4>
+                            <p>Best wildlife viewing - animals gather at waterholes and the Great Migration crosses the Mara. Book early; this is high season.</p>
+                        </div>
+                        <div class="kt_season_card_v2 kt_season_green">
+                            <div><span class="kt_season_dot"/><span class="kt_season_range">NOV - FEB</span></div>
+                            <h4>Green Season</h4>
+                            <p>Lush landscapes, newborn animals, fewer crowds and lower rates. Excellent for birding and calving across the Mara and Amboseli.</p>
+                        </div>
+                        <div class="kt_season_card_v2 kt_season_rainy">
+                            <div><span class="kt_season_dot"/><span class="kt_season_range">MAR - MAY</span></div>
+                            <h4>Low / Rainy Season</h4>
+                            <p>Long rains bring the best value and quietest parks. Some remote camps close; ideal for budget-savvy travelers.</p>
+                        </div>
+                    </div>
+
+                    <div class="kt_month_calendar" id="kt_month_calendar">
+                        <div class="kt_month_calendar_header">
+                            <span class="kt_month_calendar_label">Month-by-Month Safari Calendar</span>
+                            <div class="kt_month_legend">
+                                <span><span class="kt_season_dot kt_season_peak"/> Peak</span>
+                                <span><span class="kt_season_dot kt_season_green"/> Green</span>
+                                <span><span class="kt_season_dot kt_season_rainy"/> Rainy</span>
+                            </div>
+                        </div>
+
+                        <div class="kt_month_pills">
+                            <t t-foreach="safari_months" t-as="m">
+                                <button type="button"
+                                        t-attf-class="kt_month_pill kt_season_#{m['season']} #{'active' if m['num'] == current_month else ''}"
+                                        t-att-data-month="m['num']">
+                                    <span class="kt_month_now" t-if="m['num'] == current_month">NOW</span>
+                                    <span class="kt_month_abbr" t-out="m['abbr']"/>
+                                    <span class="kt_season_dot"/>
+                                    <span class="kt_month_trips"><t t-out="m['trips']"/> trips</span>
+                                </button>
+                            </t>
+                        </div>
+
+                        <div class="kt_month_detail_wrap">
+                            <t t-foreach="safari_months" t-as="m">
+                                <div t-attf-class="kt_month_detail kt_season_#{m['season']}"
+                                     t-att-data-month-detail="m['num']"
+                                     t-att-hidden="None if m['num'] == current_month else 'hidden'">
+                                    <div class="kt_month_detail_top">
+                                        <div class="kt_month_detail_badge_wrap">
+                                            <span class="kt_month_detail_badge" t-out="m['abbr']"/>
+                                            <div>
+                                                <h4 t-out="m['name']"/>
+                                                <span class="kt_month_detail_season" t-out="m['season_label']"/>
+                                            </div>
+                                        </div>
+                                        <div class="kt_month_facts">
+                                            <span class="kt_month_fact"><i class="fa fa-calendar"/> <t t-out="m['weather']"/></span>
+                                            <span class="kt_month_fact kt_month_fact_warn" t-out="m['crowds']"/>
+                                            <span class="kt_month_fact kt_month_fact_good"><i class="fa fa-star"/> <t t-out="m['highlight']"/></span>
+                                        </div>
+                                    </div>
+                                    <p class="kt_month_desc" t-out="m['desc']"/>
+                                    <div class="kt_month_parks">
+                                        <i class="fa fa-map-marker"/> <strong>Top parks:</strong> <t t-out="m['parks']"/>
+                                    </div>
+                                    <div class="kt_month_detail_footer">
+                                        <div class="kt_month_nav">
+                                            <button type="button" class="kt_month_nav_btn" data-nav="prev" aria-label="Previous month"><i class="fa fa-chevron-left"/></button>
+                                            <button type="button" class="kt_month_nav_btn" data-nav="next" aria-label="Next month"><i class="fa fa-chevron-right"/></button>
+                                        </div>
+                                        <a href="/tours" class="kt_month_cta">
+                                            View <t t-out="m['trips']"/> <t t-out="m['abbr']"/> safaris <i class="fa fa-arrow-right ms-1"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                    <script>
+                        <![CDATA[
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var calendar = document.getElementById('kt_month_calendar');
+                            if (!calendar) { return; }
+                            var pills = calendar.querySelectorAll('.kt_month_pill');
+                            var panels = calendar.querySelectorAll('.kt_month_detail');
+
+                            function selectMonth(month) {
+                                pills.forEach(function (p) {
+                                    p.classList.toggle('active', String(month) === p.dataset.month);
+                                });
+                                panels.forEach(function (p) {
+                                    p.hidden = String(month) !== p.dataset.monthDetail;
+                                });
+                            }
+
+                            pills.forEach(function (pill) {
+                                pill.addEventListener('click', function () {
+                                    selectMonth(pill.dataset.month);
+                                });
+                            });
+
+                            calendar.querySelectorAll('.kt_month_nav_btn').forEach(function (btn) {
+                                btn.addEventListener('click', function () {
+                                    var current = calendar.querySelector('.kt_month_detail:not([hidden])');
+                                    if (!current) { return; }
+                                    var month = parseInt(current.dataset.monthDetail, 10);
+                                    var delta = btn.dataset.nav === 'next' ? 1 : -1;
+                                    var next = ((month - 1 + delta + 12) % 12) + 1;
+                                    selectMonth(next);
+                                });
+                            });
+                        });
+                        ]]>
+                    </script>
+                </div>
+
+                <div class="container mt-5 mb-5 kt_reveal">
+                    <h2 class="kt_why_us_heading text-center">Choose your safari style</h2>
+                    <p class="kt_parks_subtitle text-center">From comfortable lodges to exclusive private camps - every package can be tailored to your budget.</p>
+                    <div class="kt_tier_grid">
+                        <div class="kt_tier_card">
+                            <span class="kt_tier_icon"><i class="fa fa-suitcase"/></span>
+                            <h3 class="kt_tier_name">Mid-range</h3>
+                            <div class="kt_tier_price">$250-$450 <span>/ day</span></div>
+                            <p class="kt_tier_text">Comfortable lodges and tented camps, private guide and 4x4 throughout.</p>
+                        </div>
+                        <div class="kt_tier_card">
+                            <span class="kt_tier_icon"><i class="fa fa-diamond"/></span>
+                            <h3 class="kt_tier_name">Luxury</h3>
+                            <div class="kt_tier_price">$500-$900 <span>/ day</span></div>
+                            <p class="kt_tier_text">Premium lodges and classic camps in prime locations, elevated guiding.</p>
+                        </div>
+                        <div class="kt_tier_card">
+                            <span class="kt_tier_icon"><i class="fa fa-trophy"/></span>
+                            <h3 class="kt_tier_name">Ultra-luxury</h3>
+                            <div class="kt_tier_price">$1,000+ <span>/ day</span></div>
+                            <p class="kt_tier_text">Exclusive camps, private conservancies and bush flights between parks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mt-5 mb-5 kt_reveal">
+                    <h2 class="kt_why_us_heading text-center">Why book your Kenya safari with us</h2>
+                    <div class="kt_why_us_grid">
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-handshake-o"/></span>
+                            <h3 class="kt_why_us_title">Book direct with the operator</h3>
+                            <p class="kt_why_us_text">We design and run your safari ourselves - no middlemen marking up your trip.</p>
+                        </div>
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-users"/></span>
+                            <h3 class="kt_why_us_title">Private guide &amp; 4x4</h3>
+                            <p class="kt_why_us_text">Your own KPSGA-certified guide and pop-top Land Cruiser, every day, just for your group.</p>
+                        </div>
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-money"/></span>
+                            <h3 class="kt_why_us_title">Honest, itemised pricing</h3>
+                            <p class="kt_why_us_text">Clear quotes with park fees, lodges and transport spelled out - no surprise extras.</p>
+                        </div>
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-shield"/></span>
+                            <h3 class="kt_why_us_title">KATO bonded &amp; TRA licensed</h3>
+                            <p class="kt_why_us_text">Your money is financially protected and we operate fully licensed in Kenya.</p>
+                        </div>
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-clock-o"/></span>
+                            <h3 class="kt_why_us_title">24/7 on-trip support</h3>
+                            <p class="kt_why_us_text">A real person on WhatsApp from your first transfer to your final sundowner.</p>
+                        </div>
+                        <div class="kt_why_us_card">
+                            <span class="kt_why_us_icon"><i class="fa fa-heart-o"/></span>
+                            <h3 class="kt_why_us_title">Tailor-made, not off-the-shelf</h3>
+                            <p class="kt_why_us_text">Every itinerary is built around your pace and budget.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -230,16 +606,9 @@
                     <div class="row g-4">
                         <t t-foreach="packages" t-as="package">
                             <div class="col-md-6 kt_reveal" t-attf-style="transition-delay: #{(package_index % 6) * 0.08}s">
-                                <div class="kt_package_card" style="cursor: default;">
-                                    <div class="kt_card_body">
-                                        <span class="kt_card_tag"><i class="fa fa-map-marker"/> <t t-out="package.destination"/></span>
-                                        <div class="kt_card_title"><t t-out="package.name"/></div>
-                                        <div t-field="package.destination_summary"/>
-                                        <a t-att-href="package.website_url" class="kt_category_pill">
-                                            View Packages Here
-                                        </a>
-                                    </div>
-                                </div>
+                                <t t-call="tour_travel_kenya.package_card_rich">
+                                    <t t-set="show_media" t-value="False"/>
+                                </t>
                             </div>
                         </t>
                     </div>

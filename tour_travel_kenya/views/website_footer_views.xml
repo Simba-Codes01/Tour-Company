@@ -8,17 +8,27 @@
         <xpath expr="//div[@id='footer']//div[hasclass('col-lg-2')]//li[a[@href='/contactus']]" position="before">
             <li><a href="/faq">Travel Info &amp; FAQs</a></li>
         </xpath>
+        <xpath expr="//div[@id='footer']//div[hasclass('col-lg-5')]/p" position="before">
+            <img t-attf-src="/web/image/res.company/#{website.company_id.id}/logo"
+                 alt="Seriani Tours &amp; Travel" class="kt_footer_brand_logo mb-3"/>
+        </xpath>
         <xpath expr="//div[@id='footer']//div[hasclass('col-lg-5')]/p" position="replace">
             <p>
-                Naeku Tours &amp; Safaris is a Nairobi-based safari operator built around one idea:
+                Seriani Tours &amp; Travel is a Nairobi-based safari operator built around one idea:
                 showing you Kenya the way we would want to see it ourselves. Every itinerary on this
                 site is planned and run in-house, from Masai Mara game drives to Diani Beach getaways,
                 so you book directly with the people running your trip - no third-party markups, no
                 call centre.
                 <br/><br/>
                 Whether it is your first safari or your fifth, our team handles the logistics, the
-                parks and the drivers, so you can focus on the wildlife. Awaken to the wild.
+                parks and the drivers, so you can focus on the wildlife. Explore. Discover. Experience.
             </p>
+        </xpath>
+        <xpath expr="//div[@id='footer']//a[@href='mailto:info@yourcompany.example.com']" position="replace">
+            <a href="mailto:serianitours@gmail.com">serianitours@gmail.com</a>
+        </xpath>
+        <xpath expr="//div[@id='footer']//a[contains(@href, 'tel:')]" position="replace">
+            <a href="tel:+254112268924"><span class="o_force_ltr">0112 268 924</span></a>
         </xpath>
         <xpath expr="//div[@id='footer']//div[hasclass('s_social_media')]" position="replace">
             <div class="s_social_media text-start o_not_editable" data-snippet="s_social_media" data-name="Social Media" contenteditable="false">

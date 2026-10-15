@@ -8,8 +8,12 @@ access_tour_package_manager,tour.package.manager,model_tour_package,group_tour_m
 access_tour_package_public,tour.package.public,model_tour_package,base.group_public,1,0,0,0
 access_tour_package_portal,tour.package.portal,model_tour_package,base.group_portal,1,0,0,0
 access_tour_package_image_user,tour.package.image.user,model_tour_package_image,group_tour_user,1,1,1,1
+access_tour_package_itinerary_day_user,tour.package.itinerary.day.user,model_tour_package_itinerary_day,group_tour_user,1,1,1,1
+access_tour_package_itinerary_accommodation_image_user,tour.package.itinerary.accommodation.image.user,model_tour_package_itinerary_accommodation_image,group_tour_user,1,1,1,1
+access_tour_package_itinerary_extra_user,tour.package.itinerary.extra.user,model_tour_package_itinerary_extra,group_tour_user,1,1,1,1
 access_tour_package_waypoint_user,tour.package.waypoint.user,model_tour_package_waypoint,group_tour_user,1,1,1,1
 access_tour_package_month_rate_user,tour.package.month.rate.user,model_tour_package_month_rate,group_tour_user,1,1,1,1
+access_tour_package_season_rate_user,tour.package.season.rate.user,model_tour_package_season_rate,group_tour_user,1,1,1,1
 access_tour_package_date_user,tour.package.date.user,model_tour_package_date,group_tour_user,1,1,1,0
 access_tour_package_date_manager,tour.package.date.manager,model_tour_package_date,group_tour_manager,1,1,1,1
 access_tour_package_date_public,tour.package.date.public,model_tour_package_date,base.group_public,1,0,0,0

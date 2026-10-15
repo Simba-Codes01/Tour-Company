@@ -5,7 +5,7 @@
          company phone and hides the button entirely if none is set. -->
     <template id="kt_whatsapp_button" inherit_id="website.layout" name="Naeku WhatsApp Button" active="True">
         <xpath expr="//div[@id='wrapwrap']" position="after">
-            <a id="kt_whatsapp_button" class="kt_whatsapp_button" target="_blank" rel="noopener"
+            <a id="kt_whatsapp_button" class="kt_whatsapp_button kt_whatsapp_link" target="_blank" rel="noopener"
                t-att-data-phone="request.website.company_id.phone or ''"
                aria-label="Chat with us on WhatsApp" title="Chat with us on WhatsApp">
                 <i class="fa fa-whatsapp" aria-hidden="true"/>

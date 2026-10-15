@@ -8,8 +8,8 @@
         <xpath expr="//div[@id='o_main_nav']" position="replace">
             <div id="o_main_nav" t-attf-class="o_main_nav kt_nav_left #{header_content_width} d-flex align-items-center">
                 <a href="/" class="navbar-brand kt_nav_brand me-4">
-                    <img t-attf-src="/web/image/res.company/#{website.company_id.id}/logo"
-                         alt="Naeku Tours &amp; Safaris" class="kt_nav_brand_logo"/>
+                    <img src="/tour_travel_kenya/static/src/img/seriani_logo_cropped.png"
+                         alt="Seriani Tours &amp; Travel" class="kt_nav_brand_logo"/>
                 </a>
                 <ul id="top_menu" class="nav navbar-nav top_menu gap-3" role="menu">
                     <t t-foreach="[m for m in website.menu_id.child_id if m.url != '/shop']" t-as="submenu">

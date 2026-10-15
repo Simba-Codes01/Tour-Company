@@ -2,10 +2,14 @@ from . import tour_package_category
 from . import tour_package_tag
 from . import tour_package
 from . import tour_package_image
+from . import tour_package_itinerary_day
+from . import tour_package_itinerary_accommodation_image
+from . import tour_package_itinerary_extra
 from . import tour_package_waypoint
 from . import tour_package_date
 from . import tour_package_pricing
 from . import tour_package_month_rate
+from . import tour_package_season_rate
 from . import tour_booking
 from . import sale_order
 from . import sale_order_line

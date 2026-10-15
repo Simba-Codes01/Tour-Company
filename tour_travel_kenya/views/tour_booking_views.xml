@@ -13,8 +13,10 @@
                 <field name="pricing_id"/>
                 <field name="adults_count" optional="show"/>
                 <field name="children_count" optional="show"/>
+                <field name="infants_count" optional="hide"/>
                 <field name="rooms_count" optional="hide"/>
                 <field name="traveler_count" optional="hide"/>
+                <field name="travel_party" optional="show"/>
                 <field name="sale_status" widget="badge"
                        decoration-success="sale_status == 'sold'"
                        decoration-warning="sale_status == 'to_pay'"/>
@@ -94,7 +96,9 @@
                             <field name="arrival_date"/>
                             <field name="adults_count"/>
                             <field name="children_count"/>
+                            <field name="infants_count"/>
                             <field name="rooms_count"/>
+                            <field name="travel_party"/>
                             <field name="pricing_id" domain="[('package_id', '=', package_id)]" options="{'no_create': True}"/>
                             <field name="package_date_id" domain="[('package_id', '=', package_id)]" options="{'no_create': True}"/>
                         </group>

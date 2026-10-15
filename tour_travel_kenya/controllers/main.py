@@ -9,6 +9,70 @@ from odoo.exceptions import ValidationError
 from odoo.http import request
 
 
+SAFARI_MONTHS = [
+    {'num': 1, 'abbr': 'Jan', 'name': 'January', 'season': 'green', 'season_label': 'Green Season',
+     'trips': 4, 'weather': 'Warm & mostly dry', 'crowds': 'Medium crowds', 'highlight': 'Calving season',
+     'desc': "One of the best months for predator action as wildebeest and zebra calve on the southern "
+             "plains of the Mara and Amboseli. Warm, mostly dry weather with fewer crowds than peak season.",
+     'parks': "Masai Mara, Amboseli, Lake Nakuru"},
+    {'num': 2, 'abbr': 'Feb', 'name': 'February', 'season': 'green', 'season_label': 'Green Season',
+     'trips': 4, 'weather': 'Hot & dry', 'crowds': 'Medium crowds', 'highlight': 'Great cat sightings',
+     'desc': "Hot, dry conditions concentrate wildlife around water sources, making for excellent predator "
+             "sightings across the Mara and Amboseli before the long rains begin.",
+     'parks': "Masai Mara, Amboseli"},
+    {'num': 3, 'abbr': 'Mar', 'name': 'March', 'season': 'rainy', 'season_label': 'Low / Rainy Season',
+     'trips': 3, 'weather': 'Rain showers begin', 'crowds': 'Low crowds', 'highlight': 'Lowest rates',
+     'desc': "The long rains begin, bringing lush green scenery and the lowest crowds and rates of the "
+             "year. Roads can be muddy in remote areas, so travel is best with a 4x4.",
+     'parks': "Lake Nakuru, Samburu"},
+    {'num': 4, 'abbr': 'Apr', 'name': 'April', 'season': 'rainy', 'season_label': 'Low / Rainy Season',
+     'trips': 3, 'weather': 'Heavy rains', 'crowds': 'Very low crowds', 'highlight': 'Best value',
+     'desc': "The heart of the long rains. Dramatic skies, newborn wildlife, and by far the quietest parks "
+             "and lowest accommodation rates of the year - some remote camps close for the month.",
+     'parks': "Lake Nakuru, Ol Pejeta"},
+    {'num': 5, 'abbr': 'May', 'name': 'May', 'season': 'rainy', 'season_label': 'Low / Rainy Season',
+     'trips': 3, 'weather': 'Rains easing', 'crowds': 'Low crowds', 'highlight': 'Quiet parks',
+     'desc': "Rains begin easing toward the end of the month, leaving Kenya at its greenest. Ideal for "
+             "budget-conscious travelers who don't mind the occasional shower.",
+     'parks': "Aberdare, Lake Nakuru"},
+    {'num': 6, 'abbr': 'Jun', 'name': 'June', 'season': 'peak', 'season_label': 'Dry / Peak Season',
+     'trips': 4, 'weather': 'Cool & dry', 'crowds': 'Medium crowds', 'highlight': 'Migration begins',
+     'desc': "The dry season sets in and the wildebeest migration starts moving north toward the Mara. "
+             "Cool mornings and clear game viewing across all parks.",
+     'parks': "Masai Mara, Samburu"},
+    {'num': 7, 'abbr': 'Jul', 'name': 'July', 'season': 'peak', 'season_label': 'Dry / Peak Season',
+     'trips': 4, 'weather': 'Cool & dry', 'crowds': 'High crowds', 'highlight': 'Migration in the Mara',
+     'desc': "The Great Migration typically arrives in the Masai Mara, with dramatic river crossings "
+             "possible from July onward. Book well ahead - this is peak season.",
+     'parks': "Masai Mara, Samburu"},
+    {'num': 8, 'abbr': 'Aug', 'name': 'August', 'season': 'peak', 'season_label': 'Dry / Peak Season',
+     'trips': 4, 'weather': 'Cool & dry', 'crowds': 'High crowds', 'highlight': 'River crossings',
+     'desc': "Peak Migration season continues in the Mara with the best chance of dramatic Mara River "
+             "crossings, alongside superb game viewing across every park on our circuits.",
+     'parks': "Masai Mara, Amboseli, Samburu"},
+    {'num': 9, 'abbr': 'Sep', 'name': 'September', 'season': 'peak', 'season_label': 'Dry / Peak Season',
+     'trips': 4, 'weather': 'Cool & dry', 'crowds': 'High crowds', 'highlight': 'Migration in the Mara',
+     'desc': "The migration herds remain in the Mara for much of September, with excellent predator "
+             "action as resident lion and cheetah follow the herds.",
+     'parks': "Masai Mara, Lake Nakuru"},
+    {'num': 10, 'abbr': 'Oct', 'name': 'October', 'season': 'peak', 'season_label': 'Dry / Peak Season',
+     'trips': 4, 'weather': 'Warm & dry', 'crowds': 'Medium-high crowds', 'highlight': 'Migration departs',
+     'desc': "The migration begins moving back south through the month, while dry conditions keep game "
+             "viewing excellent across Amboseli and Lake Nakuru.",
+     'parks': "Masai Mara, Amboseli"},
+    {'num': 11, 'abbr': 'Nov', 'name': 'November', 'season': 'green', 'season_label': 'Green Season',
+     'trips': 3, 'weather': 'Short rains', 'crowds': 'Low crowds', 'highlight': 'Fewer crowds',
+     'desc': "The short rains freshen up the landscape after the dry season, bringing back the birdlife "
+             "and greenery. Crowds and rates both drop from the October peak.",
+     'parks': "Lake Nakuru, Aberdare"},
+    {'num': 12, 'abbr': 'Dec', 'name': 'December', 'season': 'green', 'season_label': 'Green Season',
+     'trips': 3, 'weather': 'Warm, brief showers', 'crowds': 'Medium crowds', 'highlight': 'Festive season',
+     'desc': "Short rains ease off and warm, mostly sunny days return in time for the festive season - a "
+             "popular window for family safaris over the holidays.",
+     'parks': "Masai Mara, Amboseli, Samburu"},
+]
+
+
 class WebsiteTourController(http.Controller):
 
     def _get_search_domain(self, category=None, search=None):
@@ -48,6 +112,8 @@ class WebsiteTourController(http.Controller):
                 request.env.user.partner_id.wishlist_tour_ids.ids
                 if not request.env.user._is_public() else []
             ),
+            'current_month': date.today().month,
+            'safari_months': SAFARI_MONTHS,
         }
         return request.render('tour_travel_kenya.tours_index', values)
 
@@ -96,6 +162,10 @@ class WebsiteTourController(http.Controller):
         return request.render('tour_travel_kenya.tour_destinations', {
             'packages': packages.filtered('destination_summary'),
             'map_points_json': json.dumps(list(locations.values())),
+            'wishlisted_ids': (
+                request.env.user.partner_id.wishlist_tour_ids.ids
+                if not request.env.user._is_public() else []
+            ),
         })
 
     def _get_route_points_json(self, package_sudo):
@@ -174,25 +244,32 @@ class WebsiteTourController(http.Controller):
     def tour_booking_confirm(self, package, **post):
         package_sudo = package.sudo()
         try:
-            first_name = (post.get('first_name') or '').strip()
-            last_name = (post.get('last_name') or '').strip()
+            full_name = (post.get('full_name') or '').strip()
+            name_parts = full_name.split(None, 1)
+            first_name = name_parts[0] if name_parts else ''
+            last_name = name_parts[1] if len(name_parts) > 1 else ''
             email = (post.get('email') or '').strip()
-            phone = (post.get('phone') or '').strip()
-            arrival_date = post.get('arrival_date')
+            phone = ' '.join(filter(None, [
+                (post.get('phone_code') or '').strip(),
+                (post.get('phone_number') or '').strip(),
+            ]))
+            arrival_date = post.get('arrival_date') or False
             adults_count = max(int(post.get('adults_count') or 1), 1)
             children_count = max(int(post.get('children_count') or 0), 0)
+            infants_count = max(int(post.get('infants_count') or 0), 0)
             rooms_count = max(int(post.get('rooms_count') or 1), 1)
+            travel_party = post.get('travel_party') or False
             pricing = request.env['tour.package.pricing'].sudo().browse(int(post.get('pricing_id', 0)))
 
-            if not all([first_name, last_name, email, phone, arrival_date]) or '@' not in email:
-                raise ValidationError(_('Please fill in all required fields with a valid email address.'))
+            if not all([full_name, email, (post.get('phone_number') or '').strip()]) or '@' not in email:
+                raise ValidationError(_('Please fill in your name, email and phone number.'))
             if pricing.package_id != package_sudo:
                 raise ValidationError(_('Invalid accommodation option for this package.'))
 
             partner = request.env['res.partner'].sudo().search([('email', '=', email)], limit=1)
             if not partner:
                 partner = request.env['res.partner'].sudo().create({
-                    'name': f'{first_name} {last_name}',
+                    'name': full_name,
                     'email': email,
                     'phone': phone,
                 })
@@ -208,7 +285,9 @@ class WebsiteTourController(http.Controller):
                 'arrival_date': arrival_date,
                 'adults_count': adults_count,
                 'children_count': children_count,
+                'infants_count': infants_count,
                 'rooms_count': rooms_count,
+                'travel_party': travel_party,
                 'special_requests': post.get('special_requests'),
             })
             booking._send_confirmation_email()

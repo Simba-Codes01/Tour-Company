@@ -16,12 +16,32 @@ class TourPackage(models.Model):
     active = fields.Boolean(default=True)
     category_id = fields.Many2one('tour.package.category', string='Category', required=True, tracking=True)
     tag_ids = fields.Many2many('tour.package.tag', string='Tags')
+    is_featured = fields.Boolean(
+        string='Featured', help="Show a 'Featured' ribbon on this package's card in listings.")
+    meal_plan = fields.Char(
+        string='Meal Plan', help="Short label shown on the package card, e.g. 'Full Board'.")
+    child_free_age = fields.Char(
+        string='Child Free Age', default='0-1 yrs',
+        help="Age range that travels free, shown on the seasonal pricing table, e.g. '0-1 yrs'.")
+    child_discount_age = fields.Char(
+        string='Child Discount Age', default='4-12 yrs',
+        help="Age range charged the child rate, e.g. '4-12 yrs'.")
+    adult_age = fields.Char(
+        string='Adult Age', default='13+ yrs',
+        help="Age from which the full adult rate applies, e.g. '13+ yrs'.")
     company_id = fields.Many2one('res.company', default=lambda self: self.env.company)
     currency_id = fields.Many2one(related='company_id.currency_id')
     user_id = fields.Many2one('res.users', string='Responsible', default=lambda self: self.env.user, tracking=True)
 
     description = fields.Html(string='Teaser', translate=html_translate, sanitize_attributes=False)
-    itinerary = fields.Html(string='Itinerary', translate=html_translate, sanitize_attributes=False)
+    itinerary = fields.Html(
+        string='Itinerary', translate=html_translate, sanitize_attributes=False,
+        help="Plain-text fallback itinerary, used for the PDF download and shown on the "
+             "public page only when no structured itinerary days are set below.")
+    itinerary_day_ids = fields.One2many(
+        'tour.package.itinerary.day', 'package_id', string='Itinerary Days',
+        help="Structured day-by-day itinerary shown as an icon accordion on the public page. "
+             "Takes priority over the plain-text Itinerary field above when set.")
     included_services = fields.Html(string="What's Included", translate=html_translate, sanitize_attributes=False)
     excluded_services = fields.Html(string="What's Excluded", translate=html_translate, sanitize_attributes=False)
 
@@ -56,6 +76,10 @@ class TourPackage(models.Model):
         'tour.package.month.rate', 'package_id', string='Seasonal Rates',
         help="Indicative per-person-sharing rate by month, shown as a reference table on the "
              "public page. Separate from the pricing tiers actually charged at booking.")
+    season_rate_ids = fields.One2many(
+        'tour.package.season.rate', 'package_id', string='Seasonal Group Pricing',
+        help="Per-person pricing by named travel season and group size (2-6 people), shown as "
+             "the 'Choose your travel season' quote table on the public page.")
     date_ids = fields.One2many('tour.package.date', 'package_id', string='Departure Dates')
     booking_ids = fields.One2many('tour.booking', 'package_id', string='Bookings')
     booking_count = fields.Integer(compute='_compute_booking_count')
@@ -101,3 +125,21 @@ class TourPackage(models.Model):
         self.ensure_one()
         prices = self.pricing_ids.mapped('price')
         return self._format_price(min(prices) if prices else 0)
+
+    def get_itinerary_route(self):
+        """Ordered list of distinct destinations across the itinerary days, for the
+        breadcrumb trail on the 'Itinerary at a Glance' table."""
+        self.ensure_one()
+        route = []
+        for day in self.itinerary_day_ids:
+            if day.destination and day.destination not in route:
+                route.append(day.destination)
+        return route
+
+    def get_itinerary_stop_count(self):
+        self.ensure_one()
+        return len(self.get_itinerary_route())
+
+    def get_itinerary_stay_count(self):
+        self.ensure_one()
+        return len({day.accommodation for day in self.itinerary_day_ids if day.accommodation})

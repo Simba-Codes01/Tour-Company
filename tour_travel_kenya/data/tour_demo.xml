@@ -35,6 +35,90 @@
 <p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River. A sunrise hot air balloon safari here offers a rare bird's-eye view of the plains, and a visit to a Maasai manyatta is a chance to see the traditions of the community that shares this land with its wildlife.</p>
 ]]></field>
     </record>
+
+    <record id="tour_itin_day_7day_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Arrival in Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals"></field>
+        <field name="icon">plane-departure</field>
+                <field name="wildlife"></field>
+        <field name="description"><![CDATA[<p>Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel. Overnight on a bed and breakfast basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_7day_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Nairobi to Amboseli National Park</field>
+        <field name="destination">Amboseli National Park</field>
+        <field name="accommodation">Amboseli Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">African Elephant, Plains Zebra, Maasai Giraffe, Cape Buffalo</field>
+        <field name="description"><![CDATA[<p>Morning drive to Amboseli National Park, arriving in time for an afternoon game drive with Mount Kilimanjaro as a backdrop. Overnight on a full-board basis (lunch, dinner and breakfast).</p>]]></field>
+    </record>
+    <record id="tour_itin_day_7day_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Full Day in Amboseli National Park</field>
+        <field name="destination">Amboseli National Park</field>
+        <field name="accommodation">Amboseli Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">African Elephant, Lion, Hippopotamus, Ostrich</field>
+        <field name="description"><![CDATA[<p>A full day of game drives across Amboseli's plains and swamps, tracking its famous elephant herds. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_7day_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Amboseli to Lake Nakuru National Park</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">Lake Nakuru Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">White Rhinoceros, Black Rhinoceros, Flamingo, Cape Buffalo</field>
+        <field name="description"><![CDATA[<p>Drive north through the Great Rift Valley to Lake Nakuru National Park, with a game drive on arrival around the rhino sanctuary and lake shore. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_7day_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Lake Nakuru to Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">road</field>
+                <field name="wildlife">Lion, African Elephant, Topi</field>
+        <field name="description"><![CDATA[<p>Morning game drive at Lake Nakuru, then continue west to the Masai Mara, arriving in the late afternoon for an evening game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_7day_6" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">60</field>
+        <field name="day_label">Day 6</field>
+        <field name="title">Masai Mara National Reserve</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">sun-o</field>
+                <field name="wildlife">Lion, Leopard, Cheetah, African Elephant</field>
+        <field name="description"><![CDATA[<p>Optional pre-dawn hot air balloon safari over the Mara plains followed by a bush breakfast, then an afternoon visit to a local Maasai manyatta (village) to learn about Maasai culture and traditions. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_7day_7" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_7day_safari"/>
+        <field name="sequence">70</field>
+        <field name="day_label">Day 7</field>
+        <field name="title">Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="icon">flag-checkered</field>
+                <field name="wildlife">Lion, Cheetah, African Elephant</field>
+        <field name="description"><![CDATA[<p>Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your transfer to JKIA for departure.</p>]]></field>
+    </record>
+
     <record id="tour_product_7day_safari_standard" model="product.product">
         <field name="name">7-Day Kenya Safari - Standard</field>
         <field name="type">service</field>
@@ -216,6 +300,66 @@
 <p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing.</p>
 ]]></field>
     </record>
+
+    <record id="tour_itin_day_5day_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Arrival in Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals"></field>
+        <field name="icon">plane-departure</field>
+                <field name="wildlife"></field>
+        <field name="description"><![CDATA[<p>Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel. Overnight on a bed and breakfast basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_5day_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Nairobi to Lake Nakuru National Park</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">Lake Nakuru Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">White Rhinoceros, Black Rhinoceros, Flamingo, Cape Buffalo</field>
+        <field name="description"><![CDATA[<p>After breakfast in Nairobi, depart for Lake Nakuru National Park, with a game drive on arrival around the rhino sanctuary and lake shore. Overnight on a full-board basis (lunch, dinner and breakfast).</p>]]></field>
+    </record>
+    <record id="tour_itin_day_5day_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Lake Nakuru to Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">road</field>
+                <field name="wildlife">Lion, African Elephant, Topi</field>
+        <field name="description"><![CDATA[<p>Morning drive to the Masai Mara, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_5day_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Full Day in Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">Lion, Cheetah, Leopard, African Elephant</field>
+        <field name="description"><![CDATA[<p>A full day of game drives across the Masai Mara's plains, with the best chance of the trip for lion, cheetah and, in season, the Great Migration. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_5day_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_safari"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="icon">flag-checkered</field>
+                <field name="wildlife">Lion, African Elephant</field>
+        <field name="description"><![CDATA[<p>Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your transfer to JKIA for departure.</p>]]></field>
+    </record>
+
     <record id="tour_product_5day_safari_standard" model="product.product">
         <field name="name">5-Day Kenya Safari - Standard</field>
         <field name="type">service</field>
@@ -392,6 +536,78 @@
 <p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing. A visit to a local Maasai village or a sunrise balloon safari over the plains are popular optional additions here.</p>
 ]]></field>
     </record>
+
+    <record id="tour_itin_day_6day_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Arrival in Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals"></field>
+        <field name="icon">plane-departure</field>
+                <field name="wildlife"></field>
+        <field name="description"><![CDATA[<p>Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel. Overnight on a bed and breakfast basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_6day_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Nairobi to Aberdare National Park</field>
+        <field name="destination">Aberdare National Park</field>
+        <field name="accommodation">The Ark, Aberdare</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">tree</field>
+                <field name="wildlife">African Elephant, Cape Buffalo, Bongo Antelope, Bushbuck</field>
+        <field name="description"><![CDATA[<p>After breakfast, drive north through rolling farmland and coffee plantations to Aberdare National Park. Check in to a forest lodge built around a floodlit waterhole, where elephant, buffalo, bushbuck and, if you're fortunate, the rare bongo antelope come to drink after dark. Overnight on a full-board basis (lunch, dinner and breakfast). A warm jacket is recommended for the cool highland evenings.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_6day_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Aberdare to Lake Nakuru National Park</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">Lake Nakuru Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">White Rhinoceros, Black Rhinoceros, Flamingo</field>
+        <field name="description"><![CDATA[<p>Drive south through the Great Rift Valley, with views of Mount Longonot and Lake Naivasha en route, to Lake Nakuru National Park. Afternoon game drive around the lake shore for its rhino sanctuary and, in good years, dense flocks of flamingos. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_6day_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Lake Nakuru to Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">road</field>
+                <field name="wildlife">Lion, African Elephant, Topi</field>
+        <field name="description"><![CDATA[<p>Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_6day_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Full Day in Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">sun-o</field>
+                <field name="wildlife">Lion, Leopard, Cheetah, African Elephant</field>
+        <field name="description"><![CDATA[<p>A full day of game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional Maasai manyatta visit or sunrise hot air balloon safari can be arranged locally. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_6day_6" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_6day_safari"/>
+        <field name="sequence">60</field>
+        <field name="day_label">Day 6</field>
+        <field name="title">Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B</field>
+        <field name="icon">flag-checkered</field>
+                <field name="wildlife">Lion, African Elephant</field>
+        <field name="description"><![CDATA[<p>Final morning game drive, then depart the Masai Mara for Nairobi and your transfer to JKIA for departure.</p>]]></field>
+    </record>
+
     <record id="tour_product_6day_safari_standard" model="product.product">
         <field name="name">6-Day Kenya Safari - Standard</field>
         <field name="type">service</field>
@@ -578,6 +794,102 @@
 <p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing. A visit to a local Maasai village or a sunrise balloon safari over the plains are popular optional additions here.</p>
 ]]></field>
     </record>
+
+    <record id="tour_itin_day_8day_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Arrival in Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals"></field>
+        <field name="icon">plane-departure</field>
+                <field name="wildlife"></field>
+        <field name="description"><![CDATA[<p>Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel. The rest of the day is at leisure.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_8day_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Nairobi to Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">Grevy's Zebra, Reticulated Giraffe, African Elephant</field>
+        <field name="description"><![CDATA[<p>After breakfast, drive north via Nanyuki to the Samburu National Reserve, a rugged, semi-arid landscape along the Ewaso Nyiro River. Arrive in time for lunch, then head out on an afternoon game drive. Overnight on a full-board basis (lunch, dinner and breakfast).</p>]]></field>
+    </record>
+    <record id="tour_itin_day_8day_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Full Day in Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">users</field>
+                <field name="wildlife">Grevy's Zebra, Gerenuk, Beisa Oryx, Somali Ostrich</field>
+        <field name="description"><![CDATA[<p>A full day of morning and afternoon game drives across Samburu and neighboring Buffalo Springs, home to species found nowhere else in Kenya's southern parks - Grevy's zebra, reticulated giraffe, gerenuk and Beisa oryx among them. An optional visit to a local Samburu village can be arranged. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_8day_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Samburu to Mount Kenya National Park</field>
+        <field name="destination">Mount Kenya National Park</field>
+        <field name="accommodation">Serena Mountain Lodge, Mount Kenya</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">tree</field>
+                <field name="wildlife">African Elephant, Cape Buffalo, Bushbuck</field>
+        <field name="description"><![CDATA[<p>Drive to the forested slopes of Mount Kenya National Park, arriving at a lodge built around its own floodlit waterhole with mountain views. Overnight on a full-board basis. A warm jacket is recommended for the cool highland evenings.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_8day_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Mount Kenya to Lake Nakuru National Park</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">Lake Nakuru Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">White Rhinoceros, Black Rhinoceros, Flamingo</field>
+        <field name="description"><![CDATA[<p>Drive to Lake Nakuru National Park, with a stop at Thompson's Falls along the way. Afternoon game drive around the lake shore for its rhino sanctuary and, in good years, dense flocks of flamingos. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_8day_6" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">60</field>
+        <field name="day_label">Day 6</field>
+        <field name="title">Lake Nakuru to Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">road</field>
+                <field name="wildlife">Lion, African Elephant, Topi</field>
+        <field name="description"><![CDATA[<p>Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_8day_7" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">70</field>
+        <field name="day_label">Day 7</field>
+        <field name="title">Full Day in Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">sun-o</field>
+                <field name="wildlife">Lion, Leopard, Cheetah, African Elephant</field>
+        <field name="description"><![CDATA[<p>A full day of game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional Maasai manyatta visit or sunrise hot air balloon safari can be arranged locally. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_8day_8" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_8day_safari"/>
+        <field name="sequence">80</field>
+        <field name="day_label">Day 8</field>
+        <field name="title">Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="icon">flag-checkered</field>
+                <field name="wildlife">Lion, African Elephant</field>
+        <field name="description"><![CDATA[<p>Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your transfer to JKIA for departure.</p>]]></field>
+    </record>
+
     <record id="tour_product_8day_safari_standard" model="product.product">
         <field name="name">8-Day Kenya Safari - Standard</field>
         <field name="type">service</field>
@@ -773,6 +1085,114 @@
 <p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing. A visit to a local Maasai village or a sunrise balloon safari over the plains are popular optional additions here.</p>
 ]]></field>
     </record>
+
+    <record id="tour_itin_day_9day_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Arrival in Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals"></field>
+        <field name="icon">plane-departure</field>
+                <field name="wildlife"></field>
+        <field name="description"><![CDATA[<p>Arrival at Jomo Kenyatta International Airport (JKIA) and transfer to your hotel for an overnight stay.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_9day_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Nairobi to Aberdare National Park</field>
+        <field name="destination">Aberdare National Park</field>
+        <field name="accommodation">The Ark, Aberdare</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">tree</field>
+                <field name="wildlife">African Elephant, Cape Buffalo, Bongo Antelope</field>
+        <field name="description"><![CDATA[<p>After breakfast, drive north through rolling farmland and coffee plantations to Aberdare National Park, stopping for lunch en route. In the afternoon, transfer to a forest lodge built around its own floodlit waterhole and salt lick, where elephant, rhino, buffalo, bushbuck and, if you're fortunate, the rare bongo antelope come to drink after dark. Overnight on a full-board basis (lunch, dinner and breakfast). A warm jacket is recommended for the cool highland evenings.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_9day_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Aberdare to Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">Grevy's Zebra, Reticulated Giraffe, African Elephant</field>
+        <field name="description"><![CDATA[<p>Drive north via Nanyuki to the Samburu National Reserve, a rugged, semi-arid landscape along the Ewaso Nyiro River. Arrive in time for lunch, then head out on an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_9day_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Full Day in Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">users</field>
+                <field name="wildlife">Grevy's Zebra, Gerenuk, Beisa Oryx, Somali Ostrich</field>
+        <field name="description"><![CDATA[<p>A full day of game drives across Samburu, home to species found nowhere else in Kenya's southern parks - Grevy's zebra, reticulated giraffe, gerenuk and Beisa oryx among them. An optional visit to a local Samburu village can be arranged. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_9day_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Samburu to Ol Pejeta Conservancy</field>
+        <field name="destination">Ol Pejeta Conservancy</field>
+        <field name="accommodation">Sweetwaters Serena Camp, Ol Pejeta</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">paw</field>
+                <field name="wildlife">Black Rhinoceros, Chimpanzee, African Elephant, Lion</field>
+        <field name="description"><![CDATA[<p>Drive south on a scenic route towards Mount Kenya to Ol Pejeta Conservancy, arriving in time for lunch. This private, non-profit conservancy is one of East Africa's leading black rhino sanctuaries and also shelters a sanctuary for rescued chimpanzees. Afternoon game drive across its plains, home to the Big Five alongside its rhino population. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_9day_6" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">60</field>
+        <field name="day_label">Day 6</field>
+        <field name="title">Ol Pejeta to Lake Nakuru National Park</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">Lake Nakuru Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">White Rhinoceros, Black Rhinoceros, Flamingo</field>
+        <field name="description"><![CDATA[<p>Drive to Lake Nakuru National Park, arriving for a late lunch. Afternoon game drive around the lake shore for its rhino sanctuary and, in good years, dense flocks of flamingos. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_9day_7" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">70</field>
+        <field name="day_label">Day 7</field>
+        <field name="title">Lake Nakuru to Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">road</field>
+                <field name="wildlife">Lion, African Elephant, Topi</field>
+        <field name="description"><![CDATA[<p>Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_9day_8" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">80</field>
+        <field name="day_label">Day 8</field>
+        <field name="title">Full Day in Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">sun-o</field>
+                <field name="wildlife">Lion, Leopard, Cheetah, African Elephant</field>
+        <field name="description"><![CDATA[<p>A full day of game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional Maasai manyatta visit or sunrise hot air balloon safari can be arranged locally. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_9day_9" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_9day_safari"/>
+        <field name="sequence">90</field>
+        <field name="day_label">Day 9</field>
+        <field name="title">Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B</field>
+        <field name="icon">flag-checkered</field>
+                <field name="wildlife"></field>
+        <field name="description"><![CDATA[<p>After breakfast, check out and drive back to Nairobi for your transfer to JKIA and onward flight.</p>]]></field>
+    </record>
+
     <record id="tour_product_9day_safari_standard" model="product.product">
         <field name="name">9-Day Kenya Safari - Standard</field>
         <field name="type">service</field>
@@ -940,4 +1360,2178 @@
         <field name="price">3735.0</field>
         <field name="season">peak</field>
     </record>
+
+    <!-- 5-Day / 4-Night Kenya Safari: Nairobi - Ol Pejeta - Samburu -->
+    <record id="tour_package_5day_olpejeta_samburu" model="tour.package">
+        <field name="name">5-Day Kenya Safari: Ol Pejeta &amp; Samburu</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Ol Pejeta &amp; Samburu, Kenya</field>
+        <field name="duration_days">5</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Year-round, though the dry seasons (Jun-Oct, Jan-Feb) offer the best game viewing and easiest road conditions</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="description"><![CDATA[<p>A 5-day, 4-night circuit through central and northern Kenya - the private rhino sanctuary of Ol Pejeta, with its resident chimpanzees and the world's last two northern white rhinos, followed by the arid beauty of Samburu National Reserve and a visit to its community-run elephant sanctuary.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nanyuki &amp; Ol Pejeta Conservancy:</strong> Depart Nairobi after breakfast for the drive north via Nyeri to the Nanyuki/Ol Pejeta area (roughly 3-4 hours), with a photo stop and water-vortex demonstration at the Equator Line in Nanyuki en route. Check in at your lodge around midday for lunch and a short rest, then head out for an afternoon game drive across Ol Pejeta Conservancy - home to the Big Five and the world's last two northern white rhinos. Overnight on a full-board basis (lunch, dinner and breakfast).</p>
+<p><strong>Day 2 - Ol Pejeta Conservancy:</strong> An early sunrise game drive for the best light and the best chance of predators, followed by a visit to the Sweetwaters Chimpanzee Sanctuary, Africa's only sanctuary for rescued chimpanzees. After lunch back at the lodge, join rangers for a guided rhino tracking walk on foot in search of southern white and black rhino. Weather permitting, round off the afternoon with views of Mount Kenya or a browse through Nanyuki's craft shops and cafes. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Samburu National Reserve:</strong> After breakfast and checkout, drive north through Isiolo as the landscape shifts to semi-arid savannah, reaching Samburu (roughly 3-4 hours) in time for lunch at your lodge on the banks of the Ewaso Nyiro River. An afternoon game drive through Samburu National Reserve follows, in search of the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk and Beisa oryx. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Samburu National Reserve:</strong> An early morning game drive along the river offers a good chance of elephant, lion and leopard, followed by breakfast at the lodge. Late morning brings a visit to the community-run Reteti Elephant Sanctuary to watch a feeding session and learn the rescue stories behind its orphaned elephants. After lunch, an optional cultural visit to a local Samburu village showcases traditional dances and customs, before a sundowner game drive back toward the lodge for golden-hour wildlife viewing. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Departure:</strong> A final morning game drive for any wildlife missed earlier in the trip, then breakfast and checkout. Depart Samburu for the road transfer south to Nairobi (roughly 5-6 hours), with a lunch stop in Nanyuki or Nyeri along the way - and a last chance for an equator photo if you missed it on Day 1. Drop-off at your hotel, the airport, or residence in Nairobi in the late afternoon.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park and conservancy entry fees for Ol Pejeta and Samburu</li><li>4 nights' accommodation as per itinerary, full board throughout (lunch, dinner and breakfast)</li><li>Sweetwaters Chimpanzee Sanctuary entry</li><li>Guided rhino tracking walk with rangers</li><li>Reteti Elephant Sanctuary visit</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Optional Samburu village cultural visit (paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>This circuit links two of central and northern Kenya's most rewarding conservancies, either side of the equator:</p>
+<p><strong>Nairobi</strong> is your departure and return point for the road transfers north and back.</p>
+<p><strong>Ol Pejeta Conservancy</strong>, near the base of Mount Kenya, is a private, non-profit wildlife conservancy and one of Africa's most important black rhino sanctuaries - and home to the world's last two northern white rhinos. It also hosts the Sweetwaters Chimpanzee Sanctuary, Africa's only sanctuary for rescued chimpanzees, alongside healthy populations of lion, elephant and the rest of the Big Five.</p>
+<p><strong>Samburu National Reserve</strong> lies in Kenya's arid north along the Ewaso Nyiro River, whose doum-palm-lined banks draw large herds of elephant even in the dry season. It's the best place in the country to find the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, gerenuk, Beisa oryx and the Somali ostrich - and is home to the community-run Reteti Elephant Sanctuary, alongside a Samburu culture with deep ties to the Maasai.</p>
+]]></field>
+    </record>
+
+    <record id="tour_itin_day_olpejeta_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nanyuki &amp; Ol Pejeta Conservancy</field>
+        <field name="destination">Ol Pejeta Conservancy</field>
+        <field name="accommodation">Sweetwaters Serena Camp, Ol Pejeta</field>
+        <field name="meals">L, D</field>
+        <field name="icon">globe</field>
+                <field name="wildlife">African Elephant, Lion, White Rhinoceros</field>
+        <field name="description"><![CDATA[<p>Depart Nairobi for the drive north via Nyeri to the Nanyuki/Ol Pejeta area (roughly 3-4 hours), with a photo stop and water-vortex demonstration at the Equator Line in Nanyuki en route. Check in at your lodge around midday for lunch and a short rest, then head out for an afternoon game drive across Ol Pejeta Conservancy - home to the Big Five and the world's last two northern white rhinos. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_olpejeta_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Full Day in Ol Pejeta Conservancy</field>
+        <field name="destination">Ol Pejeta Conservancy</field>
+        <field name="accommodation">Sweetwaters Serena Camp, Ol Pejeta</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">paw</field>
+                <field name="wildlife">Black Rhinoceros, White Rhinoceros, Chimpanzee, Lion</field>
+        <field name="description"><![CDATA[<p>An early sunrise game drive for the best light and the best chance of predators, followed by a visit to the Sweetwaters Chimpanzee Sanctuary, Africa's only sanctuary for rescued chimpanzees. After lunch back at the lodge, join rangers for a guided rhino tracking walk on foot in search of southern white and black rhino. Weather permitting, round off the afternoon with views of Mount Kenya or a browse through Nanyuki's craft shops and cafes. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_olpejeta_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Ol Pejeta to Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+                <field name="wildlife">Grevy's Zebra, Reticulated Giraffe, Somali Ostrich</field>
+        <field name="description"><![CDATA[<p>After breakfast and checkout, drive north through Isiolo as the landscape shifts to semi-arid savannah, reaching Samburu (roughly 3-4 hours) in time for lunch at your lodge on the banks of the Ewaso Nyiro River. An afternoon game drive through Samburu National Reserve follows, in search of the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk and Beisa oryx. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_olpejeta_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Full Day in Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">users</field>
+                <field name="wildlife">Grevy's Zebra, Gerenuk, Beisa Oryx, African Elephant</field>
+        <field name="description"><![CDATA[<p>An early morning game drive along the river offers a good chance of elephant, lion and leopard, followed by breakfast at the lodge. Late morning brings a visit to the community-run Reteti Elephant Sanctuary to watch a feeding session and learn the rescue stories behind its orphaned elephants. After lunch, an optional cultural visit to a local Samburu village showcases traditional dances and customs, before a sundowner game drive back toward the lodge for golden-hour wildlife viewing. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_olpejeta_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="icon">flag-checkered</field>
+                <field name="wildlife">African Elephant, Grevy's Zebra</field>
+        <field name="description"><![CDATA[<p>A final morning game drive for any wildlife missed earlier in the trip, then breakfast and checkout. Depart Samburu for the road transfer south to Nairobi (roughly 5-6 hours), with a lunch stop in Nanyuki or Nyeri along the way - and a last chance for an equator photo if you missed it on Day 1. Drop-off at your hotel, the airport, or residence in Nairobi in the late afternoon.</p>]]></field>
+    </record>
+
+    <record id="tour_product_5day_olpejeta_samburu_standard" model="product.product">
+        <field name="name">5-Day Ol Pejeta &amp; Samburu Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">1550.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_5day_olpejeta_samburu_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_5day_olpejeta_samburu_standard"/>
+    </record>
+    <record id="tour_product_5day_olpejeta_samburu_midrange" model="product.product">
+        <field name="name">5-Day Ol Pejeta &amp; Samburu Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">1850.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_5day_olpejeta_samburu_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_5day_olpejeta_samburu_midrange"/>
+    </record>
+    <record id="tour_product_5day_olpejeta_samburu_luxury" model="product.product">
+        <field name="name">5-Day Ol Pejeta &amp; Samburu Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">2200.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_5day_olpejeta_samburu_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_5day_olpejeta_samburu_luxury"/>
+    </record>
+    <record id="tour_date_5day_olpejeta_samburu_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=4)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_5day_olpejeta_samburu_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=10)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_5day_olpejeta_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (departure point)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_5day_olpejeta_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-2: Nanyuki &amp; Ol Pejeta Conservancy</field>
+        <field name="latitude">-0.0206</field>
+        <field name="longitude">36.9420</field>
+    </record>
+    <record id="tour_waypoint_5day_olpejeta_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 3-4: Samburu National Reserve</field>
+        <field name="latitude">-0.5974</field>
+        <field name="longitude">37.5326</field>
+    </record>
+    <record id="tour_waypoint_5day_olpejeta_4" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="sequence">40</field>
+        <field name="name">Day 5: Nairobi (return)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+
+    <!-- Seasonal rates for the 5-Day Ol Pejeta &amp; Samburu Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_5day_olpejeta_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">1</field>
+        <field name="price">1675.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">2</field>
+        <field name="price">1675.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">3</field>
+        <field name="price">1675.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">4</field>
+        <field name="price">1525.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">5</field>
+        <field name="price">1525.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">6</field>
+        <field name="price">1675.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">7</field>
+        <field name="price">2030.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">8</field>
+        <field name="price">2030.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">9</field>
+        <field name="price">2030.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">10</field>
+        <field name="price">1675.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">11</field>
+        <field name="price">1525.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_5day_olpejeta_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_5day_olpejeta_samburu"/>
+        <field name="month">12</field>
+        <field name="price">2030.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 10-Day / 9-Night Kenya Safari: Nairobi - Amboseli - Ol Pejeta - Samburu - Lake Nakuru - Masai Mara -->
+    <record id="tour_package_10day_safari" model="tour.package">
+        <field name="name">10-Day Kenya Safari: Amboseli, Ol Pejeta, Samburu, Lake Nakuru &amp; Masai Mara</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Amboseli, Ol Pejeta, Samburu, Lake Nakuru &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">10</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October for the Great Migration; dry seasons (Jun-Oct, Jan-Feb) for the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="description"><![CDATA[<p>Our most complete circuit at 10 days and 9 nights - linking the elephant herds of Amboseli, the rhino sanctuary of Ol Pejeta, the arid beauty of Samburu, the flamingo-lined shores of Lake Nakuru, and three full days on the plains of the Masai Mara.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi to Amboseli:</strong> Arrival at Jomo Kenyatta International Airport (JKIA) and road transfer to Amboseli National Park. Check in at your lodge, enjoy lunch and a short rest, then head out for an evening game drive with a chance to see elephants, zebras, giraffes and buffaloes - and, on a clear day, views of Mount Kilimanjaro. Overnight on a full-board basis (lunch and dinner included).</p>
+<p><strong>Day 2 - Amboseli:</strong> A full day of morning and afternoon game drives across Amboseli's plains and swamps, tracking its famous elephant herds. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Amboseli to Ol Pejeta:</strong> Drive from Amboseli to Ol Pejeta Conservancy, a scenic travel day through the central highlands. Check in on arrival and relax after the journey, then head out for a short evening game drive across Ol Pejeta's plains - one of East Africa's leading black rhino sanctuaries and home to the world's last two northern white rhinos. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Ol Pejeta to Samburu:</strong> Drive north to the Samburu National Reserve, a rugged, semi-arid landscape along the Ewaso Nyiro River. Arrive in time for lunch, then head out on an afternoon game drive in search of the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, gerenuk, Beisa oryx and the Somali ostrich. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Samburu:</strong> A full day of morning and afternoon game drives across Samburu, exploring different areas of the reserve for its resident elephants, predators and the species found nowhere else in Kenya's southern parks. An optional visit to a local Samburu village can be arranged. Overnight on a full-board basis.</p>
+<p><strong>Day 6 - Samburu to Lake Nakuru:</strong> Drive south to Lake Nakuru National Park, a compact, fenced sanctuary built around its alkaline lake in the Great Rift Valley. Afternoon game drive around the lake shore for its rhino sanctuary and, in good years, dense flocks of flamingos. Overnight on a bed and breakfast basis.</p>
+<p><strong>Day 7 - Lake Nakuru to Masai Mara:</strong> Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 8 - Masai Mara:</strong> A full day of game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional Maasai manyatta visit or sunrise hot air balloon safari can be arranged locally. Overnight on a full-board basis.</p>
+<p><strong>Day 9 - Masai Mara:</strong> A second full day of game drives, exploring different areas of the reserve - including the Mara River crossing points - for the best chance of catching predators in action. Overnight on a full-board basis.</p>
+<p><strong>Day 10 - Departure:</strong> Final morning game drive, then depart the Masai Mara for Nairobi. Lunch en route before your transfer to JKIA for departure.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park and conservancy entry fees for Amboseli, Ol Pejeta, Samburu, Lake Nakuru and Masai Mara</li><li>9 nights' accommodation as per itinerary (full board throughout, except bed &amp; breakfast at Lake Nakuru)</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Hot air balloon safari and village/manyatta visits (optional, paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>Our most complete circuit links six distinct areas of Kenya:</p>
+<p><strong>Nairobi</strong> is your arrival and departure point, and the usual base for onward transfers to the parks that follow.</p>
+<p><strong>Amboseli National Park</strong> is famous above all for its elephants - large, habituated herds that are among the easiest in Africa to observe up close - set against the backdrop of Mount Kilimanjaro on clear mornings, plus swamps that draw hippo, buffalo and abundant birdlife.</p>
+<p><strong>Ol Pejeta Conservancy</strong>, near the base of Mount Kenya, is a private, non-profit wildlife conservancy and one of Africa's most important black rhino sanctuaries. It also hosts a sanctuary for chimpanzees rescued from elsewhere in Africa, alongside healthy populations of lion, elephant and the rest of the Big Five.</p>
+<p><strong>Samburu National Reserve</strong> lies in Kenya's arid north along the Ewaso Nyiro River. It's the best place in the country to find the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, gerenuk, Beisa oryx and the Somali ostrich - alongside a Samburu culture with deep ties to the Maasai.</p>
+<p><strong>Lake Nakuru National Park</strong> is a compact, fenced sanctuary built around its alkaline lake in the Great Rift Valley. Expect a strong chance of seeing both black and white rhino, along with leopard, buffalo and, in good years, dense flocks of flamingos along the shoreline.</p>
+<p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing. A visit to a local Maasai village or a sunrise balloon safari over the plains are popular optional additions here.</p>
+]]></field>
+    </record>
+
+    <record id="tour_itin_day_10day_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi to Amboseli National Park</field>
+        <field name="destination">Amboseli National Park</field>
+        <field name="accommodation">Kibo Safari Camp</field>
+        <field name="meals">L, D</field>
+        <field name="icon">plane-departure</field>
+        <field name="wildlife">African Elephant, Ostrich, Plains Zebra, Waterbuck, African Lion</field>
+        <field name="description"><![CDATA[<p>Arrival at Jomo Kenyatta International Airport (JKIA) and road transfer to Amboseli National Park. Check in at your lodge, enjoy lunch and a short rest, then head out for an evening game drive with a chance to see elephants, zebras, giraffes and buffaloes - and, on a clear day, views of Mount Kilimanjaro. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Full Day Game Drive in Amboseli National Park</field>
+        <field name="destination">Amboseli National Park</field>
+        <field name="accommodation">Kibo Safari Camp</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Elephant, Ostrich, Common Ostrich</field>
+        <field name="description"><![CDATA[<p>A full day of morning and afternoon game drives across Amboseli's plains and swamps, tracking its famous elephant herds. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Amboseli National Park to Ol Pejeta Conservancy</field>
+        <field name="destination">Ol Pejeta Conservancy</field>
+        <field name="accommodation">Sweetwaters Serena Camp</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">paw</field>
+        <field name="wildlife">African Elephant, Ostrich, Grant's Gazelle</field>
+        <field name="description"><![CDATA[<p>Drive from Amboseli to Ol Pejeta Conservancy, a scenic travel day through the central highlands. Check in on arrival and relax after the journey, then head out for a short evening game drive across Ol Pejeta's plains - one of East Africa's leading black rhino sanctuaries and home to the world's last two northern white rhinos. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Ol Pejeta Conservancy to Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Elephant, Reticulated Giraffe, Ostrich, Grevy's Zebra, Gerenuk, Beisa Oryx, Somali Ostrich</field>
+        <field name="description"><![CDATA[<p>Drive north to the Samburu National Reserve, a rugged, semi-arid landscape along the Ewaso Nyiro River. Arrive in time for lunch, then head out on an afternoon game drive in search of the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, gerenuk, Beisa oryx and the Somali ostrich. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Full Day Game Drives in Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">users</field>
+        <field name="wildlife">Reticulated Giraffe, Plains Zebra, Ostrich, Grevy's Zebra, Gerenuk, Beisa Oryx</field>
+        <field name="description"><![CDATA[<p>A full day of morning and afternoon game drives across Samburu, exploring different areas of the reserve for its resident elephants, predators and the species found nowhere else in Kenya's southern parks. An optional visit to a local Samburu village can be arranged. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_6" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">60</field>
+        <field name="day_label">Day 6</field>
+        <field name="title">Samburu National Reserve to Lake Nakuru National Park</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">Ziwa Bush Lodge</field>
+        <field name="meals">B, L</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">Black Rhinoceros, Flamingo, African Lion</field>
+        <field name="description"><![CDATA[<p>Drive south to Lake Nakuru National Park, a compact, fenced sanctuary built around its alkaline lake in the Great Rift Valley. Afternoon game drive around the lake shore for its rhino sanctuary and, in good years, dense flocks of flamingos. Overnight on a bed and breakfast basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_7" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">70</field>
+        <field name="day_label">Day 7</field>
+        <field name="title">Lake Nakuru National Park to Masai Mara National Reserve</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Kimana Camp</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">road</field>
+        <field name="wildlife">African Elephant, African Leopard, African Lion, Cheetah, African Buffalo, Topi, Spotted Hyena</field>
+        <field name="description"><![CDATA[<p>Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_8" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">80</field>
+        <field name="day_label">Day 8</field>
+        <field name="title">Full Day Game Drives in Masai Mara National Reserve</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Kimana Camp</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">sun-o</field>
+        <field name="wildlife">African Elephant, African Leopard, African Lion, Cheetah, African Buffalo, Hippopotamus, Wildebeest, Topi, Spotted Hyena, Maasai Giraffe</field>
+        <field name="description"><![CDATA[<p>A full day of game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional Maasai manyatta visit or sunrise hot air balloon safari can be arranged locally. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_9" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">90</field>
+        <field name="day_label">Day 9</field>
+        <field name="title">Full Day in Masai Mara National Reserve</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Kimana Camp</field>
+        <field name="meals">B, L, D</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Elephant, African Leopard, African Lion, Cheetah, African Buffalo, Topi</field>
+        <field name="description"><![CDATA[<p>A second full day of game drives, exploring different areas of the reserve - including the Mara River crossing points - for the best chance of catching predators in action. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_10day_10" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">100</field>
+        <field name="day_label">Day 10</field>
+        <field name="title">Masai Mara National Reserve to Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>Final morning game drive, then depart the Masai Mara for Nairobi. Lunch en route before your transfer to JKIA for departure.</p>]]></field>
+    </record>
+
+    <record id="tour_product_10day_safari_standard" model="product.product">
+        <field name="name">10-Day Kenya Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">3250.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_10day_safari_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_10day_safari_standard"/>
+    </record>
+    <record id="tour_product_10day_safari_midrange" model="product.product">
+        <field name="name">10-Day Kenya Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">3750.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_10day_safari_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_10day_safari_midrange"/>
+    </record>
+    <record id="tour_product_10day_safari_luxury" model="product.product">
+        <field name="name">10-Day Kenya Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">4300.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_10day_safari_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_10day_safari_luxury"/>
+    </record>
+    <record id="tour_date_10day_safari_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=7)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_10day_safari_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=14)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_10day_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (arrival)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_10day_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-2: Amboseli National Park</field>
+        <field name="latitude">-2.6527</field>
+        <field name="longitude">37.2606</field>
+    </record>
+    <record id="tour_waypoint_10day_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 3: Ol Pejeta Conservancy</field>
+        <field name="latitude">-0.0206</field>
+        <field name="longitude">36.9420</field>
+    </record>
+    <record id="tour_waypoint_10day_4" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">40</field>
+        <field name="name">Day 4-5: Samburu National Reserve</field>
+        <field name="latitude">-0.5974</field>
+        <field name="longitude">37.5326</field>
+    </record>
+    <record id="tour_waypoint_10day_5" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">50</field>
+        <field name="name">Day 6: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3667</field>
+        <field name="longitude">36.0833</field>
+    </record>
+    <record id="tour_waypoint_10day_6" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="sequence">60</field>
+        <field name="name">Day 7-9: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+
+    <!-- Seasonal rates for the 10-Day Kenya Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_10day_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">1</field>
+        <field name="price">3510.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_10day_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">2</field>
+        <field name="price">3510.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_10day_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">3</field>
+        <field name="price">3510.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_10day_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">4</field>
+        <field name="price">3185.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_10day_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">5</field>
+        <field name="price">3185.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_10day_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">6</field>
+        <field name="price">3510.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_10day_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">7</field>
+        <field name="price">4260.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_10day_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">8</field>
+        <field name="price">4260.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_10day_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">9</field>
+        <field name="price">4260.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_10day_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">10</field>
+        <field name="price">3510.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_10day_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">11</field>
+        <field name="price">3185.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_10day_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_10day_safari"/>
+        <field name="month">12</field>
+        <field name="price">4260.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 7-Day / 6-Night Ultra Luxury Kenya Safari: Nairobi - Amboseli - Lake Naivasha - Lake Nakuru - Masai Mara -->
+    <record id="tour_package_ultra_luxury_7day" model="tour.package">
+        <field name="name">Ultra Luxury 7 Day Trip</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Amboseli, Lake Naivasha, Lake Nakuru &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">7</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October for the Great Migration; dry seasons (Jun-Oct, Jan-Feb) for the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="is_featured" eval="True"/>
+        <field name="seats_max">6</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>Our most exclusive circuit - handpicked five-star camps at Amboseli, Lake Naivasha, Lake Nakuru and the Masai Mara, with private game drives and a boat safari on Lake Naivasha, all on a full-board basis throughout.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi to Amboseli:</strong> Arrive at Jomo Kenyatta International Airport and transfer by private vehicle to Amboseli National Park. Check in at your camp in time for lunch, then head out on your first private game drive across Amboseli's plains, home to some of Africa's largest elephant herds set against the backdrop of Mount Kilimanjaro. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Amboseli:</strong> A full day of private morning and afternoon game drives across Amboseli, with your own vehicle and guide to follow the action at your own pace. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Amboseli to Lake Naivasha:</strong> Private drive from Amboseli National Park to Lake Naivasha, a freshwater lake in the Great Rift Valley known for its resident hippo pods, prolific birdlife and the walking safaris of nearby Crescent Island. Check in at your lodge in time for lunch, with the afternoon free to relax lakeside or join an optional boat safari. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Lake Naivasha to Lake Nakuru:</strong> Drive to Lake Nakuru National Park, a compact, fenced sanctuary built around its alkaline lake. Afternoon game drive around the lake shore in search of both black and white rhino, along with, in good years, dense flocks of flamingos. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Lake Nakuru to Masai Mara:</strong> Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 6 - Masai Mara:</strong> A full day of private game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional sunrise hot air balloon safari or Maasai manyatta visit can be arranged locally. Overnight on a full-board basis.</p>
+<p><strong>Day 7 - Departure:</strong> Breakfast at your camp, then a private road transfer from the Masai Mara back to Nairobi City in time for your onward flight.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a private 4x4 safari vehicle with pop-up roof and dedicated driver-guide</li><li>Park and conservancy entry fees for Amboseli, Lake Naivasha, Lake Nakuru and Masai Mara</li><li>6 nights' accommodation at handpicked five-star camps and lodges, full board throughout (bed &amp; breakfast on arrival night)</li><li>Private game drives throughout - never shared with other vehicles</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Optional boat safari at Lake Naivasha, hot air balloon safari and Maasai manyatta visit (paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>This exclusive circuit links four of Kenya's most rewarding destinations with handpicked five-star properties throughout:</p>
+<p><strong>Nairobi</strong> is your arrival and departure point.</p>
+<p><strong>Amboseli National Park</strong> is famous above all for its elephants - large, habituated herds that are among the easiest in Africa to observe up close - set against the backdrop of Mount Kilimanjaro on clear mornings.</p>
+<p><strong>Lake Naivasha</strong>, a freshwater lake in the Great Rift Valley, is a scenic overnight stop known for its resident hippo pods, prolific birdlife and the walking safaris of nearby Crescent Island - a rare chance to walk among giraffe, zebra and antelope on foot.</p>
+<p><strong>Lake Nakuru National Park</strong> is a compact, fenced sanctuary built around its alkaline lake. Expect a strong chance of seeing both black and white rhino, along with leopard, buffalo and, in good years, dense flocks of flamingos along the shoreline.</p>
+<p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing.</p>
+]]></field>
+    </record>
+
+    <record id="tour_itin_day_ultra7_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Arrival in Nairobi City and transfer to Amboseli National Park</field>
+        <field name="destination">Amboseli National Park</field>
+        <field name="accommodation">Elewana Tortilis Camp, Amboseli</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">plane-departure</field>
+        <field name="wildlife">African Elephant, African Lion, Cape Buffalo, Maasai Giraffe, Plains Zebra, Grant's Gazelle, Common Ostrich, Hippopotamus, Spotted Hyena, Black-backed Jackal</field>
+        <field name="description"><![CDATA[<p>Arrive at Jomo Kenyatta International Airport and transfer by private vehicle to Amboseli National Park. Check in at your camp in time for lunch, then head out on your first private game drive across Amboseli's plains, home to some of Africa's largest elephant herds set against the backdrop of Mount Kilimanjaro. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_ultra7_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Full day private game drives in Amboseli National Park</field>
+        <field name="destination">Amboseli National Park</field>
+        <field name="accommodation">Elewana Tortilis Camp, Amboseli</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Elephant, African Lion, Cape Buffalo, Maasai Giraffe, Common Ostrich, Grant's Gazelle</field>
+        <field name="description"><![CDATA[<p>A full day of private morning and afternoon game drives across Amboseli, with your own vehicle and guide to follow the action at your own pace. Expect close encounters with Amboseli's famous elephant herds, along with lion, giraffe and, on a clear morning, sweeping views of Mount Kilimanjaro. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_ultra7_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Amboseli National Park to Lake naivasha</field>
+        <field name="destination">Lake naivasha</field>
+        <field name="accommodation">Chui Lodge, Lake Naivasha</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">road</field>
+        <field name="description"><![CDATA[<p>Private drive from Amboseli National Park to Lake Naivasha, a freshwater lake in the Great Rift Valley known for its resident hippo pods, prolific birdlife and the walking safaris of nearby Crescent Island. Check in at your lodge in time for lunch, with the afternoon free to relax lakeside or join an optional boat safari. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_ultra7_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Lake naivasha to Lake Nakuru National Park</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">The Cliff Nakuru</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">Flamingo, Black Rhinoceros, Cape Buffalo, White Rhinoceros, African Leopard, Waterbuck</field>
+        <field name="description"><![CDATA[<p>Drive from Lake Naivasha to Lake Nakuru National Park, a compact, fenced sanctuary built around its alkaline lake. Afternoon game drive around the lake shore in search of both black and white rhino, along with, in good years, dense flocks of flamingos. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_ultra7_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Lake Nakuru National Park to Masai Mara National Reserve</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Elewana Sand River, Masai Mara</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">road</field>
+        <field name="wildlife">African Lion, African Elephant, Cape Buffalo, Topi, Spotted Hyena</field>
+        <field name="description"><![CDATA[<p>Continue west across the Rift Valley to the Masai Mara, the northernmost extension of the Serengeti ecosystem, arriving in time for an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_ultra7_6" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">60</field>
+        <field name="day_label">Day 6</field>
+        <field name="title">Full day game drives in Masai Mara National Reserve</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Elewana Sand River, Masai Mara</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">sun-o</field>
+        <field name="wildlife">African Lion, African Leopard, Cape Buffalo, Cheetah, African Elephant, Hippopotamus, Topi, Wildebeest</field>
+        <field name="description"><![CDATA[<p>A full day of private game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional sunrise hot air balloon safari or Maasai manyatta visit can be arranged locally. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_ultra7_7" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">70</field>
+        <field name="day_label">Day 7</field>
+        <field name="title">Masai Mara National Reserve to Nairobi City</field>
+        <field name="destination">Nairobi</field>
+        <field name="accommodation">No overnight accommodation</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>Breakfast at your camp, then a private road transfer from the Masai Mara back to Nairobi City in time for your onward flight.</p>]]></field>
+    </record>
+
+    <record id="tour_product_ultra_luxury_7day_standard" model="product.product">
+        <field name="name">Ultra Luxury 7 Day Trip</field>
+        <field name="type">service</field>
+        <field name="list_price">8500.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_ultra_luxury_7day_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">10</field>
+        <field name="name">Ultra Luxury</field>
+        <field name="product_id" ref="tour_product_ultra_luxury_7day_standard"/>
+    </record>
+    <record id="tour_date_ultra_luxury_7day_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=5)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_ultra_luxury_7day_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=11)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_ultra7_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (arrival)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_ultra7_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-2: Amboseli National Park</field>
+        <field name="latitude">-2.6527</field>
+        <field name="longitude">37.2606</field>
+    </record>
+    <record id="tour_waypoint_ultra7_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 3: Lake Naivasha</field>
+        <field name="latitude">-0.7833</field>
+        <field name="longitude">36.4333</field>
+    </record>
+    <record id="tour_waypoint_ultra7_4" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">40</field>
+        <field name="name">Day 4: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3667</field>
+        <field name="longitude">36.0833</field>
+    </record>
+    <record id="tour_waypoint_ultra7_5" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="sequence">50</field>
+        <field name="name">Day 5-6: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+
+    <!-- Seasonal rates for the Ultra Luxury 7 Day Trip (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_ultra7_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">1</field>
+        <field name="price">8750.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_ultra7_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">2</field>
+        <field name="price">8750.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_ultra7_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">3</field>
+        <field name="price">8750.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_ultra7_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">4</field>
+        <field name="price">7990.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_ultra7_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">5</field>
+        <field name="price">7990.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_ultra7_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">6</field>
+        <field name="price">8750.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_ultra7_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">7</field>
+        <field name="price">10600.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_ultra7_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">8</field>
+        <field name="price">10600.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_ultra7_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">9</field>
+        <field name="price">10600.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_ultra7_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">10</field>
+        <field name="price">8750.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_ultra7_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">11</field>
+        <field name="price">7990.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_ultra7_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_ultra_luxury_7day"/>
+        <field name="month">12</field>
+        <field name="price">10600.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 3-Day / 2-Night Kenya Safari: Nairobi - Amboseli -->
+    <record id="tour_package_3day_amboseli" model="tour.package">
+        <field name="name">3-Day Amboseli Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi &amp; Amboseli, Kenya</field>
+        <field name="duration_days">3</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October and January - February for the clearest game viewing and Mount Kilimanjaro views</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A quick 3-day, 2-night escape to Amboseli National Park - Kenya's best spot for close-up elephant herds set against the backdrop of Mount Kilimanjaro - ideal for travelers short on time.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi to Amboseli:</strong> Depart Nairobi for the drive south to Amboseli National Park (roughly 225-240 km, 4-5 hours), skirting the base of Mount Kilimanjaro along the way. Check in at Elerai Camp on the reserve's eastern border, then head straight out for an evening game drive across Amboseli's plains - home to some of Africa's largest elephant herds. Overnight on a full-board basis (lunch and dinner included).</p>
+<p><strong>Day 2 - Amboseli:</strong> A full day of morning and afternoon game drives across Amboseli National Park, with time to explore the swamps, open plains and elephant-viewing hotspots the park is famous for - all set against the backdrop of Mount Kilimanjaro on a clear day. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Departure:</strong> A final morning game drive in Amboseli, then check out and depart for the road transfer back to Nairobi.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park entry fees for Amboseli National Park</li><li>2 nights' accommodation at Elerai Camp, full board (lunch and dinner Day 1, full board Day 2, breakfast Day 3)</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>A short, focused circuit built entirely around one destination:</p>
+<p><strong>Nairobi</strong> is your arrival and departure point for the road transfers to and from Amboseli.</p>
+<p><strong>Amboseli National Park</strong> is famous above all for its elephants - large, habituated herds that are among the easiest in Africa to observe up close - set against the backdrop of Mount Kilimanjaro on clear mornings, plus swamps that draw hippo, buffalo and abundant birdlife.</p>
+]]></field>
+    </record>
+
+    <record id="tour_itin_day_3ambo_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi to Amboseli National Park - Evening Game Drive (225-240 km, 4-5 hours)</field>
+        <field name="destination">Amboseli National Park</field>
+        <field name="accommodation">Elerai Camp, Amboseli</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">plane-departure</field>
+        <field name="wildlife">African Elephant, Common Ostrich, Marabou Stork, Plains Zebra, Maasai Giraffe, Cape Buffalo, Grant's Gazelle, Hippopotamus, Spotted Hyena, Black-backed Jackal</field>
+        <field name="description"><![CDATA[<p>Depart Nairobi for the drive south to Amboseli National Park (roughly 225-240 km, 4-5 hours), skirting the base of Mount Kilimanjaro along the way. Check in at Elerai Camp on the reserve's eastern border, then head straight out for an evening game drive across Amboseli's plains - home to some of Africa's largest elephant herds. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_3ambo_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Full-Day Game Drive in Amboseli National Park</field>
+        <field name="destination">Full-Day Game Drive in Amboseli National Park</field>
+        <field name="accommodation">Elerai Camp, Amboseli</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Elephant, African Leopard, Common Ostrich, African Lion, Cape Buffalo, Maasai Giraffe, Plains Zebra, Grant's Gazelle, Hippopotamus, Spotted Hyena, Black-backed Jackal, Waterbuck, Secretary Bird</field>
+        <field name="description"><![CDATA[<p>A full day of morning and afternoon game drives across Amboseli National Park, with time to explore the swamps, open plains and elephant-viewing hotspots the park is famous for - all set against the backdrop of Mount Kilimanjaro on a clear day. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_3ambo_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Morning Game Drive in Amboseli and Return to Nairobi</field>
+        <field name="destination">Nairobi City</field>
+        <field name="meals">B</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>A final morning game drive in Amboseli, then check out and depart for the road transfer back to Nairobi.</p>]]></field>
+    </record>
+
+    <record id="tour_product_3day_amboseli_standard" model="product.product">
+        <field name="name">3-Day Amboseli Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">950.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_amboseli_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_3day_amboseli_standard"/>
+    </record>
+    <record id="tour_product_3day_amboseli_midrange" model="product.product">
+        <field name="name">3-Day Amboseli Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">1150.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_amboseli_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_3day_amboseli_midrange"/>
+    </record>
+    <record id="tour_product_3day_amboseli_luxury" model="product.product">
+        <field name="name">3-Day Amboseli Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">1400.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_amboseli_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_3day_amboseli_luxury"/>
+    </record>
+    <record id="tour_date_3day_amboseli_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_3day_amboseli_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=6)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_3ambo_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (departure point)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_3ambo_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-2: Amboseli National Park</field>
+        <field name="latitude">-2.6527</field>
+        <field name="longitude">37.2606</field>
+    </record>
+
+    <!-- Seasonal rates for the 3-Day Amboseli Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_3ambo_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">1</field>
+        <field name="price">1010.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3ambo_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">2</field>
+        <field name="price">1010.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3ambo_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">3</field>
+        <field name="price">1010.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3ambo_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">4</field>
+        <field name="price">920.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3ambo_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">5</field>
+        <field name="price">920.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3ambo_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">6</field>
+        <field name="price">1010.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3ambo_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">7</field>
+        <field name="price">1225.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3ambo_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">8</field>
+        <field name="price">1225.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3ambo_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">9</field>
+        <field name="price">1225.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3ambo_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">10</field>
+        <field name="price">1010.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3ambo_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">11</field>
+        <field name="price">920.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3ambo_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_amboseli"/>
+        <field name="month">12</field>
+        <field name="price">1225.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 3-Day / 2-Night Kenya Safari: Nairobi - Samburu (Reteti Elephant Sanctuary) -->
+    <record id="tour_package_3day_samburu" model="tour.package">
+        <field name="name">3-Day Samburu Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi &amp; Samburu, Kenya</field>
+        <field name="duration_days">3</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Year-round, though the dry seasons (Jun-Oct, Jan-Feb) offer the best game viewing and easiest road conditions</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A quick 3-day, 2-night escape to Samburu National Reserve - Kenya's arid north, home to the "Samburu Special Five" and the community-run Reteti Elephant Sanctuary - ideal for travelers short on time.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi to Samburu:</strong> Depart Nairobi for the drive north via Nanyuki and Isiolo to Samburu National Reserve (roughly 4-5 hours), as the landscape shifts to semi-arid savannah. Check in at your lodge on the banks of the Ewaso Nyiro River in time for lunch, then head out for an afternoon game drive in search of the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk and Beisa oryx. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Samburu &amp; Reteti Elephant Sanctuary:</strong> An early morning game drive along the river offers a good chance of elephant, lion and leopard, followed by breakfast at the lodge. Late morning brings a visit to the community-run Reteti Elephant Sanctuary - Kenya's first community-owned elephant sanctuary - to watch a feeding session and learn the rescue stories behind its orphaned elephants. After lunch, an optional cultural visit to a local Samburu village showcases traditional dances and customs, before a sundowner game drive back toward the lodge for golden-hour wildlife viewing. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Departure:</strong> A final morning game drive for any wildlife missed earlier in the trip, then breakfast and checkout. Depart Samburu for the road transfer back to Nairobi (roughly 4-5 hours), with a lunch stop in Nanyuki or Isiolo along the way.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park entry fees for Samburu National Reserve</li><li>Reteti Elephant Sanctuary entry</li><li>2 nights' accommodation, full board (lunch and dinner Day 1, full board Day 2, breakfast and lunch Day 3)</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Optional Samburu village cultural visit (paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>A short, focused circuit built entirely around one destination:</p>
+<p><strong>Nairobi</strong> is your departure and return point for the road transfers to and from Samburu.</p>
+<p><strong>Samburu National Reserve</strong> lies in Kenya's arid north along the Ewaso Nyiro River, whose doum-palm-lined banks draw large herds of elephant even in the dry season. It's the best place in the country to find the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, gerenuk, Beisa oryx and the Somali ostrich - and is home to the community-run Reteti Elephant Sanctuary, alongside a Samburu culture with deep ties to the Maasai.</p>
+]]></field>
+    </record>
+
+    <record id="tour_itin_day_3samb_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi to Samburu National Reserve</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">Grevy's Zebra, Reticulated Giraffe, Somali Ostrich, Gerenuk, Beisa Oryx, African Elephant</field>
+        <field name="description"><![CDATA[<p>Depart Nairobi for the drive north via Nanyuki and Isiolo to Samburu National Reserve (roughly 4-5 hours), as the landscape shifts to semi-arid savannah. Check in at your lodge on the banks of the Ewaso Nyiro River in time for lunch, then head out for an afternoon game drive in search of the "Samburu Special Five" - Grevy's zebra, reticulated giraffe, Somali ostrich, gerenuk and Beisa oryx. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_3samb_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Samburu &amp; Reteti Elephant Sanctuary</field>
+        <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">paw</field>
+        <field name="wildlife">African Elephant, African Lion, African Leopard, Grevy's Zebra, Reticulated Giraffe, Gerenuk</field>
+        <field name="activities">Game Drive, Reteti Elephant Sanctuary Visit, Sundowner</field>
+        <field name="description"><![CDATA[<p>An early morning game drive along the river offers a good chance of elephant, lion and leopard, followed by breakfast at the lodge. Late morning brings a visit to the community-run Reteti Elephant Sanctuary - Kenya's first community-owned elephant sanctuary - to watch a feeding session and learn the rescue stories behind its orphaned elephants. After lunch, an optional cultural visit to a local Samburu village showcases traditional dances and customs, before a sundowner game drive back toward the lodge for golden-hour wildlife viewing. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_3samb_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Final Game Drive &amp; Return to Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>A final morning game drive for any wildlife missed earlier in the trip, then breakfast and checkout. Depart Samburu for the road transfer back to Nairobi, with a lunch stop in Nanyuki or Isiolo along the way.</p>]]></field>
+    </record>
+
+    <record id="tour_product_3day_samburu_standard" model="product.product">
+        <field name="name">3-Day Samburu Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">980.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_samburu_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_3day_samburu_standard"/>
+    </record>
+    <record id="tour_product_3day_samburu_midrange" model="product.product">
+        <field name="name">3-Day Samburu Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">1180.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_samburu_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_3day_samburu_midrange"/>
+    </record>
+    <record id="tour_product_3day_samburu_luxury" model="product.product">
+        <field name="name">3-Day Samburu Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">1450.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_samburu_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_3day_samburu_luxury"/>
+    </record>
+    <record id="tour_date_3day_samburu_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=3)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_3day_samburu_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=7)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_3samb_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (departure point)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_3samb_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-2: Samburu National Reserve</field>
+        <field name="latitude">-0.5974</field>
+        <field name="longitude">37.5326</field>
+    </record>
+
+    <!-- Seasonal rates for the 3-Day Samburu Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_3samb_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">1</field>
+        <field name="price">1040.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3samb_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">2</field>
+        <field name="price">1040.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3samb_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">3</field>
+        <field name="price">1040.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3samb_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">4</field>
+        <field name="price">950.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3samb_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">5</field>
+        <field name="price">950.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3samb_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">6</field>
+        <field name="price">1040.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3samb_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">7</field>
+        <field name="price">1260.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3samb_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">8</field>
+        <field name="price">1260.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3samb_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">9</field>
+        <field name="price">1260.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3samb_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">10</field>
+        <field name="price">1040.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3samb_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">11</field>
+        <field name="price">950.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3samb_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_samburu"/>
+        <field name="month">12</field>
+        <field name="price">1260.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- 3-Day / 2-Night Kenya Safari: Nairobi - Masai Mara -->
+    <record id="tour_package_3day_masai_mara" model="tour.package">
+        <field name="name">3-Day Masai Mara Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">3</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October for the Great Migration; dry seasons (Jun-Oct, Jan-Feb) for the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A quick 3-day, 2-night escape to the Masai Mara - Kenya's most famous reserve, home to the Big Five and, in season, the Great Migration - ideal for travelers short on time.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi to Masai Mara:</strong> Depart Nairobi for the drive west across the Great Rift Valley to the Masai Mara (roughly 5-6 hours), the northernmost extension of the Serengeti ecosystem. Check in at your lodge in time for lunch, then head out for an afternoon game drive across the Mara's plains. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Masai Mara:</strong> A full day of morning and afternoon game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional sunrise hot air balloon safari or Maasai manyatta visit can be arranged locally. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Departure:</strong> Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your transfer to your onward destination.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park entry fees for Masai Mara National Reserve</li><li>2 nights' accommodation, full board (lunch and dinner Day 1, full board Day 2, breakfast Day 3)</li><li>Lunch at the Carnivore Restaurant, Nairobi, on Day 3</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Hot air balloon safari and Maasai manyatta visit (optional, paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>A short, focused circuit built entirely around one destination:</p>
+<p><strong>Nairobi</strong> is your departure and return point for the road transfers to and from the Mara.</p>
+<p><strong>The Masai Mara</strong> is Kenya's best-known reserve, part of the same ecosystem as Tanzania's Serengeti. Visitors come for the Big Five, resident prides of lion, and - from around July to October - the Great Migration, when huge herds of wildebeest and zebra cross the Mara River in search of fresh grazing. A visit to a local Maasai village or a sunrise balloon safari over the plains are popular optional additions here.</p>
+]]></field>
+    </record>
+
+    <record id="tour_itin_day_3mara_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi to Masai Mara National Reserve</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Lion, African Elephant, Cape Buffalo, Topi, Spotted Hyena, Maasai Giraffe</field>
+        <field name="description"><![CDATA[<p>Depart Nairobi for the drive west across the Great Rift Valley to the Masai Mara (roughly 5-6 hours), the northernmost extension of the Serengeti ecosystem. Check in at your lodge in time for lunch, then head out for an afternoon game drive across the Mara's plains. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_3mara_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Full Day in Masai Mara National Reserve</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">sun-o</field>
+        <field name="wildlife">African Lion, African Leopard, Cheetah, African Elephant, Cape Buffalo, Wildebeest, Hippopotamus</field>
+        <field name="activities">Game Drive, Sundowner</field>
+        <field name="description"><![CDATA[<p>A full day of morning and afternoon game drives across the Mara's plains, with the best chance of the trip for lion, leopard, cheetah and, in season, the Great Migration. An optional sunrise hot air balloon safari or Maasai manyatta visit can be arranged locally. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_3mara_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Final Game Drive &amp; Return to Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your transfer to your onward destination.</p>]]></field>
+    </record>
+
+    <record id="tour_product_3day_masai_mara_standard" model="product.product">
+        <field name="name">3-Day Masai Mara Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">1050.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_masai_mara_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_3day_masai_mara_standard"/>
+    </record>
+    <record id="tour_product_3day_masai_mara_midrange" model="product.product">
+        <field name="name">3-Day Masai Mara Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">1280.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_masai_mara_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_3day_masai_mara_midrange"/>
+    </record>
+    <record id="tour_product_3day_masai_mara_luxury" model="product.product">
+        <field name="name">3-Day Masai Mara Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">1550.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_3day_masai_mara_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_3day_masai_mara_luxury"/>
+    </record>
+    <record id="tour_date_3day_masai_mara_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=2)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_3day_masai_mara_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=8)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_3mara_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (departure point)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_3mara_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-2: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+
+    <!-- Seasonal rates for the 3-Day Masai Mara Safari (per person sharing, indicative guide rate) -->
+    <record id="tour_rate_3mara_jan" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">1</field>
+        <field name="price">1130.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3mara_feb" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">2</field>
+        <field name="price">1130.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3mara_mar" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">3</field>
+        <field name="price">1130.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3mara_apr" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">4</field>
+        <field name="price">980.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3mara_may" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">5</field>
+        <field name="price">980.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3mara_jun" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">6</field>
+        <field name="price">1130.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3mara_jul" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">7</field>
+        <field name="price">1390.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3mara_aug" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">8</field>
+        <field name="price">1390.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3mara_sep" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">9</field>
+        <field name="price">1390.0</field>
+        <field name="season">peak</field>
+    </record>
+    <record id="tour_rate_3mara_oct" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">10</field>
+        <field name="price">1130.0</field>
+        <field name="season">mid</field>
+    </record>
+    <record id="tour_rate_3mara_nov" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">11</field>
+        <field name="price">980.0</field>
+        <field name="season">low</field>
+    </record>
+    <record id="tour_rate_3mara_dec" model="tour.package.month.rate">
+        <field name="package_id" ref="tour_package_3day_masai_mara"/>
+        <field name="month">12</field>
+        <field name="price">1390.0</field>
+        <field name="season">peak</field>
+    </record>
+
+    <!-- ================= New categories: Beach Escapes, Trekking & Hiking ================= -->
+    <record id="tour_category_beach" model="tour.package.category">
+        <field name="name">Beach Escapes</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="tour_category_trekking" model="tour.package.category">
+        <field name="name">Trekking &amp; Hiking</field>
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- ================= 3. Tsavo East &amp; West Safari (4D/3N) ================= -->
+    <record id="tour_package_tsavo" model="tour.package">
+        <field name="name">Tsavo East &amp; West Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Tsavo East &amp; Tsavo West, Kenya</field>
+        <field name="duration_days">4</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Jun-Oct and Jan-Feb for the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A 4-day, 3-night circuit through Kenya's largest protected area - Tsavo East and Tsavo West - famous for red-dust elephants, the Yatta Plateau and the crystal-clear springs of Mzima.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi to Tsavo East:</strong> Drive from Nairobi to Tsavo East National Park (roughly 4-5 hours), Kenya's largest park, famous for its red-dust elephants. Afternoon game drive around Aruba Dam. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Tsavo East:</strong> A full day of game drives across Tsavo East's open plains, including a visit to the Yatta Plateau - the world's longest lava flow - and Lugard Falls on the Galana River. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Tsavo East to Tsavo West:</strong> Drive into Tsavo West National Park, stopping at Mzima Springs to view hippo and crocodile through an underwater viewing chamber. Afternoon game drive around the Shetani lava flows. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Departure:</strong> A final morning game drive in Tsavo West, then depart for the road transfer back to Nairobi, with a lunch stop en route.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Park entry fees for Tsavo East and Tsavo West</li><li>3 nights' accommodation, full board throughout</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p><strong>Tsavo East National Park</strong> is Kenya's largest park, known for its "red elephants" - stained by the park's iron-rich dust - along with the Yatta Plateau and the Galana River's Lugard Falls.</p>
+<p><strong>Tsavo West National Park</strong> is more varied and scenic, with the spring-fed Mzima Springs offering rare underwater views of hippo and crocodile, dramatic Shetani lava flows, and resident populations of lesser kudu and fringe-eared oryx found in few other parks.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_tsavo_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi to Tsavo East National Park</field>
+        <field name="destination">Tsavo East National Park</field>
+        <field name="accommodation">Voi Safari Lodge</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Elephant, African Lion, Cape Buffalo, Maasai Giraffe, Common Ostrich</field>
+        <field name="description"><![CDATA[<p>Drive from Nairobi to Tsavo East National Park (roughly 4-5 hours), Kenya's largest park, famous for its red-dust elephants - their colour from dust-bathing in the park's distinctive soil. Afternoon game drive around Aruba Dam. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_tsavo_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Full Day in Tsavo East National Park</field>
+        <field name="destination">Tsavo East National Park</field>
+        <field name="accommodation">Voi Safari Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">sun-o</field>
+        <field name="wildlife">African Elephant, African Lion, Lesser Kudu, Fringe-eared Oryx, Gerenuk</field>
+        <field name="description"><![CDATA[<p>A full day of game drives across Tsavo East's open plains, including a visit to the Yatta Plateau - the world's longest lava flow - and Lugard Falls on the Galana River. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_tsavo_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Tsavo East to Tsavo West National Park</field>
+        <field name="destination">Tsavo West National Park</field>
+        <field name="accommodation">Ngulia Safari Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">tree</field>
+        <field name="wildlife">Hippopotamus, African Crocodile, Cape Buffalo, African Leopard</field>
+        <field name="description"><![CDATA[<p>Drive into Tsavo West National Park, stopping at Mzima Springs to view hippo and crocodile through an underwater viewing chamber. Afternoon game drive around the Shetani lava flows. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_tsavo_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Tsavo West to Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>A final morning game drive in Tsavo West, then depart for the road transfer back to Nairobi, with a lunch stop en route.</p>]]></field>
+    </record>
+    <record id="tour_product_tsavo_standard" model="product.product">
+        <field name="name">Tsavo East &amp; West Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">1150.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_tsavo_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_tsavo_standard"/>
+    </record>
+    <record id="tour_product_tsavo_midrange" model="product.product">
+        <field name="name">Tsavo East &amp; West Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">1400.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_tsavo_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_tsavo_midrange"/>
+    </record>
+    <record id="tour_product_tsavo_luxury" model="product.product">
+        <field name="name">Tsavo East &amp; West Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">1700.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_tsavo_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_tsavo_luxury"/>
+    </record>
+    <record id="tour_date_tsavo_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=3)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_tsavo_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=9)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_tsavo_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1-2: Tsavo East National Park</field>
+        <field name="latitude">-3.3833</field>
+        <field name="longitude">38.5667</field>
+    </record>
+    <record id="tour_waypoint_tsavo_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_tsavo"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 3-4: Tsavo West National Park</field>
+        <field name="latitude">-3.0167</field>
+        <field name="longitude">38.1667</field>
+    </record>
+
+    <!-- ================= 5. Lewa Wildlife Conservancy Safari (5D/4N) ================= -->
+    <record id="tour_package_lewa" model="tour.package">
+        <field name="name">Lewa Wildlife Conservancy Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Lewa Wildlife Conservancy, Kenya</field>
+        <field name="duration_days">5</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Year-round, though the dry seasons (Jun-Oct, Jan-Feb) offer the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="is_featured" eval="True"/>
+        <field name="seats_max">8</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A 5-day, 4-night fly-in safari to Lewa Wildlife Conservancy - a private, award-winning rhino sanctuary in northern Kenya - with rhino tracking, horseback and walking safaris, and community conservation visits.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Fly to Lewa Wildlife Conservancy:</strong> A scenic light-aircraft flight from Nairobi's Wilson Airport direct to Lewa's private airstrip. Check in at camp in time for lunch, then head out on an afternoon game drive across the conservancy. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Rhino Tracking &amp; Game Drives:</strong> A full day combining vehicle game drives with a guided rhino tracking walk alongside Lewa's conservation rangers, learning firsthand about the conservancy's work protecting both black and white rhino. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Community Visit &amp; Horseback Safari:</strong> Morning visit to a local community conservation project supported by the Lewa Wildlife Conservancy, followed by an optional horseback or mountain-biking safari across the plains for experienced riders. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Full Day Game Drives &amp; Sundowner:</strong> A full day of game drives in search of Lewa's predators, including one of Kenya's last strongholds for African wild dog, finishing with a sundowner drink overlooking the plains. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Final Game Drive &amp; Fly to Nairobi:</strong> A final morning game drive, then transfer to the airstrip for your light-aircraft flight back to Nairobi.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>Return light-aircraft flights between Nairobi (Wilson Airport) and Lewa</li><li>Conservancy and conservation fees</li><li>4 nights' accommodation, full board throughout</li><li>Guided rhino tracking walk and community visit</li><li>Professional driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Optional horseback/mountain-biking safari and night game drive (paid locally)</li><li>Travel insurance</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p><strong>Lewa Wildlife Conservancy</strong>, a UNESCO World Heritage Site in northern Kenya, is one of Africa's most successful private conservation stories - a pioneering model that has helped grow Kenya's black rhino population and protects one of the last strongholds of the endangered African wild dog. Low visitor numbers and exclusive-use camps make it a favourite for travelers seeking a more private, conservation-focused safari.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_lewa_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Fly to Lewa Wildlife Conservancy</field>
+        <field name="destination">Lewa Wildlife Conservancy</field>
+        <field name="accommodation">Lewa Safari Camp</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">fly</field>
+        <field name="icon">plane-departure</field>
+        <field name="wildlife">Black Rhinoceros, White Rhinoceros, Grevy's Zebra, Reticulated Giraffe</field>
+        <field name="description"><![CDATA[<p>A scenic light-aircraft flight from Nairobi's Wilson Airport direct to Lewa's private airstrip. Check in at camp in time for lunch, then head out on an afternoon game drive across the conservancy - one of Kenya's most important rhino sanctuaries. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_lewa_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Rhino Tracking &amp; Game Drives</field>
+        <field name="destination">Lewa Wildlife Conservancy</field>
+        <field name="accommodation">Lewa Safari Camp</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">walk</field>
+        <field name="icon">paw</field>
+        <field name="wildlife">Black Rhinoceros, White Rhinoceros, African Elephant, African Lion, Cheetah</field>
+        <field name="activities">Game Drive, Rhino Tracking Walk</field>
+        <field name="description"><![CDATA[<p>A full day combining vehicle game drives with a guided rhino tracking walk alongside Lewa's conservation rangers, learning firsthand about the conservancy's work protecting both black and white rhino. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_lewa_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Community Visit &amp; Horseback Safari</field>
+        <field name="destination">Lewa Wildlife Conservancy</field>
+        <field name="accommodation">Lewa Safari Camp</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">walk</field>
+        <field name="icon">users</field>
+        <field name="wildlife">Grevy's Zebra, Reticulated Giraffe, Gerenuk</field>
+        <field name="extra_ids" eval="[(0, 0, {'name': 'Horseback Safari', 'price_adult': 120, 'price_child': 0}), (0, 0, {'name': 'Mountain Biking Safari', 'price_adult': 80, 'price_child': 0})]"/>
+        <field name="description"><![CDATA[<p>Morning visit to a local community conservation project supported by the Lewa Wildlife Conservancy, followed by an optional horseback or mountain-biking safari across the plains for experienced riders. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_lewa_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Full Day Game Drives &amp; Sundowner</field>
+        <field name="destination">Lewa Wildlife Conservancy</field>
+        <field name="accommodation">Lewa Safari Camp</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">sun-o</field>
+        <field name="wildlife">African Wild Dog, African Lion, Cheetah, African Elephant, Cape Buffalo</field>
+        <field name="extra_ids" eval="[(0, 0, {'name': 'Night Game Drive', 'price_adult': 60, 'price_child': 0})]"/>
+        <field name="description"><![CDATA[<p>A full day of game drives in search of Lewa's predators, including one of Kenya's last strongholds for African wild dog, finishing with a sundowner drink overlooking the plains. An optional night game drive can be arranged. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_lewa_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Final Game Drive &amp; Fly to Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">fly</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>A final morning game drive, then transfer to the airstrip for your light-aircraft flight back to Nairobi.</p>]]></field>
+    </record>
+    <record id="tour_product_lewa_standard" model="product.product">
+        <field name="name">Lewa Wildlife Conservancy Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">2200.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_lewa_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_lewa_standard"/>
+    </record>
+    <record id="tour_product_lewa_midrange" model="product.product">
+        <field name="name">Lewa Wildlife Conservancy Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">2650.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_lewa_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_lewa_midrange"/>
+    </record>
+    <record id="tour_product_lewa_luxury" model="product.product">
+        <field name="name">Lewa Wildlife Conservancy Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">3200.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_lewa_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_lewa_luxury"/>
+    </record>
+    <record id="tour_date_lewa_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=5)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_lewa_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=12)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_lewa_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (departure point)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_lewa_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_lewa"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-5: Lewa Wildlife Conservancy</field>
+        <field name="latitude">0.1667</field>
+        <field name="longitude">37.4167</field>
+    </record>
+
+    <!-- ================= 8. Great Migration Masai Mara Safari (5D/4N, Jul-Oct) ================= -->
+    <record id="tour_package_migration_mara" model="tour.package">
+        <field name="name">Great Migration Masai Mara Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Masai Mara National Reserve, Kenya</field>
+        <field name="duration_days">5</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">July - October only - built specifically around the Great Migration river crossings</field>
+        <field name="is_published" eval="True"/>
+        <field name="is_featured" eval="True"/>
+        <field name="seats_max">8</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A 5-day, 4-night safari built entirely around the Great Migration - multiple game drives a day positioned at the Mara River's known crossing points, for the best possible chance of witnessing the wildebeest crossings in person.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Fly to the Masai Mara:</strong> A scenic light-aircraft flight from Nairobi direct to the Masai Mara, timed to arrive in time for an afternoon game drive near the river crossing points, where the migration herds gather in their hundreds of thousands. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - River Crossing Watch:</strong> A full day based at the Mara River, with your guide reading herd movements and crocodile activity to position for a crossing. Picnic breakfast and lunch out in the field. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Following the Herds:</strong> A full day tracking the migration across the reserve's plains, with an optional sunrise hot air balloon safari for a bird's-eye view of the herds. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Predators of the Migration:</strong> A full day of game drives focused on the Mara's resident predators - lion, leopard and cheetah - who follow the migration for an easy meal, plus an optional Maasai village visit. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Final Crossing Watch &amp; Departure:</strong> A final morning at the river crossing points, then fly back to Nairobi.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>Return light-aircraft flights between Nairobi and the Masai Mara</li><li>Park entry and conservancy fees</li><li>4 nights' accommodation, full board throughout</li><li>Up to 3 game drives per day, positioned for river crossings</li><li>Professional migration-specialist driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Hot air balloon safari and Maasai village visit (optional, paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>From around <strong>July to October</strong>, over two million wildebeest and zebra cross from Tanzania's Serengeti into Kenya's <strong>Masai Mara</strong> in search of fresh grazing - and back again - in one of the natural world's greatest spectacles. This safari is scheduled and routed specifically around that window, with extra time and flexibility built in at the river to wait for a crossing rather than rushing past.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_migmara_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Fly to the Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara River Camp</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">fly</field>
+        <field name="icon">plane-departure</field>
+        <field name="wildlife">Blue Wildebeest, Plains Zebra, African Lion, Nile Crocodile</field>
+        <field name="description"><![CDATA[<p>A scenic light-aircraft flight from Nairobi direct to the Masai Mara, timed to arrive in time for an afternoon game drive near the river crossing points, where the migration herds gather in their hundreds of thousands. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_migmara_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">River Crossing Watch</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara River Camp</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">sun-o</field>
+        <field name="wildlife">Blue Wildebeest, Plains Zebra, Nile Crocodile, African Lion, Spotted Hyena</field>
+        <field name="description"><![CDATA[<p>A full day based at the Mara River, with your guide reading herd movements and crocodile activity to position for a crossing. Picnic breakfast and lunch out in the field. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_migmara_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Following the Herds</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara River Camp</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">Blue Wildebeest, African Lion, African Leopard, Cheetah, Cape Buffalo</field>
+        <field name="extra_ids" eval="[(0, 0, {'name': 'Hot Air Balloon Safari', 'price_adult': 450, 'price_child': 300})]"/>
+        <field name="description"><![CDATA[<p>A full day tracking the migration across the reserve's plains, with an optional sunrise hot air balloon safari for a bird's-eye view of the herds. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_migmara_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Predators of the Migration</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara River Camp</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">paw</field>
+        <field name="wildlife">African Elephant, Topi, Spotted Hyena, Maasai Giraffe</field>
+        <field name="extra_ids" eval="[(0, 0, {'name': 'Maasai Village Visit', 'price_adult': 0, 'price_child': 0})]"/>
+        <field name="description"><![CDATA[<p>A full day of game drives focused on the Mara's resident predators - lion, leopard and cheetah - who follow the migration for an easy meal, plus an optional Maasai village visit. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_migmara_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Final Crossing Watch &amp; Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">fly</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>A final morning at the river crossing points, then fly back to Nairobi.</p>]]></field>
+    </record>
+    <record id="tour_product_migration_mara_standard" model="product.product">
+        <field name="name">Great Migration Masai Mara Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">1850.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_migration_mara_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_migration_mara_standard"/>
+    </record>
+    <record id="tour_product_migration_mara_midrange" model="product.product">
+        <field name="name">Great Migration Masai Mara Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">2250.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_migration_mara_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_migration_mara_midrange"/>
+    </record>
+    <record id="tour_product_migration_mara_luxury" model="product.product">
+        <field name="name">Great Migration Masai Mara Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">2750.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_migration_mara_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_migration_mara_luxury"/>
+    </record>
+    <record id="tour_date_migration_mara_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=6)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_migration_mara_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=14)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_migmara_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (departure point)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_migmara_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_migration_mara"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-5: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+
+    <!-- ================= 9. Family Safari Adventure (6D/5N) ================= -->
+    <record id="tour_package_family_safari" model="tour.package">
+        <field name="name">Family Safari Adventure</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Lake Nakuru &amp; Masai Mara, Kenya</field>
+        <field name="duration_days">6</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Jun-Oct and Jan-Feb for the clearest game viewing and driest roads</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A 6-day, 5-night safari designed around families - shorter drive days, interactive wildlife encounters and family-friendly lodges with swimming pools - taking in Nairobi's conservation centres, Lake Nakuru and the Masai Mara.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi:</strong> A gentle first day visiting the Giraffe Centre for a hand-feeding encounter and the Sheldrick Wildlife Trust to watch orphaned baby elephants at their mud bath - a memorable, easy introduction to Kenya's wildlife for younger travelers. Overnight in Nairobi.</p>
+<p><strong>Day 2 - Nairobi to Lake Nakuru:</strong> A shorter, family-paced drive to Lake Nakuru National Park, with a relaxed afternoon game drive and swimming pool time back at the lodge. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Lake Nakuru to Masai Mara:</strong> Morning game drive at Lake Nakuru, then continue to the Masai Mara with regular rest stops along the way. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Masai Mara:</strong> A full day of game drives, broken into shorter, more flexible sessions to suit younger children, followed by pool time at the lodge. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Masai Mara &amp; Maasai Village Visit:</strong> An optional, interactive visit to a local Maasai village with bead-making and traditional dancing, followed by an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 6 - Departure:</strong> Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your onward transfer.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>All transport in a 4x4 safari vehicle with pop-up roof</li><li>Giraffe Centre and Sheldrick Wildlife Trust entry fees</li><li>Park entry fees for Lake Nakuru and Masai Mara</li><li>5 nights' accommodation at family-friendly lodges with pools, full board</li><li>Lunch at the Carnivore Restaurant, Nairobi, on Day 6</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Optional Maasai village visit (paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>This circuit is paced for families: shorter drive days, lodges chosen for their swimming pools and family rooms, and interactive stops - the <strong>Giraffe Centre</strong> and <strong>Sheldrick Wildlife Trust</strong> in Nairobi - built in alongside the classic <strong>Lake Nakuru</strong> rhino sanctuary and the Big Five game drives of the <strong>Masai Mara</strong>.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_family_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi - Giraffe Centre &amp; Sheldrick Wildlife Trust</field>
+        <field name="destination">Nairobi</field>
+        <field name="accommodation">Ole Sereni Hotel, Nairobi</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">users</field>
+        <field name="description"><![CDATA[<p>A gentle first day visiting the Giraffe Centre for a hand-feeding encounter and the Sheldrick Wildlife Trust to watch orphaned baby elephants at their mud bath - a memorable, easy introduction to Kenya's wildlife for younger travelers. Overnight in Nairobi.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_family_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Nairobi to Lake Nakuru National Park</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">Lake Nakuru Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">White Rhinoceros, Black Rhinoceros, Flamingo, Cape Buffalo</field>
+        <field name="description"><![CDATA[<p>A shorter, family-paced drive to Lake Nakuru National Park, with a relaxed afternoon game drive and swimming pool time back at the lodge. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_family_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Lake Nakuru to Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">road</field>
+        <field name="wildlife">African Lion, African Elephant, Topi</field>
+        <field name="description"><![CDATA[<p>Morning game drive at Lake Nakuru, then continue to the Masai Mara with regular rest stops along the way. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_family_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Full Day in Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">sun-o</field>
+        <field name="wildlife">African Lion, African Leopard, Cheetah, Cape Buffalo</field>
+        <field name="description"><![CDATA[<p>A full day of game drives, broken into shorter, more flexible sessions to suit younger children, followed by pool time at the lodge. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_family_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Masai Mara &amp; Maasai Village Visit</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara Sopa Lodge</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">users</field>
+        <field name="wildlife">African Elephant, Maasai Giraffe</field>
+        <field name="extra_ids" eval="[(0, 0, {'name': 'Maasai Village Visit', 'price_adult': 0, 'price_child': 0})]"/>
+        <field name="description"><![CDATA[<p>An optional, interactive visit to a local Maasai village with bead-making and traditional dancing, followed by an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_family_6" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">60</field>
+        <field name="day_label">Day 6</field>
+        <field name="title">Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>Final morning game drive, then depart the Masai Mara for Nairobi. Lunch at the renowned Carnivore Restaurant before your onward transfer.</p>]]></field>
+    </record>
+    <record id="tour_product_family_safari_standard" model="product.product">
+        <field name="name">Family Safari Adventure - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">1550.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_family_safari_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_family_safari_standard"/>
+    </record>
+    <record id="tour_product_family_safari_midrange" model="product.product">
+        <field name="name">Family Safari Adventure - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">1850.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_family_safari_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_family_safari_midrange"/>
+    </record>
+    <record id="tour_product_family_safari_luxury" model="product.product">
+        <field name="name">Family Safari Adventure - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">2250.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_family_safari_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_family_safari_luxury"/>
+    </record>
+    <record id="tour_date_family_safari_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=5)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_family_safari_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=11)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_family_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_family_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 2: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3667</field>
+        <field name="longitude">36.0833</field>
+    </record>
+    <record id="tour_waypoint_family_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_family_safari"/>
+        <field name="sequence">30</field>
+        <field name="name">Day 3-5: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+
+    <!-- ================= 10. Honeymoon Safari in the Mara (5D/4N) ================= -->
+    <record id="tour_package_honeymoon_mara" model="tour.package">
+        <field name="name">Honeymoon Safari in the Mara</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Masai Mara National Reserve, Kenya</field>
+        <field name="duration_days">5</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Year-round, though Jun-Oct and Jan-Feb offer the clearest game viewing</field>
+        <field name="is_published" eval="True"/>
+        <field name="is_featured" eval="True"/>
+        <field name="seats_max">2</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A 5-day, 4-night private safari for two in the Masai Mara - a dedicated vehicle and guide throughout, a champagne bush dinner under the stars and a couples spa treatment, with no group game drives.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Fly to the Masai Mara:</strong> A private light-aircraft flight from Nairobi to the Masai Mara, with a champagne welcome on arrival at camp. Afternoon private game drive together, just the two of you and your guide. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Private Game Drive &amp; Bush Picnic:</strong> A full day with your own dedicated vehicle and guide, with a romantic bush picnic lunch set up overlooking the plains. Overnight on a full-board basis.</p>
+<p><strong>Day 3 - Couples Spa &amp; Optional Balloon Safari:</strong> Morning game drive, with the option of a pre-dawn hot air balloon safari over the Mara. Afternoon couples spa treatment back at camp. Overnight on a full-board basis.</p>
+<p><strong>Day 4 - Champagne Bush Dinner:</strong> A full day of private game drives, concluding with a champagne bush dinner laid out under the stars, lit by lanterns and a campfire. Overnight on a full-board basis.</p>
+<p><strong>Day 5 - Final Game Drive &amp; Departure:</strong> A final private morning game drive, then fly back to Nairobi.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>Return light-aircraft flights between Nairobi and the Masai Mara</li><li>Private vehicle and driver-guide throughout - not shared with other guests</li><li>Park entry and conservancy fees</li><li>4 nights' accommodation in a private suite/tent, full board</li><li>Champagne bush dinner and couples spa treatment</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Optional hot air balloon safari (paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p>This safari is built for two - a private vehicle and guide for the whole trip, exclusive-use suites, and the <strong>Masai Mara</strong>'s Big Five game drives paired with romantic touches: a champagne welcome, a bush picnic, a couples spa treatment and a candlelit bush dinner under the stars.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_honeymoon_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Fly to the Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Elewana Sand River, Masai Mara</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">fly</field>
+        <field name="icon">plane-departure</field>
+        <field name="wildlife">African Lion, African Elephant, Maasai Giraffe</field>
+        <field name="description"><![CDATA[<p>A private light-aircraft flight from Nairobi to the Masai Mara, with a champagne welcome on arrival at camp. Afternoon private game drive together, just the two of you and your guide. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_honeymoon_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Private Game Drive &amp; Bush Picnic</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Elewana Sand River, Masai Mara</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Lion, African Leopard, Cheetah, Cape Buffalo</field>
+        <field name="description"><![CDATA[<p>A full day with your own dedicated vehicle and guide, with a romantic bush picnic lunch set up overlooking the plains. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_honeymoon_3" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">30</field>
+        <field name="day_label">Day 3</field>
+        <field name="title">Couples Spa &amp; Optional Balloon Safari</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Elewana Sand River, Masai Mara</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">sun-o</field>
+        <field name="wildlife">African Elephant, Topi, Wildebeest</field>
+        <field name="extra_ids" eval="[(0, 0, {'name': 'Hot Air Balloon Safari', 'price_adult': 450, 'price_child': 0}), (0, 0, {'name': 'Couples Spa Treatment', 'price_adult': 150, 'price_child': 0})]"/>
+        <field name="description"><![CDATA[<p>Morning game drive, with the option of a pre-dawn hot air balloon safari over the Mara. Afternoon couples spa treatment back at camp. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_honeymoon_4" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">40</field>
+        <field name="day_label">Day 4</field>
+        <field name="title">Champagne Bush Dinner</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Elewana Sand River, Masai Mara</field>
+        <field name="accommodation_rating">5</field>
+        <field name="meals">B, L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">paw</field>
+        <field name="wildlife">African Lion, African Leopard, Spotted Hyena</field>
+        <field name="extra_ids" eval="[(0, 0, {'name': 'Champagne Bush Dinner', 'price_adult': 180, 'price_child': 0})]"/>
+        <field name="description"><![CDATA[<p>A full day of private game drives, concluding with a champagne bush dinner laid out under the stars, lit by lanterns and a campfire. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_honeymoon_5" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">50</field>
+        <field name="day_label">Day 5</field>
+        <field name="title">Final Game Drive &amp; Departure</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">fly</field>
+        <field name="icon">flag-checkered</field>
+        <field name="description"><![CDATA[<p>A final private morning game drive, then fly back to Nairobi.</p>]]></field>
+    </record>
+    <record id="tour_product_honeymoon_mara_standard" model="product.product">
+        <field name="name">Honeymoon Safari in the Mara - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">2450.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_honeymoon_mara_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_honeymoon_mara_standard"/>
+    </record>
+    <record id="tour_product_honeymoon_mara_midrange" model="product.product">
+        <field name="name">Honeymoon Safari in the Mara - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">2950.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_honeymoon_mara_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_honeymoon_mara_midrange"/>
+    </record>
+    <record id="tour_product_honeymoon_mara_luxury" model="product.product">
+        <field name="name">Honeymoon Safari in the Mara - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">3600.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_honeymoon_mara_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_honeymoon_mara_luxury"/>
+    </record>
+    <record id="tour_date_honeymoon_mara_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=6)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_honeymoon_mara_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=13)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_honeymoon_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (departure point)</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8577</field>
+    </record>
+    <record id="tour_waypoint_honeymoon_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_honeymoon_mara"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-5: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4061</field>
+        <field name="longitude">35.0058</field>
+    </record>
+
 </odoo>

@@ -1,21 +1,28 @@
 (function () {
     "use strict";
 
-    function initWhatsappButton() {
-        var btn = document.getElementById("kt_whatsapp_button");
-        if (!btn) { return; }
+    var DEFAULT_MESSAGE = "Hi! I have a question about your Kenya tours.";
+
+    function wireButton(btn) {
         var phone = (btn.getAttribute("data-phone") || "").replace(/[^\d]/g, "");
         if (!phone) {
             btn.hidden = true;
             return;
         }
-        var message = "Hi! I have a question about your Kenya tours.";
+        var message = btn.getAttribute("data-message") || DEFAULT_MESSAGE;
         btn.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
     }
 
+    function initWhatsappButtons() {
+        // .kt_whatsapp_link covers every WhatsApp CTA on the page (the floating
+        // button plus any inline "Message us on WhatsApp" buttons in forms) -
+        // each can carry its own data-message for context-specific greetings.
+        document.querySelectorAll(".kt_whatsapp_link").forEach(wireButton);
+    }
+
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initWhatsappButton);
+        document.addEventListener("DOMContentLoaded", initWhatsappButtons);
     } else {
-        initWhatsappButton();
+        initWhatsappButtons();
     }
 })();
