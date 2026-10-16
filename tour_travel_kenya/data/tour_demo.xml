@@ -2776,6 +2776,7 @@
 
     <!-- ================= 3. Tsavo East &amp; West Safari (4D/3N) ================= -->
     <record id="tour_package_tsavo" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_tsavo.jpg"/>
         <field name="name">Tsavo East &amp; West Safari</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Tsavo East &amp; Tsavo West, Kenya</field>
