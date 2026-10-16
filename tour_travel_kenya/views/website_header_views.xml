@@ -22,4 +22,29 @@
             </div>
         </xpath>
     </template>
+
+    <!-- The mobile hamburger menu (website.template_header_mobile) was never
+         touched by the desktop fix above, so it still listed the unused
+         "/shop" page (website_sale is only installed here for its
+         product.product model, there's no real public shop) and showed
+         Odoo's default placeholder phone number - content that didn't match
+         the desktop header or the real footer contact details at all. -->
+    <template id="kt_header_mobile_menu_filter" inherit_id="website.template_header_mobile" name="Seriani Mobile Header Menu Filter">
+        <xpath expr="//t[@t-foreach='website.menu_id.child_id']" position="attributes">
+            <attribute name="t-foreach">[m for m in website.menu_id.child_id if m.url != '/shop']</attribute>
+        </xpath>
+    </template>
+
+    <!-- Fixes the same default placeholder phone number everywhere
+         website.header_text_element's un-parameterised (default) branch is
+         used - currently only the mobile menu, since the desktop header
+         uses its own call_to_action placeholder instead. -->
+    <template id="kt_header_text_element_phone" inherit_id="website.header_text_element" name="Seriani Header Text Element Phone">
+        <xpath expr="//t[@t-else='']//a[contains(@href, 'tel:+1 555-555-5556')]" position="replace">
+            <a href="tel:+254112268924" class="nav-link o_nav-link_secondary p-2">
+                <i class="fa fa-1x fa-fw fa-phone me-1"/>
+                <span class="o_force_ltr"><small>0112 268 924</small></span>
+            </a>
+        </xpath>
+    </template>
 </odoo>
