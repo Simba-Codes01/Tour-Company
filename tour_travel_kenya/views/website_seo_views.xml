@@ -3,9 +3,10 @@
     <!-- website_sale ships a minimal site-wide Organization JSON-LD block
          (name/logo/url only) in every page's head. Enrich it into a proper
          TravelAgency listing - address, phone, email, the social profiles
-         already set on the website, and an explicit areaServed so search
-         engines understand Seriani serves travelers across East Africa,
-         not just Kenya searches. -->
+         already set on the website, a price range, and an explicit
+         areaServed so search engines understand Seriani welcomes bookings
+         from across East Africa and from international travelers
+         worldwide, not just Kenya searches. -->
     <template id="kt_organization_structured_data" inherit_id="website_sale.website_sale_layout" name="Seriani Structured Data (Organization)">
         <xpath expr="//script[@t-if='res_company and website']" position="replace">
             <script t-if="res_company and website" type="application/ld+json">
@@ -17,6 +18,7 @@
     "url": "<t t-out="base_url"/>",
     "telephone": "<t t-out="res_company.phone or ''"/>",
     "email": "<t t-out="res_company.email or ''"/>",
+    "priceRange": "$950-$8500",
     "address": {
         "@type": "PostalAddress",
         "addressLocality": "Nairobi",
@@ -28,7 +30,8 @@
         {"@type": "Country", "name": "Tanzania"},
         {"@type": "Country", "name": "Rwanda"},
         {"@type": "Country", "name": "Burundi"},
-        {"@type": "Country", "name": "South Sudan"}
+        {"@type": "Country", "name": "South Sudan"},
+        {"@type": "Place", "name": "Worldwide"}
     ],
     "sameAs": [
         <t t-if="website.social_facebook">"<t t-out="website.social_facebook"/>"<t t-if="website.social_instagram or website.social_twitter">,</t></t>

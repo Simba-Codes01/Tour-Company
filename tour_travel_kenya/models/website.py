@@ -86,8 +86,8 @@ class Website(models.Model):
                     'website_meta_title': 'Seriani Tours & Travel | Kenya Safari Tours & Travel Packages',
                     'website_meta_description': (
                         "Book Kenya safaris direct with Seriani Tours & Travel - Masai Mara, "
-                        "Amboseli, Tsavo and more. Serving travelers across East Africa and "
-                        "beyond, no middleman markups."
+                        "Amboseli, Tsavo and more. Welcoming travelers from East Africa and "
+                        "around the world, no middleman markups."
                     ),
                 })
         contactus = Page.search([('url', '=', '/contactus')], limit=1)
@@ -96,7 +96,7 @@ class Website(models.Model):
                 'website_meta_title': 'Contact Us | Seriani Tours & Travel',
                 'website_meta_description': (
                     "Get in touch with Seriani Tours & Travel to plan your Kenya safari - "
-                    "WhatsApp, call or email us directly, wherever in East Africa you're "
+                    "WhatsApp, call or email us directly, wherever in the world you're "
                     "traveling from."
                 ),
             })
