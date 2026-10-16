@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="footer_kenya_content" inherit_id="website.footer_custom" name="Naeku Footer Content">
+    <template id="footer_kenya_content" inherit_id="website.footer_custom" name="Seriani Footer Content">
         <xpath expr="//div[@id='footer']//div[hasclass('col-lg-2')]//li[a[text()='Legal']]" position="replace">
             <li><a href="/cancellation-policy">Cancellation Policy</a></li>
             <li><a href="/privacy-policy">Privacy Policy</a></li>

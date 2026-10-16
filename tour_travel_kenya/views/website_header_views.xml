@@ -4,7 +4,7 @@
          right edge. Only touches the desktop nav markup inside
          website.template_header_default's own o_main_nav div; the mobile
          hamburger nav is untouched. -->
-    <template id="kt_header_left_logo" inherit_id="website.template_header_default" name="Naeku Left-Logo Header" active="True">
+    <template id="kt_header_left_logo" inherit_id="website.template_header_default" name="Seriani Left-Logo Header" active="True">
         <xpath expr="//div[@id='o_main_nav']" position="replace">
             <div id="o_main_nav" t-attf-class="o_main_nav kt_nav_left #{header_content_width} d-flex align-items-center">
                 <a href="/" class="navbar-brand kt_nav_brand me-4">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="kt_404_page" inherit_id="http_routing.404" name="Naeku 404 Page">
+    <template id="kt_404_page" inherit_id="http_routing.404" name="Seriani 404 Page">
         <xpath expr="//div[@id='wrap']" position="replace">
             <div id="wrap" class="kt_page">
                 <t t-out="0"/>

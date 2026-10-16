@@ -2,7 +2,7 @@
 <odoo>
     <!-- Applies the saved theme before first paint, so there's no flash of
          the wrong theme while the main JS bundle loads. -->
-    <template id="kt_theme_early_script" inherit_id="website.layout" name="Naeku Early Theme Script" active="True">
+    <template id="kt_theme_early_script" inherit_id="website.layout" name="Seriani Early Theme Script" active="True">
         <xpath expr="//head" position="inside">
             <script>
                 <![CDATA[
@@ -22,7 +22,7 @@
     <!-- Floating dark/light mode toggle, fixed on every page regardless of
          viewport width - avoids fighting with the nav's own responsive
          breakpoints entirely. -->
-    <template id="kt_theme_toggle_button" inherit_id="website.layout" name="Naeku Dark Mode Toggle Button" active="True">
+    <template id="kt_theme_toggle_button" inherit_id="website.layout" name="Seriani Dark Mode Toggle Button" active="True">
         <xpath expr="//div[@id='wrapwrap']" position="after">
             <button type="button" id="kt_theme_toggle" class="kt_theme_toggle" aria-label="Toggle dark mode" aria-pressed="false" title="Toggle dark / light mode">
                 <i class="fa fa-moon-o kt_theme_icon_dark" aria-hidden="true"/>

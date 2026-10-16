@@ -62,10 +62,10 @@
                 <link rel="preconnect" href="https://fonts.googleapis.com"/>
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin"/>
                 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-                <meta name="description" content="Browse Kenya safari packages, beach getaways and treks - book tours across Amboseli, Masai Mara, Lake Nakuru and more directly with Naeku Tours &amp; Safaris."/>
+                <meta name="description" content="Browse Kenya safari packages, beach getaways and treks - book tours across Amboseli, Masai Mara, Lake Nakuru and more directly with Seriani Tours &amp; Travel."/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:title" content="Kenya Tour Packages - Safaris, Beach Getaways &amp; Treks"/>
-                <meta property="og:description" content="Browse Kenya safari packages, beach getaways and treks - book tours across Amboseli, Masai Mara, Lake Nakuru and more directly with Naeku Tours &amp; Safaris."/>
+                <meta property="og:description" content="Browse Kenya safari packages, beach getaways and treks - book tours across Amboseli, Masai Mara, Lake Nakuru and more directly with Seriani Tours &amp; Travel."/>
                 <meta property="og:url" t-att-content="request.website.get_base_url() + '/tours'"/>
             </t>
             <div id="wrap" class="kt_page">
@@ -321,10 +321,10 @@
                         <span class="kt_season_open_badge"><i class="fa fa-check-circle"/> Open All Year Round</span>
                     </div>
                     <p class="kt_parks_subtitle" style="max-width: 60rem;">
-                        As a Kenya-based operator, Naeku Tours &amp; Safaris runs trips every month of the year -
-                        there's no bad time to visit, only different seasons. Kenya's parks deliver Big Five game
-                        drives year-round, with the Great Migration crossing the Masai Mara from around July to
-                        October. Tap any month below to see what's happening.
+                        We run safaris across Kenya every month of the year - there's no bad time to visit, only
+                        different seasons. The parks deliver Big Five game drives year-round, with the Great
+                        Migration crossing the Masai Mara from around July to October. Tap any month below to see
+                        what's happening.
                     </p>
 
                     <div class="kt_season_cards mb-4">

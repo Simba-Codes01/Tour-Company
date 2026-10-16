@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="menu_tour_root" name="Naeku" sequence="75"/>
+    <menuitem id="menu_tour_root" name="Seriani" sequence="75"/>
 
     <menuitem id="menu_tour_package" name="Packages" parent="menu_tour_root" action="action_tour_package" sequence="10"/>
     <menuitem id="menu_tour_booking" name="Bookings" parent="menu_tour_root" action="action_tour_booking" sequence="20"/>

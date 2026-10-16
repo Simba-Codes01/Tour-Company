@@ -1,10 +1,10 @@
 {
-    'name': 'Naeku Tours & Safaris',
+    'name': 'Seriani Tours & Travel',
     'version': '1.0',
     'category': 'Website/Website',
     'summary': 'Sell and manage Kenya tour packages online',
     'description': """
-Naeku Tours & Safaris
+Seriani Tours & Travel
 ======================
 Browse and book Kenya tour packages (safaris, beach getaways, treks) on the
 website, manage packages/departure dates/pricing/bookings from the backend,

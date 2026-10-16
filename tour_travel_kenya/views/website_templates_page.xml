@@ -12,7 +12,7 @@
                 </t>
                 <meta property="og:type" content="product"/>
                 <meta property="og:title" t-att-content="package.name"/>
-                <meta property="og:description" t-att-content="'%s - %s day(s) tour with Naeku Tours &amp; Safaris' % (package.destination or '', package.duration_days)"/>
+                <meta property="og:description" t-att-content="'%s - %s day(s) tour with Seriani Tours &amp; Travel' % (package.destination or '', package.duration_days)"/>
                 <meta t-if="og_image_url" property="og:image" t-att-content="og_image_url"/>
                 <meta property="og:url" t-att-content="canonical_url"/>
                 <meta name="twitter:card" content="summary_large_image"/>

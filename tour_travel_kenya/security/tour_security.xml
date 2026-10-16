@@ -2,7 +2,7 @@
 <odoo>
     <data noupdate="0">
         <record model="res.groups.privilege" id="res_groups_privilege_tours">
-            <field name="name">Naeku Tours &amp; Safaris</field>
+            <field name="name">Seriani Tours &amp; Travel</field>
             <field name="category_id" ref="base.module_category_marketing"/>
         </record>
 
