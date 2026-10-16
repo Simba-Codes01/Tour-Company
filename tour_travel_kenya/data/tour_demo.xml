@@ -2911,6 +2911,7 @@
 
     <!-- ================= 8. Great Migration Masai Mara Safari (5D/4N, Jul-Oct) ================= -->
     <record id="tour_package_migration_mara" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_migration_mara.jpg"/>
         <field name="name">Great Migration Masai Mara Safari</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Masai Mara National Reserve, Kenya</field>
