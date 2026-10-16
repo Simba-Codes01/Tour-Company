@@ -15,6 +15,7 @@ and let customers track bookings and leave reviews from the customer portal.
         'security/tour_security.xml',
         'security/ir.model.access.csv',
         'data/mail_templates.xml',
+        'data/website_branding_data.xml',
         'report/tour_itinerary_templates.xml',
         'report/tour_package_reports.xml',
         'views/tour_package_category_views.xml',

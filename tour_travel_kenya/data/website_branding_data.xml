@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Browser-tab favicon for the main website, a tight square crop of
+         the Seriani emblem (sunset, acacia tree, giraffe, elephants) from
+         the full logo - not demo data, so it applies on every install
+         regardless of whether demo data is loaded. -->
+    <record id="website.default_website" model="website">
+        <field name="favicon" type="base64" file="tour_travel_kenya/static/src/img/seriani_favicon.png"/>
+    </record>
+</odoo>
