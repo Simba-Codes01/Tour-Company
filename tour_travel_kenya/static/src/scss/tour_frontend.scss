@@ -215,52 +215,65 @@ header:has(.kt_nav_left) {
         }
     }
 
-    // Recolor the default "Contact Us" call-to-action to match the brand
-    // palette, and add a diagonal shine sweep across it on hover.
-    .btn_cta {
-        position: relative;
-        overflow: hidden;
-        background-color: var(--kt-terracotta);
-        border-color: var(--kt-terracotta);
-        transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-
-        &::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.45), transparent);
-            transform: skewX(-20deg);
-            transition: left 0.5s ease;
-        }
-
-        &:hover, &:focus {
-            background-color: var(--kt-terracotta-dark);
-            border-color: var(--kt-terracotta-dark);
-            transform: translateY(-1px);
-        }
-
-        &:hover::before {
-            left: 125%;
-        }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-        .top_menu .nav-link, .btn_cta {
+        .top_menu .nav-link {
             transition: color 0.15s ease;
         }
 
         .kt_nav_brand:hover .kt_nav_brand_logo,
-        .top_menu .nav-link:hover,
-        .btn_cta:hover {
+        .top_menu .nav-link:hover {
             transform: none;
         }
+    }
+}
 
-        .btn_cta::before {
-            display: none;
-        }
+// Site-wide primary call-to-action button (brand terracotta with a diagonal
+// shine sweep on hover). Originally only styled inside the header's own CTA;
+// de-scoped so every .btn_cta - header, homepage, anywhere - looks the same.
+// Pairs with Bootstrap's .btn.btn-primary for the box model (padding,
+// border-radius, display), same as the header's own markup.
+.btn_cta {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--kt-terracotta);
+    border-color: var(--kt-terracotta);
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -75%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+        transform: skewX(-20deg);
+        transition: left 0.5s ease;
+    }
+
+    &:hover, &:focus {
+        background-color: var(--kt-terracotta-dark);
+        border-color: var(--kt-terracotta-dark);
+        color: #fff;
+        transform: translateY(-1px);
+    }
+
+    &:hover::before {
+        left: 125%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn_cta {
+        transition: color 0.15s ease;
+    }
+
+    .btn_cta:hover {
+        transform: none;
+    }
+
+    .btn_cta::before {
+        display: none;
     }
 }
 

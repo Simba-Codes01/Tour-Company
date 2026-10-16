@@ -37,7 +37,7 @@
                                         <h1>Discover Kenya, One Safari at a Time</h1>
                                         <p>Hand-picked safaris, beach escapes and treks across Kenya - booked directly, no middleman markups.</p>
                                         <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                            <a href="/tours" class="btn_cta">Browse All Packages</a>
+                                            <a href="/tours" class="btn btn-primary btn_cta">Browse All Packages</a>
                                             <a class="btn btn-outline-light kt_whatsapp_link" target="_blank" rel="noopener"
                                                t-att-data-phone="request.website.company_id.phone or ''"
                                                data-message="Hi! I'd like to know more about your Kenya safari packages.">
@@ -55,7 +55,7 @@
                                         <h1>Masai Mara: Home of the Big Cats</h1>
                                         <p>Superb resident lion, leopard and cheetah year-round, and the wildebeest migration from roughly July to October.</p>
                                         <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                            <a href="/tours" class="btn_cta">Explore Masai Mara Safaris</a>
+                                            <a href="/tours" class="btn btn-primary btn_cta">Explore Masai Mara Safaris</a>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                                         <h1>3-Day Masai Mara Safari</h1>
                                         <p>A fast-paced long weekend escape built entirely around game drives in Kenya's flagship reserve.</p>
                                         <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                            <a t-att-href="kt_home_mara_3day.website_url if kt_home_mara_3day else '/tours'" class="btn_cta">View This Safari</a>
+                                            <a t-att-href="kt_home_mara_3day.website_url if kt_home_mara_3day else '/tours'" class="btn btn-primary btn_cta">View This Safari</a>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                         <h1>Ultra Luxury 7-Day Trip</h1>
                                         <p>Exclusive camps, private conservancies and bush flights between parks, for travelers who want the very best of Kenya.</p>
                                         <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                            <a href="/tours" class="btn_cta">See Luxury Packages</a>
+                                            <a href="/tours" class="btn btn-primary btn_cta">See Luxury Packages</a>
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                                         <h1>7-Day Kenya Safari</h1>
                                         <p>Amboseli, Lake Nakuru and the Masai Mara in one trip - Kenya's classic parks, back to back.</p>
                                         <div class="d-flex gap-3 justify-content-center flex-wrap">
-                                            <a href="/tours" class="btn_cta">Plan a Multi-Park Trip</a>
+                                            <a href="/tours" class="btn btn-primary btn_cta">Plan a Multi-Park Trip</a>
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
                                 Whether it is your first safari or your fifth, our team handles the logistics, the
                                 parks and the drivers, so you can focus on the wildlife. Explore. Discover. Experience.
                             </p>
-                            <a href="/tours" class="btn_cta">View All Packages <i class="fa fa-arrow-right ms-1"/></a>
+                            <a href="/tours" class="btn btn-primary btn_cta">View All Packages <i class="fa fa-arrow-right ms-1"/></a>
                         </div>
                         <div class="col-lg-5">
                             <div class="kt_about_stats">
@@ -162,7 +162,7 @@
                         </t>
                     </div>
                     <div class="text-center mt-4">
-                        <a href="/tours" class="btn_cta">View All Packages <i class="fa fa-arrow-right ms-1"/></a>
+                        <a href="/tours" class="btn btn-primary btn_cta">View All Packages <i class="fa fa-arrow-right ms-1"/></a>
                     </div>
                 </section>
 
@@ -194,7 +194,7 @@
                         <h2>Ready to start planning your Kenya safari?</h2>
                         <p>Tell us your dates and group size - we'll build a custom quote, no obligation.</p>
                         <div class="d-flex gap-3 justify-content-center flex-wrap">
-                            <a href="/tours" class="btn_cta">Browse Packages</a>
+                            <a href="/tours" class="btn btn-primary btn_cta">Browse Packages</a>
                             <a class="btn btn-outline-light kt_whatsapp_link" target="_blank" rel="noopener"
                                t-att-data-phone="request.website.company_id.phone or ''"
                                data-message="Hi! I'd like to know more about your Kenya safari packages.">
