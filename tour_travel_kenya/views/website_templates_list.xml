@@ -9,7 +9,7 @@
     <template id="package_card_rich" name="Package Card (Rich)">
         <div t-attf-class="kt_rich_card #{'' if show_media else 'kt_rich_card_no_media'}">
             <div t-if="show_media" class="kt_rich_card_media">
-                <img t-if="package.image_1920" t-attf-src="/web/image/tour.package/#{package.id}/image_1920" alt="Package cover"/>
+                <img t-if="package.image_1920" t-attf-src="/web/image/tour.package/#{package.id}/image_1920" t-attf-alt="#{package.name}"/>
                 <div t-else="" class="kt_gallery_placeholder_tile kt_rich_card_placeholder">
                     <i class="fa fa-camera"/>
                     <span>Photo coming soon</span>
