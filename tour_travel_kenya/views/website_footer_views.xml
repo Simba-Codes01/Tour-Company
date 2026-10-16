@@ -45,4 +45,22 @@
             </div>
         </xpath>
     </template>
+
+    <!-- Bottom copyright bar lives in website.layout itself (shared page
+         chrome), outside website.footer_custom's own reach - fix the
+         "Copyright © Company name" placeholder (ships as static text by
+         default, meant to be hand-edited once via the website builder,
+         which this project never did) to read the real company name. -->
+    <template id="footer_copyright_fixes" inherit_id="website.layout" name="Seriani Footer Copyright Fixes">
+        <xpath expr="//footer//span[hasclass('o_footer_copyright_name')]" position="replace">
+            <span class="o_footer_copyright_name me-2 small">Copyright &amp;copy; <t t-esc="website.company_id.name"/></span>
+        </xpath>
+    </template>
+
+    <!-- The "Powered by Odoo" badge is rendered by a t-call to
+         web.brand_promotion, a separate template - not inlined into
+         website.layout's own arch - so it has to be targeted directly. -->
+    <template id="hide_brand_promotion" inherit_id="web.brand_promotion" name="Hide Powered-by-Odoo Badge">
+        <xpath expr="//div[hasclass('o_brand_promotion')]" position="replace"/>
+    </template>
 </odoo>
