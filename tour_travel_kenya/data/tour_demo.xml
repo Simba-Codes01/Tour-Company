@@ -3061,6 +3061,7 @@
 
     <!-- ================= 9. Family Safari Adventure (6D/5N) ================= -->
     <record id="tour_package_family_safari" model="tour.package">
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/packages/tour_package_family_safari.jpg"/>
         <field name="name">Family Safari Adventure</field>
         <field name="category_id" ref="tour_category_safari"/>
         <field name="destination">Nairobi, Lake Nakuru &amp; Masai Mara, Kenya</field>
