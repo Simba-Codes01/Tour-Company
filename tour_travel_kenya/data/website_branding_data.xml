@@ -3,8 +3,10 @@
     <!-- Browser-tab favicon for the main website, a tight square crop of
          the Seriani emblem (sunset, acacia tree, giraffe, elephants) from
          the full logo - not demo data, so it applies on every install
-         regardless of whether demo data is loaded. -->
-    <record id="website.default_website" model="website">
-        <field name="favicon" type="base64" file="tour_travel_kenya/static/src/img/seriani_favicon.png"/>
-    </record>
+         regardless of whether demo data is loaded.
+         Set through a function rather than a <record> on
+         website.default_website: that xmlid is noupdate in the website
+         module, so module upgrades skip any record that targets it.
+         See Website._kt_apply_favicon. -->
+    <function model="website" name="_kt_apply_favicon"/>
 </odoo>
