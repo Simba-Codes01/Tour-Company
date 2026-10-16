@@ -30,6 +30,7 @@ and let customers track bookings and leave reviews from the customer portal.
         'views/website_menu_views.xml',
         'views/website_header_views.xml',
         'views/website_footer_views.xml',
+        'views/website_seo_views.xml',
         'views/website_theme_toggle_views.xml',
         'views/website_whatsapp_views.xml',
         'views/website_legal_views.xml',

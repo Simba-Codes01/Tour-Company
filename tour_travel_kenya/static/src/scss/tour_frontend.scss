@@ -3452,7 +3452,10 @@ header:has(.kt_nav_left) {
         max-width: 760px;
         margin: 0 auto;
 
-        h1 {
+        // Only the first (active) slide uses h1 - a real page needs exactly
+        // one - the rest use h2 but match it visually so every slide still
+        // reads at the same weight.
+        h1, h2 {
             color: #fff;
             font-family: 'Fraunces', Georgia, serif;
             font-weight: 700;
@@ -3498,7 +3501,7 @@ header:has(.kt_nav_left) {
             min-height: 420px;
         }
 
-        .kt_home_slide_content h1 {
+        .kt_home_slide_content h1, .kt_home_slide_content h2 {
             font-size: 2rem;
         }
     }

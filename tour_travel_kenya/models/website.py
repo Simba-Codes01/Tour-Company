@@ -55,3 +55,34 @@ class Website(models.Model):
             website.logo = base64.b64encode(data)
             website.name = WEBSITE_NAME
             params.set_param(LOGO_PARAM, sha1)
+
+    @api.model
+    def _kt_apply_seo_page_meta(self):
+        """Fix the default Odoo placeholder title/description on the
+        homepage and Contact Us page ("This is the homepage of the
+        website", no title at all) - plain field writes, not file-based,
+        so no noupdate issue and nothing to track between runs.
+        """
+        Page = self.env['website.page'].sudo()
+        website = self.env.ref('website.default_website', raise_if_not_found=False)
+        if website:
+            homepage = Page.search([('url', '=', '/'), ('website_id', '=', website.id)], limit=1)
+            if homepage:
+                homepage.write({
+                    'website_meta_title': 'Seriani Tours & Travel | Kenya Safari Tours & Travel Packages',
+                    'website_meta_description': (
+                        "Book Kenya safaris direct with Seriani Tours & Travel - Masai Mara, "
+                        "Amboseli, Tsavo and more. Serving travelers across East Africa and "
+                        "beyond, no middleman markups."
+                    ),
+                })
+        contactus = Page.search([('url', '=', '/contactus')], limit=1)
+        if contactus:
+            contactus.write({
+                'website_meta_title': 'Contact Us | Seriani Tours & Travel',
+                'website_meta_description': (
+                    "Get in touch with Seriani Tours & Travel to plan your Kenya safari - "
+                    "WhatsApp, call or email us directly, wherever in East Africa you're "
+                    "traveling from."
+                ),
+            })

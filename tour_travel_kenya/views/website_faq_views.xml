@@ -3,7 +3,55 @@
     <template id="faq_page" name="Travel Info &amp; FAQs">
         <t t-call="website.layout">
             <t t-set="head">
-                <meta name="description" content="Everything you need to know before your Kenya safari - visa requirements, vaccinations, what to pack, money and tipping, and when to go."/>
+                <meta name="description" content="Everything you need to know before your Kenya safari - visa requirements, vaccinations, what to pack, money and tipping, and when to go. Booking from Uganda, Tanzania, Rwanda or elsewhere in East Africa? We've got you covered too."/>
+                <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "Do I need a visa for Kenya?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Most visitors need an Electronic Travel Authorization (ETA) to enter Kenya, applied for online before you travel. Requirements and fees vary by nationality and do change, so always check the official Kenya ETA portal directly rather than relying on general advice - including ours. Apply at least a few days before departure."}
+        },
+        {
+            "@type": "Question",
+            "name": "What vaccinations or health precautions do I need?",
+            "acceptedAnswer": {"@type": "Answer", "text": "A Yellow Fever vaccination certificate is required if you're arriving from (or have transited through) a country with risk of yellow fever transmission. Malaria risk exists in most safari areas, so talk to a travel health clinic about antimalarial medication well before you travel. Routine vaccines should be up to date, and we'd recommend travel insurance that covers medical evacuation."}
+        },
+        {
+            "@type": "Question",
+            "name": "What should I pack for a safari?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Neutral-colored, lightweight clothing; a warm layer for chilly early-morning game drives; a hat and high-SPF sunscreen; binoculars; a basic first-aid kit with any personal medication; and a universal or UK-style (Type G) power adapter. Soft-sided luggage packs better into safari vehicles and light aircraft than hard suitcases."}
+        },
+        {
+            "@type": "Question",
+            "name": "What currency should I bring, and is tipping expected?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Kenya's currency is the Kenyan Shilling (KES). US dollars are widely accepted at hotels and lodges for larger payments, while M-Pesa mobile money is the everyday standard for small local purchases. Tipping guides, drivers and camp staff is customary and appreciated, though never obligatory."}
+        },
+        {
+            "@type": "Question",
+            "name": "Will I have phone signal and Wi-Fi on safari?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Mobile coverage is generally good in and around Kenya's major parks and towns, and most lodges and camps offer Wi-Fi in common areas. Coverage thins out at more remote camps and while out on game drives, so treat a few offline hours each day as part of the experience."}
+        },
+        {
+            "@type": "Question",
+            "name": "When is the best time to go?",
+            "acceptedAnswer": {"@type": "Answer", "text": "The dry season (June-October and January-February) gives the clearest game viewing, with the Masai Mara river crossings peaking July-October, but it's also the busiest and most expensive time to travel. The green season (March-May and November) brings lush scenery, newborn wildlife, far fewer visitors and lower rates, at the cost of more rain."}
+        },
+        {
+            "@type": "Question",
+            "name": "How does booking and payment work?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Submit a booking inquiry from any tour page and we'll follow up with a confirmed quote and payment link, which you can track anytime from your account."}
+        },
+        {
+            "@type": "Question",
+            "name": "Can I book a Kenya safari from Uganda, Tanzania, Rwanda or elsewhere in East Africa?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Yes - a good number of our travelers join a Kenya safari from elsewhere in East Africa rather than internationally. Reach out via our contact page or WhatsApp with your dates and where you're starting from, and we'll help you plan how to get into Kenya and connect with your trip."}
+        }
+    ]
+}
+                </script>
             </t>
             <div id="wrap" class="kt_page">
                 <div class="container mt-4 mb-5">
@@ -143,6 +191,23 @@
                                             <a href="/my/bookings">your account</a>. See our
                                             <a href="/cancellation-policy">Cancellation &amp; Refund Policy</a> for
                                             what happens if plans change.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_faq_east_africa">
+                                            Can I book a Kenya safari from Uganda, Tanzania, Rwanda or elsewhere in East Africa?
+                                        </button>
+                                    </h2>
+                                    <div id="kt_faq_east_africa" class="accordion-collapse collapse" data-bs-parent="#kt_faq_accordion">
+                                        <div class="accordion-body">
+                                            Yes - a good number of our travelers join a Kenya safari from elsewhere
+                                            in East Africa rather than internationally. Reach out via
+                                            <a href="/contactus">our contact page</a> or WhatsApp with your dates
+                                            and where you're starting from, and we'll help you plan how to get into
+                                            Kenya and connect with your trip.
                                         </div>
                                     </div>
                                 </div>

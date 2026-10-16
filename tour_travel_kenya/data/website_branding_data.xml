@@ -11,4 +11,5 @@
          See Website._kt_apply_favicon / _kt_apply_logo. -->
     <function model="website" name="_kt_apply_favicon"/>
     <function model="website" name="_kt_apply_logo"/>
+    <function model="website" name="_kt_apply_seo_page_meta"/>
 </odoo>
