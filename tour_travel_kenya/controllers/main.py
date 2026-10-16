@@ -6,6 +6,7 @@ from markupsafe import Markup
 
 from odoo import http, _
 from odoo.exceptions import ValidationError
+from odoo.tools import html2plaintext
 from odoo.http import request
 
 
@@ -176,6 +177,15 @@ class WebsiteTourController(http.Controller):
         } for wp in package_sudo.waypoint_ids]
         return json.dumps(points)
 
+    def _get_package_meta_description(self, package_sudo, limit=160):
+        text = ' '.join(html2plaintext(package_sudo.description or '').split())
+        if not text:
+            text = '%s - %s-day tour of %s with Seriani Tours & Travel.' % (
+                package_sudo.name, package_sudo.duration_days, package_sudo.destination or 'Kenya')
+        if len(text) > limit:
+            text = text[:limit - 1].rsplit(' ', 1)[0].rstrip(' ,;:-') + '\u2026'
+        return text
+
     def _get_package_page_values(self, package_sudo):
         base_url = request.website.get_base_url()
         og_image_url = base_url + '/web/image/tour.package/%s/image_1920' % package_sudo.id if package_sudo.image_1920 else False
@@ -203,6 +213,10 @@ class WebsiteTourController(http.Controller):
                 'reviewCount': package_sudo.rating_count,
             }
         return {
+            # <title> and <meta name="description"> for website.layout - without these
+            # every package page was titled "Tour Package" with no description
+            'additional_title': package_sudo.name,
+            'website_meta_description': self._get_package_meta_description(package_sudo),
             'og_image_url': og_image_url,
             'canonical_url': base_url + package_sudo.website_url,
             'structured_data_json': Markup(json.dumps(structured_data)),
@@ -220,11 +234,13 @@ class WebsiteTourController(http.Controller):
             ),
         }
 
-    @http.route(['/tours/<model("tour.package"):package>'], type='http', auth='public', website=True, sitemap=True, readonly=True)
+    # The converter domain only filters the sitemap (URL matching ignores it) -
+    # archived/unpublished packages are kept out of it; the page itself 404s below.
+    @http.route(['/tours/<model("tour.package", "[(\'website_published\', \'=\', True)]"):package>'], type='http', auth='public', website=True, sitemap=True, readonly=True)
     def tour_package_page(self, package, **kwargs):
         package_sudo = package.sudo()
-        if not package_sudo.website_published and not request.env.user.has_group('tour_travel_kenya.group_tour_user'):
-            request.not_found()
+        if not (package_sudo.active and package_sudo.website_published) and not request.env.user.has_group('tour_travel_kenya.group_tour_user'):
+            raise request.not_found()
         reviews = request.env['rating.rating'].sudo().search([
             ('parent_res_model', '=', 'tour.package'),
             ('parent_res_id', '=', package_sudo.id),
@@ -310,8 +326,8 @@ class WebsiteTourController(http.Controller):
     @http.route(['/tours/<model("tour.package"):package>/itinerary.pdf'], type='http', auth='public', website=True, sitemap=False)
     def tour_package_itinerary_pdf(self, package, **kwargs):
         package_sudo = package.sudo()
-        if not package_sudo.website_published and not request.env.user.has_group('tour_travel_kenya.group_tour_user'):
-            request.not_found()
+        if not (package_sudo.active and package_sudo.website_published) and not request.env.user.has_group('tour_travel_kenya.group_tour_user'):
+            raise request.not_found()
         pdf, dummy_report_type = request.env['ir.actions.report'].sudo()._render_qweb_pdf(
             'tour_travel_kenya.report_tour_itinerary_document', [package_sudo.id])
         headers = [

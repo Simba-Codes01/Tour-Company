@@ -10,9 +10,23 @@ LOGO_PATH = 'tour_travel_kenya/static/src/img/seriani_logo_cropped.png'
 LOGO_PARAM = 'tour_travel_kenya.logo_sha1'
 WEBSITE_NAME = 'Seriani Tours & Travel'
 
+# Odoo's stock pages this site doesn't use, kept out of sitemap.xml (and so out
+# of Google): website_sale is only a dependency for product.product - there's no
+# real public shop - and /website/info is Odoo's own "about this install" page.
+# Filtered here rather than with sitemap=False on the routes: website_sale's
+# controller is subclassed by other installed modules (comparison, wishlist),
+# each keeping its own copy of the /shop route with the original sitemap rule.
+SITEMAP_EXCLUDED_PREFIXES = ('/shop', '/website/info')
+
 
 class Website(models.Model):
     _inherit = 'website'
+
+    def _enumerate_pages(self, query_string=None, force=False):
+        for page in super()._enumerate_pages(query_string=query_string, force=force):
+            loc = page['loc']
+            if not any(loc == p or loc.startswith(p + '/') for p in SITEMAP_EXCLUDED_PREFIXES):
+                yield page
 
     @api.model
     def _kt_apply_favicon(self):
