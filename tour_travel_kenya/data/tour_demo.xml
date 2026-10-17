@@ -3386,4 +3386,232 @@
         <field name="longitude">35.0058</field>
     </record>
 
+
+    <!-- ================= Accommodation gallery photos (sourced from each
+         property's own official website) ================= -->
+    <record id="tour_acc_img_amboseli_sopa_lodge_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_7day_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/amboseli_sopa_lodge.jpg"/>
+        <field name="name">Amboseli Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_amboseli_sopa_lodge_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_7day_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/amboseli_sopa_lodge.jpg"/>
+        <field name="name">Amboseli Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_lake_nakuru_sopa_lodge_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_5day_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/lake_nakuru_sopa_lodge.jpg"/>
+        <field name="name">Lake Nakuru Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_lake_nakuru_sopa_lodge_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_family_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/lake_nakuru_sopa_lodge.jpg"/>
+        <field name="name">Lake Nakuru Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_lake_nakuru_sopa_lodge_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_6day_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/lake_nakuru_sopa_lodge.jpg"/>
+        <field name="name">Lake Nakuru Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_lake_nakuru_sopa_lodge_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_7day_4"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/lake_nakuru_sopa_lodge.jpg"/>
+        <field name="name">Lake Nakuru Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_lake_nakuru_sopa_lodge_5" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_5"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/lake_nakuru_sopa_lodge.jpg"/>
+        <field name="name">Lake Nakuru Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_lake_nakuru_sopa_lodge_6" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_6"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/lake_nakuru_sopa_lodge.jpg"/>
+        <field name="name">Lake Nakuru Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3mara_1"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3mara_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_5day_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_family_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_5" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_5day_4"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_6" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_6day_4"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_7" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_family_4"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_8" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_7day_5"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_9" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_6day_5"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_10" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_family_5"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_11" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_7day_6"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_12" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_6"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_13" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_7"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_14" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_7"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_mara_sopa_lodge_15" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_8"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
+        <field name="name">Mara Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_1"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_5" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_6" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_olpejeta_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_7" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_4"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_8" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_olpejeta_4"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_9" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_4"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_samburu_sopa_lodge_10" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_5"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
+        <field name="name">Samburu Sopa Lodge</field>
+    </record>
+    <record id="tour_acc_img_sweetwaters_serena_camp_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sweetwaters_serena_camp.jpg"/>
+        <field name="name">Sweetwaters Serena Camp</field>
+    </record>
+    <record id="tour_acc_img_sweetwaters_serena_camp_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_olpejeta_1"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sweetwaters_serena_camp.jpg"/>
+        <field name="name">Sweetwaters Serena Camp, Ol Pejeta</field>
+    </record>
+    <record id="tour_acc_img_sweetwaters_serena_camp_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_olpejeta_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sweetwaters_serena_camp.jpg"/>
+        <field name="name">Sweetwaters Serena Camp, Ol Pejeta</field>
+    </record>
+    <record id="tour_acc_img_sweetwaters_serena_camp_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_5"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sweetwaters_serena_camp.jpg"/>
+        <field name="name">Sweetwaters Serena Camp, Ol Pejeta</field>
+    </record>
+    <record id="tour_acc_img_elewana_tortilis_camp_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_1"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elewana_tortilis_camp.jpg"/>
+        <field name="name">Elewana Tortilis Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elewana_tortilis_camp_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elewana_tortilis_camp.jpg"/>
+        <field name="name">Elewana Tortilis Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elewana_sand_river_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_honeymoon_1"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elewana_sand_river.jpg"/>
+        <field name="name">Elewana Sand River, Masai Mara</field>
+    </record>
+    <record id="tour_acc_img_elewana_sand_river_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_honeymoon_2"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elewana_sand_river.jpg"/>
+        <field name="name">Elewana Sand River, Masai Mara</field>
+    </record>
+    <record id="tour_acc_img_elewana_sand_river_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_honeymoon_3"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elewana_sand_river.jpg"/>
+        <field name="name">Elewana Sand River, Masai Mara</field>
+    </record>
+    <record id="tour_acc_img_elewana_sand_river_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_honeymoon_4"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elewana_sand_river.jpg"/>
+        <field name="name">Elewana Sand River, Masai Mara</field>
+    </record>
+    <record id="tour_acc_img_elewana_sand_river_5" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_5"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elewana_sand_river.jpg"/>
+        <field name="name">Elewana Sand River, Masai Mara</field>
+    </record>
+    <record id="tour_acc_img_elewana_sand_river_6" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_6"/>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elewana_sand_river.jpg"/>
+        <field name="name">Elewana Sand River, Masai Mara</field>
+    </record>
 </odoo>

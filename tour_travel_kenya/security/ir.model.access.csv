@@ -8,8 +8,14 @@ access_tour_package_manager,tour.package.manager,model_tour_package,group_tour_m
 access_tour_package_public,tour.package.public,model_tour_package,base.group_public,1,0,0,0
 access_tour_package_portal,tour.package.portal,model_tour_package,base.group_portal,1,0,0,0
 access_tour_package_image_user,tour.package.image.user,model_tour_package_image,group_tour_user,1,1,1,1
+access_tour_package_image_public,tour.package.image.public,model_tour_package_image,base.group_public,1,0,0,0
+access_tour_package_image_portal,tour.package.image.portal,model_tour_package_image,base.group_portal,1,0,0,0
 access_tour_package_itinerary_day_user,tour.package.itinerary.day.user,model_tour_package_itinerary_day,group_tour_user,1,1,1,1
+access_tour_package_itinerary_day_public,tour.package.itinerary.day.public,model_tour_package_itinerary_day,base.group_public,1,0,0,0
+access_tour_package_itinerary_day_portal,tour.package.itinerary.day.portal,model_tour_package_itinerary_day,base.group_portal,1,0,0,0
 access_tour_package_itinerary_accommodation_image_user,tour.package.itinerary.accommodation.image.user,model_tour_package_itinerary_accommodation_image,group_tour_user,1,1,1,1
+access_tour_package_itinerary_accommodation_image_public,tour.package.itinerary.accommodation.image.public,model_tour_package_itinerary_accommodation_image,base.group_public,1,0,0,0
+access_tour_package_itinerary_accommodation_image_portal,tour.package.itinerary.accommodation.image.portal,model_tour_package_itinerary_accommodation_image,base.group_portal,1,0,0,0
 access_tour_package_itinerary_extra_user,tour.package.itinerary.extra.user,model_tour_package_itinerary_extra,group_tour_user,1,1,1,1
 access_tour_package_waypoint_user,tour.package.waypoint.user,model_tour_package_waypoint,group_tour_user,1,1,1,1
 access_tour_package_month_rate_user,tour.package.month.rate.user,model_tour_package_month_rate,group_tour_user,1,1,1,1
