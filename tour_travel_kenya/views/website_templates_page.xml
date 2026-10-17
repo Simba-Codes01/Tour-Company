@@ -244,10 +244,32 @@
                                                                     </t>
                                                                 </span>
                                                             </div>
-                                                            <div t-if="day.accommodation_image_ids" class="kt_itin2_accom_gallery">
-                                                                <t t-foreach="day.accommodation_image_ids[:4]" t-as="accom_img">
-                                                                    <img t-attf-src="/web/image/tour.package.itinerary.accommodation.image/#{accom_img.id}/image_1920"
-                                                                         alt="Accommodation photo"/>
+                                                            <div t-if="day.accommodation_image_ids" t-attf-id="kt_accom_carousel_#{day.id}"
+                                                                 class="carousel slide kt_itin2_accom_gallery" data-bs-touch="true">
+                                                                <div class="carousel-inner">
+                                                                    <t t-foreach="day.accommodation_image_ids" t-as="accom_img">
+                                                                        <div t-attf-class="carousel-item #{'active' if accom_img_index == 0 else ''}">
+                                                                            <img t-attf-src="/web/image/tour.package.itinerary.accommodation.image/#{accom_img.id}/image_1920"
+                                                                                 alt="Accommodation photo"/>
+                                                                        </div>
+                                                                    </t>
+                                                                </div>
+                                                                <t t-if="len(day.accommodation_image_ids) > 1">
+                                                                    <button class="carousel-control-prev" type="button" t-attf-data-bs-target="#kt_accom_carousel_#{day.id}" data-bs-slide="prev">
+                                                                        <span class="carousel-control-prev-icon" aria-hidden="true"/>
+                                                                        <span class="visually-hidden">Previous</span>
+                                                                    </button>
+                                                                    <button class="carousel-control-next" type="button" t-attf-data-bs-target="#kt_accom_carousel_#{day.id}" data-bs-slide="next">
+                                                                        <span class="carousel-control-next-icon" aria-hidden="true"/>
+                                                                        <span class="visually-hidden">Next</span>
+                                                                    </button>
+                                                                    <div class="carousel-indicators">
+                                                                        <t t-foreach="day.accommodation_image_ids" t-as="accom_img">
+                                                                            <button type="button" t-attf-data-bs-target="#kt_accom_carousel_#{day.id}" t-attf-data-bs-slide-to="#{accom_img_index}"
+                                                                                    t-attf-class="#{'active' if accom_img_index == 0 else ''}" t-att-aria-current="'true' if accom_img_index == 0 else None"
+                                                                                    t-attf-aria-label="Photo #{accom_img_index + 1}"/>
+                                                                        </t>
+                                                                    </div>
                                                                 </t>
                                                             </div>
                                                             <div t-if="day.accommodation_tagline" class="kt_itin2_accom_tagline" t-out="day.accommodation_tagline"/>

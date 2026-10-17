@@ -2731,17 +2731,52 @@ header:has(.kt_nav_left) {
     }
 }
 
+// A small per-lodge slider (one photo at a time, swipeable) rather than a
+// static thumbnail grid - each itinerary day gets its own carousel instance
+// (id'd by day.id), since a page can show several days' accommodations.
 .kt_itin2_accom_gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 0.5rem;
+    position: relative;
     margin-bottom: 0.75rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
 
-    img {
+    .carousel-item img {
         width: 100%;
-        height: 6rem;
+        height: 13rem;
         object-fit: cover;
-        border-radius: 0.5rem;
+    }
+
+    .carousel-control-prev, .carousel-control-next {
+        width: 2.5rem;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    &:hover .carousel-control-prev, &:hover .carousel-control-next {
+        opacity: 0.85;
+    }
+
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.45);
+        border-radius: 50%;
+        background-size: 60%;
+    }
+
+    .carousel-indicators {
+        margin-bottom: 0.5rem;
+
+        button {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            opacity: 0.6;
+
+            &.active {
+                opacity: 1;
+            }
+        }
     }
 }
 
