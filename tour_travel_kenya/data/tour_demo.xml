@@ -1681,6 +1681,7 @@
         <field name="day_label">Day 4</field>
         <field name="title">Ol Pejeta Conservancy to Samburu National Reserve</field>
         <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
         <field name="meals">B, L, D</field>
         <field name="icon">binoculars</field>
         <field name="wildlife">African Elephant, Reticulated Giraffe, Ostrich, Grevy's Zebra, Gerenuk, Beisa Oryx, Somali Ostrich</field>
@@ -1692,6 +1693,7 @@
         <field name="day_label">Day 5</field>
         <field name="title">Full Day Game Drives in Samburu National Reserve</field>
         <field name="destination">Samburu National Reserve</field>
+        <field name="accommodation">Samburu Sopa Lodge</field>
         <field name="meals">B, L, D</field>
         <field name="icon">users</field>
         <field name="wildlife">Reticulated Giraffe, Plains Zebra, Ostrich, Grevy's Zebra, Gerenuk, Beisa Oryx</field>
