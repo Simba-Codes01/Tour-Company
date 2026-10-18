@@ -840,11 +840,11 @@
         <field name="day_label">Day 4</field>
         <field name="title">Samburu to Mount Kenya National Park</field>
         <field name="destination">Mount Kenya National Park</field>
-        <field name="accommodation">Serena Mountain Lodge, Mount Kenya</field>
+        <field name="accommodation">Fairmont Mount Kenya Safari Club</field>
         <field name="meals">B, L, D</field>
         <field name="icon">tree</field>
                 <field name="wildlife">African Elephant, Cape Buffalo, Bushbuck</field>
-        <field name="description"><![CDATA[<p>Drive to the forested slopes of Mount Kenya National Park, arriving at a lodge built around its own floodlit waterhole with mountain views. Overnight on a full-board basis. A warm jacket is recommended for the cool highland evenings.</p>]]></field>
+        <field name="description"><![CDATA[<p>Drive to the foothills of Mount Kenya, arriving at a storied country club set across 100 acres of gardens and forest, with sweeping views of the mountain. Overnight on a full-board basis. A warm jacket is recommended for the cool highland evenings.</p>]]></field>
     </record>
     <record id="tour_itin_day_8day_5" model="tour.package.itinerary.day">
         <field name="package_id" ref="tour_package_8day_safari"/>
@@ -2411,7 +2411,7 @@
         <field name="day_label">Day 1</field>
         <field name="title">Nairobi to Samburu National Reserve</field>
         <field name="destination">Samburu National Reserve</field>
-        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="accommodation">Sarova Shaba</field>
         <field name="meals">L, D</field>
         <field name="travel_mode">drive</field>
         <field name="icon">binoculars</field>
@@ -2424,7 +2424,7 @@
         <field name="day_label">Day 2</field>
         <field name="title">Samburu &amp; Reteti Elephant Sanctuary</field>
         <field name="destination">Samburu National Reserve</field>
-        <field name="accommodation">Samburu Sopa Lodge</field>
+        <field name="accommodation">Sarova Shaba</field>
         <field name="meals">B, L, D</field>
         <field name="travel_mode">drive</field>
         <field name="icon">paw</field>
@@ -3504,18 +3504,8 @@
         <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge.jpg"/>
         <field name="name">Mara Sopa Lodge</field>
     </record>
-    <record id="tour_acc_img_samburu_sopa_lodge_1" model="tour.package.itinerary.accommodation.image">
-        <field name="day_id" ref="tour_itin_day_3samb_1"/>
-        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
-        <field name="name">Samburu Sopa Lodge</field>
-    </record>
     <record id="tour_acc_img_samburu_sopa_lodge_2" model="tour.package.itinerary.accommodation.image">
         <field name="day_id" ref="tour_itin_day_8day_2"/>
-        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
-        <field name="name">Samburu Sopa Lodge</field>
-    </record>
-    <record id="tour_acc_img_samburu_sopa_lodge_3" model="tour.package.itinerary.accommodation.image">
-        <field name="day_id" ref="tour_itin_day_3samb_2"/>
         <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge.jpg"/>
         <field name="name">Samburu Sopa Lodge</field>
     </record>
@@ -4031,24 +4021,6 @@
         <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_sopa_lodge_4.jpg"/>
         <field name="name">Mara Sopa Lodge</field>
     </record>
-    <record id="tour_acc_img_more_samburu_sopa_lodge_2_tour_itin_day_3samb_1" model="tour.package.itinerary.accommodation.image">
-        <field name="day_id" ref="tour_itin_day_3samb_1"/>
-        <field name="sequence">11</field>
-        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge_2.jpg"/>
-        <field name="name">Samburu Sopa Lodge</field>
-    </record>
-    <record id="tour_acc_img_more_samburu_sopa_lodge_3_tour_itin_day_3samb_1" model="tour.package.itinerary.accommodation.image">
-        <field name="day_id" ref="tour_itin_day_3samb_1"/>
-        <field name="sequence">12</field>
-        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge_3.jpg"/>
-        <field name="name">Samburu Sopa Lodge</field>
-    </record>
-    <record id="tour_acc_img_more_samburu_sopa_lodge_4_tour_itin_day_3samb_1" model="tour.package.itinerary.accommodation.image">
-        <field name="day_id" ref="tour_itin_day_3samb_1"/>
-        <field name="sequence">13</field>
-        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge_4.jpg"/>
-        <field name="name">Samburu Sopa Lodge</field>
-    </record>
     <record id="tour_acc_img_more_samburu_sopa_lodge_2_tour_itin_day_8day_2" model="tour.package.itinerary.accommodation.image">
         <field name="day_id" ref="tour_itin_day_8day_2"/>
         <field name="sequence">11</field>
@@ -4063,24 +4035,6 @@
     </record>
     <record id="tour_acc_img_more_samburu_sopa_lodge_4_tour_itin_day_8day_2" model="tour.package.itinerary.accommodation.image">
         <field name="day_id" ref="tour_itin_day_8day_2"/>
-        <field name="sequence">13</field>
-        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge_4.jpg"/>
-        <field name="name">Samburu Sopa Lodge</field>
-    </record>
-    <record id="tour_acc_img_more_samburu_sopa_lodge_2_tour_itin_day_3samb_2" model="tour.package.itinerary.accommodation.image">
-        <field name="day_id" ref="tour_itin_day_3samb_2"/>
-        <field name="sequence">11</field>
-        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge_2.jpg"/>
-        <field name="name">Samburu Sopa Lodge</field>
-    </record>
-    <record id="tour_acc_img_more_samburu_sopa_lodge_3_tour_itin_day_3samb_2" model="tour.package.itinerary.accommodation.image">
-        <field name="day_id" ref="tour_itin_day_3samb_2"/>
-        <field name="sequence">12</field>
-        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge_3.jpg"/>
-        <field name="name">Samburu Sopa Lodge</field>
-    </record>
-    <record id="tour_acc_img_more_samburu_sopa_lodge_4_tour_itin_day_3samb_2" model="tour.package.itinerary.accommodation.image">
-        <field name="day_id" ref="tour_itin_day_3samb_2"/>
         <field name="sequence">13</field>
         <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/samburu_sopa_lodge_4.jpg"/>
         <field name="name">Samburu Sopa Lodge</field>
@@ -4426,5 +4380,553 @@
         <field name="sequence">15</field>
         <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sweetwaters_serena_camp_6.jpg"/>
         <field name="name">Sweetwaters Serena Camp, Ol Pejeta</field>
+    </record>
+
+    <!-- ================= Ziwa Bush Lodge accommodation photos ================= -->
+    <record id="tour_acc_img_ziwa_bush_lodge_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_6"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ziwa_bush_lodge_1.jpg"/>
+        <field name="name">Ziwa Bush Lodge</field>
+    </record>
+    <record id="tour_acc_img_ziwa_bush_lodge_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_6"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ziwa_bush_lodge_2.jpg"/>
+        <field name="name">Ziwa Bush Lodge</field>
+    </record>
+    <record id="tour_acc_img_ziwa_bush_lodge_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_6"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ziwa_bush_lodge_3.jpg"/>
+        <field name="name">Ziwa Bush Lodge</field>
+    </record>
+    <record id="tour_acc_img_ziwa_bush_lodge_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_6"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ziwa_bush_lodge_4.jpg"/>
+        <field name="name">Ziwa Bush Lodge</field>
+    </record>
+
+    <!-- ================= Mara Kimana Camp accommodation photos ================= -->
+    <record id="tour_acc_img_mara_kimana_camp_1_tour_itin_day_10day_7" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_7"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_1.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_2_tour_itin_day_10day_7" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_7"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_2.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_3_tour_itin_day_10day_7" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_7"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_3.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_4_tour_itin_day_10day_7" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_7"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_4.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_5_tour_itin_day_10day_7" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_7"/>
+        <field name="sequence">5</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_5.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_1_tour_itin_day_10day_8" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_8"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_1.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_2_tour_itin_day_10day_8" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_8"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_2.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_3_tour_itin_day_10day_8" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_8"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_3.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_4_tour_itin_day_10day_8" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_8"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_4.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_5_tour_itin_day_10day_8" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_8"/>
+        <field name="sequence">5</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_5.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_1_tour_itin_day_10day_9" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_9"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_1.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_2_tour_itin_day_10day_9" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_9"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_2.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_3_tour_itin_day_10day_9" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_9"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_3.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_4_tour_itin_day_10day_9" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_9"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_4.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_kimana_camp_5_tour_itin_day_10day_9" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_9"/>
+        <field name="sequence">5</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_kimana_camp_5.jpg"/>
+        <field name="name">Mara Kimana Camp</field>
+    </record>
+
+    <!-- ================= Kibo Safari Camp accommodation photos ================= -->
+    <record id="tour_acc_img_kibo_safari_camp_1_tour_itin_day_10day_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_1"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/kibo_safari_camp_1.jpg"/>
+        <field name="name">Kibo Safari Camp</field>
+    </record>
+    <record id="tour_acc_img_kibo_safari_camp_2_tour_itin_day_10day_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_1"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/kibo_safari_camp_2.jpg"/>
+        <field name="name">Kibo Safari Camp</field>
+    </record>
+    <record id="tour_acc_img_kibo_safari_camp_3_tour_itin_day_10day_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_1"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/kibo_safari_camp_3.jpg"/>
+        <field name="name">Kibo Safari Camp</field>
+    </record>
+    <record id="tour_acc_img_kibo_safari_camp_4_tour_itin_day_10day_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_1"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/kibo_safari_camp_4.jpg"/>
+        <field name="name">Kibo Safari Camp</field>
+    </record>
+    <record id="tour_acc_img_kibo_safari_camp_1_tour_itin_day_10day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_2"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/kibo_safari_camp_1.jpg"/>
+        <field name="name">Kibo Safari Camp</field>
+    </record>
+    <record id="tour_acc_img_kibo_safari_camp_2_tour_itin_day_10day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_2"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/kibo_safari_camp_2.jpg"/>
+        <field name="name">Kibo Safari Camp</field>
+    </record>
+    <record id="tour_acc_img_kibo_safari_camp_3_tour_itin_day_10day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_2"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/kibo_safari_camp_3.jpg"/>
+        <field name="name">Kibo Safari Camp</field>
+    </record>
+    <record id="tour_acc_img_kibo_safari_camp_4_tour_itin_day_10day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_10day_2"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/kibo_safari_camp_4.jpg"/>
+        <field name="name">Kibo Safari Camp</field>
+    </record>
+
+    <!-- ================= Elerai Camp, Amboseli accommodation photos ================= -->
+    <record id="tour_acc_img_elerai_camp_1_tour_itin_day_3ambo_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3ambo_1"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elerai_camp_1.jpg"/>
+        <field name="name">Elerai Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elerai_camp_2_tour_itin_day_3ambo_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3ambo_1"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elerai_camp_2.jpg"/>
+        <field name="name">Elerai Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elerai_camp_3_tour_itin_day_3ambo_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3ambo_1"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elerai_camp_3.jpg"/>
+        <field name="name">Elerai Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elerai_camp_4_tour_itin_day_3ambo_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3ambo_1"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elerai_camp_4.jpg"/>
+        <field name="name">Elerai Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elerai_camp_1_tour_itin_day_3ambo_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3ambo_2"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elerai_camp_1.jpg"/>
+        <field name="name">Elerai Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elerai_camp_2_tour_itin_day_3ambo_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3ambo_2"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elerai_camp_2.jpg"/>
+        <field name="name">Elerai Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elerai_camp_3_tour_itin_day_3ambo_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3ambo_2"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elerai_camp_3.jpg"/>
+        <field name="name">Elerai Camp, Amboseli</field>
+    </record>
+    <record id="tour_acc_img_elerai_camp_4_tour_itin_day_3ambo_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3ambo_2"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/elerai_camp_4.jpg"/>
+        <field name="name">Elerai Camp, Amboseli</field>
+    </record>
+
+    <!-- ================= Sarova Shaba accommodation photos (replaces Samburu Sopa Lodge for the 3-Day Samburu Safari) ================= -->
+    <record id="tour_acc_img_sarova_shaba_1_tour_itin_day_3samb_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_1"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_1.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_2_tour_itin_day_3samb_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_1"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_2.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_3_tour_itin_day_3samb_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_1"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_3.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_4_tour_itin_day_3samb_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_1"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_4.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_5_tour_itin_day_3samb_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_1"/>
+        <field name="sequence">5</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_5.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_1_tour_itin_day_3samb_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_2"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_1.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_2_tour_itin_day_3samb_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_2"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_2.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_3_tour_itin_day_3samb_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_2"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_3.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_4_tour_itin_day_3samb_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_2"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_4.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+    <record id="tour_acc_img_sarova_shaba_5_tour_itin_day_3samb_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_3samb_2"/>
+        <field name="sequence">5</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/sarova_shaba_5.jpg"/>
+        <field name="name">Sarova Shaba</field>
+    </record>
+
+    <!-- ================= The Ark, Aberdare accommodation photos ================= -->
+    <record id="tour_acc_img_the_ark_1_tour_itin_day_6day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_6day_2"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_ark_1.jpg"/>
+        <field name="name">The Ark, Aberdare</field>
+    </record>
+    <record id="tour_acc_img_the_ark_2_tour_itin_day_6day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_6day_2"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_ark_2.jpg"/>
+        <field name="name">The Ark, Aberdare</field>
+    </record>
+    <record id="tour_acc_img_the_ark_3_tour_itin_day_6day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_6day_2"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_ark_3.jpg"/>
+        <field name="name">The Ark, Aberdare</field>
+    </record>
+    <record id="tour_acc_img_the_ark_1_tour_itin_day_9day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_2"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_ark_1.jpg"/>
+        <field name="name">The Ark, Aberdare</field>
+    </record>
+    <record id="tour_acc_img_the_ark_2_tour_itin_day_9day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_2"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_ark_2.jpg"/>
+        <field name="name">The Ark, Aberdare</field>
+    </record>
+    <record id="tour_acc_img_the_ark_3_tour_itin_day_9day_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_9day_2"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_ark_3.jpg"/>
+        <field name="name">The Ark, Aberdare</field>
+    </record>
+
+    <!-- ================= Fairmont Mount Kenya Safari Club accommodation photos (replaces Serena Mountain Lodge, which Serena no longer operates) ================= -->
+    <record id="tour_acc_img_fairmont_mt_kenya_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_4"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/fairmont_mt_kenya_1.jpg"/>
+        <field name="name">Fairmont Mount Kenya Safari Club</field>
+    </record>
+    <record id="tour_acc_img_fairmont_mt_kenya_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_4"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/fairmont_mt_kenya_2.jpg"/>
+        <field name="name">Fairmont Mount Kenya Safari Club</field>
+    </record>
+    <record id="tour_acc_img_fairmont_mt_kenya_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_4"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/fairmont_mt_kenya_3.jpg"/>
+        <field name="name">Fairmont Mount Kenya Safari Club</field>
+    </record>
+    <record id="tour_acc_img_fairmont_mt_kenya_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_8day_4"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/fairmont_mt_kenya_4.jpg"/>
+        <field name="name">Fairmont Mount Kenya Safari Club</field>
+    </record>
+
+    <!-- ================= The Cliff Nakuru accommodation photos ================= -->
+    <record id="tour_acc_img_the_cliff_nakuru_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_4"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_cliff_nakuru_1.jpg"/>
+        <field name="name">The Cliff Nakuru</field>
+    </record>
+    <record id="tour_acc_img_the_cliff_nakuru_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_4"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_cliff_nakuru_2.jpg"/>
+        <field name="name">The Cliff Nakuru</field>
+    </record>
+    <record id="tour_acc_img_the_cliff_nakuru_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_4"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_cliff_nakuru_3.jpg"/>
+        <field name="name">The Cliff Nakuru</field>
+    </record>
+    <record id="tour_acc_img_the_cliff_nakuru_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_4"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/the_cliff_nakuru_4.jpg"/>
+        <field name="name">The Cliff Nakuru</field>
+    </record>
+
+    <!-- ================= Mara River Camp accommodation photos ================= -->
+    <record id="tour_acc_img_mara_river_camp_1_tour_itin_day_migmara_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_1"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_1.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_2_tour_itin_day_migmara_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_1"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_2.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_3_tour_itin_day_migmara_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_1"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_3.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_1_tour_itin_day_migmara_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_2"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_1.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_2_tour_itin_day_migmara_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_2"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_2.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_3_tour_itin_day_migmara_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_2"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_3.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_1_tour_itin_day_migmara_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_3"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_1.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_2_tour_itin_day_migmara_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_3"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_2.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_3_tour_itin_day_migmara_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_3"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_3.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_1_tour_itin_day_migmara_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_4"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_1.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_2_tour_itin_day_migmara_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_4"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_2.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+    <record id="tour_acc_img_mara_river_camp_3_tour_itin_day_migmara_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_migmara_4"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/mara_river_camp_3.jpg"/>
+        <field name="name">Mara River Camp</field>
+    </record>
+
+    <!-- ================= Voi Safari Lodge accommodation photos ================= -->
+    <record id="tour_acc_img_voi_safari_lodge_1_tour_itin_day_tsavo_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_tsavo_1"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/voi_safari_lodge_1.jpg"/>
+        <field name="name">Voi Safari Lodge</field>
+    </record>
+    <record id="tour_acc_img_voi_safari_lodge_2_tour_itin_day_tsavo_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_tsavo_1"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/voi_safari_lodge_2.jpg"/>
+        <field name="name">Voi Safari Lodge</field>
+    </record>
+    <record id="tour_acc_img_voi_safari_lodge_3_tour_itin_day_tsavo_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_tsavo_1"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/voi_safari_lodge_3.jpg"/>
+        <field name="name">Voi Safari Lodge</field>
+    </record>
+    <record id="tour_acc_img_voi_safari_lodge_1_tour_itin_day_tsavo_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_tsavo_2"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/voi_safari_lodge_1.jpg"/>
+        <field name="name">Voi Safari Lodge</field>
+    </record>
+    <record id="tour_acc_img_voi_safari_lodge_2_tour_itin_day_tsavo_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_tsavo_2"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/voi_safari_lodge_2.jpg"/>
+        <field name="name">Voi Safari Lodge</field>
+    </record>
+    <record id="tour_acc_img_voi_safari_lodge_3_tour_itin_day_tsavo_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_tsavo_2"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/voi_safari_lodge_3.jpg"/>
+        <field name="name">Voi Safari Lodge</field>
+    </record>
+
+    <!-- ================= Ngulia Safari Lodge accommodation photos ================= -->
+    <record id="tour_acc_img_ngulia_safari_lodge_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_tsavo_3"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ngulia_safari_lodge_1.jpg"/>
+        <field name="name">Ngulia Safari Lodge</field>
+    </record>
+    <record id="tour_acc_img_ngulia_safari_lodge_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_tsavo_3"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ngulia_safari_lodge_2.jpg"/>
+        <field name="name">Ngulia Safari Lodge</field>
+    </record>
+
+    <!-- ================= Ole Sereni Hotel accommodation photos ================= -->
+    <record id="tour_acc_img_ole_sereni_hotel_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_family_1"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ole_sereni_hotel_1.jpg"/>
+        <field name="name">Ole Sereni Hotel</field>
+    </record>
+    <record id="tour_acc_img_ole_sereni_hotel_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_family_1"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ole_sereni_hotel_2.jpg"/>
+        <field name="name">Ole Sereni Hotel</field>
+    </record>
+    <record id="tour_acc_img_ole_sereni_hotel_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_family_1"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ole_sereni_hotel_3.jpg"/>
+        <field name="name">Ole Sereni Hotel</field>
+    </record>
+    <record id="tour_acc_img_ole_sereni_hotel_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_family_1"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/ole_sereni_hotel_4.jpg"/>
+        <field name="name">Ole Sereni Hotel</field>
+    </record>
+
+    <!-- ================= Chui Lodge accommodation photos ================= -->
+    <record id="tour_acc_img_chui_lodge_1" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_3"/>
+        <field name="sequence">1</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/chui_lodge_1.jpg"/>
+        <field name="name">Chui Lodge</field>
+    </record>
+    <record id="tour_acc_img_chui_lodge_2" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_3"/>
+        <field name="sequence">2</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/chui_lodge_2.jpg"/>
+        <field name="name">Chui Lodge</field>
+    </record>
+    <record id="tour_acc_img_chui_lodge_3" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_3"/>
+        <field name="sequence">3</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/chui_lodge_3.jpg"/>
+        <field name="name">Chui Lodge</field>
+    </record>
+    <record id="tour_acc_img_chui_lodge_4" model="tour.package.itinerary.accommodation.image">
+        <field name="day_id" ref="tour_itin_day_ultra7_3"/>
+        <field name="sequence">4</field>
+        <field name="image_1920" type="base64" file="tour_travel_kenya/static/src/img/accommodations/chui_lodge_4.jpg"/>
+        <field name="name">Chui Lodge</field>
     </record>
 </odoo>
