@@ -1,11 +1,13 @@
 from odoo import _, api, fields, models
+from odoo.http import request
+from odoo.tools import html2plaintext
 from odoo.tools.translate import html_translate
 
 
 class TourPackage(models.Model):
     _name = 'tour.package'
     _description = 'Tour Package'
-    _inherit = ['website.published.mixin', 'mail.thread', 'mail.activity.mixin', 'rating.parent.mixin']
+    _inherit = ['website.published.mixin', 'website.seo.metadata', 'mail.thread', 'mail.activity.mixin', 'rating.parent.mixin']
     _order = 'sequence, name'
 
     def _default_country_id(self):
@@ -98,6 +100,22 @@ class TourPackage(models.Model):
         super()._compute_website_url()
         for package in self:
             package.website_url = '/tours/%s' % self.env['ir.http']._slug(package)
+
+    def _default_website_meta(self):
+        # website.layout renders OpenGraph/Twitter tags from the page's main_object -
+        # without this every package shared on WhatsApp/Facebook previewed as the
+        # site logo titled "Tour Package" (the QWeb view's name)
+        res = super()._default_website_meta()
+        description = ' '.join(html2plaintext(self.description or '').split())[:300]
+        res['default_opengraph']['og:type'] = 'product'
+        if description:
+            res['default_opengraph']['og:description'] = description
+            res['default_twitter']['twitter:description'] = description
+        if self.image_1920:
+            image_url = request.website.image_url(self, 'image_1920')
+            res['default_opengraph']['og:image'] = image_url
+            res['default_twitter']['twitter:image'] = image_url
+        return res
 
     def action_view_bookings(self):
         self.ensure_one()
