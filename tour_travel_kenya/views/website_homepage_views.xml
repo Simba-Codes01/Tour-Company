@@ -111,8 +111,8 @@
                     </div>
                 </section>
 
-                <!-- Company summary -->
-                <section class="container mt-5 mb-5 kt_reveal">
+                <!-- Company summary - the footer's "About us" link anchors here -->
+                <section id="about" class="container mt-5 mb-5 kt_reveal">
                     <div class="row align-items-center g-5">
                         <div class="col-lg-7">
                             <h2 class="kt_why_us_heading">About Seriani Tours &amp; Travel</h2>
@@ -141,7 +141,7 @@
                                     <span class="kt_about_stat_value" t-att-data-kt-countup="kt_home_total_packages" t-out="kt_home_total_packages"/>
                                     <span class="kt_about_stat_label">Tour Packages</span>
                                 </div>
-                                <div>
+                                <div t-if="kt_home_total_reviews">
                                     <span class="kt_about_stat_value" t-att-data-kt-countup="kt_home_total_reviews" t-out="kt_home_total_reviews"/>
                                     <span class="kt_about_stat_label">Traveler Reviews</span>
                                 </div>

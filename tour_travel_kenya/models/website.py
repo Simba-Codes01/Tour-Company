@@ -1,7 +1,10 @@
 import base64
 import hashlib
 
+from markupsafe import Markup
+
 from odoo import api, models
+from odoo.tools.json import scriptsafe as json_scriptsafe
 from odoo.tools.misc import file_open
 
 FAVICON_PATH = 'tour_travel_kenya/static/src/img/seriani_favicon.png'
@@ -18,6 +21,12 @@ WEBSITE_NAME = 'Seriani Tours & Travel'
 # each keeping its own copy of the /shop route with the original sitemap rule.
 SITEMAP_EXCLUDED_PREFIXES = ('/shop', '/website/info')
 
+# Countries Seriani actively markets to, besides worldwide - see the
+# TravelAgency structured data below
+AREA_SERVED = ['Kenya', 'Uganda', 'Tanzania', 'Rwanda', 'Burundi', 'South Sudan']
+SOCIAL_FIELDS = ['social_facebook', 'social_instagram', 'social_twitter', 'social_youtube',
+                 'social_tiktok', 'social_linkedin']
+
 
 class Website(models.Model):
     _inherit = 'website'
@@ -27,6 +36,66 @@ class Website(models.Model):
             loc = page['loc']
             if not any(loc == p or loc.startswith(p + '/') for p in SITEMAP_EXCLUDED_PREFIXES):
                 yield page
+
+    def _kt_get_organization_structured_data(self):
+        """Site-wide TravelAgency JSON-LD, rendered in every page's head by
+        views/website_seo_views.xml. Built here rather than inline in QWeb so
+        values are JSON-encoded instead of HTML-escaped (the inline version
+        published the name as "Seriani Tours &amp; Travel"), and so empty
+        email/sameAs values are left out instead of emitted blank. The @id is
+        what each package's TouristTrip points at as its provider."""
+        self.ensure_one()
+        company = self.company_id.sudo()
+        base_url = self.get_base_url()
+        prices = self.env['tour.package'].sudo().search(
+            [('website_published', '=', True)]).pricing_ids.mapped('price')
+        address = {'@type': 'PostalAddress', 'addressLocality': 'Nairobi', 'addressCountry': 'KE'}
+        # Only trust the company address once it's actually filled in with the
+        # Kenyan office - never publish a leftover placeholder address
+        if company.country_id.code == 'KE' and company.street:
+            address.update({
+                'streetAddress': ', '.join(filter(None, [company.street, company.street2])),
+                'addressLocality': company.city or 'Nairobi',
+            })
+            if company.zip:
+                address['postalCode'] = company.zip
+        data = {
+            '@context': 'https://schema.org',
+            '@type': 'TravelAgency',
+            '@id': base_url + '/#organization',
+            'name': self.name or company.name,
+            'alternateName': ['Seriani Tours and Travel', 'Seriani Tours', 'Seriani Safaris'],
+            'description': (
+                'Nairobi-based Kenya safari operator running private guided safaris to the Masai Mara, '
+                'Amboseli, Samburu, Lake Nakuru, Tsavo and more - planned in-house and booked direct, '
+                'with no middleman markups.'
+            ),
+            'url': base_url,
+            'logo': '%s/logo.png?company=%s' % (base_url, company.id),
+            'image': '%s/logo.png?company=%s' % (base_url, company.id),
+            'address': address,
+            'areaServed': [{'@type': 'Country', 'name': name} for name in AREA_SERVED]
+                          + [{'@type': 'Place', 'name': 'Worldwide'}],
+            'knowsAbout': ['Kenya safaris', 'Masai Mara', 'Great Migration', 'Amboseli National Park',
+                           'Samburu National Reserve', 'Lake Nakuru', 'Tsavo', 'Ol Pejeta'],
+        }
+        if company.phone:
+            data['telephone'] = company.phone
+            data['contactPoint'] = {
+                '@type': 'ContactPoint',
+                'telephone': company.phone,
+                'contactType': 'reservations',
+                'availableLanguage': ['English', 'Swahili'],
+            }
+        if company.email:
+            data['email'] = company.email
+            data.setdefault('contactPoint', {'@type': 'ContactPoint', 'contactType': 'reservations'})['email'] = company.email
+        if prices:
+            data['priceRange'] = '$%d-$%d' % (min(prices), max(prices))
+        same_as = [self[field] for field in SOCIAL_FIELDS if self[field]]
+        if same_as:
+            data['sameAs'] = same_as
+        return Markup(json_scriptsafe.dumps(data, indent=4))
 
     @api.model
     def _kt_apply_favicon(self):

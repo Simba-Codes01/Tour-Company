@@ -72,7 +72,7 @@
                 <section class="kt_hero kt_hero_tall">
                     <div class="kt_hero_parallax_bg" data-kt-parallax="0.3"/>
                     <div class="container text-center">
-                        <h1 class="kt_hero_title">Discover Kenya, One Safari at a Time</h1>
+                        <h1 class="kt_hero_title">Kenya Safari Tours &amp; Packages</h1>
                         <p class="kt_hero_subtitle mx-auto">
                             Hand-picked safaris, beach escapes and treks across Kenya - booked directly,
                             no middleman markups.
@@ -82,7 +82,7 @@
                                 <span class="kt_stat_value" t-att-data-kt-countup="total_packages" t-out="total_packages"/>
                                 <span class="kt_stat_label">Tour Packages</span>
                             </div>
-                            <div>
+                            <div t-if="total_reviews">
                                 <span class="kt_stat_value" t-att-data-kt-countup="total_reviews" t-out="total_reviews"/>
                                 <span class="kt_stat_label">Traveler Reviews</span>
                             </div>

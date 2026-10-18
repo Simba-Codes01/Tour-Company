@@ -6,8 +6,11 @@ from markupsafe import Markup
 
 from odoo import http, _
 from odoo.exceptions import ValidationError
+from odoo.fields import Domain
 from odoo.tools import html2plaintext
+from odoo.tools.json import scriptsafe as json_scriptsafe
 from odoo.http import request
+from odoo.addons.website.models.ir_http import sitemap_qs2dom
 
 
 SAFARI_MONTHS = [
@@ -74,6 +77,18 @@ SAFARI_MONTHS = [
 ]
 
 
+def sitemap_tour_packages(env, rule, qs):
+    # Same records as the route's model converter domain, plus a lastmod - the
+    # default converter sitemap only emits <loc>, so Google had no change dates
+    Package = env['tour.package'].sudo()
+    domain = sitemap_qs2dom(qs, '/tours', Package._rec_name) & Domain('website_published', '=', True)
+    for package in Package.search(domain):
+        loc = package.website_url
+        if not qs or qs.lower() in loc:
+            dates = [package.write_date] + package.itinerary_day_ids.mapped('write_date')
+            yield {'loc': loc, 'lastmod': max(d for d in dates if d).date()}
+
+
 class WebsiteTourController(http.Controller):
 
     def _get_search_domain(self, category=None, search=None):
@@ -129,6 +144,54 @@ class WebsiteTourController(http.Controller):
     @http.route(['/faq'], type='http', auth='public', website=True, sitemap=True, readonly=True)
     def faq(self, **kwargs):
         return request.render('tour_travel_kenya.faq_page', {})
+
+    @http.route(['/llms.txt'], type='http', auth='public', website=True, sitemap=False, readonly=True)
+    def llms_txt(self, **kwargs):
+        """Plain-markdown site summary for AI answer engines (llmstxt.org), built
+        from the published packages so it never drifts from the live catalogue."""
+        website = request.website
+        base_url = website.get_base_url()
+        company = website.company_id.sudo()
+        packages = request.env['tour.package'].sudo().search(
+            [('website_published', '=', True)], order='duration_days, name')
+        lines = [
+            '# %s' % website.name,
+            '',
+            '> %s is a Nairobi-based Kenya safari operator (not affiliated with the Serian camps in '
+            'the Masai Mara). Every itinerary is planned and run '
+            'in-house with a private guide and 4x4 Land Cruiser for each group, and booked directly '
+            'with the operator - no agent markups. Prices are per person, from the lowest '
+            'accommodation tier.' % website.name,
+            '',
+        ]
+        if company.phone:
+            lines.append('- Phone / WhatsApp: %s' % company.phone)
+        if company.email:
+            lines.append('- Email: %s' % company.email)
+        lines += ['- Based in: Nairobi, Kenya', '', '## Tour packages', '']
+        for package in packages:
+            summary = self._get_package_meta_description(package, limit=200)
+            price = package.get_lowest_price_display() if package.pricing_ids else ''
+            lines.append('- [%s](%s%s): %s day(s)%s. %s' % (
+                package.name, base_url, package.website_url, package.duration_days,
+                ', from %s per person' % price if price else '', summary))
+        lines += [
+            '',
+            '## Planning',
+            '',
+            '- [All tour packages](%s/tours)' % base_url,
+            '- [Kenya destinations map](%s/destinations)' % base_url,
+            '- [Travel info & FAQs](%s/faq): visas, vaccinations, packing, money, tipping, when to go' % base_url,
+            '- [Contact & custom quotes](%s/contactus)' % base_url,
+            '',
+            '## Policies',
+            '',
+            '- [Terms & conditions](%s/terms)' % base_url,
+            '- [Cancellation policy](%s/cancellation-policy)' % base_url,
+            '- [Privacy policy](%s/privacy-policy)' % base_url,
+            '',
+        ]
+        return request.make_response('\n'.join(lines), headers=[('Content-Type', 'text/plain; charset=utf-8')])
 
     @http.route(['/destinations'], type='http', auth='public', website=True, sitemap=True, readonly=True)
     def destinations(self, **kwargs):
@@ -186,40 +249,74 @@ class WebsiteTourController(http.Controller):
             text = text[:limit - 1].rsplit(' ', 1)[0].rstrip(' ,;:-') + '\u2026'
         return text
 
-    def _get_package_page_values(self, package_sudo):
-        base_url = request.website.get_base_url()
-        og_image_url = base_url + '/web/image/tour.package/%s/image_1920' % package_sudo.id if package_sudo.image_1920 else False
-        prices = package_sudo.pricing_ids.mapped('price')
-        structured_data = {
-            '@context': 'https://schema.org',
+    def _get_package_structured_data(self, package_sudo, base_url):
+        page_url = base_url + package_sudo.website_url
+        organization = {'@id': base_url + '/#organization'}
+        images = [base_url + '/web/image/tour.package/%s/image_1920' % package_sudo.id] if package_sudo.image_1920 else []
+        images += [base_url + '/web/image/tour.package.image/%s/image_1920' % img.id
+                   for img in package_sudo.tour_package_image_ids[:4]]
+        trip = {
             '@type': 'TouristTrip',
+            '@id': page_url + '#trip',
             'name': package_sudo.name,
-            'description': package_sudo.destination or package_sudo.name,
-            'touristType': dict(package_sudo._fields['difficulty_level'].selection).get(package_sudo.difficulty_level),
+            'url': page_url,
+            'description': ' '.join(html2plaintext(package_sudo.description or '').split())
+                           or self._get_package_meta_description(package_sudo),
+            'provider': organization,
         }
-        if og_image_url:
-            structured_data['image'] = og_image_url
+        if images:
+            trip['image'] = images
+        if package_sudo.itinerary_day_ids:
+            trip['itinerary'] = {
+                '@type': 'ItemList',
+                'numberOfItems': len(package_sudo.itinerary_day_ids),
+                'itemListElement': [{
+                    '@type': 'ListItem',
+                    'position': position,
+                    'item': {
+                        '@type': 'TouristAttraction',
+                        'name': '%s: %s' % (day.day_label, day.title),
+                        'description': ' '.join(html2plaintext(day.description or '').split())[:300] or day.destination or day.title,
+                    },
+                } for position, day in enumerate(package_sudo.itinerary_day_ids, start=1)],
+            }
+        prices = package_sudo.pricing_ids.mapped('price')
         if prices:
-            structured_data['offers'] = {
+            trip['offers'] = {
                 '@type': 'Offer',
                 'price': '%.2f' % min(prices),
                 'priceCurrency': package_sudo.currency_id.name or 'USD',
-                'url': base_url + package_sudo.website_url,
+                'url': page_url,
+                'availability': 'https://schema.org/InStock',
+                'offeredBy': organization,
             }
         if package_sudo.rating_count:
-            structured_data['aggregateRating'] = {
+            trip['aggregateRating'] = {
                 '@type': 'AggregateRating',
                 'ratingValue': '%.1f' % package_sudo.rating_avg,
                 'reviewCount': package_sudo.rating_count,
             }
+        breadcrumb = {
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+                {'@type': 'ListItem', 'position': 1, 'name': 'Tour Packages', 'item': base_url + '/tours'},
+                {'@type': 'ListItem', 'position': 2, 'name': package_sudo.name, 'item': page_url},
+            ],
+        }
+        return {'@context': 'https://schema.org', '@graph': [trip, breadcrumb]}
+
+    def _get_package_page_values(self, package_sudo):
+        base_url = request.website.get_base_url()
+        structured_data = self._get_package_structured_data(package_sudo, base_url)
         return {
+            # Drives website.layout's OpenGraph/Twitter tags, see tour.package._default_website_meta
+            'main_object': package_sudo,
             # <title> and <meta name="description"> for website.layout - without these
             # every package page was titled "Tour Package" with no description
             'additional_title': package_sudo.name,
             'website_meta_description': self._get_package_meta_description(package_sudo),
-            'og_image_url': og_image_url,
             'canonical_url': base_url + package_sudo.website_url,
-            'structured_data_json': Markup(json.dumps(structured_data)),
+            'structured_data_json': Markup(json_scriptsafe.dumps(structured_data)),
             'upcoming_dates': package_sudo.date_ids.filtered(
                 lambda d: d.state == 'open' and d.date_start and d.date_start >= date.today()
             )[:6],
@@ -236,7 +333,7 @@ class WebsiteTourController(http.Controller):
 
     # The converter domain only filters the sitemap (URL matching ignores it) -
     # archived/unpublished packages are kept out of it; the page itself 404s below.
-    @http.route(['/tours/<model("tour.package", "[(\'website_published\', \'=\', True)]"):package>'], type='http', auth='public', website=True, sitemap=True, readonly=True)
+    @http.route(['/tours/<model("tour.package", "[(\'website_published\', \'=\', True)]"):package>'], type='http', auth='public', website=True, sitemap=sitemap_tour_packages, readonly=True)
     def tour_package_page(self, package, **kwargs):
         package_sudo = package.sudo()
         if not (package_sudo.active and package_sudo.website_published) and not request.env.user.has_group('tour_travel_kenya.group_tour_user'):

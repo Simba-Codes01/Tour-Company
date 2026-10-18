@@ -10,12 +10,6 @@
                     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
                     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
                 </t>
-                <meta property="og:type" content="product"/>
-                <meta property="og:title" t-att-content="package.name"/>
-                <meta property="og:description" t-att-content="'%s - %s day(s) tour with Seriani Tours &amp; Travel' % (package.destination or '', package.duration_days)"/>
-                <meta t-if="og_image_url" property="og:image" t-att-content="og_image_url"/>
-                <meta property="og:url" t-att-content="canonical_url"/>
-                <meta name="twitter:card" content="summary_large_image"/>
                 <script type="application/ld+json" t-out="structured_data_json"></script>
             </t>
             <div id="wrap" class="kt_page">
@@ -112,7 +106,7 @@
 
                             <div t-if="package.itinerary_day_ids or package.itinerary" class="kt_reveal">
                                 <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mt-4">
-                                    <h3 class="kt_section_title mb-0">Itinerary</h3>
+                                    <h2 class="kt_section_title h3 mb-0">Itinerary</h2>
                                     <a t-attf-href="/tours/#{slug(package)}/itinerary.pdf"
                                        target="_blank" class="btn btn-outline-secondary btn-sm">
                                         <i class="fa fa-file-pdf-o me-1"/> Download Itinerary (PDF)
@@ -198,7 +192,7 @@
                                     </div>
                                 </div>
 
-                                <h4 t-if="package.itinerary_day_ids" class="kt_section_title mt-4">Full Day-by-Day Itinerary</h4>
+                                <h3 t-if="package.itinerary_day_ids" class="kt_section_title h4 mt-4">Full Day-by-Day Itinerary</h3>
                                 <div t-if="package.itinerary_day_ids" class="kt_itin2_list" id="kt_itinerary_accordion">
                                     <t t-foreach="package.itinerary_day_ids" t-as="day">
                                         <div class="kt_itin2_row">
@@ -596,12 +590,12 @@
                             </div>
 
                             <div t-if="package.destination_summary" class="kt_reveal">
-                                <h3 class="kt_section_title mt-4">What to Expect</h3>
+                                <h2 class="kt_section_title h3 mt-4">What to Expect</h2>
                                 <div t-field="package.destination_summary"/>
                             </div>
 
                             <div t-if="package.waypoint_ids" class="kt_reveal">
-                                <h3 class="kt_section_title mt-4">Route Map</h3>
+                                <h2 class="kt_section_title h3 mt-4">Route Map</h2>
                                 <div t-attf-id="kt_route_map_#{package.id}" class="kt_map_container mb-2"
                                      t-att-data-points="route_points_json"/>
                                 <p class="text-muted small">Approximate route followed during this safari.</p>
@@ -665,7 +659,7 @@
 
                             <div t-if="package.tour_package_image_ids" class="mt-4 kt_reveal"
                                  t-att-data-kt-gallery="json.dumps(['/web/image/tour.package.image/%s/image_1920' % img.id for img in package.tour_package_image_ids])">
-                                <h3 class="kt_section_title">Gallery</h3>
+                                <h2 class="kt_section_title h3">Gallery</h2>
                                 <div class="row g-2">
                                     <t t-foreach="package.tour_package_image_ids" t-as="image">
                                         <div class="col-4 col-md-3">
@@ -894,8 +888,8 @@
                                 </form>
                             </div>
 
-                            <div class="mt-5 kt_reveal">
-                                <h3 class="kt_section_title">Traveler Reviews</h3>
+                            <div t-if="reviews" class="mt-5 kt_reveal">
+                                <h2 class="kt_section_title h3">Traveler Reviews</h2>
 
                                 <div class="kt_reviews_summary">
                                     <div class="kt_reviews_score">
@@ -916,12 +910,7 @@
                                     </div>
                                 </div>
 
-                                <div t-if="not reviews" class="kt_review_empty">
-                                    <i class="fa fa-comment-o"/>
-                                    <p class="mb-0">No reviews yet - be the first to book and share your experience.</p>
-                                </div>
-
-                                <div t-else="" class="kt_review_grid">
+                                <div class="kt_review_grid">
                                     <div t-foreach="reviews" t-as="review" class="kt_review_card">
                                         <div class="kt_review_head">
                                             <span class="kt_review_avatar">
@@ -944,7 +933,7 @@
                             </div>
 
                             <div t-if="related_packages" class="mt-5 kt_reveal">
-                                <h3 class="kt_section_title">You Might Also Like</h3>
+                                <h2 class="kt_section_title h3">You Might Also Like</h2>
                                 <div class="row g-4">
                                     <t t-foreach="related_packages" t-as="related">
                                         <div class="col-md-6 col-xl-4">

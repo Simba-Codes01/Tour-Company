@@ -1,45 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- website_sale ships a minimal site-wide Organization JSON-LD block
-         (name/logo/url only) in every page's head. Enrich it into a proper
-         TravelAgency listing - address, phone, email, the social profiles
-         already set on the website, a price range, and an explicit
-         areaServed so search engines understand Seriani welcomes bookings
-         from across East Africa and from international travelers
-         worldwide, not just Kenya searches. -->
+         (name/logo/url only) in every page's head. Replace it with a proper
+         TravelAgency listing - see Website._kt_get_organization_structured_data
+         for the fields and why it's built in Python. -->
     <template id="kt_organization_structured_data" inherit_id="website_sale.website_sale_layout" name="Seriani Structured Data (Organization)">
         <xpath expr="//script[@t-if='res_company and website']" position="replace">
-            <script t-if="res_company and website" type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "<t t-out="res_company.name"/>",
-    "logo": "<t t-out="'%s/logo.png?company=%s' % (base_url, res_company.id)"/>",
-    "url": "<t t-out="base_url"/>",
-    "telephone": "<t t-out="res_company.phone or ''"/>",
-    "email": "<t t-out="res_company.email or ''"/>",
-    "priceRange": "$950-$8500",
-    "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Nairobi",
-        "addressCountry": "KE"
-    },
-    "areaServed": [
-        {"@type": "Country", "name": "Kenya"},
-        {"@type": "Country", "name": "Uganda"},
-        {"@type": "Country", "name": "Tanzania"},
-        {"@type": "Country", "name": "Rwanda"},
-        {"@type": "Country", "name": "Burundi"},
-        {"@type": "Country", "name": "South Sudan"},
-        {"@type": "Place", "name": "Worldwide"}
-    ],
-    "sameAs": [
-        <t t-if="website.social_facebook">"<t t-out="website.social_facebook"/>"<t t-if="website.social_instagram or website.social_twitter">,</t></t>
-        <t t-if="website.social_instagram">"<t t-out="website.social_instagram"/>"<t t-if="website.social_twitter">,</t></t>
-        <t t-if="website.social_twitter">"<t t-out="website.social_twitter"/>"</t>
-    ]
-}
-            </script>
+            <script t-if="res_company and website" type="application/ld+json" t-out="website._kt_get_organization_structured_data()"/>
         </xpath>
+    </template>
+
+    <!-- Keep crawlers off login/cart/account pages and the /website/social/*
+         redirects (404 until a profile URL is set). AI crawlers (GPTBot,
+         ClaudeBot, PerplexityBot...) fall under "*" and stay allowed. -->
+    <template id="kt_robots" inherit_id="website.robots" name="Seriani robots.txt">
+        <xpath expr="//t[@t-foreach='allowed_routes']" position="after">
+Disallow: /web/login
+Disallow: /web/signup
+Disallow: /web/reset_password
+Disallow: /my
+Disallow: /shop
+Disallow: /website/social/
+</xpath>
     </template>
 </odoo>
