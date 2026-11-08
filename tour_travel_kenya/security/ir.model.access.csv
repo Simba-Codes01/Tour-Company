@@ -31,3 +31,5 @@ access_tour_package_pricing_portal,tour.package.pricing.portal,model_tour_packag
 access_tour_booking_user,tour.booking.user,model_tour_booking,group_tour_user,1,1,1,0
 access_tour_booking_manager,tour.booking.manager,model_tour_booking,group_tour_manager,1,1,1,1
 access_tour_booking_portal,tour.booking.portal,model_tour_booking,base.group_portal,1,0,0,0
+access_tour_package_review_user,tour.package.review.user,model_tour_package_review,group_tour_user,1,1,1,0
+access_tour_package_review_manager,tour.package.review.manager,model_tour_package_review,group_tour_manager,1,1,1,1

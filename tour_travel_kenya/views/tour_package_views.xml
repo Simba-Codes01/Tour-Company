@@ -16,6 +16,12 @@
                         <button name="action_view_bookings" type="object" class="oe_stat_button" icon="fa-users">
                             <field name="booking_count" widget="statinfo" string="Bookings"/>
                         </button>
+                        <button name="action_view_reviews" type="object" class="oe_stat_button" icon="fa-star">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value"><field name="rating_count"/></span>
+                                <span class="o_stat_text">Reviews</span>
+                            </div>
+                        </button>
                     </div>
                     <field name="image_1920" widget="image" class="oe_avatar"/>
                     <div class="oe_title">

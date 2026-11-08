@@ -60,6 +60,31 @@ class TourCustomerPortal(payment_portal.PaymentPortal):
         booking_sudo = self._document_check_access('tour.booking', booking_id, access_token=access_token)
         if booking_sudo.state != 'done':
             return {'error': _('Only completed bookings can be reviewed.')}
+        try:
+            rating_value = int(rating_value or 0)
+        except (TypeError, ValueError):
+            rating_value = 0
+        if not 1 <= rating_value <= 5:
+            return {'error': _('Please select a star rating.')}
+        feedback = (feedback or '').strip()[:3000]
+        if request.env['tour.package.review'].sudo().search_count([('booking_id', '=', booking_sudo.id)], limit=1):
+            return {'error': _('You have already reviewed this trip. Thank you!')}
+
+        # Logs the rating in the booking chatter for staff.
         rating_token = booking_sudo._rating_get_access_token()
-        booking_sudo.rating_apply(int(rating_value), token=rating_token, feedback=feedback, subtype_xmlid='mail.mt_comment')
+        booking_sudo.rating_apply(rating_value, token=rating_token, feedback=feedback, subtype_xmlid='mail.mt_comment')
+
+        # The public review. It comes from a completed booking, so it is
+        # verified and goes live without moderation.
+        partner = booking_sudo.partner_id
+        request.env['tour.package.review'].sudo().create({
+            'package_id': booking_sudo.package_id.id,
+            'booking_id': booking_sudo.id,
+            'partner_id': partner.id or False,
+            'author_name': booking_sudo.name_attendee or partner.name or _('Verified Traveler'),
+            'author_email': booking_sudo.email or partner.email or False,
+            'rating': rating_value,
+            'comment': feedback or _('Rated %s out of 5.', rating_value),
+            'state': 'published',
+        })
         return {'success': True}

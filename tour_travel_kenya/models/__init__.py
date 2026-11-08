@@ -10,6 +10,7 @@ from . import tour_package_date
 from . import tour_package_pricing
 from . import tour_package_month_rate
 from . import tour_package_season_rate
+from . import tour_package_review
 from . import tour_booking
 from . import sale_order
 from . import sale_order_line

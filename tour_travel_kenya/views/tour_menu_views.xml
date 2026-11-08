@@ -4,6 +4,7 @@
 
     <menuitem id="menu_tour_package" name="Packages" parent="menu_tour_root" action="action_tour_package" sequence="10"/>
     <menuitem id="menu_tour_booking" name="Bookings" parent="menu_tour_root" action="action_tour_booking" sequence="20"/>
+    <menuitem id="menu_tour_package_review" name="Reviews" parent="menu_tour_root" action="action_tour_package_review" sequence="30"/>
 
     <menuitem id="menu_tour_configuration" name="Configuration" parent="menu_tour_root" sequence="90"
               groups="tour_travel_kenya.group_tour_manager"/>

@@ -95,6 +95,68 @@ class TourPackage(models.Model):
         for package in self:
             package.booking_count = counts.get(package, 0)
 
+    review_ids = fields.One2many('tour.package.review', 'package_id', string='Reviews')
+    review_pending_count = fields.Integer(compute='_compute_review_pending_count', string='Pending Reviews')
+
+    def _compute_review_pending_count(self):
+        counts = dict(self.env['tour.package.review'].sudo()._read_group(
+            domain=[('package_id', 'in', self.ids), ('state', '=', 'pending')],
+            groupby=['package_id'],
+            aggregates=['__count'],
+        ))
+        for package in self:
+            package.review_pending_count = counts.get(package, 0)
+
+    # rating_count / rating_avg (from rating.parent.mixin) are what the website
+    # shows everywhere - homepage stats, cards, the package page, schema.org.
+    # Published tour.package.review records are the single source of truth for
+    # them, so moderated public reviews and portal booking reviews count alike.
+    @api.depends('review_ids.state', 'review_ids.rating')
+    def _compute_rating_percentage_satisfaction(self):
+        data = self.env['tour.package.review'].sudo()._read_group(
+            domain=[('package_id', 'in', self.ids), ('state', '=', 'published')],
+            groupby=['package_id', 'rating'],
+            aggregates=['__count'],
+        )
+        stats = {}
+        for package, rating, count in data:
+            entry = stats.setdefault(package.id, {'count': 0, 'total': 0, 'great': 0})
+            entry['count'] += count
+            entry['total'] += rating * count
+            if rating >= 4:
+                entry['great'] += count
+        for package in self:
+            entry = stats.get(package.id)
+            if entry:
+                package.rating_count = entry['count']
+                package.rating_avg = entry['total'] / entry['count']
+                package.rating_percentage_satisfaction = entry['great'] * 100 / entry['count']
+            else:
+                package.rating_count = 0
+                package.rating_avg = 0
+                package.rating_percentage_satisfaction = -1
+            package.rating_avg_percentage = package.rating_avg / 5
+
+    def _get_review_distribution(self):
+        """{5: n, 4: n, ..., 1: n} of published reviews."""
+        self.ensure_one()
+        data = self.env['tour.package.review'].sudo()._read_group(
+            domain=[('package_id', '=', self.id), ('state', '=', 'published')],
+            groupby=['rating'],
+            aggregates=['__count'],
+        )
+        distribution = {star: 0 for star in (5, 4, 3, 2, 1)}
+        for rating, count in data:
+            distribution[rating] = count
+        return distribution
+
+    def action_view_reviews(self):
+        self.ensure_one()
+        action = self.env['ir.actions.actions']._for_xml_id('tour_travel_kenya.action_tour_package_review')
+        action['domain'] = [('package_id', '=', self.id)]
+        action['context'] = {'default_package_id': self.id}
+        return action
+
     @api.depends_context('lang')
     def _compute_website_url(self):
         super()._compute_website_url()

@@ -1,6 +1,6 @@
 {
     'name': 'Seriani Tours & Travel',
-    'version': '1.0',
+    'version': '1.1',
     'category': 'Website/Website',
     'summary': 'Sell and manage Kenya tour packages online',
     'description': """
@@ -22,6 +22,7 @@ and let customers track bookings and leave reviews from the customer portal.
         'views/tour_package_pricing_views.xml',
         'views/tour_booking_views.xml',
         'views/tour_package_date_views.xml',
+        'views/tour_package_review_views.xml',
         'views/tour_package_views.xml',
         'views/tour_menu_views.xml',
         'views/website_homepage_views.xml',
@@ -49,6 +50,7 @@ and let customers track bookings and leave reviews from the customer portal.
             'tour_travel_kenya/static/src/js/kt_wishlist.js',
             'tour_travel_kenya/static/src/js/kt_gallery_lightbox.js',
             'tour_travel_kenya/static/src/js/kt_scroll_effects.js',
+            'tour_travel_kenya/static/src/js/kt_reviews.js',
         ],
     },
     'installable': True,

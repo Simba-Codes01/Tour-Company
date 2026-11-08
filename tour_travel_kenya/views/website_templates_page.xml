@@ -888,49 +888,223 @@
                                 </form>
                             </div>
 
-                            <div t-if="reviews" class="mt-5 kt_reveal">
-                                <h2 class="kt_section_title h3">Traveler Reviews</h2>
+                            <section id="kt_reviews" class="mt-5 kt_reveal kt_reviews"
+                                     t-attf-data-reviews-url="/tours/#{slug(package)}/reviews"
+                                     t-att-data-total="review_total"
+                                     t-att-data-next-offset="review_next_offset">
+                                <div class="kt_reviews_header">
+                                    <h2 class="kt_section_title h3 mb-0">Traveler Reviews</h2>
+                                    <button type="button" class="kt_review_write_btn" data-kt-review-open=""
+                                            aria-expanded="false" aria-controls="kt_review_form_panel">
+                                        <i class="fa fa-pencil"/> Write a review
+                                    </button>
+                                </div>
 
-                                <div class="kt_reviews_summary">
-                                    <div class="kt_reviews_score">
-                                        <span class="kt_reviews_score_value"><t t-out="'%.1f' % package.rating_avg"/></span>
-                                        <span class="kt_reviews_score_max">/5</span>
-                                    </div>
-                                    <div class="kt_reviews_score_meta">
-                                        <div class="kt_card_rating">
-                                            <t t-foreach="range(5)" t-as="i">
-                                                <i t-attf-class="fa fa-star kt_star_pop #{'' if i &lt; round(package.rating_avg) else 'text-muted opacity-25'}"
-                                                   t-attf-style="transition-delay: #{i * 0.08}s"/>
-                                            </t>
+                                <div class="kt_reviews_overview">
+                                    <div class="kt_reviews_summary mb-0">
+                                        <div class="kt_reviews_score">
+                                            <span class="kt_reviews_score_value"><t t-out="'%.1f' % package.rating_avg"/></span>
+                                            <span class="kt_reviews_score_max">/5</span>
                                         </div>
-                                        <span class="text-muted small">
-                                            <t t-if="package.rating_count"><t t-out="package.rating_count"/> review(s)</t>
-                                            <t t-else="">No reviews yet</t>
-                                        </span>
+                                        <div class="kt_reviews_score_meta">
+                                            <div class="kt_card_rating" role="img"
+                                                 t-attf-aria-label="Rated #{'%.1f' % package.rating_avg} out of 5">
+                                                <t t-foreach="range(5)" t-as="i">
+                                                    <i t-attf-class="fa fa-star kt_star_pop #{'' if i &lt; round(package.rating_avg) else 'text-muted opacity-25'}"
+                                                       t-attf-style="transition-delay: #{i * 0.08}s" aria-hidden="true"/>
+                                                </t>
+                                            </div>
+                                            <span class="text-muted small">
+                                                <t t-if="package.rating_count"><t t-out="package.rating_count"/> review<t t-if="package.rating_count != 1">s</t></t>
+                                                <t t-else="">No reviews yet</t>
+                                            </span>
+                                            <span t-if="review_verified_count" class="kt_review_verified_note">
+                                                <i class="fa fa-check-circle"/> <t t-out="review_verified_count"/> from verified travelers
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div t-if="package.rating_count" class="kt_review_bars" role="group" aria-label="Filter reviews by rating">
+                                        <t t-foreach="[5, 4, 3, 2, 1]" t-as="star">
+                                            <t t-set="star_count" t-value="review_distribution.get(star, 0)"/>
+                                            <button type="button" class="kt_review_bar" t-att-data-star="star"
+                                                    aria-pressed="false" t-att-disabled="not star_count or None"
+                                                    t-attf-aria-label="Show #{star}-star reviews (#{star_count})">
+                                                <span class="kt_review_bar_label"><t t-out="star"/> <i class="fa fa-star" aria-hidden="true"/></span>
+                                                <span class="kt_review_bar_track">
+                                                    <span class="kt_review_bar_fill"
+                                                          t-attf-style="width: #{round(star_count * 100.0 / package.rating_count)}%"/>
+                                                </span>
+                                                <span class="kt_review_bar_count" t-out="star_count"/>
+                                            </button>
+                                        </t>
                                     </div>
                                 </div>
 
-                                <div class="kt_review_grid">
-                                    <div t-foreach="reviews" t-as="review" class="kt_review_card">
-                                        <div class="kt_review_head">
-                                            <span class="kt_review_avatar">
-                                                <t t-out="(review.partner_id.name or 'V')[0].upper()"/>
-                                            </span>
+                                <!-- Write-a-review panel -->
+                                <div id="kt_review_form_panel" class="kt_review_form_panel" hidden="hidden">
+                                    <form class="kt_review_form" novalidate="novalidate"
+                                          t-attf-action="/tours/#{slug(package)}/reviews/submit">
+                                        <div class="kt_lead_header mb-3">
+                                            <span class="kt_lead_header_icon"><i class="fa fa-star"/></span>
                                             <div>
-                                                <div class="kt_review_name" t-out="review.partner_id.name or 'Verified Traveler'"/>
-                                                <span class="kt_review_date" t-field="review.create_date" t-options='{"widget": "date"}'/>
+                                                <h4 class="mb-0">Share your experience</h4>
+                                                <small class="text-muted">Your review helps other travelers plan their safari.</small>
                                             </div>
                                         </div>
-                                        <div class="kt_card_rating mb-2">
-                                            <t t-foreach="range(5)" t-as="i">
-                                                <i t-attf-class="fa fa-star kt_star_pop #{'' if i &lt; review.rating else 'text-muted opacity-25'}"
-                                                   t-attf-style="transition-delay: #{i * 0.08}s"/>
-                                            </t>
+
+                                        <fieldset class="kt_star_picker mb-3" data-kt-field="rating">
+                                            <legend class="kt_lead_label">Your rating</legend>
+                                            <div class="kt_star_picker_stars">
+                                                <t t-foreach="[1, 2, 3, 4, 5]" t-as="star">
+                                                    <input type="radio" name="rating" t-att-value="star"
+                                                           t-attf-id="kt_review_star_#{star}" class="kt_star_input"/>
+                                                    <label t-attf-for="kt_review_star_#{star}" class="kt_star_label"
+                                                           t-att-data-value="star"
+                                                           t-att-data-text="['Terrible', 'Poor', 'Average', 'Very good', 'Excellent'][star - 1]">
+                                                        <i class="fa fa-star" aria-hidden="true"/>
+                                                        <span class="visually-hidden"><t t-out="star"/> star<t t-if="star != 1">s</t></span>
+                                                    </label>
+                                                </t>
+                                                <span class="kt_star_picker_text" aria-live="polite">Tap a star</span>
+                                            </div>
+                                            <div class="kt_review_field_error" data-kt-error="rating"/>
+                                        </fieldset>
+
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-6" data-kt-field="name">
+                                                <label class="kt_lead_label" for="kt_review_name">Your name</label>
+                                                <div class="kt_lead_input_wrap">
+                                                    <i class="fa fa-user"/>
+                                                    <input type="text" id="kt_review_name" name="name" maxlength="80"
+                                                           autocomplete="name" placeholder="Jane Wanjiru" required="required"
+                                                           t-att-value="review_prefill_name"/>
+                                                </div>
+                                                <div class="kt_review_field_error" data-kt-error="name"/>
+                                            </div>
+                                            <div class="col-md-6" data-kt-field="email">
+                                                <label class="kt_lead_label" for="kt_review_email">Email <span class="text-lowercase fw-normal">(never shown)</span></label>
+                                                <div class="kt_lead_input_wrap">
+                                                    <i class="fa fa-paper-plane-o"/>
+                                                    <input type="email" id="kt_review_email" name="email" maxlength="120"
+                                                           autocomplete="email" placeholder="you@example.com" required="required"
+                                                           t-att-value="review_prefill_email"/>
+                                                </div>
+                                                <div class="kt_review_field_error" data-kt-error="email"/>
+                                            </div>
                                         </div>
-                                        <p class="kt_review_feedback mb-0" t-out="review.feedback or ''"/>
+
+                                        <fieldset class="mb-3">
+                                            <legend class="kt_lead_label">Traveled as <span class="text-lowercase fw-normal">(optional)</span></legend>
+                                            <div class="kt_lead_party_pills">
+                                                <t t-foreach="review_travel_types" t-as="travel_type">
+                                                    <label class="kt_lead_party_pill">
+                                                        <input type="radio" name="travel_type" t-att-value="travel_type[0]"/>
+                                                        <span t-out="travel_type[1]"/>
+                                                    </label>
+                                                </t>
+                                            </div>
+                                        </fieldset>
+
+                                        <div class="mb-3">
+                                            <label class="kt_lead_label" for="kt_review_title">Title <span class="text-lowercase fw-normal">(optional)</span></label>
+                                            <div class="kt_lead_input_wrap">
+                                                <i class="fa fa-quote-left"/>
+                                                <input type="text" id="kt_review_title" name="title" maxlength="120"
+                                                       placeholder="Sum up your trip in a few words"/>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3" data-kt-field="comment">
+                                            <label class="kt_lead_label" for="kt_review_comment">Your review</label>
+                                            <textarea id="kt_review_comment" name="comment" rows="5" maxlength="3000"
+                                                      class="kt_review_textarea" required="required"
+                                                      placeholder="What stood out? The guides, the wildlife, the camps..."/>
+                                            <div class="d-flex justify-content-between">
+                                                <div class="kt_review_field_error" data-kt-error="comment"/>
+                                                <small class="kt_review_counter text-muted" aria-live="polite">0 / 3000</small>
+                                            </div>
+                                        </div>
+
+                                        <!-- Honeypot: hidden from people, filled in by bots. -->
+                                        <div class="kt_review_hp" aria-hidden="true">
+                                            <label for="kt_review_website">Website</label>
+                                            <input type="text" id="kt_review_website" name="website" tabindex="-1" autocomplete="off"/>
+                                        </div>
+
+                                        <div class="kt_review_form_status alert alert-danger" role="alert" hidden="hidden"/>
+
+                                        <div class="d-flex flex-wrap align-items-center gap-3">
+                                            <button type="submit" class="kt_lead_submit_btn kt_review_submit">
+                                                <span class="kt_review_submit_label">Submit review</span>
+                                                <span class="kt_review_submit_busy" hidden="hidden">
+                                                    <i class="fa fa-circle-o-notch fa-spin"/> Sending...
+                                                </span>
+                                            </button>
+                                            <button type="button" class="kt_review_cancel_btn" data-kt-review-close="">Cancel</button>
+                                        </div>
+                                        <p class="kt_lead_footnote mt-3 mb-0">
+                                            <i class="fa fa-shield"/> Our team checks every review before it's published.
+                                        </p>
+                                    </form>
+
+                                    <div class="kt_review_thanks" hidden="hidden" tabindex="-1">
+                                        <span class="kt_review_thanks_icon"><i class="fa fa-check"/></span>
+                                        <h4>Review received</h4>
+                                        <p class="kt_review_thanks_msg mb-3"/>
+                                        <button type="button" class="kt_review_cancel_btn" data-kt-review-close="">Close</button>
                                     </div>
                                 </div>
-                            </div>
+
+                                <div t-if="review_total" class="kt_reviews_toolbar">
+                                    <div class="kt_reviews_toolbar_left">
+                                        <span class="kt_reviews_showing" aria-live="polite">
+                                            <t t-out="review_total"/> review<t t-if="review_total != 1">s</t>
+                                        </span>
+                                        <button type="button" class="kt_review_chip" data-kt-review-clear="" hidden="hidden">
+                                            <span class="kt_review_chip_text"/> <i class="fa fa-times" aria-hidden="true"/>
+                                            <span class="visually-hidden">Clear filter</span>
+                                        </button>
+                                    </div>
+                                    <div class="kt_reviews_toolbar_right">
+                                        <label t-if="review_verified_count" class="kt_review_toggle">
+                                            <input type="checkbox" data-kt-review-verified=""/>
+                                            <span>Verified only</span>
+                                        </label>
+                                        <label class="visually-hidden" for="kt_review_sort">Sort reviews</label>
+                                        <select id="kt_review_sort" class="kt_review_sort" data-kt-review-sort="">
+                                            <option value="newest">Newest</option>
+                                            <option value="highest">Highest rated</option>
+                                            <option value="lowest">Lowest rated</option>
+                                            <option value="helpful">Most helpful</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div t-if="not review_total" class="kt_review_empty">
+                                    <i class="fa fa-comment-o"/>
+                                    <p class="mb-2">No reviews yet. Traveled with us on this tour?</p>
+                                    <button type="button" class="kt_review_write_btn" data-kt-review-open="">
+                                        <i class="fa fa-pencil"/> Be the first to review
+                                    </button>
+                                </div>
+
+                                <div class="kt_review_grid" data-kt-review-list="" aria-live="polite" aria-busy="false">
+                                    <t t-call="tour_travel_kenya.tour_review_cards"/>
+                                </div>
+
+                                <div class="kt_review_empty kt_review_empty_filtered" hidden="hidden">
+                                    <i class="fa fa-filter"/>
+                                    <p class="mb-0">No reviews match this filter.</p>
+                                </div>
+
+                                <div class="text-center mt-3">
+                                    <button type="button" class="kt_review_more_btn" data-kt-review-more=""
+                                            t-att-hidden="None if review_next_offset &lt; review_total else 'hidden'">
+                                        Show more reviews
+                                    </button>
+                                </div>
+                            </section>
 
                             <div t-if="related_packages" class="mt-5 kt_reveal">
                                 <h2 class="kt_section_title h3">You Might Also Like</h2>
@@ -989,6 +1163,54 @@
                     <a href="/my/bookings" class="btn btn-outline-secondary mt-3 ms-2">View My Bookings</a>
                 </div>
             </div>
+        </t>
+    </template>
+
+    <!-- One page of review cards. Rendered on the package page and by the
+         /tours/<package>/reviews endpoint for filtering, sorting and "show more". -->
+    <template id="tour_review_cards" name="Tour Review Cards">
+        <t t-foreach="reviews" t-as="review">
+            <t t-set="review_voted" t-value="review.id in (review_voted_ids or [])"/>
+            <article class="kt_review_card" t-att-data-review-id="review.id">
+                <div class="kt_review_head">
+                    <span class="kt_review_avatar" aria-hidden="true" t-out="review.author_initial"/>
+                    <div class="kt_review_head_text">
+                        <div class="kt_review_name">
+                            <t t-out="review.public_author"/>
+                            <span t-if="review.is_verified" class="kt_review_verified" title="Completed this tour with us">
+                                <i class="fa fa-check-circle" aria-hidden="true"/> Verified
+                            </span>
+                        </div>
+                        <span class="kt_review_date">
+                            <t t-if="review.travel_type"><span t-field="review.travel_type"/> &#183; </t>
+                            <span t-field="review.create_date" t-options='{"widget": "date"}'/>
+                        </span>
+                    </div>
+                </div>
+                <div class="kt_card_rating mb-2" role="img" t-attf-aria-label="#{review.rating} out of 5 stars">
+                    <t t-foreach="range(5)" t-as="i">
+                        <i t-attf-class="fa fa-star kt_star_pop #{'' if i &lt; review.rating else 'text-muted opacity-25'}"
+                           t-attf-style="transition-delay: #{i * 0.08}s" aria-hidden="true"/>
+                    </t>
+                </div>
+                <h4 t-if="review.title" class="kt_review_title" t-out="review.title"/>
+                <p class="kt_review_feedback mb-0" data-kt-clamp="" t-out="review.comment"/>
+                <button type="button" class="kt_review_readmore" data-kt-readmore="" hidden="hidden" aria-expanded="false">Read more</button>
+
+                <div t-if="review.response" class="kt_review_response">
+                    <div class="kt_review_response_head"><i class="fa fa-reply" aria-hidden="true"/> Response from <t t-out="request.website.company_id.name"/></div>
+                    <p class="mb-0" t-out="review.response"/>
+                </div>
+
+                <div class="kt_review_foot">
+                    <button type="button" t-attf-class="kt_review_helpful #{'kt_review_helpful_active' if review_voted else ''}"
+                            t-attf-data-helpful-url="/tours/reviews/#{review.id}/helpful"
+                            t-att-aria-pressed="'true' if review_voted else 'false'">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"/> Helpful
+                        <span class="kt_review_helpful_count" t-out="review.helpful_count or ''"/>
+                    </button>
+                </div>
+            </article>
         </t>
     </template>
 </odoo>

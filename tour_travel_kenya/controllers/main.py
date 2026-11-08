@@ -7,7 +7,7 @@ from markupsafe import Markup
 from odoo import http, _
 from odoo.exceptions import ValidationError
 from odoo.fields import Domain
-from odoo.tools import html2plaintext
+from odoo.tools import email_normalize, html2plaintext
 from odoo.tools.json import scriptsafe as json_scriptsafe
 from odoo.http import request
 from odoo.addons.website.models.ir_http import sitemap_qs2dom
@@ -338,19 +338,13 @@ class WebsiteTourController(http.Controller):
         package_sudo = package.sudo()
         if not (package_sudo.active and package_sudo.website_published) and not request.env.user.has_group('tour_travel_kenya.group_tour_user'):
             raise request.not_found()
-        reviews = request.env['rating.rating'].sudo().search([
-            ('parent_res_model', '=', 'tour.package'),
-            ('parent_res_id', '=', package_sudo.id),
-            ('consumed', '=', True),
-            ('rating', '>', 0),
-        ], order='write_date desc', limit=10)
         values = {
             'package': package_sudo,
             'pricings': package_sudo.pricing_ids,
-            'reviews': reviews,
             'route_points_json': self._get_route_points_json(package_sudo),
         }
         values.update(self._get_package_page_values(package_sudo))
+        values.update(self._get_review_section_values(package_sudo))
         return request.render('tour_travel_kenya.tour_package_detail', values)
 
     @http.route(['/tours/<model("tour.package"):package>/book'], type='http', auth='public', methods=['POST'], website=True)
@@ -412,6 +406,7 @@ class WebsiteTourController(http.Controller):
                 'route_points_json': self._get_route_points_json(package_sudo),
             }
             values.update(self._get_package_page_values(package_sudo))
+            values.update(self._get_review_section_values(package_sudo))
             return request.render('tour_travel_kenya.tour_package_detail', values)
 
         return request.redirect('/tours/%s/booked' % request.env['ir.http']._slug(package_sudo))
@@ -445,3 +440,170 @@ class WebsiteTourController(http.Controller):
             partner.sudo().write({'wishlist_tour_ids': [(4, package_sudo.id)]})
             wishlisted = True
         return {'wishlisted': wishlisted}
+
+    # ------------------------------------------------------------------
+    # Traveler reviews
+    # ------------------------------------------------------------------
+    _REVIEWS_PAGE_SIZE = 6
+    _REVIEW_SORTS = {
+        'newest': 'create_date desc, id desc',
+        'highest': 'rating desc, create_date desc, id desc',
+        'lowest': 'rating asc, create_date desc, id desc',
+        'helpful': 'helpful_count desc, create_date desc, id desc',
+    }
+    # Per-session cap on review submissions, to blunt spam bursts.
+    _REVIEW_SUBMIT_LIMIT = 3
+
+    def _review_domain(self, package_sudo, star=None, verified=False):
+        domain = [('package_id', '=', package_sudo.id), ('state', '=', 'published')]
+        try:
+            star = int(star or 0)
+        except (TypeError, ValueError):
+            star = 0
+        if 1 <= star <= 5:
+            domain.append(('rating', '=', star))
+        if verified:
+            domain.append(('is_verified', '=', True))
+        return domain
+
+    def _search_reviews(self, package_sudo, star=None, verified=False, sort='newest', offset=0):
+        Review = request.env['tour.package.review'].sudo()
+        domain = self._review_domain(package_sudo, star=star, verified=verified)
+        try:
+            offset = max(0, int(offset or 0))
+        except (TypeError, ValueError):
+            offset = 0
+        total = Review.search_count(domain)
+        reviews = Review.search(
+            domain, order=self._REVIEW_SORTS.get(sort, self._REVIEW_SORTS['newest']),
+            offset=offset, limit=self._REVIEWS_PAGE_SIZE)
+        return reviews, total, offset + len(reviews)
+
+    def _get_review_section_values(self, package_sudo):
+        reviews, total, next_offset = self._search_reviews(package_sudo)
+        user = request.env.user
+        partner = user.partner_id if not user._is_public() else request.env['res.partner']
+        return {
+            'reviews': reviews,
+            'review_total': total,
+            'review_next_offset': next_offset,
+            'review_distribution': package_sudo._get_review_distribution(),
+            'review_verified_count': request.env['tour.package.review'].sudo().search_count(
+                self._review_domain(package_sudo, verified=True)),
+            'review_prefill_name': partner.name or '',
+            'review_prefill_email': partner.email or '',
+            'review_travel_types': request.env['tour.package.review'].TRAVEL_TYPES,
+            'review_voted_ids': request.session.get('kt_review_votes', []),
+        }
+
+    def _check_review_package(self, package):
+        package_sudo = package.sudo()
+        if not (package_sudo.active and package_sudo.website_published):
+            raise request.not_found()
+        return package_sudo
+
+    @http.route(['/tours/<model("tour.package"):package>/reviews'], type='jsonrpc', auth='public', website=True, readonly=True)
+    def tour_reviews_list(self, package, star=None, verified=False, sort='newest', offset=0, **kwargs):
+        package_sudo = self._check_review_package(package)
+        reviews, total, next_offset = self._search_reviews(
+            package_sudo, star=star, verified=bool(verified), sort=sort, offset=offset)
+        html = request.env['ir.qweb']._render('tour_travel_kenya.tour_review_cards', {
+            'reviews': reviews,
+            'review_voted_ids': request.session.get('kt_review_votes', []),
+        })
+        return {
+            'html': str(html),
+            'total': total,
+            'next_offset': next_offset,
+            'has_more': next_offset < total,
+        }
+
+    @http.route(['/tours/<model("tour.package"):package>/reviews/submit'], type='jsonrpc', auth='public', website=True, methods=['POST'])
+    def tour_review_submit(self, package, rating=None, name=None, email=None, title=None,
+                           comment=None, travel_type=None, website=None, **kwargs):
+        package_sudo = self._check_review_package(package)
+
+        # Honeypot: a hidden field real visitors never see or fill in. Pretend
+        # it worked so bots get no signal to adapt to.
+        if website:
+            return {'success': True}
+
+        submitted = request.session.get('kt_review_submits', 0)
+        if submitted >= self._REVIEW_SUBMIT_LIMIT:
+            return {'error': _("You've submitted several reviews already. Please try again later.")}
+
+        errors = {}
+        try:
+            rating = int(rating or 0)
+        except (TypeError, ValueError):
+            rating = 0
+        if not 1 <= rating <= 5:
+            errors['rating'] = _("Please choose a star rating.")
+        name = (name or '').strip()
+        if not name:
+            errors['name'] = _("Please enter your name.")
+        elif len(name) > 80:
+            errors['name'] = _("Please use a shorter name.")
+        normalized_email = email_normalize((email or '').strip())
+        if not normalized_email:
+            errors['email'] = _("Please enter a valid email address.")
+        title = (title or '').strip()[:120]
+        comment = (comment or '').strip()
+        if len(comment) < 20:
+            errors['comment'] = _("Please write at least 20 characters about your trip.")
+        elif len(comment) > 3000:
+            errors['comment'] = _("Reviews are limited to 3000 characters.")
+        travel_types = dict(request.env['tour.package.review'].TRAVEL_TYPES)
+        if travel_type not in travel_types:
+            travel_type = False
+        if errors:
+            return {'error': _("Please fix the highlighted fields."), 'fields': errors}
+
+        Review = request.env['tour.package.review'].sudo()
+        if Review.search_count([
+            ('package_id', '=', package_sudo.id),
+            ('author_email', '=ilike', normalized_email),
+            ('state', '!=', 'rejected'),
+        ], limit=1):
+            return {'error': _("You've already reviewed this tour. Thank you!")}
+
+        user = request.env.user
+        partner = user.partner_id if not user._is_public() else request.env['res.partner']
+        Review.create({
+            'package_id': package_sudo.id,
+            'partner_id': partner.id or False,
+            'author_name': name,
+            'author_email': normalized_email,
+            'rating': rating,
+            'title': title,
+            'comment': comment,
+            'travel_type': travel_type,
+            'state': 'pending',
+        })
+        request.session['kt_review_submits'] = submitted + 1
+        return {
+            'success': True,
+            'message': _("Thanks, %s! We've received your review. It will appear here once our team has checked it.",
+                         name.split()[0]),
+        }
+
+    @http.route(['/tours/reviews/<int:review_id>/helpful'], type='jsonrpc', auth='public', website=True, methods=['POST'])
+    def tour_review_helpful(self, review_id, **kwargs):
+        review = request.env['tour.package.review'].sudo().browse(review_id).exists()
+        if not review or review.state != 'published':
+            raise request.not_found()
+        voted = list(request.session.get('kt_review_votes', []))
+        if review.id in voted:
+            # A second click takes the vote back.
+            voted.remove(review.id)
+            delta, is_voted = -1, False
+        else:
+            voted.append(review.id)
+            delta, is_voted = 1, True
+        request.session['kt_review_votes'] = voted[-500:]
+        request.env.cr.execute(
+            "UPDATE tour_package_review SET helpful_count = GREATEST(helpful_count + %s, 0) "
+            "WHERE id = %s RETURNING helpful_count", (delta, review.id))
+        count = request.env.cr.fetchone()[0]
+        review.invalidate_recordset(['helpful_count'])
+        return {'count': count, 'voted': is_voted}

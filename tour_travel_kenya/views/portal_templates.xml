@@ -108,7 +108,19 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-md-6" t-if="booking.state == 'done'">
+                    <t t-set="kt_booking_review"
+                       t-value="booking.state == 'done' and request.env['tour.package.review'].sudo().search([('booking_id', '=', booking.id)], limit=1)"/>
+                    <div class="col-md-6" t-if="kt_booking_review">
+                        <h5>Your Review</h5>
+                        <div class="mb-1" style="color:#FFC107;">
+                            <t t-foreach="range(5)" t-as="i">
+                                <i t-attf-class="fa fa-star #{'' if i &lt; kt_booking_review.rating else 'opacity-25'}"/>
+                            </t>
+                        </div>
+                        <p class="mb-2" t-out="kt_booking_review.comment"/>
+                        <a t-att-href="'%s#kt_reviews' % booking.package_id.website_url">See it on the tour page</a>
+                    </div>
+                    <div class="col-md-6" t-elif="booking.state == 'done'">
                         <h5>Leave a Review</h5>
                         <div id="tour_booking_rating" t-att-data-booking-id="booking.id" t-att-data-access-token="booking.access_token">
                             <div class="mb-2">
@@ -154,7 +166,7 @@
                                         if (data.result && data.result.error) {
                                             alert(data.result.error);
                                         } else {
-                                            alert('Thank you for your review!');
+                                            window.location.reload();
                                         }
                                     });
                                 });
