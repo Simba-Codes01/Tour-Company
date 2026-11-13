@@ -3386,6 +3386,418 @@
         <field name="longitude">35.0058</field>
     </record>
 
+    <!-- ================= 2-Day Amboseli Safari (added Nov 2026) ================= -->
+    <record id="tour_package_2day_amboseli" model="tour.package">
+        <field name="name">2-Day Amboseli Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Amboseli National Park, Kenya</field>
+        <field name="duration_days">2</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Jun-Oct and Jan-Feb for the clearest views of Kilimanjaro</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">7</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A 2-day, 1-night escape from Nairobi to Amboseli National Park - big elephant herds against the backdrop of Mount Kilimanjaro, Africa's highest mountain. The best short safari in Kenya when time is tight.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi to Amboseli National Park:</strong> Leave Nairobi early for the drive south to Amboseli National Park (roughly 4 hours). Lunch at the lodge, then an afternoon game drive across the park's open plains and swamps, with Kilimanjaro rising behind the elephant herds. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Morning Game Drive &amp; Return to Nairobi:</strong> An early-morning game drive, when Kilimanjaro is most often clear of cloud, then breakfast at the lodge and the drive back to Nairobi, arriving in the late afternoon.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>Transport in a 4x4 safari vehicle with pop-up roof</li><li>Amboseli National Park entry fees</li><li>1 night's accommodation, full board</li><li>Professional English-speaking driver-guide</li><li>Drinking water in the vehicle</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p><strong>Amboseli National Park</strong> sits at the foot of Mount Kilimanjaro and is famous for its large, relaxed elephant herds. Its swamps, fed by Kilimanjaro's snowmelt, draw wildlife all year round, and on clear mornings the mountain fills the horizon.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_2day_amboseli_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_2day_amboseli"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi to Amboseli National Park</field>
+        <field name="destination">Amboseli National Park</field>
+        <field name="accommodation">Amboseli Sopa Lodge</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">African Elephant, Cape Buffalo, Plains Zebra, Maasai Giraffe, African Lion</field>
+        <field name="activities">Game Drive, Kilimanjaro Views</field>
+        <field name="description"><![CDATA[<p>Leave Nairobi early for the drive south to Amboseli National Park (roughly 4 hours). Lunch at the lodge, then an afternoon game drive across the park's open plains and swamps, with Kilimanjaro rising behind the elephant herds. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_2day_amboseli_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_2day_amboseli"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Morning Game Drive &amp; Return to Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">flag-checkered</field>
+        <field name="wildlife">African Elephant, Hippopotamus, Spotted Hyena</field>
+        <field name="activities">Sunrise Game Drive</field>
+        <field name="description"><![CDATA[<p>An early-morning game drive, when Kilimanjaro is most often clear of cloud, then breakfast at the lodge and the drive back to Nairobi, arriving in the late afternoon.</p>]]></field>
+    </record>
+    <!-- Placeholder pricing (3-Day Amboseli Safari, scaled to 2 days) - confirm before publishing. -->
+    <record id="tour_product_2day_amboseli_standard" model="product.product">
+        <field name="name">2-Day Amboseli Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">650.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_amboseli_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_amboseli"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_2day_amboseli_standard"/>
+    </record>
+    <record id="tour_product_2day_amboseli_midrange" model="product.product">
+        <field name="name">2-Day Amboseli Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">800.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_amboseli_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_amboseli"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_2day_amboseli_midrange"/>
+    </record>
+    <record id="tour_product_2day_amboseli_luxury" model="product.product">
+        <field name="name">2-Day Amboseli Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">950.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_amboseli_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_amboseli"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_2day_amboseli_luxury"/>
+    </record>
+    <record id="tour_date_2day_amboseli_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_2day_amboseli"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=4)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_2day_amboseli_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_2day_amboseli"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=10)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_2day_amboseli_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_2day_amboseli"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1-2: Amboseli National Park</field>
+        <field name="latitude">-2.6527</field>
+        <field name="longitude">37.2606</field>
+    </record>
+
+    <!-- ================= 2-Day Lake Nakuru &amp; Lake Naivasha Safari (added Nov 2026) ================= -->
+    <record id="tour_package_2day_nakuru_naivasha" model="tour.package">
+        <field name="name">2-Day Lake Nakuru &amp; Lake Naivasha Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Lake Naivasha &amp; Lake Nakuru National Park, Kenya</field>
+        <field name="duration_days">2</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Year-round; Jun-Oct and Jan-Feb are driest</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">7</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A 2-day, 1-night Rift Valley trip - a boat ride among the hippos of Lake Naivasha, then rhino and tree-climbing lions in Lake Nakuru National Park. A short drive from Nairobi and great value.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi to Lake Naivasha &amp; Lake Nakuru:</strong> Drive from Nairobi into the Great Rift Valley, stopping at the escarpment viewpoint, to Lake Naivasha (roughly 2 hours) for a boat ride among hippos and fish eagles. Continue to Lake Nakuru National Park for lunch and an afternoon game drive. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Lake Nakuru Game Drive &amp; Return to Nairobi:</strong> An early-morning game drive in Lake Nakuru National Park, including the Baboon Cliff viewpoint over the lake, then breakfast and the drive back to Nairobi, arriving in the afternoon.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>Transport in a 4x4 safari vehicle with pop-up roof</li><li>Lake Nakuru National Park entry fees</li><li>Boat ride on Lake Naivasha</li><li>1 night's accommodation, full board</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p><strong>Lake Naivasha</strong> is a freshwater lake in the Great Rift Valley, home to hippos, fish eagles and hundreds of bird species.</p>
+<p><strong>Lake Nakuru National Park</strong> is one of Kenya's best places to see both black and white rhino, along with Rothschild's giraffe, tree-climbing lions and - depending on water levels - flocks of flamingos on the lake shore.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_2day_nakuru_naivasha_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi to Lake Naivasha &amp; Lake Nakuru</field>
+        <field name="destination">Lake Nakuru National Park</field>
+        <field name="accommodation">Lake Nakuru Sopa Lodge</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">Hippopotamus, African Fish Eagle, White Rhino, Rothschild Giraffe</field>
+        <field name="activities">Rift Valley Viewpoint, Boat Ride, Game Drive</field>
+        <field name="description"><![CDATA[<p>Drive from Nairobi into the Great Rift Valley, stopping at the escarpment viewpoint, to Lake Naivasha (roughly 2 hours) for a boat ride among hippos and fish eagles. Continue to Lake Nakuru National Park for lunch and an afternoon game drive. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_2day_nakuru_naivasha_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Lake Nakuru Game Drive &amp; Return to Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">flag-checkered</field>
+        <field name="wildlife">Black Rhino, African Lion, Cape Buffalo, Flamingo</field>
+        <field name="activities">Sunrise Game Drive, Baboon Cliff Viewpoint</field>
+        <field name="description"><![CDATA[<p>An early-morning game drive in Lake Nakuru National Park, including the Baboon Cliff viewpoint over the lake, then breakfast and the drive back to Nairobi, arriving in the afternoon.</p>]]></field>
+    </record>
+    <!-- Placeholder pricing (3-Day Amboseli scale, shorter drive) - confirm before publishing. -->
+    <record id="tour_product_2day_nakuru_naivasha_standard" model="product.product">
+        <field name="name">2-Day Lake Nakuru &amp; Lake Naivasha Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">600.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_nakuru_naivasha_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_2day_nakuru_naivasha_standard"/>
+    </record>
+    <record id="tour_product_2day_nakuru_naivasha_midrange" model="product.product">
+        <field name="name">2-Day Lake Nakuru &amp; Lake Naivasha Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">750.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_nakuru_naivasha_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_2day_nakuru_naivasha_midrange"/>
+    </record>
+    <record id="tour_product_2day_nakuru_naivasha_luxury" model="product.product">
+        <field name="name">2-Day Lake Nakuru &amp; Lake Naivasha Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">900.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_nakuru_naivasha_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_2day_nakuru_naivasha_luxury"/>
+    </record>
+    <record id="tour_date_2day_nakuru_naivasha_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=4)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_2day_nakuru_naivasha_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=10)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_2day_nakuru_naivasha_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Lake Naivasha</field>
+        <field name="latitude">-0.7667</field>
+        <field name="longitude">36.4300</field>
+    </record>
+    <record id="tour_waypoint_2day_nakuru_naivasha_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_2day_nakuru_naivasha"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-2: Lake Nakuru National Park</field>
+        <field name="latitude">-0.3650</field>
+        <field name="longitude">36.0880</field>
+    </record>
+
+    <!-- ================= 2-Day Masai Mara Fly-in Safari (added Nov 2026) ================= -->
+    <record id="tour_package_2day_mara_flyin" model="tour.package">
+        <field name="name">2-Day Masai Mara Fly-in Safari</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Masai Mara National Reserve, Kenya</field>
+        <field name="duration_days">2</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Year-round; Jul-Oct for the Great Migration</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">12</field>
+        <field name="meal_plan">Full Board</field>
+        <field name="description"><![CDATA[<p>A 2-day, 1-night fly-in safari to the Masai Mara - skip the long road journey and spend your time on game drives in Kenya's most famous reserve. Ideal for travelers short on time, and a highlight during the Great Migration (Jul-Oct).</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Fly from Nairobi to the Masai Mara:</strong> Morning flight from Nairobi's Wilson Airport to the Masai Mara (around 45 minutes). Your guide meets you at the airstrip for a game drive on the way to camp. Lunch, then an afternoon game drive across the plains. Overnight on a full-board basis.</p>
+<p><strong>Day 2 - Morning Game Drive &amp; Fly to Nairobi:</strong> An early-morning game drive, when the predators are most active, then brunch at camp and a transfer to the airstrip for your flight back to Nairobi.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>Return scheduled flights between Nairobi (Wilson Airport) and the Masai Mara</li><li>Airstrip transfers and game drives in a 4x4 safari vehicle</li><li>Masai Mara National Reserve entry fees</li><li>1 night's accommodation, full board</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>International flights</li><li>Optional hot air balloon safari (paid locally)</li><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p><strong>The Masai Mara National Reserve</strong> is Kenya's most celebrated safari destination, known for its big cat sightings and, from roughly July to October, the Great Migration's river crossings. Flying in turns a 5-6 hour drive into a 45-minute flight.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_2day_mara_flyin_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Fly from Nairobi to the Masai Mara</field>
+        <field name="destination">Masai Mara National Reserve</field>
+        <field name="accommodation">Mara River Camp</field>
+        <field name="meals">L, D</field>
+        <field name="travel_mode">fly</field>
+        <field name="icon">plane-departure</field>
+        <field name="wildlife">African Lion, Cheetah, Blue Wildebeest, African Elephant, Topi</field>
+        <field name="activities">Scenic Flight, Game Drive</field>
+        <field name="description"><![CDATA[<p>Morning flight from Nairobi's Wilson Airport to the Masai Mara (around 45 minutes). Your guide meets you at the airstrip for a game drive on the way to camp. Lunch, then an afternoon game drive across the plains. Overnight on a full-board basis.</p>]]></field>
+    </record>
+    <record id="tour_itin_day_2day_mara_flyin_2" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="sequence">20</field>
+        <field name="day_label">Day 2</field>
+        <field name="title">Morning Game Drive &amp; Fly to Nairobi</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">B, L</field>
+        <field name="travel_mode">fly</field>
+        <field name="icon">flag-checkered</field>
+        <field name="wildlife">African Lion, Leopard, Hippopotamus, Nile Crocodile</field>
+        <field name="activities">Sunrise Game Drive</field>
+        <field name="description"><![CDATA[<p>An early-morning game drive, when the predators are most active, then brunch at camp and a transfer to the airstrip for your flight back to Nairobi.</p>]]></field>
+        <field name="note">Add a sunrise hot air balloon safari on Day 2 (booked and paid locally).</field>
+    </record>
+    <!-- Placeholder pricing (3-Day Masai Mara Safari plus return flights) - confirm before publishing. -->
+    <record id="tour_product_2day_mara_flyin_standard" model="product.product">
+        <field name="name">2-Day Masai Mara Fly-in Safari - Standard</field>
+        <field name="type">service</field>
+        <field name="list_price">1250.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_mara_flyin_standard" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="sequence">10</field>
+        <field name="name">Standard</field>
+        <field name="product_id" ref="tour_product_2day_mara_flyin_standard"/>
+    </record>
+    <record id="tour_product_2day_mara_flyin_midrange" model="product.product">
+        <field name="name">2-Day Masai Mara Fly-in Safari - Mid-range</field>
+        <field name="type">service</field>
+        <field name="list_price">1450.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_mara_flyin_midrange" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="sequence">20</field>
+        <field name="name">Mid-range</field>
+        <field name="product_id" ref="tour_product_2day_mara_flyin_midrange"/>
+    </record>
+    <record id="tour_product_2day_mara_flyin_luxury" model="product.product">
+        <field name="name">2-Day Masai Mara Fly-in Safari - Luxury</field>
+        <field name="type">service</field>
+        <field name="list_price">1750.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_2day_mara_flyin_luxury" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="sequence">30</field>
+        <field name="name">Luxury</field>
+        <field name="product_id" ref="tour_product_2day_mara_flyin_luxury"/>
+    </record>
+    <record id="tour_date_2day_mara_flyin_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=4)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_2day_mara_flyin_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=10)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_2day_mara_flyin_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="sequence">10</field>
+        <field name="name">Day 1: Nairobi (Wilson Airport)</field>
+        <field name="latitude">-1.3217</field>
+        <field name="longitude">36.8148</field>
+    </record>
+    <record id="tour_waypoint_2day_mara_flyin_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_2day_mara_flyin"/>
+        <field name="sequence">20</field>
+        <field name="name">Day 1-2: Masai Mara National Reserve</field>
+        <field name="latitude">-1.4900</field>
+        <field name="longitude">35.1400</field>
+    </record>
+
+    <!-- ================= Nairobi Day Trip: National Park, Elephant Orphanage &amp; Giraffe Centre (added Nov 2026) ================= -->
+    <record id="tour_package_nairobi_day_trip" model="tour.package">
+        <field name="name">Nairobi Day Trip: National Park, Elephant Orphanage &amp; Giraffe Centre</field>
+        <field name="category_id" ref="tour_category_safari"/>
+        <field name="destination">Nairobi, Kenya</field>
+        <field name="duration_days">1</field>
+        <field name="difficulty_level">easy</field>
+        <field name="best_season">Year-round</field>
+        <field name="is_published" eval="True"/>
+        <field name="seats_max">7</field>
+        <field name="meal_plan">Lunch Included</field>
+        <field name="description"><![CDATA[<p>A full-day tour of Nairobi's wildlife highlights - an early game drive in Nairobi National Park with the city skyline behind, the baby elephants at the Sheldrick Wildlife Trust orphanage, and hand-feeding giraffes at the Giraffe Centre. Perfect for a layover or a free day in the city.</p>]]></field>
+        <field name="itinerary"><![CDATA[
+<p><strong>Day 1 - Nairobi National Park, Elephant Orphanage &amp; Giraffe Centre:</strong> Early pick-up for a morning game drive in Nairobi National Park. Late morning, visit the Sheldrick Wildlife Trust's elephant orphanage to watch the orphans at feeding time. After lunch, hand-feed giraffes from the raised platform at the Giraffe Centre, then return to your hotel or the airport in the late afternoon.</p>
+]]></field>
+        <field name="included_services"><![CDATA[<ul><li>Pick-up and drop-off at your Nairobi hotel or the airport</li><li>Game drive in a 4x4 safari vehicle</li><li>Nairobi National Park, Sheldrick Wildlife Trust and Giraffe Centre entry fees</li><li>Lunch</li><li>Professional English-speaking driver-guide</li></ul>]]></field>
+        <field name="excluded_services"><![CDATA[<ul><li>Travel insurance and visa fees</li><li>Tips and gratuities</li><li>Drinks and items of a personal nature</li></ul>]]></field>
+        <field name="destination_summary"><![CDATA[
+<p><strong>Nairobi National Park</strong> is the only national park on the edge of a capital city - lion, rhino, buffalo and giraffe roam the plains with the skyline in the background.</p>
+<p><strong>The Sheldrick Wildlife Trust</strong> rescues and raises orphaned elephants, and the Giraffe Centre protects the endangered Rothschild's giraffe - both offer close-up encounters you won't get on safari.</p>
+]]></field>
+    </record>
+    <record id="tour_itin_day_nairobi_day_trip_1" model="tour.package.itinerary.day">
+        <field name="package_id" ref="tour_package_nairobi_day_trip"/>
+        <field name="sequence">10</field>
+        <field name="day_label">Day 1</field>
+        <field name="title">Nairobi National Park, Elephant Orphanage &amp; Giraffe Centre</field>
+        <field name="destination">Nairobi</field>
+        <field name="meals">L</field>
+        <field name="travel_mode">drive</field>
+        <field name="icon">binoculars</field>
+        <field name="wildlife">Black Rhino, African Lion, Cape Buffalo, Rothschild Giraffe, African Elephant</field>
+        <field name="activities">Game Drive, Elephant Orphanage Visit, Giraffe Feeding</field>
+        <field name="description"><![CDATA[<p>Early pick-up for a morning game drive in Nairobi National Park. Late morning, visit the Sheldrick Wildlife Trust's elephant orphanage to watch the orphans at feeding time. After lunch, hand-feed giraffes from the raised platform at the Giraffe Centre, then return to your hotel or the airport in the late afternoon.</p>]]></field>
+        <field name="note">Visiting hours at the elephant orphanage are limited, so the order of the day may change.</field>
+    </record>
+    <!-- Placeholder pricing (no comparable tour - estimate) - confirm before publishing. -->
+    <record id="tour_product_nairobi_day_trip_shared_group" model="product.product">
+        <field name="name">Nairobi Day Trip: National Park, Elephant Orphanage &amp; Giraffe Centre - Shared Group</field>
+        <field name="type">service</field>
+        <field name="list_price">180.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_nairobi_day_trip_shared_group" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_nairobi_day_trip"/>
+        <field name="sequence">10</field>
+        <field name="name">Shared Group</field>
+        <field name="product_id" ref="tour_product_nairobi_day_trip_shared_group"/>
+    </record>
+    <record id="tour_product_nairobi_day_trip_private_vehicle" model="product.product">
+        <field name="name">Nairobi Day Trip: National Park, Elephant Orphanage &amp; Giraffe Centre - Private Vehicle</field>
+        <field name="type">service</field>
+        <field name="list_price">260.0</field>
+        <field name="sale_ok" eval="True"/>
+    </record>
+    <record id="tour_pricing_nairobi_day_trip_private_vehicle" model="tour.package.pricing">
+        <field name="package_id" ref="tour_package_nairobi_day_trip"/>
+        <field name="sequence">20</field>
+        <field name="name">Private Vehicle</field>
+        <field name="product_id" ref="tour_product_nairobi_day_trip_private_vehicle"/>
+    </record>
+    <record id="tour_date_nairobi_day_trip_1" model="tour.package.date">
+        <field name="package_id" ref="tour_package_nairobi_day_trip"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=4)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_date_nairobi_day_trip_2" model="tour.package.date">
+        <field name="package_id" ref="tour_package_nairobi_day_trip"/>
+        <field name="date_start" eval="(DateTime.today() + relativedelta(weeks=10)).strftime('%Y-%m-%d')"/>
+    </record>
+    <record id="tour_waypoint_nairobi_day_trip_1" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_nairobi_day_trip"/>
+        <field name="sequence">10</field>
+        <field name="name">Nairobi National Park</field>
+        <field name="latitude">-1.3733</field>
+        <field name="longitude">36.8589</field>
+    </record>
+    <record id="tour_waypoint_nairobi_day_trip_2" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_nairobi_day_trip"/>
+        <field name="sequence">20</field>
+        <field name="name">Sheldrick Elephant Orphanage</field>
+        <field name="latitude">-1.3760</field>
+        <field name="longitude">36.7730</field>
+    </record>
+    <record id="tour_waypoint_nairobi_day_trip_3" model="tour.package.waypoint">
+        <field name="package_id" ref="tour_package_nairobi_day_trip"/>
+        <field name="sequence">30</field>
+        <field name="name">Giraffe Centre</field>
+        <field name="latitude">-1.3756</field>
+        <field name="longitude">36.7445</field>
+    </record>
 
     <!-- ================= Accommodation gallery photos (sourced from each
          property's own official website) ================= -->
